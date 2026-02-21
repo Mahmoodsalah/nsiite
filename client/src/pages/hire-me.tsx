@@ -11,6 +11,7 @@ import { SiLinkedin, SiYoutube, SiX, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import mahmoodImg from "@assets/mahmood.jpg";
+import patternBg from "@assets/pattern_white_1771718036073.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
 const iconMap: Record<string, any> = { Brain, Bot, Cloud, Eye };
@@ -46,6 +47,7 @@ export default function HireMe() {
   return (
     <div className="min-h-screen">
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <h1

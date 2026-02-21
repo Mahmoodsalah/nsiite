@@ -23,6 +23,7 @@ import {
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { usePageContent, getVal } from "@/hooks/use-content";
+import patternBg from "@assets/pattern_white_1771718036073.png";
 
 const iconMap: Record<string, any> = {
   BookOpen, Code, Building2, Wrench, BookMarked, Network, Sparkles,
@@ -67,6 +68,7 @@ export default function Mentorship() {
   return (
     <div className="min-h-screen">
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <h1
