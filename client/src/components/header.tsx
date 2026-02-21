@@ -4,13 +4,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoPath from "@assets/logo.png";
 
-interface HeaderProps {
-  hireMode?: "hire" | "consult";
-  onHireModeChange?: (mode: "hire" | "consult") => void;
-}
-
-export default function Header({ hireMode, onHireModeChange }: HeaderProps) {
-  const [location, setLocation] = useLocation();
+export default function Header() {
+  const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hireDropdownOpen, setHireDropdownOpen] = useState(false);
@@ -37,14 +32,7 @@ export default function Header({ hireMode, onHireModeChange }: HeaderProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleHireOption = (mode: "hire" | "consult") => {
-    if (location !== "/") {
-      setLocation("/");
-    }
-    onHireModeChange?.(mode);
-    setHireDropdownOpen(false);
-    setMobileMenuOpen(false);
-  };
+  const isHireSection = location === "/" || location === "/consultation";
 
   return (
     <header
@@ -66,12 +54,11 @@ export default function Header({ hireMode, onHireModeChange }: HeaderProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
-          {/* Hire Me dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setHireDropdownOpen(!hireDropdownOpen)}
               className={`flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
-                location === "/"
+                isHireSection
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"
               }`}
@@ -83,28 +70,30 @@ export default function Header({ hireMode, onHireModeChange }: HeaderProps) {
 
             {hireDropdownOpen && (
               <div className="absolute top-full left-0 mt-1 w-52 bg-background border border-border rounded-lg shadow-lg py-1 animate-scale-in origin-top-left">
-                <button
-                  onClick={() => handleHireOption("hire")}
-                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                    location === "/" && hireMode === "hire"
-                      ? "text-primary bg-primary/5 font-medium"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                  data-testid="button-view-hire"
-                >
-                  Hire Me
-                </button>
-                <button
-                  onClick={() => handleHireOption("consult")}
-                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                    location === "/" && hireMode === "consult"
-                      ? "text-primary bg-primary/5 font-medium"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                  data-testid="button-view-consult"
-                >
-                  Need a Consultation
-                </button>
+                <Link href="/">
+                  <span
+                    className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-colors ${
+                      location === "/"
+                        ? "text-primary bg-primary/5 font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                    data-testid="button-view-hire"
+                  >
+                    Hire Me
+                  </span>
+                </Link>
+                <Link href="/consultation">
+                  <span
+                    className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-colors ${
+                      location === "/consultation"
+                        ? "text-primary bg-primary/5 font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                    data-testid="button-view-consult"
+                  >
+                    Need a Consultation
+                  </span>
+                </Link>
               </div>
             )}
           </div>
@@ -150,28 +139,30 @@ export default function Header({ hireMode, onHireModeChange }: HeaderProps) {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border">
           <nav className="flex flex-col px-6 py-4 gap-1" data-testid="nav-mobile">
-            <button
-              onClick={() => handleHireOption("hire")}
-              className={`block text-left px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
-                location === "/" && hireMode === "hire"
-                  ? "text-primary bg-primary/5"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-              data-testid="link-mobile-hire-me"
-            >
-              Hire Me
-            </button>
-            <button
-              onClick={() => handleHireOption("consult")}
-              className={`block text-left px-4 py-3 rounded-md text-sm font-medium cursor-pointer pl-8 ${
-                location === "/" && hireMode === "consult"
-                  ? "text-primary bg-primary/5"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-              data-testid="link-mobile-consultation"
-            >
-              Need a Consultation
-            </button>
+            <Link href="/">
+              <span
+                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                  location === "/"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                data-testid="link-mobile-hire-me"
+              >
+                Hire Me
+              </span>
+            </Link>
+            <Link href="/consultation">
+              <span
+                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer pl-8 ${
+                  location === "/consultation"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                data-testid="link-mobile-consultation"
+              >
+                Need a Consultation
+              </span>
+            </Link>
             <Link href="/bootcamp">
               <span
                 className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
