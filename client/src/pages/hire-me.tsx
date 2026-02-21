@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -183,6 +184,14 @@ const socialLinks = [
 ];
 
 export default function HireMe() {
+  useEffect(() => {
+    if (window.location.hash === "#about") {
+      setTimeout(() => {
+        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -215,7 +224,7 @@ export default function HireMe() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div id="about" className="max-w-6xl mx-auto px-6 py-16">
         <div className="space-y-24">
           <AboutSection />
           <ProjectsSection />

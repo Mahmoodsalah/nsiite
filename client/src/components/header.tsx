@@ -70,8 +70,14 @@ export default function Header() {
 
             {hireDropdownOpen && (
               <div className="absolute top-full left-0 mt-1 w-52 bg-background border border-border rounded-lg shadow-lg py-1 animate-scale-in origin-top-left">
-                <Link href="/">
+                <Link href="/#about">
                   <span
+                    onClick={() => {
+                      if (location === "/") {
+                        setHireDropdownOpen(false);
+                        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                       location === "/"
                         ? "text-primary bg-primary/5 font-medium"
