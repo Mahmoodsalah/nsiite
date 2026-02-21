@@ -1,19 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoPath from "@assets/logo.png";
 
-const navItems = [
-  { label: "Hire Me", path: "/" },
-  { label: "BootcampAI", path: "/bootcamp" },
-  { label: "Mentorship", path: "/mentorship" },
-];
+interface HeaderProps {
+  hireMode?: "hire" | "consult";
+  onHireModeChange?: (mode: "hire" | "consult") => void;
+}
 
-export default function Header() {
-  const [location] = useLocation();
+export default function Header({ hireMode, onHireModeChange }: HeaderProps) {
+  const [location, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hireDropdownOpen, setHireDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -23,7 +24,27 @@ export default function Header() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setHireDropdownOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setHireDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleHireOption = (mode: "hire" | "consult") => {
+    if (location !== "/") {
+      setLocation("/");
+    }
+    onHireModeChange?.(mode);
+    setHireDropdownOpen(false);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -45,20 +66,74 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
-          {navItems.map((item) => (
-            <Link key={item.path} href={item.path}>
-              <span
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
-                  location === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                data-testid={`link-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                {item.label}
-              </span>
-            </Link>
-          ))}
+          {/* Hire Me dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setHireDropdownOpen(!hireDropdownOpen)}
+              className={`flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                location === "/"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="link-nav-hire-me"
+            >
+              Hire Me
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${hireDropdownOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {hireDropdownOpen && (
+              <div className="absolute top-full left-0 mt-1 w-52 bg-background border border-border rounded-lg shadow-lg py-1 animate-scale-in origin-top-left">
+                <button
+                  onClick={() => handleHireOption("hire")}
+                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                    location === "/" && hireMode === "hire"
+                      ? "text-primary bg-primary/5 font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                  data-testid="button-view-hire"
+                >
+                  Hire Me
+                </button>
+                <button
+                  onClick={() => handleHireOption("consult")}
+                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                    location === "/" && hireMode === "consult"
+                      ? "text-primary bg-primary/5 font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                  data-testid="button-view-consult"
+                >
+                  Need a Consultation
+                </button>
+              </div>
+            )}
+          </div>
+
+          <Link href="/bootcamp">
+            <span
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                location === "/bootcamp"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="link-nav-bootcampai"
+            >
+              BootcampAI
+            </span>
+          </Link>
+
+          <Link href="/mentorship">
+            <span
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                location === "/mentorship"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="link-nav-mentorship"
+            >
+              Mentorship
+            </span>
+          </Link>
         </nav>
 
         <Button
@@ -75,20 +150,52 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border">
           <nav className="flex flex-col px-6 py-4 gap-1" data-testid="nav-mobile">
-            {navItems.map((item) => (
-              <Link key={item.path} href={item.path}>
-                <span
-                  className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
-                    location === item.path
-                      ? "text-primary bg-primary/5"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                  data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+            <button
+              onClick={() => handleHireOption("hire")}
+              className={`block text-left px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                location === "/" && hireMode === "hire"
+                  ? "text-primary bg-primary/5"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="link-mobile-hire-me"
+            >
+              Hire Me
+            </button>
+            <button
+              onClick={() => handleHireOption("consult")}
+              className={`block text-left px-4 py-3 rounded-md text-sm font-medium cursor-pointer pl-8 ${
+                location === "/" && hireMode === "consult"
+                  ? "text-primary bg-primary/5"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="link-mobile-consultation"
+            >
+              Need a Consultation
+            </button>
+            <Link href="/bootcamp">
+              <span
+                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                  location === "/bootcamp"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                data-testid="link-mobile-bootcampai"
+              >
+                BootcampAI
+              </span>
+            </Link>
+            <Link href="/mentorship">
+              <span
+                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                  location === "/mentorship"
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                data-testid="link-mobile-mentorship"
+              >
+                Mentorship
+              </span>
+            </Link>
           </nav>
         </div>
       )}

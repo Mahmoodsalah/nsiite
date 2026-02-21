@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -10,25 +11,23 @@ import Bootcamp from "@/pages/bootcamp";
 import Mentorship from "@/pages/mentorship";
 import NotFound from "@/pages/not-found";
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={HireMe} />
-      <Route path="/bootcamp" component={Bootcamp} />
-      <Route path="/mentorship" component={Mentorship} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
-
 function App() {
+  const [hireMode, setHireMode] = useState<"hire" | "consult">("hire");
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="min-h-screen flex flex-col">
-          <Header />
+          <Header hireMode={hireMode} onHireModeChange={setHireMode} />
           <main className="flex-1 pt-0">
-            <Router />
+            <Switch>
+              <Route path="/">
+                <HireMe viewMode={hireMode} />
+              </Route>
+              <Route path="/bootcamp" component={Bootcamp} />
+              <Route path="/mentorship" component={Mentorship} />
+              <Route component={NotFound} />
+            </Switch>
           </main>
           <Footer />
         </div>

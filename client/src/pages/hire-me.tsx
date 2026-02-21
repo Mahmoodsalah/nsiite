@@ -191,10 +191,11 @@ const socialLinks = [
   { icon: SiFacebook, href: "#" },
 ];
 
-type ViewMode = "hire" | "consult";
+interface HireMeProps {
+  viewMode: "hire" | "consult";
+}
 
-export default function HireMe() {
-  const [viewMode, setViewMode] = useState<ViewMode>("hire");
+export default function HireMe({ viewMode }: HireMeProps) {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -235,28 +236,6 @@ export default function HireMe() {
           </div>
         </div>
       </section>
-
-      {/* Toggle Navigation */}
-      <nav className="sticky top-16 z-40 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 flex gap-2 py-3">
-          <Button
-            variant={viewMode === "hire" ? "default" : "outline"}
-            onClick={() => setViewMode("hire")}
-            className="transition-all duration-200"
-            data-testid="button-view-hire"
-          >
-            Hire Me
-          </Button>
-          <Button
-            variant={viewMode === "consult" ? "default" : "outline"}
-            onClick={() => setViewMode("consult")}
-            className="transition-all duration-200"
-            data-testid="button-view-consult"
-          >
-            Need a Consultation
-          </Button>
-        </div>
-      </nav>
 
       {/* Content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
