@@ -3,7 +3,6 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -16,6 +15,12 @@ import {
   Plus,
   Trash2,
   Loader2,
+  FileText,
+  Briefcase,
+  GraduationCap,
+  Users,
+  Settings,
+  Search,
 } from "lucide-react";
 
 type SiteContent = {
@@ -26,12 +31,12 @@ type SiteContent = {
   value: any;
 };
 
-const PAGE_LABELS: Record<string, string> = {
-  hireme: "Hire Me",
-  consultation: "Consultation",
-  bootcamp: "BootcampAI",
-  mentorship: "Mentorship",
-  global: "Global Settings",
+const PAGE_CONFIG: Record<string, { label: string; icon: any; description: string }> = {
+  hireme: { label: "Hire Me", icon: Briefcase, description: "Portfolio, projects, resume & testimonials" },
+  consultation: { label: "Consultation", icon: FileText, description: "Consultation services & contact" },
+  bootcamp: { label: "BootcampAI", icon: GraduationCap, description: "Bootcamp program details & applications" },
+  mentorship: { label: "Mentorship", icon: Users, description: "Mentorship plans, benefits & pricing" },
+  global: { label: "Global Settings", icon: Settings, description: "Site-wide settings" },
 };
 
 const SECTION_LABELS: Record<string, string> = {
@@ -56,6 +61,8 @@ const SECTION_LABELS: Record<string, string> = {
 export default function Admin() {
   const { user, isLoading: authLoading, isAuthenticated } = useAuth();
   const { toast } = useToast();
+  const [activePage, setActivePage] = useState("hireme");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { data: allContent, isLoading: contentLoading } = useQuery<SiteContent[]>({
     queryKey: ["/api/content"],
@@ -91,38 +98,50 @@ export default function Admin() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-16">
-        <Card className="max-w-md w-full mx-4">
-          <CardContent className="p-8 text-center">
-            <h1 className="font-heading font-bold text-2xl text-foreground mb-4" data-testid="text-admin-login-title">
-              Admin Panel
-            </h1>
-            <p className="text-muted-foreground mb-6">
-              Sign in to manage your website content.
-            </p>
-            <Button asChild size="lg" data-testid="button-admin-login">
-              <a href="/api/login">
-                <LogIn className="w-4 h-4 mr-2" />
-                Sign In
-              </a>
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="glass-card max-w-md w-full mx-4 rounded-2xl p-8 text-center">
+          <h1 className="font-heading font-bold text-2xl text-foreground mb-4" data-testid="text-admin-login-title">
+            Admin Panel
+          </h1>
+          <p className="text-muted-foreground mb-6">
+            Sign in to manage your website content.
+          </p>
+          <Button asChild size="lg" data-testid="button-admin-login">
+            <a href="/api/login">
+              <LogIn className="w-4 h-4 mr-2" />
+              Sign In
+            </a>
+          </Button>
+        </div>
       </div>
     );
   }
 
   const grouped = groupContent(allContent || []);
+  const pageData = grouped[activePage] || {};
+
+  const filteredSections = searchTerm
+    ? Object.fromEntries(
+        Object.entries(pageData).filter(([section, items]) =>
+          items.some(
+            (item) =>
+              item.contentKey.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              (typeof item.value === "string" && item.value.toLowerCase().includes(searchTerm.toLowerCase())) ||
+              (SECTION_LABELS[section] || section).toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        )
+      )
+    : pageData;
 
   return (
     <div className="min-h-screen pt-20 pb-12">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="font-heading font-bold text-3xl text-foreground" data-testid="text-admin-title">
               Content Manager
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              Welcome, {user?.firstName || user?.email || "Admin"}
+              Welcome, {user?.firstName || user?.email || "Admin"}. Edit your site content below.
             </p>
           </div>
           <Button variant="outline" asChild data-testid="button-admin-logout">
@@ -133,25 +152,91 @@ export default function Admin() {
           </Button>
         </div>
 
-        {contentLoading ? (
-          <div className="flex justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <div className="flex flex-col lg:flex-row gap-6">
+          <div className="lg:w-64 flex-shrink-0">
+            <div className="glass-card rounded-xl p-3 lg:sticky lg:top-24">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-2">Pages</p>
+              <nav className="space-y-1" data-testid="nav-admin-pages">
+                {Object.entries(PAGE_CONFIG).map(([key, config]) => {
+                  const Icon = config.icon;
+                  const isActive = activePage === key;
+                  const hasContent = grouped[key] && Object.keys(grouped[key]).length > 0;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => { setActivePage(key); setSearchTerm(""); }}
+                      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
+                        isActive
+                          ? "bg-primary/15 text-primary border border-primary/20"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      }`}
+                      data-testid={`button-page-${key}`}
+                    >
+                      <Icon className="w-4 h-4 flex-shrink-0" />
+                      <span className="truncate">{config.label}</span>
+                      {!hasContent && <span className="ml-auto text-xs text-muted-foreground/50">empty</span>}
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
           </div>
-        ) : (
-          <div className="space-y-4">
-            {Object.entries(grouped).map(([page, sections]) => (
-              <PageAccordion
-                key={page}
-                page={page}
-                sections={sections}
-                onSave={(page, section, key, value) =>
-                  updateMutation.mutate({ page, section, contentKey: key, value })
-                }
-                isSaving={updateMutation.isPending}
-              />
-            ))}
+
+          <div className="flex-1 min-w-0">
+            {contentLoading ? (
+              <div className="flex justify-center py-20">
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+              </div>
+            ) : (
+              <>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex-1">
+                    <h2 className="font-heading font-semibold text-xl text-foreground">
+                      {PAGE_CONFIG[activePage]?.label || activePage}
+                    </h2>
+                    <p className="text-muted-foreground text-sm">
+                      {PAGE_CONFIG[activePage]?.description || ""}
+                    </p>
+                  </div>
+                  <div className="relative w-64">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Search fields..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-9 text-sm"
+                      data-testid="input-search-fields"
+                    />
+                  </div>
+                </div>
+
+                {Object.keys(filteredSections).length === 0 ? (
+                  <div className="glass-card rounded-xl p-12 text-center">
+                    <p className="text-muted-foreground">
+                      {searchTerm ? "No fields match your search." : "No content found for this page."}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {Object.entries(filteredSections).map(([section, items]) => (
+                      <SectionEditor
+                        key={`${activePage}-${section}`}
+                        page={activePage}
+                        section={section}
+                        items={items}
+                        onSave={(page, section, key, value) =>
+                          updateMutation.mutate({ page, section, contentKey: key, value })
+                        }
+                        isSaving={updateMutation.isPending}
+                        defaultOpen={Object.keys(filteredSections).length <= 3}
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
@@ -167,78 +252,47 @@ function groupContent(content: SiteContent[]) {
   return grouped;
 }
 
-function PageAccordion({
-  page,
-  sections,
-  onSave,
-  isSaving,
-}: {
-  page: string;
-  sections: Record<string, SiteContent[]>;
-  onSave: (page: string, section: string, key: string, value: any) => void;
-  isSaving: boolean;
-}) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <Card data-testid={`card-page-${page}`}>
-      <button
-        className="w-full p-4 flex items-center justify-between text-left"
-        onClick={() => setOpen(!open)}
-        data-testid={`button-toggle-page-${page}`}
-      >
-        <h2 className="font-heading font-semibold text-xl text-foreground">
-          {PAGE_LABELS[page] || page}
-        </h2>
-        {open ? <ChevronDown className="w-5 h-5 text-muted-foreground" /> : <ChevronRight className="w-5 h-5 text-muted-foreground" />}
-      </button>
-      {open && (
-        <div className="px-4 pb-4 space-y-4">
-          {Object.entries(sections).map(([section, items]) => (
-            <SectionEditor
-              key={section}
-              page={page}
-              section={section}
-              items={items}
-              onSave={onSave}
-              isSaving={isSaving}
-            />
-          ))}
-        </div>
-      )}
-    </Card>
-  );
-}
-
 function SectionEditor({
   page,
   section,
   items,
   onSave,
   isSaving,
+  defaultOpen = false,
 }: {
   page: string;
   section: string;
   items: SiteContent[];
   onSave: (page: string, section: string, key: string, value: any) => void;
   isSaving: boolean;
+  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
+
+  useEffect(() => {
+    setOpen(defaultOpen);
+  }, [defaultOpen, page]);
 
   return (
-    <div className="border border-border rounded-lg">
+    <div className="glass-card rounded-xl overflow-hidden" data-testid={`section-editor-${page}-${section}`}>
       <button
-        className="w-full p-3 flex items-center justify-between text-left bg-muted/30 rounded-t-lg"
+        className="w-full p-4 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
         onClick={() => setOpen(!open)}
         data-testid={`button-toggle-section-${page}-${section}`}
       >
-        <h3 className="font-medium text-foreground text-sm">
-          {SECTION_LABELS[section] || section}
-        </h3>
+        <div className="flex items-center gap-3">
+          <div className={`w-2 h-2 rounded-full ${open ? "bg-primary" : "bg-muted-foreground/30"}`} />
+          <h3 className="font-heading font-semibold text-foreground">
+            {SECTION_LABELS[section] || section}
+          </h3>
+          <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-full">
+            {items.length} {items.length === 1 ? "field" : "fields"}
+          </span>
+        </div>
         {open ? <ChevronDown className="w-4 h-4 text-muted-foreground" /> : <ChevronRight className="w-4 h-4 text-muted-foreground" />}
       </button>
       {open && (
-        <div className="p-3 space-y-4">
+        <div className="px-4 pb-4 space-y-5 border-t border-white/5">
           {items.map((item) => (
             <ContentFieldEditor
               key={item.id}
@@ -309,9 +363,9 @@ function StringEditor({
   const isLong = value.length > 100;
 
   return (
-    <div data-testid={`field-${label}`}>
-      <div className="flex items-center justify-between mb-1">
-        <label className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+    <div data-testid={`field-${label}`} className="pt-3">
+      <div className="flex items-center justify-between mb-1.5">
+        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
           {formatLabel(label)}
         </label>
         {dirty && (
@@ -319,6 +373,7 @@ function StringEditor({
             size="sm"
             onClick={() => { onSave(editValue); setDirty(false); }}
             disabled={isSaving}
+            className="h-7 text-xs"
             data-testid={`button-save-${label}`}
           >
             <Save className="w-3 h-3 mr-1" />
@@ -331,14 +386,14 @@ function StringEditor({
           value={editValue}
           onChange={(e) => { setEditValue(e.target.value); setDirty(true); }}
           rows={4}
-          className="text-sm"
+          className="text-sm bg-background/50"
           data-testid={`textarea-${label}`}
         />
       ) : (
         <Input
           value={editValue}
           onChange={(e) => { setEditValue(e.target.value); setDirty(true); }}
-          className="text-sm"
+          className="text-sm bg-background/50"
           data-testid={`input-${label}`}
         />
       )}
@@ -383,18 +438,18 @@ function StringArrayEditor({
   };
 
   return (
-    <div data-testid={`field-${label}`}>
-      <div className="flex items-center justify-between mb-1">
-        <label className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+    <div data-testid={`field-${label}`} className="pt-3">
+      <div className="flex items-center justify-between mb-1.5">
+        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
           {formatLabel(label)}
         </label>
         <div className="flex gap-1">
-          <Button size="sm" variant="outline" onClick={addItem} data-testid={`button-add-${label}`}>
+          <Button size="sm" variant="outline" onClick={addItem} className="h-7 text-xs" data-testid={`button-add-${label}`}>
             <Plus className="w-3 h-3 mr-1" />
             Add
           </Button>
           {dirty && (
-            <Button size="sm" onClick={() => { onSave(items); setDirty(false); }} disabled={isSaving} data-testid={`button-save-${label}`}>
+            <Button size="sm" onClick={() => { onSave(items); setDirty(false); }} disabled={isSaving} className="h-7 text-xs" data-testid={`button-save-${label}`}>
               <Save className="w-3 h-3 mr-1" />
               Save
             </Button>
@@ -407,10 +462,10 @@ function StringArrayEditor({
             <Input
               value={item}
               onChange={(e) => updateItem(i, e.target.value)}
-              className="text-sm flex-1"
+              className="text-sm flex-1 bg-background/50"
               data-testid={`input-${label}-${i}`}
             />
-            <Button size="icon" variant="ghost" onClick={() => removeItem(i)} className="text-destructive" data-testid={`button-remove-${label}-${i}`}>
+            <Button size="icon" variant="ghost" onClick={() => removeItem(i)} className="text-destructive h-9 w-9" data-testid={`button-remove-${label}-${i}`}>
               <Trash2 className="w-3 h-3" />
             </Button>
           </div>
@@ -461,18 +516,18 @@ function ObjectArrayEditor({
   };
 
   return (
-    <div data-testid={`field-${label}`}>
+    <div data-testid={`field-${label}`} className="pt-3">
       <div className="flex items-center justify-between mb-2">
-        <label className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-          {formatLabel(label)} ({items.length} items)
+        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+          {formatLabel(label)} <span className="normal-case font-normal">({items.length} items)</span>
         </label>
         <div className="flex gap-1">
-          <Button size="sm" variant="outline" onClick={addItem} data-testid={`button-add-${label}`}>
+          <Button size="sm" variant="outline" onClick={addItem} className="h-7 text-xs" data-testid={`button-add-${label}`}>
             <Plus className="w-3 h-3 mr-1" />
             Add
           </Button>
           {dirty && (
-            <Button size="sm" onClick={() => { onSave(items); setDirty(false); }} disabled={isSaving} data-testid={`button-save-${label}`}>
+            <Button size="sm" onClick={() => { onSave(items); setDirty(false); }} disabled={isSaving} className="h-7 text-xs" data-testid={`button-save-${label}`}>
               <Save className="w-3 h-3 mr-1" />
               Save
             </Button>
@@ -484,9 +539,9 @@ function ObjectArrayEditor({
           const displayTitle = item.title || item.name || item.label || item.platform || `Item ${i + 1}`;
           const isExpanded = expandedIndex === i;
           return (
-            <div key={i} className="border border-border rounded-md">
+            <div key={i} className="border border-white/10 rounded-lg bg-background/30">
               <button
-                className="w-full p-2 flex items-center justify-between text-left text-sm"
+                className="w-full p-3 flex items-center justify-between text-left text-sm"
                 onClick={() => setExpandedIndex(isExpanded ? null : i)}
                 data-testid={`button-toggle-item-${label}-${i}`}
               >
@@ -504,12 +559,12 @@ function ObjectArrayEditor({
                 </div>
               </button>
               {isExpanded && (
-                <div className="px-2 pb-2 space-y-2">
+                <div className="px-3 pb-3 space-y-3 border-t border-white/5">
                   {Object.entries(item).map(([field, fieldVal]) => {
                     if (Array.isArray(fieldVal)) {
                       return (
-                        <div key={field}>
-                          <label className="text-xs text-muted-foreground">{formatLabel(field)}</label>
+                        <div key={field} className="pt-2">
+                          <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
                           <TagsEditor
                             tags={fieldVal as string[]}
                             onChange={(tags) => updateItemField(i, field, tags)}
@@ -519,35 +574,36 @@ function ObjectArrayEditor({
                     }
                     if (typeof fieldVal === "boolean") {
                       return (
-                        <div key={field} className="flex items-center gap-2">
+                        <div key={field} className="flex items-center gap-2 pt-2">
                           <input
                             type="checkbox"
                             checked={fieldVal}
                             onChange={(e) => updateItemField(i, field, e.target.checked)}
+                            className="rounded"
                             data-testid={`checkbox-${label}-${i}-${field}`}
                           />
-                          <label className="text-xs text-muted-foreground">{formatLabel(field)}</label>
+                          <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
                         </div>
                       );
                     }
                     const strVal = String(fieldVal ?? "");
                     const isLong = strVal.length > 80;
                     return (
-                      <div key={field}>
-                        <label className="text-xs text-muted-foreground">{formatLabel(field)}</label>
+                      <div key={field} className="pt-2">
+                        <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
                         {isLong ? (
                           <Textarea
                             value={strVal}
                             onChange={(e) => updateItemField(i, field, e.target.value)}
                             rows={3}
-                            className="text-sm"
+                            className="text-sm bg-background/50 mt-1"
                             data-testid={`textarea-${label}-${i}-${field}`}
                           />
                         ) : (
                           <Input
                             value={strVal}
                             onChange={(e) => updateItemField(i, field, e.target.value)}
-                            className="text-sm"
+                            className="text-sm bg-background/50 mt-1"
                             data-testid={`input-${label}-${i}-${field}`}
                           />
                         )}
@@ -576,14 +632,14 @@ function TagsEditor({ tags, onChange }: { tags: string[]; onChange: (tags: strin
 
   return (
     <div>
-      <div className="flex flex-wrap gap-1 mb-1">
+      <div className="flex flex-wrap gap-1 mb-1 mt-1">
         {tags.map((tag, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/10 text-primary text-xs"
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs border border-primary/20"
           >
             {tag}
-            <button onClick={() => onChange(tags.filter((_, j) => j !== i))} className="hover:text-destructive">
+            <button onClick={() => onChange(tags.filter((_, j) => j !== i))} className="hover:text-destructive ml-0.5">
               &times;
             </button>
           </span>
@@ -595,7 +651,7 @@ function TagsEditor({ tags, onChange }: { tags: string[]; onChange: (tags: strin
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addTag(); } }}
           placeholder="Add tag..."
-          className="text-xs h-7"
+          className="text-xs h-7 bg-background/50"
         />
         <Button size="sm" variant="outline" onClick={addTag} className="h-7 text-xs">
           Add
@@ -637,13 +693,13 @@ function JsonEditor({
   };
 
   return (
-    <div data-testid={`field-${label}`}>
-      <div className="flex items-center justify-between mb-1">
-        <label className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+    <div data-testid={`field-${label}`} className="pt-3">
+      <div className="flex items-center justify-between mb-1.5">
+        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
           {formatLabel(label)}
         </label>
         {dirty && (
-          <Button size="sm" onClick={handleSave} disabled={isSaving} data-testid={`button-save-${label}`}>
+          <Button size="sm" onClick={handleSave} disabled={isSaving} className="h-7 text-xs" data-testid={`button-save-${label}`}>
             <Save className="w-3 h-3 mr-1" />
             Save
           </Button>
@@ -653,7 +709,7 @@ function JsonEditor({
         value={text}
         onChange={(e) => { setText(e.target.value); setDirty(true); setError(""); }}
         rows={6}
-        className="text-sm font-mono"
+        className="text-sm font-mono bg-background/50"
         data-testid={`textarea-${label}`}
       />
       {error && <p className="text-destructive text-xs mt-1">{error}</p>}

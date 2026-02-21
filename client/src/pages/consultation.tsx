@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Brain,
@@ -47,13 +46,13 @@ export default function Consultation() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up animation-delay-400">
-            <Button asChild>
+            <Button asChild className="rounded-xl">
               <a href={`mailto:${email}`} data-testid="button-send-email">
                 <Mail className="w-4 h-4 mr-2" />
                 Send me an email
               </a>
             </Button>
-            <Button variant="outline" onClick={handleCopyEmail} data-testid="button-copy-email">
+            <Button variant="outline" onClick={handleCopyEmail} className="rounded-xl glass-card" data-testid="button-copy-email">
               {emailCopied ? (
                 <>
                   <Check className="w-4 h-4 mr-2" />
@@ -82,17 +81,17 @@ export default function Consultation() {
                 const ServiceIcon = iconMap[service.icon] || Brain;
                 return (
                   <AnimateIn key={i} delay={i * 0.1}>
-                    <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
-                      <CardContent className="p-6 text-center">
-                        <ServiceIcon className="w-10 h-10 text-primary mx-auto mb-4" />
-                        <h3 className="font-heading font-semibold text-foreground mb-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          {service.description}
-                        </p>
-                      </CardContent>
-                    </Card>
+                    <div className="glass-card-hover rounded-xl p-6 text-center h-full">
+                      <div className="w-14 h-14 rounded-2xl glass-badge flex items-center justify-center mx-auto mb-4">
+                        <ServiceIcon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="font-heading font-semibold text-foreground mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {service.description}
+                      </p>
+                    </div>
                   </AnimateIn>
                 );
               })}

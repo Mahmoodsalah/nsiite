@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Brain,
@@ -65,7 +64,7 @@ export default function HireMe() {
                 <a
                   key={i}
                   href={link.href}
-                  className="w-10 h-10 rounded-md bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all duration-200"
+                  className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
                   data-testid={`link-hero-social-${i}`}
                 >
                   <Icon className="w-4 h-4" />
@@ -87,7 +86,7 @@ export default function HireMe() {
               <section data-testid="section-about">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
                   <div className="md:col-span-1 flex justify-center">
-                    <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in">
+                    <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in shadow-lg shadow-primary/10">
                       <img
                         src={mahmoodImg}
                         alt="Mahmood Salah"
@@ -110,14 +109,12 @@ export default function HireMe() {
                       {coreCompetencies.map((comp: any) => {
                         const CompIcon = iconMap[comp.icon] || Brain;
                         return (
-                          <Card key={comp.label} className="text-center hover:border-primary/30 transition-colors duration-300">
-                            <CardContent className="py-6 px-4">
-                              <CompIcon className="w-8 h-8 mx-auto mb-3 text-primary" />
-                              <span className="text-sm font-medium text-foreground">
-                                {comp.label}
-                              </span>
-                            </CardContent>
-                          </Card>
+                          <div key={comp.label} className="glass-card-hover rounded-xl text-center py-6 px-4">
+                            <CompIcon className="w-8 h-8 mx-auto mb-3 text-primary" />
+                            <span className="text-sm font-medium text-foreground">
+                              {comp.label}
+                            </span>
+                          </div>
                         );
                       })}
                     </div>
@@ -135,23 +132,21 @@ export default function HireMe() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {projects.map((project: any, i: number) => (
                     <AnimateIn key={i} delay={i * 0.05}>
-                      <Card className="hover-elevate group hover:border-primary/20 transition-all duration-300">
-                        <CardContent className="p-6">
-                          <h3 className="font-heading font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-                            {project.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                            {project.description}
-                          </p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {(project.tags || []).map((tag: string) => (
-                              <Badge key={tag} variant="outline" className="text-xs">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-                        </CardContent>
-                      </Card>
+                      <div className="glass-card-hover rounded-xl p-6 h-full group">
+                        <h3 className="font-heading font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {(project.tags || []).map((tag: string) => (
+                            <Badge key={tag} variant="outline" className="text-xs glass-badge rounded-full">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
                     </AnimateIn>
                   ))}
                 </div>
@@ -164,7 +159,7 @@ export default function HireMe() {
                   <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
                     Resume
                   </h2>
-                  <div className="w-full rounded-lg overflow-hidden border border-border bg-card">
+                  <div className="w-full rounded-2xl overflow-hidden glass-card">
                     <iframe
                       src={resumeEmbedUrl}
                       className="w-full h-[800px]"
@@ -194,27 +189,25 @@ export default function HireMe() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {testimonials.map((t: any, i: number) => (
                     <AnimateIn key={i} delay={i * 0.1}>
-                      <Card className="hover:border-primary/20 transition-colors duration-300">
-                        <CardContent className="p-6">
-                          <div className="flex items-start gap-4 mb-4">
-                            <img
-                              src={t.image}
-                              alt={t.name}
-                              className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-                              data-testid={`img-testimonial-${i}`}
-                            />
-                            <div>
-                              <h3 className="font-heading font-semibold text-foreground">
-                                {t.name}
-                              </h3>
-                              <p className="text-muted-foreground text-xs">{t.title}</p>
-                            </div>
+                      <div className="glass-card-hover rounded-xl p-6">
+                        <div className="flex items-start gap-4 mb-4">
+                          <img
+                            src={t.image}
+                            alt={t.name}
+                            className="w-12 h-12 rounded-full object-cover flex-shrink-0 ring-2 ring-primary/20"
+                            data-testid={`img-testimonial-${i}`}
+                          />
+                          <div>
+                            <h3 className="font-heading font-semibold text-foreground">
+                              {t.name}
+                            </h3>
+                            <p className="text-muted-foreground text-xs">{t.title}</p>
                           </div>
-                          <p className="text-muted-foreground text-sm leading-relaxed italic">
-                            "{t.text}"
-                          </p>
-                        </CardContent>
-                      </Card>
+                        </div>
+                        <p className="text-muted-foreground text-sm leading-relaxed italic">
+                          "{t.text}"
+                        </p>
+                      </div>
                     </AnimateIn>
                   ))}
                 </div>

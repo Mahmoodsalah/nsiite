@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -91,7 +90,7 @@ export default function Bootcamp() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
-          <Badge variant="outline" className="mb-6 text-primary border-primary/30 animate-fade-in">
+          <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
           <h1
@@ -115,7 +114,7 @@ export default function Bootcamp() {
               const icons = [BrainIcon, BriefcaseIcon, GraduationCap];
               const HIcon = icons[i] || GraduationCap;
               return (
-                <div key={i} className="flex items-center gap-2 text-foreground">
+                <div key={i} className="flex items-center gap-2 text-foreground glass-badge rounded-full px-4 py-2">
                   <HIcon className="w-5 h-5 text-primary" />
                   <span className="text-sm font-medium">{h}</span>
                 </div>
@@ -124,7 +123,7 @@ export default function Bootcamp() {
           </div>
 
           <div className="animate-fade-in-up animation-delay-400">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="rounded-xl">
               <a href={heroApplyUrl} target="_blank" rel="noopener noreferrer" data-testid="button-apply-hero">
                 Apply Now
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -134,7 +133,7 @@ export default function Bootcamp() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-about-bootcamp">
+      <section className="py-20" data-testid="section-about-bootcamp">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-6 text-center">
@@ -148,44 +147,40 @@ export default function Bootcamp() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <AnimateIn delay={0.1}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
-                    Throughout the bootcamp, participants enjoy:
-                  </h3>
-                  <ul className="space-y-3">
-                    {duringBenefits.map((item: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
-                        <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="glass-card rounded-xl p-6 h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
+                  Throughout the bootcamp, participants enjoy:
+                </h3>
+                <ul className="space-y-3">
+                  {duringBenefits.map((item: string, i: number) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                      <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
-                    After completing the program, graduates receive:
-                  </h3>
-                  <ul className="space-y-3">
-                    {afterBenefits.map((item: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
-                        <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="glass-card rounded-xl p-6 h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
+                  After completing the program, graduates receive:
+                </h3>
+                <ul className="space-y-3">
+                  {afterBenefits.map((item: string, i: number) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                      <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </AnimateIn>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-why-choose">
+      <section className="py-20 glass-section" data-testid="section-why-choose">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">{whyTitle}</h2>
@@ -196,13 +191,13 @@ export default function Bootcamp() {
               const HIcon = iconMap[h.icon] || Lightbulb;
               return (
                 <AnimateIn key={i} delay={i * 0.08}>
-                  <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
-                    <CardContent className="p-6">
-                      <HIcon className="w-8 h-8 text-primary mb-4" />
-                      <h3 className="font-heading font-semibold text-foreground mb-2">{h.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{h.desc}</p>
-                    </CardContent>
-                  </Card>
+                  <div className="glass-card-hover rounded-xl p-6 h-full">
+                    <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
+                      <HIcon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-heading font-semibold text-foreground mb-2">{h.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{h.desc}</p>
+                  </div>
                 </AnimateIn>
               );
             })}
@@ -215,7 +210,7 @@ export default function Bootcamp() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-llm-bootcamp">
+      <section className="py-20" data-testid="section-llm-bootcamp">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">{llmTitle}</h2>
@@ -224,57 +219,53 @@ export default function Bootcamp() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <AnimateIn delay={0.1}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-xl text-foreground mb-4 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-primary" />
-                    What You'll Learn
-                  </h3>
-                  <ul className="space-y-3">
-                    {whatYoullLearn.map((item: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
-                        <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="glass-card rounded-xl p-6 h-full">
+                <h3 className="font-heading font-semibold text-xl text-foreground mb-4 flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-primary" />
+                  What You'll Learn
+                </h3>
+                <ul className="space-y-3">
+                  {whatYoullLearn.map((item: string, i: number) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                      <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </AnimateIn>
 
             <AnimateIn delay={0.2}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-xl text-foreground mb-4 flex items-center gap-2">
-                    <Target className="w-5 h-5 text-primary" />
-                    Program Details
-                  </h3>
-                  <div className="space-y-4 mb-6">
-                    {programDetails.map((d: any, i: number) => {
-                      const DIcon = iconMap[d.icon] || Clock;
-                      return (
-                        <div key={i} className="flex items-start gap-3">
-                          <DIcon className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                          <div>
-                            <span className="font-semibold text-foreground text-sm">{d.label}: </span>
-                            <span className="text-muted-foreground text-sm">{d.value}</span>
-                          </div>
+              <div className="glass-card rounded-xl p-6 h-full">
+                <h3 className="font-heading font-semibold text-xl text-foreground mb-4 flex items-center gap-2">
+                  <Target className="w-5 h-5 text-primary" />
+                  Program Details
+                </h3>
+                <div className="space-y-4 mb-6">
+                  {programDetails.map((d: any, i: number) => {
+                    const DIcon = iconMap[d.icon] || Clock;
+                    return (
+                      <div key={i} className="flex items-start gap-3">
+                        <DIcon className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                        <div>
+                          <span className="font-semibold text-foreground text-sm">{d.label}: </span>
+                          <span className="text-muted-foreground text-sm">{d.value}</span>
                         </div>
-                      );
-                    })}
-                  </div>
+                      </div>
+                    );
+                  })}
+                </div>
 
-                  <h4 className="font-semibold text-foreground text-sm mb-2">Scholarship Structure:</h4>
-                  <ul className="space-y-2">
-                    {scholarships.map((s: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
-                        <Trophy className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                <h4 className="font-semibold text-foreground text-sm mb-2">Scholarship Structure:</h4>
+                <ul className="space-y-2">
+                  {scholarships.map((s: string, i: number) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                      <Trophy className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </AnimateIn>
           </div>
 
@@ -288,7 +279,7 @@ export default function Bootcamp() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-how-to-apply">
+      <section className="py-20 glass-section" data-testid="section-how-to-apply">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3">{applyTitle}</h2>
@@ -298,28 +289,26 @@ export default function Bootcamp() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {applySteps.map((step: string, i: number) => (
               <AnimateIn key={i} delay={i * 0.1}>
-                <Card>
-                  <CardContent className="p-5 flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold flex-shrink-0">
-                      {i + 1}
-                    </div>
-                    <p className="text-muted-foreground text-sm text-left">{step}</p>
-                  </CardContent>
-                </Card>
+                <div className="glass-card rounded-xl p-5 flex items-start gap-3 h-full">
+                  <div className="w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold flex-shrink-0">
+                    {i + 1}
+                  </div>
+                  <p className="text-muted-foreground text-sm text-left">{step}</p>
+                </div>
               </AnimateIn>
             ))}
           </div>
 
           <AnimateIn delay={0.4}>
             {applyBadge && (
-              <Badge variant="outline" className="mb-4 text-primary border-primary/30">
+              <Badge variant="outline" className="mb-4 glass-badge rounded-full text-primary">
                 {applyBadge}
               </Badge>
             )}
             {applyCta && (
               <p className="text-foreground font-heading font-semibold text-lg mb-6">{applyCta}</p>
             )}
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="rounded-xl">
               <a href={applyUrl} target="_blank" rel="noopener noreferrer" data-testid="button-apply-bottom">
                 {applyText}
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -329,10 +318,12 @@ export default function Bootcamp() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-enterprise">
+      <section className="py-20" data-testid="section-enterprise">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn className="max-w-3xl mx-auto text-center mb-12">
-            <Building2 className="w-10 h-10 text-primary mx-auto mb-4" />
+            <div className="w-14 h-14 rounded-2xl glass-badge flex items-center justify-center mx-auto mb-4">
+              <Building2 className="w-7 h-7 text-primary" />
+            </div>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3">{entTitle}</h2>
             <p className="text-muted-foreground leading-relaxed">{entDesc}</p>
           </AnimateIn>
@@ -340,12 +331,10 @@ export default function Bootcamp() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {entBenefits.map((benefit: string, i: number) => (
               <AnimateIn key={i} delay={i * 0.1}>
-                <Card>
-                  <CardContent className="p-5 flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                    <p className="text-muted-foreground text-sm">{benefit}</p>
-                  </CardContent>
-                </Card>
+                <div className="glass-card rounded-xl p-5 flex items-start gap-3 h-full">
+                  <CheckCircle className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                  <p className="text-muted-foreground text-sm">{benefit}</p>
+                </div>
               </AnimateIn>
             ))}
           </div>
@@ -355,7 +344,7 @@ export default function Bootcamp() {
               {entCta && (
                 <p className="text-foreground font-heading font-semibold mb-6">{entCta}</p>
               )}
-              <Button onClick={handleCopyEmail} size="lg" data-testid="button-copy-email-enterprise">
+              <Button onClick={handleCopyEmail} size="lg" className="rounded-xl" data-testid="button-copy-email-enterprise">
                 {emailCopied ? (
                   <>
                     <Check className="w-4 h-4 mr-2" />

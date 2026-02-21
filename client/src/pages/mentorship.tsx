@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -82,8 +81,9 @@ export default function Mentorship() {
         </div>
       </section>
 
-      <section className="py-20 bg-primary text-primary-foreground" data-testid="section-mentorship-intro">
-        <AnimateIn className="max-w-3xl mx-auto px-6 text-center">
+      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden" data-testid="section-mentorship-intro">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90" />
+        <AnimateIn className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <h2 className="font-heading font-bold text-3xl mb-6">{introTitle}</h2>
           <p className="text-primary-foreground/80 text-lg leading-relaxed">{introDesc}</p>
         </AnimateIn>
@@ -101,19 +101,21 @@ export default function Mentorship() {
               const PlanIcon = iconMap[plan.icon] || BookOpen;
               return (
                 <AnimateIn key={i} delay={i * 0.1}>
-                  <Card
-                    className={`relative flex flex-col h-full hover:border-primary/30 transition-colors duration-300 ${
-                      plan.popular ? "border-primary" : ""
+                  <div
+                    className={`relative flex flex-col h-full glass-card-hover rounded-xl ${
+                      plan.popular ? "ring-2 ring-primary/30" : ""
                     }`}
                   >
                     {plan.popular && (
-                      <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">Most Popular</Badge>
+                      <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full">Most Popular</Badge>
                     )}
                     {plan.discount && (
-                      <Badge variant="destructive" className="absolute -top-3 right-4">{plan.discount}</Badge>
+                      <Badge variant="destructive" className="absolute -top-3 right-4 rounded-full">{plan.discount}</Badge>
                     )}
-                    <CardContent className="p-6 flex flex-col flex-1">
-                      <PlanIcon className="w-8 h-8 text-primary mb-4" />
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
+                        <PlanIcon className="w-6 h-6 text-primary" />
+                      </div>
                       <h3 className="font-heading font-semibold text-xl text-foreground mb-1">{plan.title}</h3>
 
                       <div className="flex items-baseline gap-2 mb-1">
@@ -140,14 +142,14 @@ export default function Mentorship() {
                         ))}
                       </ul>
 
-                      <Button asChild variant={plan.popular ? "default" : "outline"} className="w-full">
+                      <Button asChild variant={plan.popular ? "default" : "outline"} className="w-full rounded-xl">
                         <a href={plan.href} target="_blank" rel="noopener noreferrer" data-testid={`button-plan-${i}`}>
                           {plan.cta}
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
                       </Button>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </AnimateIn>
               );
             })}
@@ -155,7 +157,7 @@ export default function Mentorship() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-benefits">
+      <section className="py-20 glass-section" data-testid="section-benefits">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">{benefitsTitle}</h2>
@@ -166,13 +168,13 @@ export default function Mentorship() {
               const BIcon = iconMap[b.icon] || Wrench;
               return (
                 <AnimateIn key={i} delay={i * 0.08}>
-                  <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
-                    <CardContent className="p-6">
-                      <BIcon className="w-8 h-8 text-primary mb-4" />
-                      <h3 className="font-heading font-semibold text-foreground mb-2">{b.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
-                    </CardContent>
-                  </Card>
+                  <div className="glass-card-hover rounded-xl p-6 h-full">
+                    <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
+                      <BIcon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-heading font-semibold text-foreground mb-2">{b.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
+                  </div>
                 </AnimateIn>
               );
             })}
@@ -191,17 +193,17 @@ export default function Mentorship() {
               const SIcon = iconMap[s.icon] || Heart;
               return (
                 <AnimateIn key={i} delay={i * 0.1}>
-                  <Card className="hover:border-primary/20 transition-colors duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <SIcon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-heading font-semibold text-foreground mb-2">{s.title}</h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-                        </div>
+                  <div className="glass-card-hover rounded-xl p-6 h-full">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl glass-badge flex items-center justify-center flex-shrink-0">
+                        <SIcon className="w-5 h-5 text-primary" />
                       </div>
-                    </CardContent>
-                  </Card>
+                      <div>
+                        <h3 className="font-heading font-semibold text-foreground mb-2">{s.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                      </div>
+                    </div>
+                  </div>
                 </AnimateIn>
               );
             })}
@@ -209,11 +211,11 @@ export default function Mentorship() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-bottom-cta">
+      <section className="py-20 glass-section" data-testid="section-bottom-cta">
         <AnimateIn className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="font-heading font-bold text-3xl text-foreground mb-3">{ctaTitle}</h2>
           <p className="text-muted-foreground mb-8">{ctaSubtitle}</p>
-          <Button onClick={handleCopyEmail} size="lg" data-testid="button-copy-email-consult">
+          <Button onClick={handleCopyEmail} size="lg" className="rounded-xl" data-testid="button-copy-email-consult">
             {emailCopied ? (
               <>
                 <Check className="w-4 h-4 mr-2" />

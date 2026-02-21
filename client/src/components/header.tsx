@@ -40,9 +40,9 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border"
+          ? "glass-nav"
           : "bg-transparent"
       }`}
       data-testid="header"
@@ -61,10 +61,10 @@ export default function Header() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setHireDropdownOpen(!hireDropdownOpen)}
-              className={`flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+              className={`flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 isHireSection
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary glass-badge"
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/10"
               }`}
               data-testid="link-nav-hire-me"
             >
@@ -73,7 +73,7 @@ export default function Header() {
             </button>
 
             {hireDropdownOpen && (
-              <div className="absolute top-full left-0 mt-1 w-52 bg-background border border-border rounded-lg shadow-lg py-1 animate-scale-in origin-top-left">
+              <div className="absolute top-full left-0 mt-2 w-52 glass-card rounded-xl py-1.5 animate-scale-in origin-top-left">
                 <Link href="/#about">
                   <span
                     onClick={() => {
@@ -82,11 +82,12 @@ export default function Header() {
                         document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-colors ${
+                    className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 ${
                       location === "/"
-                        ? "text-primary bg-primary/5 font-medium"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                        ? "text-primary bg-primary/10 font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-white/10"
                     }`}
+                    style={{ width: "calc(100% - 8px)" }}
                     data-testid="button-view-hire"
                   >
                     Hire Me
@@ -94,11 +95,12 @@ export default function Header() {
                 </Link>
                 <Link href="/consultation">
                   <span
-                    className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-colors ${
+                    className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 ${
                       location === "/consultation"
-                        ? "text-primary bg-primary/5 font-medium"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                        ? "text-primary bg-primary/10 font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-white/10"
                     }`}
+                    style={{ width: "calc(100% - 8px)" }}
                     data-testid="button-view-consult"
                   >
                     Need a Consultation
@@ -110,10 +112,10 @@ export default function Header() {
 
           <Link href="/bootcamp" onClick={scrollToTop}>
             <span
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 location === "/bootcamp"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary glass-badge"
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/10"
               }`}
               data-testid="link-nav-bootcampai"
             >
@@ -123,10 +125,10 @@ export default function Header() {
 
           <Link href="/mentorship" onClick={scrollToTop}>
             <span
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 location === "/mentorship"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary glass-badge"
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/10"
               }`}
               data-testid="link-nav-mentorship"
             >
@@ -147,13 +149,13 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border">
+        <div className="md:hidden glass-nav">
           <nav className="flex flex-col px-6 py-4 gap-1" data-testid="nav-mobile">
             <Link href="/">
               <span
-                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/"
-                    ? "text-primary bg-primary/5"
+                    ? "text-primary glass-badge"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 data-testid="link-mobile-hire-me"
@@ -163,9 +165,9 @@ export default function Header() {
             </Link>
             <Link href="/consultation">
               <span
-                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer pl-8 ${
+                className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer pl-8 transition-all ${
                   location === "/consultation"
-                    ? "text-primary bg-primary/5"
+                    ? "text-primary glass-badge"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 data-testid="link-mobile-consultation"
@@ -175,9 +177,9 @@ export default function Header() {
             </Link>
             <Link href="/bootcamp">
               <span
-                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/bootcamp"
-                    ? "text-primary bg-primary/5"
+                    ? "text-primary glass-badge"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 data-testid="link-mobile-bootcampai"
@@ -187,9 +189,9 @@ export default function Header() {
             </Link>
             <Link href="/mentorship">
               <span
-                className={`block px-4 py-3 rounded-md text-sm font-medium cursor-pointer ${
+                className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/mentorship"
-                    ? "text-primary bg-primary/5"
+                    ? "text-primary glass-badge"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 data-testid="link-mobile-mentorship"
