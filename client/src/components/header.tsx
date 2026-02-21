@@ -34,6 +34,10 @@ export default function Header() {
 
   const isHireSection = location === "/" || location === "/consultation";
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,7 +48,7 @@ export default function Header() {
       data-testid="header"
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" data-testid="link-home">
+        <Link href="/" onClick={scrollToTop} data-testid="link-home">
           <div className="flex items-center gap-3 cursor-pointer">
             <img src={logoPath} alt="Mahmood Salah" className="h-8 w-auto" />
             <span className="font-heading font-semibold text-foreground text-sm tracking-wide">
@@ -104,7 +108,7 @@ export default function Header() {
             )}
           </div>
 
-          <Link href="/bootcamp">
+          <Link href="/bootcamp" onClick={scrollToTop}>
             <span
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
                 location === "/bootcamp"
@@ -117,7 +121,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <Link href="/mentorship">
+          <Link href="/mentorship" onClick={scrollToTop}>
             <span
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
                 location === "/mentorship"

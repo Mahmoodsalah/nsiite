@@ -9,6 +9,7 @@ import HireMe from "@/pages/hire-me";
 import Consultation from "@/pages/consultation";
 import Bootcamp from "@/pages/bootcamp";
 import Mentorship from "@/pages/mentorship";
+import Admin from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Route path="/consultation" component={Consultation} />
               <Route path="/bootcamp" component={Bootcamp} />
               <Route path="/mentorship" component={Mentorship} />
+              <Route path="/admin" component={Admin} />
               <Route component={NotFound} />
             </Switch>
           </main>

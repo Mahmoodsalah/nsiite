@@ -4,11 +4,13 @@
 
 This is a personal portfolio and services website for Mahmood Salah, a Senior Data Scientist and AI Engineer. The site has three main pages:
 
-1. **Hire Me** (homepage) — Portfolio showcasing projects, core competencies, and contact information
-2. **BootcampAI** — Landing page for a 10-week LLM & AI Agent bootcamp program (non-profit, scholarship-based)
-3. **Mentorship** — Tiered mentorship service offerings with pricing plans
+1. **Hire Me** (homepage `/`) — Portfolio showcasing projects, core competencies, and contact information
+2. **Consultation** (`/consultation`) — Consultation services page
+3. **BootcampAI** (`/bootcamp`) — Landing page for a 10-week LLM & AI Agent bootcamp program (non-profit, scholarship-based)
+4. **Mentorship** (`/mentorship`) — Tiered mentorship service offerings with pricing plans
+5. **Admin CMS** (`/admin`) — Content management system for editing all site text content (requires authentication)
 
-The application is a full-stack TypeScript project with a React frontend and Express backend, using PostgreSQL for data storage via Drizzle ORM.
+The application is a full-stack TypeScript project with a React frontend and Express backend, using PostgreSQL for data storage via Drizzle ORM. All text content is stored in the database and editable via the admin CMS panel.
 
 ## User Preferences
 
@@ -18,7 +20,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
-- **Routing**: Wouter (lightweight client-side router) with three routes: `/`, `/bootcamp`, `/mentorship`
+- **Routing**: Wouter (lightweight client-side router) with routes: `/`, `/consultation`, `/bootcamp`, `/mentorship`, `/admin`
 - **Styling**: Tailwind CSS with CSS variables for theming. Custom color scheme based on warm gold/brown tones (`#B18F6A` primary)
 - **UI Components**: shadcn/ui (new-york style) built on Radix UI primitives. Components live in `client/src/components/ui/`
 - **Fonts**: Inter (body) and Montserrat (headings), loaded from Google Fonts
@@ -32,13 +34,17 @@ Preferred communication style: Simple, everyday language.
 - **Language**: TypeScript, run via `tsx` in development
 - **HTTP Server**: Node `http.createServer` wrapping Express
 - **API Pattern**: All API routes should be prefixed with `/api` and registered in `server/routes.ts`
-- **Storage Layer**: Abstracted via `IStorage` interface in `server/storage.ts`. Currently uses in-memory `MemStorage` implementation. Designed to be swapped to a database-backed implementation
+- **Storage Layer**: Abstracted via `IStorage` interface in `server/storage.ts`. Uses `DatabaseStorage` implementation backed by PostgreSQL
+- **Authentication**: Replit Auth (OIDC) via `server/replit_integrations/auth/` module. Protects admin write endpoints
 - **Development**: Vite dev server runs as middleware for HMR. In production, static files are served from `dist/public/`
 - **Build**: Custom build script (`script/build.ts`) that runs Vite for the client and esbuild for the server, outputting to `dist/`
 
 ### Data Storage
 - **ORM**: Drizzle ORM with PostgreSQL dialect
-- **Schema**: Defined in `shared/schema.ts` — currently has a `users` table with `id` (UUID), `username`, and `password`
+- **Schema**: Defined in `shared/schema.ts` and `shared/models/auth.ts`
+  - `users` table — Replit Auth user records (id, email, firstName, lastName, profileImageUrl)
+  - `sessions` table — Express session storage for authentication
+  - `site_content` table — CMS content storage with `page`, `section`, `contentKey`, and `value` (JSONB) columns
 - **Validation**: Drizzle-zod for generating Zod schemas from Drizzle table definitions
 - **Migrations**: Generated via `drizzle-kit push` command, config in `drizzle.config.ts`
 - **Database URL**: Requires `DATABASE_URL` environment variable for PostgreSQL connection

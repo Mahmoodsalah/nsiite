@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { ReactNode, JSX } from "react";
 
 export function useAnimateOnScroll<T extends HTMLElement = HTMLDivElement>(
   threshold = 0.1
@@ -33,11 +34,11 @@ export function AnimateIn({
   delay = 0,
   direction = "up",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   delay?: number;
   direction?: "up" | "left" | "right" | "fade";
-}) {
+}): JSX.Element {
   const { ref, isVisible } = useAnimateOnScroll();
 
   const transforms: Record<string, string> = {
@@ -68,11 +69,11 @@ export function StaggerChildren({
   staggerDelay = 0.1,
   direction = "up",
 }: {
-  children: React.ReactNode[];
+  children: ReactNode[];
   className?: string;
   staggerDelay?: number;
   direction?: "up" | "left" | "right" | "fade";
-}) {
+}): JSX.Element {
   const { ref, isVisible } = useAnimateOnScroll();
 
   const transforms: Record<string, string> = {
