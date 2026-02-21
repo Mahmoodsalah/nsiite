@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,36 +17,43 @@ import {
   Shield,
   Users,
   Eye,
-  MessageCircle,
+  Copy,
+  Check,
 } from "lucide-react";
 import NetworkBg from "@/components/network-bg";
+import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 
 const plans = [
   {
     title: "Course Learning Support",
-    price: "$150",
-    duration: "1 hour",
+    price: "$25",
+    originalPrice: "$75",
+    duration: "1 month",
     description:
       "Focused guidance on AI courses and learning paths. Get unstuck, understand concepts deeply, and accelerate your AI learning journey.",
     bestFor: "AI learners at any level",
     features: [
-      "One-on-one mentoring session",
+      "Unlimited chat support",
+      "2 hours of 1:1 mentoring",
       "Course material review and explanation",
       "Study plan recommendations",
-      "Resource curation for your goals",
     ],
-    cta: "Book a Session",
+    cta: "Get Started",
     href: "mailto:mahmood.salah@email.com?subject=Course%20Learning%20Support",
     icon: BookOpen,
+    discount: "67% OFF",
   },
   {
     title: "Personal Project Mentorship",
-    price: "$500",
-    duration: "4 hours",
+    price: "$150",
+    originalPrice: "$500",
+    duration: "2 months",
     description:
       "Hands-on collaboration to bring your AI project to life. Get expert feedback, code reviews, and architecture guidance for your personal AI projects.",
     bestFor: "Aspiring AI engineers",
     features: [
+      "Unlimited chat support",
+      "10 hours of 1:1 mentoring",
       "Project architecture review",
       "Code review and best practices",
       "Model selection and optimization",
@@ -55,6 +63,7 @@ const plans = [
     href: "mailto:mahmood.salah@email.com?subject=Personal%20Project%20Mentorship",
     icon: Code,
     popular: true,
+    discount: "70% OFF",
   },
   {
     title: "Company Project Consulting",
@@ -127,6 +136,14 @@ const mentoringStyle = [
 ];
 
 export default function Mentorship() {
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("mahmood.salah@email.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -134,12 +151,12 @@ export default function Mentorship() {
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6"
+            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
             data-testid="text-mentorship-title"
           >
             I haven't met you, and this is exciting...
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
             But if you need an AI mentor, let's connect. Whether you're learning
             your first model or deploying production AI systems, I can help.
           </p>
@@ -148,7 +165,7 @@ export default function Mentorship() {
 
       {/* Intro */}
       <section className="py-20 bg-primary text-primary-foreground" data-testid="section-mentorship-intro">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <AnimateIn className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="font-heading font-bold text-3xl mb-6">
             Being an AI learner is tough.
           </h2>
@@ -158,177 +175,176 @@ export default function Mentorship() {
             intimidating. I know because I've been there. So whether you're new
             to AI or looking for expert guidance on your next project, I can help.
           </p>
-        </div>
+        </AnimateIn>
       </section>
 
       {/* Plans */}
       <section className="py-20" data-testid="section-plans">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">
-            Mentorship Plans
-          </h2>
-          <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
-            Choose the plan that fits your needs. Every plan includes personalized,
-            one-on-one guidance tailored to your goals.
-          </p>
+          <AnimateIn>
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">
+              Mentorship Plans
+            </h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
+              Choose the plan that fits your needs. Every plan includes personalized,
+              one-on-one guidance tailored to your goals.
+            </p>
+          </AnimateIn>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan, i) => (
-              <Card
-                key={i}
-                className={`relative flex flex-col ${
-                  plan.popular ? "border-primary" : ""
-                }`}
-              >
-                {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    Most Popular
-                  </Badge>
-                )}
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <plan.icon className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-heading font-semibold text-xl text-foreground mb-1">
-                    {plan.title}
-                  </h3>
+              <AnimateIn key={i} delay={i * 0.1}>
+                <Card
+                  className={`relative flex flex-col h-full hover:border-primary/30 transition-colors duration-300 ${
+                    plan.popular ? "border-primary" : ""
+                  }`}
+                >
+                  {plan.popular && (
+                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      Most Popular
+                    </Badge>
+                  )}
+                  {plan.discount && (
+                    <Badge variant="destructive" className="absolute -top-3 right-4">
+                      {plan.discount}
+                    </Badge>
+                  )}
+                  <CardContent className="p-6 flex flex-col flex-1">
+                    <plan.icon className="w-8 h-8 text-primary mb-4" />
+                    <h3 className="font-heading font-semibold text-xl text-foreground mb-1">
+                      {plan.title}
+                    </h3>
 
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="font-heading font-bold text-3xl text-foreground">
-                      {plan.price}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-xs mb-4">
-                    {plan.duration} of focused mentorship
-                  </p>
+                    <div className="flex items-baseline gap-2 mb-1">
+                      {plan.originalPrice && (
+                        <span className="text-muted-foreground line-through text-lg">
+                          {plan.originalPrice}
+                        </span>
+                      )}
+                      <span className="font-heading font-bold text-3xl text-foreground">
+                        {plan.price}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-xs mb-4">
+                      {plan.duration} of focused mentorship
+                    </p>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {plan.description}
-                  </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {plan.description}
+                    </p>
 
-                  <p className="text-xs text-muted-foreground mb-4">
-                    <span className="font-semibold text-foreground">Best for: </span>
-                    {plan.bestFor}
-                  </p>
+                    <p className="text-xs text-muted-foreground mb-4">
+                      <span className="font-semibold text-foreground">Best for: </span>
+                      {plan.bestFor}
+                    </p>
 
-                  <ul className="space-y-2 mb-6 flex-1">
-                    {plan.features.map((f, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-2 text-muted-foreground text-sm"
-                      >
-                        <CheckCircle className="w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {plan.features.map((f, j) => (
+                        <li
+                          key={j}
+                          className="flex items-start gap-2 text-muted-foreground text-sm"
+                        >
+                          <CheckCircle className="w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
 
-                  <Button
-                    asChild
-                    variant={plan.popular ? "default" : "outline"}
-                    className="w-full"
-                  >
-                    <a
-                      href={plan.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-testid={`button-plan-${i}`}
+                    <Button
+                      asChild
+                      variant={plan.popular ? "default" : "outline"}
+                      className="w-full"
                     >
-                      {plan.cta}
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                      <a
+                        href={plan.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`button-plan-${i}`}
+                      >
+                        {plan.cta}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA mid */}
-      <section className="py-16 bg-card" data-testid="section-mentorship-cta">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-3">
-            If you're wanting to level up, mentorship helps.
-          </h2>
-          <p className="text-muted-foreground mb-6">
-            Schedule a free consultation to ask questions, discuss details, and
-            decide if it's a fit.
-          </p>
-          <Button asChild variant="outline">
-            <a
-              href="mailto:mahmood.salah@email.com?subject=Mentorship%20Inquiry"
-              data-testid="button-introduce"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Introduce yourself
-            </a>
-          </Button>
-        </div>
-      </section>
-
       {/* Benefits */}
-      <section className="py-20" data-testid="section-benefits">
+      <section className="py-20 bg-card" data-testid="section-benefits">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">
-            Benefits of Mentorship
-          </h2>
-          <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
-            I know a thing or two because I've done a thing or two in my AI
-            career, and I'm committed to helping you make use of that knowledge.
-          </p>
+          <AnimateIn>
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">
+              Benefits of Mentorship
+            </h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
+              I know a thing or two because I've done a thing or two in my AI
+              career, and I'm committed to helping you make use of that knowledge.
+            </p>
+          </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
-              <Card key={i} className="hover-elevate">
-                <CardContent className="p-6">
-                  <b.icon className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="font-heading font-semibold text-foreground mb-2">
-                    {b.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {b.desc}
-                  </p>
-                </CardContent>
-              </Card>
+              <AnimateIn key={i} delay={i * 0.08}>
+                <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
+                  <CardContent className="p-6">
+                    <b.icon className="w-8 h-8 text-primary mb-4" />
+                    <h3 className="font-heading font-semibold text-foreground mb-2">
+                      {b.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {b.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* Mentoring Style */}
-      <section className="py-20 bg-card" data-testid="section-mentoring-style">
+      <section className="py-20" data-testid="section-mentoring-style">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">
-            My Mentoring Style
-          </h2>
-          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-            I strive to function as a catalyst and challenge you to grow as both
-            an AI practitioner and a professional. I care about the details and
-            will encourage you to think, plan, and dream.
-          </p>
+          <AnimateIn>
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">
+              My Mentoring Style
+            </h2>
+            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+              I strive to function as a catalyst and challenge you to grow as both
+              an AI practitioner and a professional. I care about the details and
+              will encourage you to think, plan, and dream.
+            </p>
+          </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {mentoringStyle.map((s, i) => (
-              <Card key={i}>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <s.icon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-heading font-semibold text-foreground mb-2">
-                        {s.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {s.desc}
-                      </p>
+              <AnimateIn key={i} delay={i * 0.1}>
+                <Card className="hover:border-primary/20 transition-colors duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <s.icon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h3 className="font-heading font-semibold text-foreground mb-2">
+                          {s.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {s.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20" data-testid="section-bottom-cta">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      {/* Bottom CTA - Copy Email */}
+      <section className="py-20 bg-card" data-testid="section-bottom-cta">
+        <AnimateIn className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="font-heading font-bold text-3xl text-foreground mb-3">
             Book a Consult
           </h2>
@@ -336,16 +352,24 @@ export default function Mentorship() {
             Thinking about mentorship? Let's talk about it. The first call is on
             me.
           </p>
-          <Button asChild size="lg">
-            <a
-              href="mailto:mahmood.salah@email.com?subject=Mentorship%20Consultation"
-              data-testid="button-book-consult"
-            >
-              Introduce yourself
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+          <Button
+            onClick={handleCopyEmail}
+            size="lg"
+            data-testid="button-copy-email-consult"
+          >
+            {emailCopied ? (
+              <>
+                <Check className="w-4 h-4 mr-2" />
+                Email Copied!
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4 mr-2" />
+                Copy Email
+              </>
+            )}
           </Button>
-        </div>
+        </AnimateIn>
       </section>
     </div>
   );

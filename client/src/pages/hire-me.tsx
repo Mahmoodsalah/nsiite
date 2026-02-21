@@ -11,14 +11,13 @@ import {
   GraduationCap,
   Award,
   ChevronRight,
-  ArrowRight,
   Mail,
   Copy,
   Check,
-  ExternalLink,
 } from "lucide-react";
 import { SiLinkedin, SiYoutube, SiX, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
+import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import mahmoodImg from "@assets/mahmood.jpg";
 
 const coreCompetencies = [
@@ -178,27 +177,11 @@ const leadership = [
 ];
 
 const skills = [
-  "Python",
-  "R",
-  "SQL",
-  "TensorFlow",
-  "Scikit-learn",
-  "NumPy",
-  "Pandas",
-  "Power BI",
-  "Matplotlib",
-  "Seaborn",
-  "AWS",
-  "SAP S/4HANA",
-  "SAP Analytics Cloud",
-  "Deep Learning",
-  "Computer Vision",
-  "Machine Learning",
-  "Project Management",
-  "LLM",
-  "Leadership",
-  "Digital Transformation",
-  "Entrepreneurship",
+  "Python", "R", "SQL", "TensorFlow", "Scikit-learn", "NumPy", "Pandas",
+  "Power BI", "Matplotlib", "Seaborn", "AWS", "SAP S/4HANA",
+  "SAP Analytics Cloud", "Deep Learning", "Computer Vision",
+  "Machine Learning", "Project Management", "LLM", "Leadership",
+  "Digital Transformation", "Entrepreneurship",
 ];
 
 const socialLinks = [
@@ -208,10 +191,10 @@ const socialLinks = [
   { icon: SiFacebook, href: "#" },
 ];
 
-type Section = "about" | "projects" | "testimonials" | "resume" | "consultation";
+type ViewMode = "hire" | "consult";
 
 export default function HireMe() {
-  const [activeSection, setActiveSection] = useState<Section>("about");
+  const [viewMode, setViewMode] = useState<ViewMode>("hire");
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -220,14 +203,6 @@ export default function HireMe() {
     setTimeout(() => setEmailCopied(false), 2000);
   };
 
-  const subNav: { label: string; key: Section }[] = [
-    { label: "About", key: "about" },
-    { label: "Projects", key: "projects" },
-    { label: "Testimonials", key: "testimonials" },
-    { label: "Resume", key: "resume" },
-    { label: "Consultation", key: "consultation" },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -235,23 +210,23 @@ export default function HireMe() {
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6"
+            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
             data-testid="text-hero-title"
           >
             Senior Data Scientist, AI Engineer, and Consultant
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
             I specialize in leveraging advanced data science techniques and AI
             engineering to drive innovative solutions for complex business
             challenges. As a consultant and mentor, I help organizations transform
             through the strategic adoption of AI technologies.
           </p>
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-center gap-3 animate-fade-in-up animation-delay-400">
             {socialLinks.map((link, i) => (
               <a
                 key={i}
                 href={link.href}
-                className="w-10 h-10 rounded-md bg-muted flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
+                className="w-10 h-10 rounded-md bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all duration-200"
                 data-testid={`link-hero-social-${i}`}
               >
                 <link.icon className="w-4 h-4" />
@@ -261,33 +236,38 @@ export default function HireMe() {
         </div>
       </section>
 
-      {/* Sub Navigation */}
+      {/* Toggle Navigation */}
       <nav className="sticky top-16 z-40 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 flex gap-1 overflow-x-auto py-2">
-          {subNav.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => setActiveSection(item.key)}
-              className={`px-4 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors ${
-                activeSection === item.key
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              }`}
-              data-testid={`button-section-${item.key}`}
-            >
-              {item.label}
-            </button>
-          ))}
+        <div className="max-w-6xl mx-auto px-6 flex gap-2 py-3">
+          <Button
+            variant={viewMode === "hire" ? "default" : "outline"}
+            onClick={() => setViewMode("hire")}
+            className="transition-all duration-200"
+            data-testid="button-view-hire"
+          >
+            Hire Me
+          </Button>
+          <Button
+            variant={viewMode === "consult" ? "default" : "outline"}
+            onClick={() => setViewMode("consult")}
+            className="transition-all duration-200"
+            data-testid="button-view-consult"
+          >
+            Need a Consultation
+          </Button>
         </div>
       </nav>
 
-      {/* Content Sections */}
+      {/* Content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
-        {activeSection === "about" && <AboutSection />}
-        {activeSection === "projects" && <ProjectsSection />}
-        {activeSection === "testimonials" && <TestimonialsSection />}
-        {activeSection === "resume" && <ResumeSection />}
-        {activeSection === "consultation" && (
+        {viewMode === "hire" ? (
+          <div className="space-y-24" key="hire">
+            <AboutSection />
+            <ProjectsSection />
+            <ResumeSection />
+            <TestimonialsSection />
+          </div>
+        ) : (
           <ConsultationSection
             emailCopied={emailCopied}
             onCopyEmail={handleCopyEmail}
@@ -300,221 +280,156 @@ export default function HireMe() {
 
 function AboutSection() {
   return (
-    <section data-testid="section-about">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-        <div className="md:col-span-1 flex justify-center">
-          <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20">
-            <img
-              src={mahmoodImg}
-              alt="Mahmood Salah"
-              className="w-full h-full object-cover"
-              data-testid="img-profile"
-            />
+    <AnimateIn>
+      <section data-testid="section-about">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+          <div className="md:col-span-1 flex justify-center">
+            <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in">
+              <img
+                src={mahmoodImg}
+                alt="Mahmood Salah"
+                className="w-full h-full object-cover"
+                data-testid="img-profile"
+              />
+            </div>
           </div>
-        </div>
-        <div className="md:col-span-2">
-          <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
-            About Me
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Senior Data Scientist and AI Engineer specializing in AI agents,
-            computer vision, and deep learning technologies. I develop innovative
-            AI solutions that drive measurable business value.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-8">
-            As an AI Mentor at Udacity, I guide students through advanced programs
-            while sharing expertise in cutting-edge technologies.
-          </p>
+          <div className="md:col-span-2">
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+              About Me
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Senior Data Scientist and AI Engineer specializing in AI agents,
+              computer vision, and deep learning technologies. I develop innovative
+              AI solutions that drive measurable business value.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              As an AI Mentor at Udacity, I guide students through advanced programs
+              while sharing expertise in cutting-edge technologies.
+            </p>
 
-          <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-            Core Competencies
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {coreCompetencies.map((comp) => (
-              <Card key={comp.label} className="text-center">
-                <CardContent className="py-6 px-4">
-                  <comp.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
-                  <span className="text-sm font-medium text-foreground">
-                    {comp.label}
-                  </span>
-                </CardContent>
-              </Card>
-            ))}
+            <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
+              Core Competencies
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {coreCompetencies.map((comp, i) => (
+                <Card key={comp.label} className="text-center hover:border-primary/30 transition-colors duration-300">
+                  <CardContent className="py-6 px-4">
+                    <comp.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
+                    <span className="text-sm font-medium text-foreground">
+                      {comp.label}
+                    </span>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </AnimateIn>
   );
 }
 
 function ProjectsSection() {
   return (
-    <section data-testid="section-projects">
-      <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
-        Projects
-      </h2>
-      <p className="text-muted-foreground mb-8">
-        A selection of my recent work in AI and business transformation.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, i) => (
-          <Card key={i} className="hover-elevate group">
-            <CardContent className="p-6">
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="outline" className="text-xs">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function TestimonialsSection() {
-  return (
-    <section data-testid="section-testimonials">
-      <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
-        Testimonials
-      </h2>
-      <p className="text-muted-foreground mb-8">
-        What others say about working with me
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {testimonials.map((t, i) => (
-          <Card key={i}>
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4 mb-4">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-                  data-testid={`img-testimonial-${i}`}
-                />
-                <div>
-                  <h3 className="font-heading font-semibold text-foreground">
-                    {t.name}
+    <AnimateIn>
+      <section data-testid="section-projects">
+        <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
+          Projects
+        </h2>
+        <p className="text-muted-foreground mb-8">
+          A selection of my recent work in AI and business transformation.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, i) => (
+            <AnimateIn key={i} delay={i * 0.05}>
+              <Card className="hover-elevate group hover:border-primary/20 transition-all duration-300">
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-xs">{t.title}</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed italic">
-                "{t.text}"
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <Badge key={tag} variant="outline" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+    </AnimateIn>
   );
 }
 
 function ResumeSection() {
   return (
-    <section data-testid="section-resume" className="space-y-12">
-      {/* Experience */}
-      <div>
-        <h2 className="font-heading font-bold text-3xl text-foreground mb-6 flex items-center gap-3">
-          <Briefcase className="w-7 h-7 text-primary" />
-          Experience
-        </h2>
-        <div className="space-y-6">
-          {experience.map((exp, i) => (
-            <Card key={i}>
-              <CardContent className="p-6">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-                  <h3 className="font-heading font-semibold text-lg text-foreground">
-                    {exp.role}
-                  </h3>
-                  <span className="text-muted-foreground text-sm">{exp.period}</span>
-                </div>
-                <p className="text-primary text-sm font-medium mb-3">{exp.company}</p>
-                <ul className="space-y-1.5">
-                  {exp.points.map((point, j) => (
-                    <li
-                      key={j}
-                      className="text-muted-foreground text-sm flex items-start gap-2"
-                    >
-                      <ChevronRight className="w-3.5 h-3.5 mt-1 flex-shrink-0 text-primary" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Education */}
-      <div>
-        <h2 className="font-heading font-bold text-3xl text-foreground mb-6 flex items-center gap-3">
-          <GraduationCap className="w-7 h-7 text-primary" />
-          Education
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {education.map((edu, i) => (
-            <Card key={i}>
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-1">
-                  {edu.degree}
-                </h3>
-                <p className="text-primary text-sm">{edu.school}</p>
-                <p className="text-muted-foreground text-sm">{edu.year}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Leadership */}
-      <div>
-        <h2 className="font-heading font-bold text-3xl text-foreground mb-6 flex items-center gap-3">
-          <Award className="w-7 h-7 text-primary" />
-          Leadership & Activities
-        </h2>
-        <div className="space-y-4">
-          {leadership.map((item, i) => (
-            <Card key={i}>
-              <CardContent className="p-6">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-                  <h3 className="font-heading font-semibold text-foreground">
-                    {item.role}
-                  </h3>
-                  <span className="text-muted-foreground text-sm">{item.period}</span>
-                </div>
-                <p className="text-primary text-sm font-medium mb-2">{item.org}</p>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Skills */}
-      <div>
+    <AnimateIn>
+      <section data-testid="section-resume">
         <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
-          Skills
+          Resume
         </h2>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <Badge key={skill} variant="outline">
-              {skill}
-            </Badge>
+        <div className="w-full rounded-lg overflow-hidden border border-border bg-card">
+          <iframe
+            src="https://drive.google.com/file/d/1BxS8LJiIp8y_CYk5Vw7dMbHc8IaFEjNe/preview"
+            className="w-full h-[800px]"
+            allow="autoplay"
+            title="Mahmood Salah Resume"
+            data-testid="iframe-resume"
+          />
+        </div>
+        <p className="text-muted-foreground text-sm mt-3 text-center">
+          Can't see the resume? <a href="https://drive.google.com/file/d/1BxS8LJiIp8y_CYk5Vw7dMbHc8IaFEjNe/view" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Open in Google Drive</a>
+        </p>
+      </section>
+    </AnimateIn>
+  );
+}
+
+function TestimonialsSection() {
+  return (
+    <AnimateIn>
+      <section data-testid="section-testimonials">
+        <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
+          Testimonials
+        </h2>
+        <p className="text-muted-foreground mb-8">
+          What others say about working with me
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testimonials.map((t, i) => (
+            <AnimateIn key={i} delay={i * 0.1}>
+              <Card className="hover:border-primary/20 transition-colors duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                      data-testid={`img-testimonial-${i}`}
+                    />
+                    <div>
+                      <h3 className="font-heading font-semibold text-foreground">
+                        {t.name}
+                      </h3>
+                      <p className="text-muted-foreground text-xs">{t.title}</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed italic">
+                    "{t.text}"
+                  </p>
+                </CardContent>
+              </Card>
+            </AnimateIn>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </AnimateIn>
   );
 }
 
@@ -526,76 +441,84 @@ function ConsultationSection({
   onCopyEmail: () => void;
 }) {
   return (
-    <section data-testid="section-consultation" className="text-center">
-      <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
-        Need a Consultation?
-      </h2>
-      <p className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
-        Whether you need help with AI strategy, building ML pipelines, or
-        transforming your business with data-driven solutions, I'm here to help.
-        Let's discuss how I can contribute to your next project.
-      </p>
+    <AnimateIn>
+      <section data-testid="section-consultation" className="text-center">
+        <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+          Need a Consultation?
+        </h2>
+        <p className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+          Whether you need help with AI strategy, building ML pipelines, or
+          transforming your business with data-driven solutions, I'm here to help.
+          Let's discuss how I can contribute to your next project.
+        </p>
 
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <Button asChild>
-          <a href="mailto:mahmood.salah@email.com" data-testid="button-send-email">
-            <Mail className="w-4 h-4 mr-2" />
-            Send me an email
-          </a>
-        </Button>
-        <Button variant="outline" onClick={onCopyEmail} data-testid="button-copy-email">
-          {emailCopied ? (
-            <>
-              <Check className="w-4 h-4 mr-2" />
-              Copied!
-            </>
-          ) : (
-            <>
-              <Copy className="w-4 h-4 mr-2" />
-              Copy email
-            </>
-          )}
-        </Button>
-      </div>
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+          <Button asChild>
+            <a href="mailto:mahmood.salah@email.com" data-testid="button-send-email">
+              <Mail className="w-4 h-4 mr-2" />
+              Send me an email
+            </a>
+          </Button>
+          <Button variant="outline" onClick={onCopyEmail} data-testid="button-copy-email">
+            {emailCopied ? (
+              <>
+                <Check className="w-4 h-4 mr-2" />
+                Copied!
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4 mr-2" />
+                Copy email
+              </>
+            )}
+          </Button>
+        </div>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="hover-elevate">
-          <CardContent className="p-6 text-center">
-            <Brain className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h3 className="font-heading font-semibold text-foreground mb-2">
-              AI Strategy
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              Get expert guidance on integrating AI into your business workflows
-              and operations.
-            </p>
-          </CardContent>
-        </Card>
-        <Card className="hover-elevate">
-          <CardContent className="p-6 text-center">
-            <Eye className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h3 className="font-heading font-semibold text-foreground mb-2">
-              Computer Vision
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              Custom solutions for image recognition, video analytics, and
-              visual AI systems.
-            </p>
-          </CardContent>
-        </Card>
-        <Card className="hover-elevate">
-          <CardContent className="p-6 text-center">
-            <Bot className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h3 className="font-heading font-semibold text-foreground mb-2">
-              AI Agents
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              Build intelligent agents that automate complex tasks and enhance
-              productivity.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <AnimateIn delay={0}>
+            <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
+              <CardContent className="p-6 text-center">
+                <Brain className="w-10 h-10 text-primary mx-auto mb-4" />
+                <h3 className="font-heading font-semibold text-foreground mb-2">
+                  AI Strategy
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Get expert guidance on integrating AI into your business workflows
+                  and operations.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimateIn>
+          <AnimateIn delay={0.1}>
+            <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
+              <CardContent className="p-6 text-center">
+                <Eye className="w-10 h-10 text-primary mx-auto mb-4" />
+                <h3 className="font-heading font-semibold text-foreground mb-2">
+                  Computer Vision
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Custom solutions for image recognition, video analytics, and
+                  visual AI systems.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <Card className="hover-elevate hover:border-primary/20 transition-colors duration-300">
+              <CardContent className="p-6 text-center">
+                <Bot className="w-10 h-10 text-primary mx-auto mb-4" />
+                <h3 className="font-heading font-semibold text-foreground mb-2">
+                  AI Agents & LLMs Systems
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Build intelligent AI agents and LLMs systems that automate complex tasks
+                  and enhance productivity.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimateIn>
+        </div>
+      </section>
+    </AnimateIn>
   );
 }
