@@ -96,7 +96,7 @@ export default function Bootcamp() {
           <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
-          <div className="flex justify-center -my-[5.5rem] animate-fade-in-up">
+          <div className="flex justify-center -my-[5.5rem] animate-fade-in-up mt-[-100px] mb-[-100px]">
             <img src={bootcampLogo} alt="BootcampAI" className="h-[15rem] sm:h-[18rem] md:h-[21rem] w-auto" data-testid="img-bootcamp-logo" />
           </div>
           <h1
@@ -138,7 +138,6 @@ export default function Bootcamp() {
           </div>
         </div>
       </section>
-
       <section className="py-20" data-testid="section-about-bootcamp">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
@@ -185,7 +184,6 @@ export default function Bootcamp() {
           </div>
         </div>
       </section>
-
       <section className="py-20 glass-section" data-testid="section-why-choose">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
@@ -215,7 +213,6 @@ export default function Bootcamp() {
           )}
         </div>
       </section>
-
       <section className="py-20" data-testid="section-llm-bootcamp">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
@@ -284,7 +281,6 @@ export default function Bootcamp() {
           )}
         </div>
       </section>
-
       <section className="py-20 glass-section" data-testid="section-how-to-apply">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimateIn>
@@ -323,7 +319,6 @@ export default function Bootcamp() {
           </AnimateIn>
         </div>
       </section>
-
       <section className="py-20" data-testid="section-enterprise">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn className="max-w-3xl mx-auto text-center mb-12">
