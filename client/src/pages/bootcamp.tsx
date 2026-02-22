@@ -292,7 +292,7 @@ export default function Bootcamp() {
             {applySteps.map((step: string, i: number) => (
               <AnimateIn key={i} delay={i * 0.1}>
                 <div className="glass-card rounded-xl p-5 flex items-start gap-3 h-full">
-                  <div className="w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold flex-shrink-0">
+                  <div className="w-7 h-7 rounded-full text-primary-foreground flex items-center justify-center text-xs font-bold flex-shrink-0 bg-[#0258DB]">
                     {i + 1}
                   </div>
                   <p className="text-muted-foreground text-sm text-left">{step}</p>
@@ -310,7 +310,7 @@ export default function Bootcamp() {
             {applyCta && (
               <p className="text-foreground font-heading font-semibold text-lg mb-6">{applyCta}</p>
             )}
-            <Button asChild size="lg" className="rounded-xl">
+            <Button asChild size="lg" className="rounded-xl bg-[#0258DB] hover:bg-[#0248b8]">
               <a href={applyUrl} target="_blank" rel="noopener noreferrer" data-testid="button-apply-bottom">
                 {applyText}
                 <ArrowRight className="w-4 h-4 ml-2" />
