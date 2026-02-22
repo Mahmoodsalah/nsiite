@@ -73,11 +73,11 @@ export default function Footer() {
               })}
             </div>
             <a
-              href="mailto:mahmood.salah@email.com"
+              href="mailto:mahmoodsalah89@gmail.com"
               className="mt-4 inline-block text-background/60 text-sm hover:text-background transition-colors"
               data-testid="link-email"
             >
-              mahmood.salah@email.com
+              mahmoodsalah89@gmail.com
             </a>
           </div>
         </div>
