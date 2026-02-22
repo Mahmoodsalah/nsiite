@@ -23,7 +23,7 @@ import {
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { usePageContent, getVal } from "@/hooks/use-content";
-import bootcampLogo from "@assets/bootcampai_1771717943410.png";
+import bootcampLogo from "@assets/logo_1771719358200.png";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 
 const iconMap: Record<string, any> = {
@@ -93,6 +93,9 @@ export default function Bootcamp() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
+          <div className="flex justify-center mb-8 animate-fade-in">
+            <img src={bootcampLogo} alt="BootcampAI" className="h-20 sm:h-24 w-auto" data-testid="img-bootcamp-logo" />
+          </div>
           <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
