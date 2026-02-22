@@ -96,15 +96,18 @@ export default function Bootcamp() {
           <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
+          <div className="flex justify-center mb-0 animate-fade-in-up">
+            <img src={bootcampLogo} alt="BootcampAI" className="h-[3.5rem] sm:h-[4rem] md:h-[4.5rem] w-auto" data-testid="img-bootcamp-logo" />
+          </div>
           <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up flex items-center justify-center flex-wrap gap-4"
+            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up mt-0"
             data-testid="text-bootcamp-title"
           >
             {heroTitle.includes("BootcampAI") ? (
               <>
-                <span>{heroTitle.split("BootcampAI")[0]}</span>
-                <img src={bootcampLogo} alt="BootcampAI" className="h-12 sm:h-14 md:h-16 w-auto inline-block" data-testid="img-bootcamp-logo" />
-                <span>{heroTitle.split("BootcampAI")[1]}</span>
+                {heroTitle.split("BootcampAI")[0]}
+                <span className="text-primary">BootcampAI</span>
+                {heroTitle.split("BootcampAI")[1]}
               </>
             ) : heroTitle}
           </h1>
