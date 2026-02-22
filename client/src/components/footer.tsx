@@ -1,14 +1,21 @@
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
+import { usePageContent, getVal } from "@/hooks/use-content";
 
-const socialLinks = [
-  { icon: SiLinkedin, href: "https://linkedin.com/in/mahmoodsalah", label: "LinkedIn" },
-  { icon: SiYoutube, href: "https://youtube.com", label: "YouTube" },
-  { icon: SiInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: SiFacebook, href: "https://facebook.com", label: "Facebook" },
-];
+const socialIconMap: Record<string, any> = {
+  linkedin: SiLinkedin,
+  youtube: SiYoutube,
+  instagram: SiInstagram,
+  facebook: SiFacebook,
+};
 
 export default function Footer() {
+  const { data: content } = usePageContent("hireme");
+  const socialLinks = getVal(content, "hero", "socialLinks", []);
+  const email = getVal(content, "hero", "socialLinks", []).length > 0
+    ? "mahmood.salah@email.com"
+    : "mahmood.salah@email.com";
+
   return (
     <footer className="relative overflow-hidden" data-testid="footer">
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/95 to-foreground" />
@@ -45,21 +52,24 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-lg mb-4">Connect</h3>
             <div className="flex gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-background/20 transition-all duration-300"
-                  data-testid={`link-social-${link.label.toLowerCase()}`}
-                >
-                  <link.icon className="w-4 h-4" />
-                </a>
-              ))}
+              {socialLinks.map((link: any, i: number) => {
+                const Icon = socialIconMap[link.platform] || SiLinkedin;
+                return (
+                  <a
+                    key={i}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-background/20 transition-all duration-300"
+                    data-testid={`link-social-${link.platform}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
             <a
-              href="mailto:mahmood@example.com"
+              href="mailto:mahmood.salah@email.com"
               className="mt-4 inline-block text-background/60 text-sm hover:text-background transition-colors"
               data-testid="link-email"
             >
