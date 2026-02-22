@@ -90,7 +90,7 @@ export default function Header() {
                     Hire Me
                   </span>
                 </Link>
-                <Link href="/consultation">
+                <Link href="/consultation" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
                   <span
                     className="block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 text-muted-foreground hover:text-foreground hover:bg-white/10"
                     style={{ width: "calc(100% - 8px)" }}
@@ -172,7 +172,7 @@ export default function Header() {
                     Hire Me
                   </span>
                 </Link>
-                <Link href="/consultation">
+                <Link href="/consultation" onClick={() => { setMobileMenuOpen(false); setMobileHireOpen(false); scrollToTop(); }}>
                   <span
                     className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-consultation"
@@ -182,7 +182,7 @@ export default function Header() {
                 </Link>
               </div>
             )}
-            <Link href="/bootcamp" onClick={scrollToTop}>
+            <Link href="/bootcamp" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
               <span
                 className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/bootcamp"
@@ -194,7 +194,7 @@ export default function Header() {
                 BootcampAI
               </span>
             </Link>
-            <Link href="/mentorship" onClick={scrollToTop}>
+            <Link href="/mentorship" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
               <span
                 className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/mentorship"
