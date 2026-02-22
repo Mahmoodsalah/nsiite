@@ -84,7 +84,7 @@ export default function Header() {
                     }}
                     className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 ${
                       location === "/"
-                        ? "text-primary bg-primary/10 font-medium"
+                        ? "text-primary font-medium"
                         : "text-muted-foreground hover:text-foreground hover:bg-white/10"
                     }`}
                     style={{ width: "calc(100% - 8px)" }}
@@ -97,7 +97,7 @@ export default function Header() {
                   <span
                     className={`block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 ${
                       location === "/consultation"
-                        ? "text-primary bg-primary/10 font-medium"
+                        ? "text-primary font-medium"
                         : "text-muted-foreground hover:text-foreground hover:bg-white/10"
                     }`}
                     style={{ width: "calc(100% - 8px)" }}
