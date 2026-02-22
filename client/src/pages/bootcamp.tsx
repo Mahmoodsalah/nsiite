@@ -129,7 +129,7 @@ export default function Bootcamp() {
           </div>
 
           <div className="animate-fade-in-up animation-delay-400">
-            <Button asChild size="lg" className="rounded-xl">
+            <Button asChild size="lg" className="rounded-xl bg-[#FD6215] hover:bg-[#e5580f]">
               <a href={heroApplyUrl} target="_blank" rel="noopener noreferrer" data-testid="button-apply-hero">
                 Apply Now
                 <ArrowRight className="w-4 h-4 ml-2" />
