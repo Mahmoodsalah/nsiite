@@ -112,7 +112,7 @@ export default function Mentorship() {
                       <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full">Most Popular</Badge>
                     )}
                     {plan.discount && (
-                      <Badge variant="destructive" className="absolute -top-3 right-4 rounded-full">{plan.discount}</Badge>
+                      <Badge variant="destructive" className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full">{plan.discount}</Badge>
                     )}
                     <div className="p-6 flex flex-col flex-1">
                       <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
