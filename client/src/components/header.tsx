@@ -157,8 +157,15 @@ export default function Header() {
             </button>
             {mobileHireOpen && (
               <div className="flex flex-col gap-1 pl-4">
-                <Link href="/">
+                <Link href="/#about">
                   <span
+                    onClick={() => {
+                      if (location === "/") {
+                        setMobileMenuOpen(false);
+                        setMobileHireOpen(false);
+                        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-hire-me"
                   >
