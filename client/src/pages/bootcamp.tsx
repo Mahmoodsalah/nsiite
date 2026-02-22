@@ -93,14 +93,14 @@ export default function Bootcamp() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
-          <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
+          <Badge variant="outline" className="mb-2 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
-          <div className="flex justify-center -mb-8 animate-fade-in-up">
+          <div className="flex justify-center animate-fade-in-up">
             <img src={bootcampLogo} alt="BootcampAI" className="h-[15rem] sm:h-[18rem] md:h-[21rem] w-auto" data-testid="img-bootcamp-logo" />
           </div>
           <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up -mt-6"
+            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
             data-testid="text-bootcamp-title"
           >
             {heroTitle.includes("BootcampAI") ? (
