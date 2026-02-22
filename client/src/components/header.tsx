@@ -36,7 +36,7 @@ export default function Header() {
   const isHireSection = location === "/" || location === "/consultation";
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   return (
@@ -182,7 +182,7 @@ export default function Header() {
                 </Link>
               </div>
             )}
-            <Link href="/bootcamp">
+            <Link href="/bootcamp" onClick={scrollToTop}>
               <span
                 className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/bootcamp"
@@ -194,7 +194,7 @@ export default function Header() {
                 BootcampAI
               </span>
             </Link>
-            <Link href="/mentorship">
+            <Link href="/mentorship" onClick={scrollToTop}>
               <span
                 className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
                   location === "/mentorship"
