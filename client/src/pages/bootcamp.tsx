@@ -106,7 +106,7 @@ export default function Bootcamp() {
             {heroTitle.includes("BootcampAI") ? (
               <>
                 {heroTitle.split("BootcampAI")[0]}
-                <span className="text-primary">BootcampAI</span>
+                <span className="text-[#FD6215]">BootcampAI</span>
                 {heroTitle.split("BootcampAI")[1]}
               </>
             ) : heroTitle}
