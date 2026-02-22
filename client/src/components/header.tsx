@@ -159,11 +159,7 @@ export default function Header() {
               <div className="flex flex-col gap-1 pl-4">
                 <Link href="/">
                   <span
-                    className={`block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all ${
-                      location === "/"
-                        ? "text-primary glass-badge"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
+                    className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-hire-me"
                   >
                     Hire Me
@@ -171,11 +167,7 @@ export default function Header() {
                 </Link>
                 <Link href="/consultation">
                   <span
-                    className={`block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all ${
-                      location === "/consultation"
-                        ? "text-primary glass-badge"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
+                    className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-consultation"
                   >
                     Need a Consultation
