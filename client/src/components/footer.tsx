@@ -1,10 +1,10 @@
-import { SiLinkedin, SiYoutube, SiX, SiFacebook } from "react-icons/si";
+import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
 
 const socialLinks = [
   { icon: SiLinkedin, href: "https://linkedin.com/in/mahmoodsalah", label: "LinkedIn" },
   { icon: SiYoutube, href: "https://youtube.com", label: "YouTube" },
-  { icon: SiX, href: "https://x.com", label: "X" },
+  { icon: SiInstagram, href: "https://instagram.com", label: "Instagram" },
   { icon: SiFacebook, href: "https://facebook.com", label: "Facebook" },
 ];
 

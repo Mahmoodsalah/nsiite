@@ -7,7 +7,7 @@ import {
   Eye,
   Loader2,
 } from "lucide-react";
-import { SiLinkedin, SiYoutube, SiX, SiFacebook } from "react-icons/si";
+import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import mahmoodImg from "@assets/mahmood.jpg";
@@ -15,7 +15,7 @@ import patternBg from "@assets/pattern_white_1771718036073.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
 const iconMap: Record<string, any> = { Brain, Bot, Cloud, Eye };
-const socialIconMap: Record<string, any> = { linkedin: SiLinkedin, youtube: SiYoutube, x: SiX, facebook: SiFacebook };
+const socialIconMap: Record<string, any> = { linkedin: SiLinkedin, youtube: SiYoutube, instagram: SiInstagram, facebook: SiFacebook };
 
 export default function HireMe() {
   const { data: content, isLoading } = usePageContent("hireme");
