@@ -73,7 +73,7 @@ export default function Header() {
             </button>
 
             {hireDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-52 glass-card rounded-xl py-1.5 animate-scale-in origin-top-left">
+              <div className="absolute top-full left-0 mt-2 w-52 glass-card rounded-xl py-1.5 animate-scale-in origin-top-left bg-[#ffffff]">
                 <Link href="/#about">
                   <span
                     onClick={() => {
@@ -147,7 +147,6 @@ export default function Header() {
           {mobileMenuOpen ? <X /> : <Menu />}
         </Button>
       </div>
-
       {mobileMenuOpen && (
         <div className="md:hidden glass-nav">
           <nav className="flex flex-col px-6 py-4 gap-1" data-testid="nav-mobile">
