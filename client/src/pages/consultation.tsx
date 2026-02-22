@@ -36,7 +36,7 @@ export default function Consultation() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32 pt-[80px] pb-[80px]">
           <h1
             className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
             data-testid="text-consultation-title"
