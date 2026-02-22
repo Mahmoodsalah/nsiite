@@ -66,6 +66,8 @@ export default function HireMe() {
                 <a
                   key={i}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
                   data-testid={`link-hero-social-${i}`}
                 >
