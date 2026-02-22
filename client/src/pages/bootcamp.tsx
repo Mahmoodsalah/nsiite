@@ -93,21 +93,18 @@ export default function Bootcamp() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
-          <div className="flex justify-center mb-8 animate-fade-in">
-            <img src={bootcampLogo} alt="BootcampAI" className="w-64 sm:w-80 md:w-96 max-w-full h-auto" data-testid="img-bootcamp-logo" />
-          </div>
           <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
           <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
+            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up flex items-center justify-center flex-wrap gap-4"
             data-testid="text-bootcamp-title"
           >
             {heroTitle.includes("BootcampAI") ? (
               <>
-                {heroTitle.split("BootcampAI")[0]}
-                <span className="text-primary">BootcampAI</span>
-                {heroTitle.split("BootcampAI")[1]}
+                <span>{heroTitle.split("BootcampAI")[0]}</span>
+                <img src={bootcampLogo} alt="BootcampAI" className="h-12 sm:h-14 md:h-16 w-auto inline-block" data-testid="img-bootcamp-logo" />
+                <span>{heroTitle.split("BootcampAI")[1]}</span>
               </>
             ) : heroTitle}
           </h1>
