@@ -31,7 +31,11 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-lg mb-4">Quick Links</h3>
             <nav className="flex flex-col gap-2">
-              <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
+              <Link href="/#about" onClick={() => {
+                setTimeout(() => {
+                  document.getElementById("about")?.scrollIntoView({ behavior: "instant" });
+                }, 100);
+              }}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-hire">
                   Hire Me
                 </span>
