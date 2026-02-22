@@ -108,11 +108,15 @@ export default function Mentorship() {
                       plan.popular ? "ring-2 ring-primary/30" : ""
                     }`}
                   >
-                    {plan.popular && (
-                      <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full">Most Popular</Badge>
-                    )}
-                    {plan.discount && (
-                      <Badge variant="destructive" className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full">{plan.discount}</Badge>
+                    {(plan.popular || plan.discount) && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+                        {plan.popular && (
+                          <Badge className="rounded-full">Most Popular</Badge>
+                        )}
+                        {plan.discount && (
+                          <Badge variant="destructive" className="rounded-full">{plan.discount}</Badge>
+                        )}
+                      </div>
                     )}
                     <div className="p-6 flex flex-col flex-1">
                       <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
