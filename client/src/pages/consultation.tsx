@@ -70,8 +70,8 @@ export default function Consultation() {
           </div>
         </div>
       </section>
-      <section className="py-20 pt-[0px] pb-[0px]" data-testid="section-consultation-services">
-        <div className="max-w-6xl mx-auto px-6 pt-[50px] pb-[50px]">
+      <section className="pt-0 pb-20" data-testid="section-consultation-services">
+        <div className="max-w-6xl mx-auto px-6">
           {isLoading ? (
             <div className="flex justify-center py-10">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
