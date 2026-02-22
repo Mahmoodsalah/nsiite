@@ -9,6 +9,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hireDropdownOpen, setHireDropdownOpen] = useState(false);
+  const [mobileHireOpen, setMobileHireOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -142,30 +143,46 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden glass-nav">
           <nav className="flex flex-col px-6 py-4 gap-1" data-testid="nav-mobile">
-            <Link href="/">
-              <span
-                className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
-                  location === "/"
-                    ? "text-primary glass-badge"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                data-testid="link-mobile-hire-me"
-              >
-                Hire Me
-              </span>
-            </Link>
-            <Link href="/consultation">
-              <span
-                className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer pl-8 transition-all ${
-                  location === "/consultation"
-                    ? "text-primary glass-badge"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-                data-testid="link-mobile-consultation"
-              >
-                Need a Consultation
-              </span>
-            </Link>
+            <button
+              onClick={() => setMobileHireOpen(!mobileHireOpen)}
+              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all w-full ${
+                isHireSection
+                  ? "text-primary glass-badge"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              data-testid="button-mobile-hire-toggle"
+            >
+              Hire Me
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileHireOpen ? "rotate-180" : ""}`} />
+            </button>
+            {mobileHireOpen && (
+              <div className="flex flex-col gap-1 pl-4">
+                <Link href="/">
+                  <span
+                    className={`block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all ${
+                      location === "/"
+                        ? "text-primary glass-badge"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    data-testid="link-mobile-hire-me"
+                  >
+                    Hire Me
+                  </span>
+                </Link>
+                <Link href="/consultation">
+                  <span
+                    className={`block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all ${
+                      location === "/consultation"
+                        ? "text-primary glass-badge"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    data-testid="link-mobile-consultation"
+                  >
+                    Need a Consultation
+                  </span>
+                </Link>
+              </div>
+            )}
             <Link href="/bootcamp">
               <span
                 className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
