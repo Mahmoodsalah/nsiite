@@ -38,7 +38,7 @@ export default function Mentorship() {
   const [emailCopied, setEmailCopied] = useState(false);
   const { data: content, isLoading } = usePageContent("mentorship");
 
-  const heroTitle = getVal(content, "hero", "title", "I haven't met you, and this is exciting...");
+  const heroTitle = getVal(content, "hero", "title", "Information Is Everywhere. Direction Is Rare.");
   const heroSubtitle = getVal(content, "hero", "subtitle", "");
   const introTitle = getVal(content, "intro", "title", "Being an AI learner is tough.");
   const introDesc = getVal(content, "intro", "description", "");

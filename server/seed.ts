@@ -159,7 +159,7 @@ async function seed() {
   await upsert("bootcamp", "enterprise", "cta", "Empower your organization with BootcampAI's innovation-driven training.");
   await upsert("bootcamp", "enterprise", "email", "mahmood.salah@email.com");
 
-  await upsert("mentorship", "hero", "title", "I haven't met you, and this is exciting...");
+  await upsert("mentorship", "hero", "title", "Information Is Everywhere. Direction Is Rare.");
   await upsert("mentorship", "hero", "subtitle", "But if you need an AI mentor, let's connect. Whether you're learning your first model or deploying production AI systems, I can help.");
 
   await upsert("mentorship", "intro", "title", "Being an AI learner is tough.");
