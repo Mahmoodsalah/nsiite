@@ -157,6 +157,23 @@ export default function Bootcamp() {
             </div>
           </AnimateIn>
 
+          <AnimateIn>
+            <div className="max-w-3xl mx-auto mb-12">
+              <div className="relative w-full rounded-xl overflow-hidden glass-card" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  data-testid="video-bootcamp-about"
+                />
+              </div>
+            </div>
+          </AnimateIn>
+
           <div className="overflow-hidden mb-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex gap-4 bootcamp-ticker">
               {[
