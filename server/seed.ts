@@ -93,6 +93,7 @@ async function seed() {
   await upsert("bootcamp", "about", "title", "About BootcampAI");
   await upsert("bootcamp", "about", "description1", "BootcampAI is the first non-profit platform in the Arab region dedicated to AI education through immersive bootcamps. Our mission is to make high-quality Artificial Intelligence education accessible, practical, and career-transforming.");
   await upsert("bootcamp", "about", "description2", "We combine academic rigor with hands-on practice: every topic includes real project implementation that bridges the gap between theory and real-world solutions. Participants not only learn how AI models work but also build and deploy them under expert mentorship.");
+  await upsert("bootcamp", "about", "videoUrl", "https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252");
   await upsert("bootcamp", "about", "duringBenefits", [
     "Daily mentoring from experienced AI engineers.",
     "24/7 AI-powered assistance for technical support.",

@@ -50,6 +50,7 @@ export default function Bootcamp() {
   const aboutTitle = getVal(content, "about", "title", "About BootcampAI");
   const aboutDesc1 = getVal(content, "about", "description1", "");
   const aboutDesc2 = getVal(content, "about", "description2", "");
+  const aboutVideoUrl = getVal(content, "about", "videoUrl", "https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252");
   const duringBenefits = getVal(content, "about", "duringBenefits", []);
   const afterBenefits = getVal(content, "about", "afterBenefits", []);
 
@@ -162,7 +163,7 @@ export default function Bootcamp() {
               <div className="relative w-full rounded-xl overflow-hidden glass-card" style={{ paddingBottom: '56.25%' }}>
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252"
+                  src={aboutVideoUrl}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
