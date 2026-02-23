@@ -240,11 +240,11 @@ export default function Bootcamp() {
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">{whyTitle}</h2>
             <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">{whySubtitle}</p>
           </AnimateIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {whyHighlights.map((h: any, i: number) => {
               const HIcon = iconMap[h.icon] || Lightbulb;
               return (
-                <AnimateIn key={i} delay={i * 0.08}>
+                <AnimateIn key={i} delay={i * 0.08} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                   <div className="glass-card-hover rounded-xl p-6 h-full">
                     <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
                       <HIcon className="w-6 h-6 text-primary" />
