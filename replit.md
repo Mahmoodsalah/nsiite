@@ -35,15 +35,14 @@ Preferred communication style: Simple, everyday language.
 - **HTTP Server**: Node `http.createServer` wrapping Express
 - **API Pattern**: All API routes should be prefixed with `/api` and registered in `server/routes.ts`
 - **Storage Layer**: Abstracted via `IStorage` interface in `server/storage.ts`. Uses `JsonStorage` implementation backed by `data/content.json` file
-- **Authentication**: Dual auth support — Replit Auth (OIDC) when on Replit, or simple username/password login for self-hosting. Admin credentials configurable via `ADMIN_USERNAME` and `ADMIN_PASSWORD` env vars (defaults: admin / Mahmood@2025)
+- **Authentication**: Simple username/password login with in-memory sessions. Admin credentials configurable via `ADMIN_USERNAME` and `ADMIN_PASSWORD` env vars (defaults: admin / Mahmood@2025). No database needed
 - **Development**: Vite dev server runs as middleware for HMR. In production, static files are served from `dist/public/`
 - **Build**: Custom build script (`script/build.ts`) that runs Vite for the client and esbuild for the server, outputting to `dist/`
 
 ### Data Storage
 - **CMS Content**: Stored in `data/content.json` — a flat JSON file with an array of content items (id, page, section, contentKey, value). No database required
 - **JSON Storage**: Implemented in `server/jsonStorage.ts`, reads/writes to `data/content.json`
-- **Session Store**: In-memory (express-session default) when self-hosted. PostgreSQL-backed via Replit Auth when on Replit
-- **Legacy Schema**: `shared/schema.ts` and `shared/models/auth.ts` still exist for Replit Auth compatibility (users, sessions, site_content tables)
+- **Session Store**: In-memory (express-session default). No database required
 
 ### Key Design Decisions
 1. **Shared schema between frontend and backend** — `shared/schema.ts` contains types and validation used by both sides, avoiding duplication
@@ -53,8 +52,7 @@ Preferred communication style: Simple, everyday language.
 ## External Dependencies
 
 ### Storage
-- **JSON file** — `data/content.json` stores all CMS content. No external database needed for self-hosting
-- **PostgreSQL** — Optional, used only when Replit Auth is active (for user sessions)
+- **JSON file** — `data/content.json` stores all CMS content. No external database needed
 
 ### Frontend Libraries
 - **shadcn/ui + Radix UI** — Full component library (accordion, dialog, dropdown, tabs, toast, etc.)

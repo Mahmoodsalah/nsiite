@@ -4,16 +4,6 @@ import { z } from "zod";
 import session from "express-session";
 import { storage } from "./storage";
 
-let setupAuth: any, registerAuthRoutes: any, replitIsAuthenticated: RequestHandler | null = null;
-
-try {
-  const authModule = require("./replit_integrations/auth");
-  setupAuth = authModule.setupAuth;
-  registerAuthRoutes = authModule.registerAuthRoutes;
-  replitIsAuthenticated = authModule.isAuthenticated;
-} catch (e) {
-}
-
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Mahmood@2025";
 
@@ -21,11 +11,6 @@ const isAuthenticated: RequestHandler = (req: any, res, next) => {
   if (req.session?.adminAuthenticated) {
     return next();
   }
-
-  if (replitIsAuthenticated) {
-    return replitIsAuthenticated(req, res, next);
-  }
-
   return res.status(401).json({ message: "Unauthorized" });
 };
 
@@ -36,7 +21,10 @@ const updateContentSchema = z.object({
   value: z.union([z.string(), z.number(), z.boolean(), z.array(z.any()), z.record(z.any())]),
 });
 
-function setupSimpleSession(app: Express) {
+export async function registerRoutes(
+  httpServer: Server,
+  app: Express
+): Promise<Server> {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000;
   app.use(
     session({
@@ -50,33 +38,10 @@ function setupSimpleSession(app: Express) {
       },
     })
   );
-}
-
-export async function registerRoutes(
-  httpServer: Server,
-  app: Express
-): Promise<Server> {
-  let replitAuthWorking = false;
-  if (setupAuth) {
-    try {
-      await setupAuth(app);
-      registerAuthRoutes(app);
-      replitAuthWorking = true;
-    } catch (e) {
-      console.log("Replit Auth not available, using simple auth only");
-    }
-  }
-
-  if (!replitAuthWorking) {
-    setupSimpleSession(app);
-  }
 
   app.post("/api/admin/login", (req: any, res) => {
     const { username, password } = req.body;
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      if (!req.session) {
-        return res.status(500).json({ message: "Session not available" });
-      }
       req.session.adminAuthenticated = true;
       req.session.save((err: any) => {
         if (err) {
@@ -97,8 +62,7 @@ export async function registerRoutes(
 
   app.post("/api/admin/logout", (req: any, res) => {
     if (req.session) {
-      req.session.adminAuthenticated = false;
-      req.session.save(() => {
+      req.session.destroy(() => {
         res.json({ success: true });
       });
     } else {
@@ -106,7 +70,7 @@ export async function registerRoutes(
     }
   });
 
-  app.get("/api/admin/check", (req: any, res) => {
+  app.get("/api/auth/user", (req: any, res) => {
     if (req.session?.adminAuthenticated) {
       return res.json({
         id: "admin",
@@ -121,7 +85,7 @@ export async function registerRoutes(
 
   app.get("/api/content/:page", async (req, res) => {
     try {
-      const content = await storage.getContentByPage(req.params.page);
+      const content = await storage.getContentByPage(req.params.page as string);
       const result: Record<string, Record<string, any>> = {};
       for (const item of content) {
         if (!result[item.section]) result[item.section] = {};
