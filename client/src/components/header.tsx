@@ -96,7 +96,7 @@ export default function Header() {
                     style={{ width: "calc(100% - 8px)" }}
                     data-testid="button-view-consult"
                   >
-                    Need a Consultation
+                    Need a Consultation?
                   </span>
                 </Link>
               </div>
@@ -177,7 +177,7 @@ export default function Header() {
                     className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-consultation"
                   >
-                    Need a Consultation
+                    Need a Consultation?
                   </span>
                 </Link>
               </div>
