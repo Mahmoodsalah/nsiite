@@ -160,7 +160,7 @@ async function seed() {
   await upsert("bootcamp", "enterprise", "email", "mahmood.salah@email.com");
 
   await upsert("mentorship", "hero", "title", "Information Is Everywhere. Direction Is Rare.");
-  await upsert("mentorship", "hero", "subtitle", "But if you need an AI mentor, let's connect. Whether you're learning your first model or deploying production AI systems, I can help.");
+  await upsert("mentorship", "hero", "subtitle", "Wherever you are in your AI journey, you'll gain clarity, structure, and the strategic edge to build real, deployable systems.");
 
   await upsert("mentorship", "intro", "title", "Being an AI learner is tough.");
   await upsert("mentorship", "intro", "description", "It seems like every week there's a new model, framework, or research breakthrough to keep up with. Honestly, it can be overwhelming and intimidating. I know because I've been there. So whether you're new to AI or looking for expert guidance on your next project, I can help.");
