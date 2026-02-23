@@ -95,11 +95,11 @@ export default function Bootcamp() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-20 pb-16">
           <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
           </Badge>
