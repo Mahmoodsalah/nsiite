@@ -7,6 +7,7 @@ import {
   Building2,
   CheckCircle,
   ArrowRight,
+  ArrowDown,
   Wrench,
   BookMarked,
   Network,
@@ -19,6 +20,9 @@ import {
   Copy,
   Check,
   Loader2,
+  Rocket,
+  Target,
+  Zap,
 } from "lucide-react";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
@@ -67,31 +71,92 @@ export default function Mentorship() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
+
+        <div className="absolute top-20 left-[8%] hidden lg:block animate-fade-in-up animation-delay-400">
+          <div className="glass-card rounded-2xl p-4 mentorship-float-card" style={{ animationDelay: '0s' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center">
+                <Rocket className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Personalized</p>
+                <p className="font-heading font-semibold text-sm text-foreground">1-on-1 Sessions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute top-32 right-[6%] hidden lg:block animate-fade-in-up animation-delay-500">
+          <div className="glass-card rounded-2xl p-4 mentorship-float-card" style={{ animationDelay: '1.5s' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center">
+                <Target className="w-5 h-5 text-green-600 dark:text-green-400" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Goal-Driven</p>
+                <p className="font-heading font-semibold text-sm text-foreground">Real Projects</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-32 left-[10%] hidden lg:block animate-fade-in-up animation-delay-600">
+          <div className="glass-card rounded-2xl p-4 mentorship-float-card" style={{ animationDelay: '3s' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Fast-Track</p>
+                <p className="font-heading font-semibold text-sm text-foreground">Your AI Career</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
+          <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 mb-8 animate-fade-in-up" data-testid="badge-mentorship">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-foreground">Mentorship Program</span>
+          </div>
+
           <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
+            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6 animate-fade-in-up animation-delay-100"
             data-testid="text-mentorship-title"
           >
             {heroTitle}
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
             {heroSubtitle}
           </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up animation-delay-300">
+            <Button
+              size="lg"
+              className="rounded-xl text-base px-8"
+              onClick={() => document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })}
+              data-testid="button-view-plans"
+            >
+              View Plans
+              <ArrowDown className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden" data-testid="section-mentorship-intro">
+      <section className="py-20 relative overflow-hidden" data-testid="section-mentorship-intro">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
         <AnimateIn className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <h2 className="font-heading font-bold text-3xl mb-6">{introTitle}</h2>
+          <h2 className="font-heading font-bold text-3xl text-primary-foreground mb-6">{introTitle}</h2>
           <p className="text-primary-foreground/80 text-lg leading-relaxed">{introDesc}</p>
         </AnimateIn>
       </section>
 
-      <section className="py-20" data-testid="section-plans">
+      <section className="py-20" id="plans" data-testid="section-plans">
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">{plansTitle}</h2>
