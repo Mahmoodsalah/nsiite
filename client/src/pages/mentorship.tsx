@@ -127,7 +127,14 @@ export default function Mentorship() {
             className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6 animate-fade-in-up animation-delay-100"
             data-testid="text-mentorship-title"
           >
-            {heroTitle}
+            {heroTitle.includes("Direction Is Rare") ? (
+              <>
+                {heroTitle.split("Direction Is Rare")[0]}
+                <span className="text-primary font-extrabold">Direction Is Rare.</span>
+              </>
+            ) : (
+              heroTitle
+            )}
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
             {heroSubtitle}
