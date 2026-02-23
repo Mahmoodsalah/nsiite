@@ -63,6 +63,9 @@ export default function Admin() {
   const { toast } = useToast();
   const [activePage, setActivePage] = useState("hireme");
   const [searchTerm, setSearchTerm] = useState("");
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   const { data: allContent, isLoading: contentLoading } = useQuery<SiteContent[]>({
     queryKey: ["/api/content"],
@@ -87,13 +90,25 @@ export default function Admin() {
     },
   });
 
-  if (authLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center pt-16">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      </div>
-    );
-  }
+  const loginMutation = useMutation({
+    mutationFn: async () => {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ username: loginUsername, password: loginPassword }),
+      });
+      if (!res.ok) throw new Error("Invalid credentials");
+      return res.json();
+    },
+    onSuccess: () => {
+      setLoginError("");
+      queryClient.invalidateQueries({ queryKey: ["/api/auth/user"] });
+    },
+    onError: () => {
+      setLoginError("Invalid username or password");
+    },
+  });
 
   if (!isAuthenticated) {
     return (
@@ -105,12 +120,53 @@ export default function Admin() {
           <p className="text-muted-foreground mb-6">
             Sign in to manage your website content.
           </p>
-          <Button asChild size="lg" data-testid="button-admin-login">
-            <a href="/api/login">
-              <LogIn className="w-4 h-4 mr-2" />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              loginMutation.mutate();
+            }}
+            className="space-y-4 text-left"
+          >
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Username</label>
+              <Input
+                type="text"
+                value={loginUsername}
+                onChange={(e) => setLoginUsername(e.target.value)}
+                placeholder="Enter username"
+                className="rounded-xl"
+                data-testid="input-admin-username"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Password</label>
+              <Input
+                type="password"
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+                placeholder="Enter password"
+                className="rounded-xl"
+                data-testid="input-admin-password"
+              />
+            </div>
+            {loginError && (
+              <p className="text-destructive text-sm text-center">{loginError}</p>
+            )}
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full rounded-xl"
+              disabled={loginMutation.isPending}
+              data-testid="button-admin-login"
+            >
+              {loginMutation.isPending ? (
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              ) : (
+                <LogIn className="w-4 h-4 mr-2" />
+              )}
               Sign In
-            </a>
-          </Button>
+            </Button>
+          </form>
         </div>
       </div>
     );
