@@ -1,6 +1,7 @@
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
 import { usePageContent, getVal } from "@/hooks/use-content";
+import patternBg from "@assets/pattern_white_1771718036073.png";
 
 const socialIconMap: Record<string, any> = {
   linkedin: SiLinkedin,
@@ -19,6 +20,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden" data-testid="footer">
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/95 to-foreground" />
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12 text-background">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
