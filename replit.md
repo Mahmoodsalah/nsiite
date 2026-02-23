@@ -6,7 +6,7 @@ This is a personal portfolio and services website for Mahmood Salah, a Senior Da
 
 1. **Hire Me** (homepage `/`) — Portfolio showcasing projects, core competencies, and contact information
 2. **Consultation** (`/consultation`) — Consultation services page
-3. **BootcampAI** (`/bootcamp`) — Landing page for a 10-week LLM & AI Agent bootcamp program (non-profit, scholarship-based)
+3. **BootcampAI** (`/bootcampai`) — Landing page for a 10-week LLM & AI Agent bootcamp program (non-profit, scholarship-based)
 4. **Mentorship** (`/mentorship`) — Tiered mentorship service offerings with pricing plans
 5. **Admin CMS** (`/admin`) — Content management system for editing all site text content (requires authentication)
 
@@ -20,7 +20,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
-- **Routing**: Wouter (lightweight client-side router) with routes: `/`, `/consultation`, `/bootcamp`, `/mentorship`, `/admin`
+- **Routing**: Wouter (lightweight client-side router) with routes: `/`, `/consultation`, `/bootcampai`, `/mentorship`, `/admin`
 - **Styling**: Tailwind CSS with CSS variables for theming. Custom color scheme based on warm gold/brown tones (`#B18F6A` primary)
 - **UI Components**: shadcn/ui (new-york style) built on Radix UI primitives. Components live in `client/src/components/ui/`
 - **Fonts**: Inter (body) and Montserrat (headings), loaded from Google Fonts

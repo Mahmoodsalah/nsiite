@@ -40,7 +40,7 @@ export default function Footer() {
                   Hire Me
                 </span>
               </Link>
-              <Link href="/bootcamp" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
+              <Link href="/bootcampai" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-bootcamp">
                   BootcampAI
                 </span>

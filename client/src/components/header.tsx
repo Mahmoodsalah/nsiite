@@ -103,10 +103,10 @@ export default function Header() {
             )}
           </div>
 
-          <Link href="/bootcamp" onClick={scrollToTop}>
+          <Link href="/bootcampai" onClick={scrollToTop}>
             <span
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
-                location === "/bootcamp"
+                location === "/bootcampai"
                   ? "text-primary glass-badge"
                   : "text-muted-foreground hover:text-foreground hover:bg-white/10"
               }`}
@@ -182,10 +182,10 @@ export default function Header() {
                 </Link>
               </div>
             )}
-            <Link href="/bootcamp" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+            <Link href="/bootcampai" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
               <span
                 className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
-                  location === "/bootcamp"
+                  location === "/bootcampai"
                     ? "text-primary glass-badge"
                     : "text-muted-foreground hover:text-foreground"
                 }`}

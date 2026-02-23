@@ -135,31 +135,6 @@ export default function Bootcamp() {
             })}
           </div>
 
-          <div className="w-full overflow-hidden mb-10 animate-fade-in-up animation-delay-300 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex gap-4 bootcamp-ticker">
-              {[
-                { icon: Bot, label: "AI Agents", color: "text-[#FD6215]", bg: "bg-[#FD6215]/15" },
-                { icon: MessageSquare, label: "LLMs", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/15" },
-                { icon: Database, label: "RAG", color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-500/15" },
-                { icon: Eye, label: "Computer Vision", color: "text-green-600 dark:text-green-400", bg: "bg-green-500/15" },
-                { icon: Brain, label: "Deep Learning", color: "text-rose-600 dark:text-rose-400", bg: "bg-rose-500/15" },
-                { icon: Cpu, label: "Fine-Tuning", color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/15" },
-                { icon: Layers, label: "Prompt Engineering", color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-500/15" },
-                { icon: Globe, label: "MLOps", color: "text-teal-600 dark:text-teal-400", bg: "bg-teal-500/15" },
-              ].flatMap((item, i) => [item, item].map((t, j) => {
-                const TIcon = t.icon;
-                return (
-                  <div key={`${i}-${j}`} className="flex-shrink-0 glass-card rounded-full px-4 py-2 flex items-center gap-2.5">
-                    <div className={`w-7 h-7 rounded-lg ${t.bg} flex items-center justify-center`}>
-                      <TIcon className={`w-3.5 h-3.5 ${t.color}`} />
-                    </div>
-                    <span className="font-heading font-semibold text-sm text-foreground whitespace-nowrap">{t.label}</span>
-                  </div>
-                );
-              }))}
-            </div>
-          </div>
-
           <div className="animate-fade-in-up animation-delay-400">
             <Button asChild size="lg" className="rounded-xl bg-[#FD6215] hover:bg-[#e5580f]">
               <a href={heroApplyUrl} target="_blank" rel="noopener noreferrer" data-testid="button-apply-hero">
@@ -176,11 +151,36 @@ export default function Bootcamp() {
             <h2 className="font-heading font-bold text-3xl text-foreground mb-6 text-center">
               {aboutTitle}
             </h2>
-            <div className="max-w-3xl mx-auto space-y-4 mb-12">
+            <div className="max-w-3xl mx-auto space-y-4 mb-10">
               <p className="text-muted-foreground leading-relaxed">{aboutDesc1}</p>
               <p className="text-muted-foreground leading-relaxed">{aboutDesc2}</p>
             </div>
           </AnimateIn>
+
+          <div className="overflow-hidden mb-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex gap-4 bootcamp-ticker">
+              {[
+                { icon: Bot, label: "AI Agents", color: "text-[#FD6215]", bg: "bg-[#FD6215]/15" },
+                { icon: MessageSquare, label: "LLMs", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/15" },
+                { icon: Database, label: "RAG", color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-500/15" },
+                { icon: Eye, label: "Computer Vision", color: "text-green-600 dark:text-green-400", bg: "bg-green-500/15" },
+                { icon: Brain, label: "Deep Learning", color: "text-rose-600 dark:text-rose-400", bg: "bg-rose-500/15" },
+                { icon: Cpu, label: "Fine-Tuning", color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/15" },
+                { icon: Layers, label: "Prompt Engineering", color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-500/15" },
+                { icon: Globe, label: "MLOps", color: "text-teal-600 dark:text-teal-400", bg: "bg-teal-500/15" },
+              ].flatMap((item, i) => [item, item].map((t, j) => {
+                const TIcon = t.icon;
+                return (
+                  <div key={`${i}-${j}`} className="flex-shrink-0 glass-card rounded-full px-4 py-2.5 flex items-center gap-2.5">
+                    <div className={`w-8 h-8 rounded-lg ${t.bg} flex items-center justify-center`}>
+                      <TIcon className={`w-4 h-4 ${t.color}`} />
+                    </div>
+                    <span className="font-heading font-semibold text-sm text-foreground whitespace-nowrap">{t.label}</span>
+                  </div>
+                );
+              }))}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <AnimateIn delay={0.1}>

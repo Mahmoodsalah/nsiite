@@ -22,7 +22,7 @@ function App() {
             <Switch>
               <Route path="/" component={HireMe} />
               <Route path="/consultation" component={Consultation} />
-              <Route path="/bootcamp" component={Bootcamp} />
+              <Route path="/bootcampai" component={Bootcamp} />
               <Route path="/mentorship" component={Mentorship} />
               <Route path="/admin" component={Admin} />
               <Route component={NotFound} />
