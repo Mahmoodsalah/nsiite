@@ -99,72 +99,6 @@ export default function Bootcamp() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
 
-        <div className="absolute top-24 left-[5%] hidden lg:block animate-fade-in-up animation-delay-400">
-          <div className="glass-card rounded-2xl px-4 py-3 mentorship-float-card" style={{ animationDelay: '0s' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-[#FD6215]/15 flex items-center justify-center">
-                <Bot className="w-4.5 h-4.5 text-[#FD6215]" />
-              </div>
-              <span className="font-heading font-semibold text-sm text-foreground">AI Agents</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute top-16 right-[7%] hidden lg:block animate-fade-in-up animation-delay-500">
-          <div className="glass-card rounded-2xl px-4 py-3 mentorship-float-card" style={{ animationDelay: '1s' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-blue-500/15 flex items-center justify-center">
-                <MessageSquare className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400" />
-              </div>
-              <span className="font-heading font-semibold text-sm text-foreground">LLMs</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute top-[45%] right-[4%] hidden lg:block animate-fade-in-up animation-delay-600">
-          <div className="glass-card rounded-2xl px-4 py-3 mentorship-float-card" style={{ animationDelay: '2s' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-purple-500/15 flex items-center justify-center">
-                <Database className="w-4.5 h-4.5 text-purple-600 dark:text-purple-400" />
-              </div>
-              <span className="font-heading font-semibold text-sm text-foreground">RAG</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-36 left-[6%] hidden lg:block animate-fade-in-up animation-delay-500">
-          <div className="glass-card rounded-2xl px-4 py-3 mentorship-float-card" style={{ animationDelay: '3s' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-green-500/15 flex items-center justify-center">
-                <Eye className="w-4.5 h-4.5 text-green-600 dark:text-green-400" />
-              </div>
-              <span className="font-heading font-semibold text-sm text-foreground">Computer Vision</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute top-[40%] left-[3%] hidden lg:block animate-fade-in-up animation-delay-400">
-          <div className="glass-card rounded-2xl px-4 py-3 mentorship-float-card" style={{ animationDelay: '4s' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-rose-500/15 flex items-center justify-center">
-                <Brain className="w-4.5 h-4.5 text-rose-600 dark:text-rose-400" />
-              </div>
-              <span className="font-heading font-semibold text-sm text-foreground">Deep Learning</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-28 right-[8%] hidden lg:block animate-fade-in-up animation-delay-600">
-          <div className="glass-card rounded-2xl px-4 py-3 mentorship-float-card" style={{ animationDelay: '5s' }}>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-amber-500/15 flex items-center justify-center">
-                <Cpu className="w-4.5 h-4.5 text-amber-600 dark:text-amber-400" />
-              </div>
-              <span className="font-heading font-semibold text-sm text-foreground">Fine-Tuning</span>
-            </div>
-          </div>
-        </div>
-
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <Badge variant="outline" className="mb-6 glass-badge rounded-full text-primary animate-fade-in">
             {heroBadge}
@@ -199,6 +133,31 @@ export default function Bootcamp() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="w-full overflow-hidden mb-10 animate-fade-in-up animation-delay-300 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex gap-4 bootcamp-ticker">
+              {[
+                { icon: Bot, label: "AI Agents", color: "text-[#FD6215]", bg: "bg-[#FD6215]/15" },
+                { icon: MessageSquare, label: "LLMs", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/15" },
+                { icon: Database, label: "RAG", color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-500/15" },
+                { icon: Eye, label: "Computer Vision", color: "text-green-600 dark:text-green-400", bg: "bg-green-500/15" },
+                { icon: Brain, label: "Deep Learning", color: "text-rose-600 dark:text-rose-400", bg: "bg-rose-500/15" },
+                { icon: Cpu, label: "Fine-Tuning", color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/15" },
+                { icon: Layers, label: "Prompt Engineering", color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-500/15" },
+                { icon: Globe, label: "MLOps", color: "text-teal-600 dark:text-teal-400", bg: "bg-teal-500/15" },
+              ].flatMap((item, i) => [item, item].map((t, j) => {
+                const TIcon = t.icon;
+                return (
+                  <div key={`${i}-${j}`} className="flex-shrink-0 glass-card rounded-full px-4 py-2 flex items-center gap-2.5">
+                    <div className={`w-7 h-7 rounded-lg ${t.bg} flex items-center justify-center`}>
+                      <TIcon className={`w-3.5 h-3.5 ${t.color}`} />
+                    </div>
+                    <span className="font-heading font-semibold text-sm text-foreground whitespace-nowrap">{t.label}</span>
+                  </div>
+                );
+              }))}
+            </div>
           </div>
 
           <div className="animate-fade-in-up animation-delay-400">

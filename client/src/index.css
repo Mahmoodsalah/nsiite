@@ -262,6 +262,16 @@
   animation: mentorship-float 4s ease-in-out infinite;
 }
 
+@keyframes bootcamp-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.bootcamp-ticker {
+  animation: bootcamp-scroll 25s linear infinite;
+  width: max-content;
+}
+
 .glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
