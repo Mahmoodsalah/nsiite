@@ -2,6 +2,13 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import type { User } from "@shared/models/auth";
 
 async function fetchUser(): Promise<User | null> {
+  const adminCheck = await fetch("/api/admin/check", {
+    credentials: "include",
+  });
+  if (adminCheck.ok) {
+    return adminCheck.json();
+  }
+
   const response = await fetch("/api/auth/user", {
     credentials: "include",
   });
@@ -18,7 +25,11 @@ async function fetchUser(): Promise<User | null> {
 }
 
 async function logout(): Promise<void> {
-  window.location.href = "/api/logout";
+  await fetch("/api/admin/logout", {
+    method: "POST",
+    credentials: "include",
+  });
+  window.location.href = "/admin";
 }
 
 export function useAuth() {
@@ -27,7 +38,7 @@ export function useAuth() {
     queryKey: ["/api/auth/user"],
     queryFn: fetchUser,
     retry: false,
-    staleTime: 1000 * 60 * 5, // 5 minutes
+    staleTime: 1000 * 60 * 5,
   });
 
   const logoutMutation = useMutation({

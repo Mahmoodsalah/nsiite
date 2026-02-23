@@ -1,8 +1,9 @@
 import type { Express, RequestHandler } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
+import session from "express-session";
+import connectPg from "connect-pg-simple";
 import { storage } from "./storage";
-import crypto from "crypto";
 
 let setupAuth: any, registerAuthRoutes: any, replitIsAuthenticated: RequestHandler | null = null;
 
@@ -16,15 +17,6 @@ try {
 
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Mahmood@2025";
-
-function simpleSessionAuth(): RequestHandler {
-  return (req: any, res, next) => {
-    if (req.session?.adminAuthenticated) {
-      return next();
-    }
-    return res.status(401).json({ message: "Unauthorized" });
-  };
-}
 
 const isAuthenticated: RequestHandler = (req: any, res, next) => {
   if (req.session?.adminAuthenticated) {
@@ -45,24 +37,60 @@ const updateContentSchema = z.object({
   value: z.union([z.string(), z.number(), z.boolean(), z.array(z.any()), z.record(z.any())]),
 });
 
+function setupSimpleSession(app: Express) {
+  const sessionTtl = 7 * 24 * 60 * 60 * 1000;
+  const pgStore = connectPg(session);
+  const sessionStore = new pgStore({
+    conString: process.env.DATABASE_URL,
+    createTableIfMissing: true,
+    ttl: sessionTtl,
+    tableName: "sessions",
+  });
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET || "admin-secret-key-change-me",
+      store: sessionStore,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        secure: false,
+        maxAge: sessionTtl,
+      },
+    })
+  );
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  let replitAuthWorking = false;
   if (setupAuth) {
     try {
       await setupAuth(app);
       registerAuthRoutes(app);
+      replitAuthWorking = true;
     } catch (e) {
       console.log("Replit Auth not available, using simple auth only");
     }
   }
 
+  if (!replitAuthWorking) {
+    setupSimpleSession(app);
+  }
+
   app.post("/api/admin/login", (req: any, res) => {
     const { username, password } = req.body;
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+      if (!req.session) {
+        return res.status(500).json({ message: "Session not available" });
+      }
       req.session.adminAuthenticated = true;
-      req.session.save(() => {
+      req.session.save((err: any) => {
+        if (err) {
+          return res.status(500).json({ message: "Failed to save session" });
+        }
         res.json({
           id: "admin",
           email: "admin@local",
@@ -77,13 +105,17 @@ export async function registerRoutes(
   });
 
   app.post("/api/admin/logout", (req: any, res) => {
-    req.session.adminAuthenticated = false;
-    req.session.save(() => {
+    if (req.session) {
+      req.session.adminAuthenticated = false;
+      req.session.save(() => {
+        res.json({ success: true });
+      });
+    } else {
       res.json({ success: true });
-    });
+    }
   });
 
-  app.get("/api/auth/user", (req: any, res) => {
+  app.get("/api/admin/check", (req: any, res) => {
     if (req.session?.adminAuthenticated) {
       return res.json({
         id: "admin",
@@ -93,14 +125,6 @@ export async function registerRoutes(
         profileImageUrl: null,
       });
     }
-
-    if (req.isAuthenticated?.() && req.user) {
-      const userId = req.user.claims?.sub;
-      if (userId) {
-        return res.json(req.user);
-      }
-    }
-
     return res.status(401).json({ message: "Unauthorized" });
   });
 
