@@ -47,71 +47,85 @@ export default function HireMe() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative overflow-hidden" style={{ minHeight: '100svh' }}>
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-          <div className="flex flex-col md:flex-row pt-16 min-h-[90vh]">
 
-            {/* Text column — flex-col so social icons can sit at bottom */}
-            <div className="text-center md:text-left flex-shrink-0 md:w-[42%] flex flex-col justify-center py-12 order-2 md:order-1">
-              <h1
-                className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
-                data-testid="text-hero-title"
-              >
-                {heroTitle}
-              </h1>
-              <p className="text-muted-foreground text-lg md:text-xl max-w-lg mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
-                {heroSubtitle}
-              </p>
-              <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
-                {socialLinks.map((link: any, i: number) => {
-                  const Icon = socialIconMap[link.platform] || SiLinkedin;
-                  return (
-                    <a
-                      key={i}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
-                      data-testid={`link-hero-social-${i}`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  );
-                })}
-              </div>
+        {/* Full-height flex wrapper */}
+        <div className="relative z-10 flex flex-col md:flex-row" style={{ minHeight: '100svh' }}>
+
+          {/* ── TEXT COLUMN ── */}
+          <div className="
+            flex-shrink-0 md:w-[46%]
+            flex flex-col justify-center
+            px-6 md:px-10 lg:px-14
+            pt-28 pb-10 md:pt-32 md:pb-16
+            text-center md:text-left
+            order-2 md:order-1
+          ">
+            <h1
+              className="font-heading font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl text-foreground leading-tight mb-5 animate-fade-in-up"
+              data-testid="text-hero-title"
+            >
+              {heroTitle}
+            </h1>
+            <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+              {heroSubtitle}
+            </p>
+            <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
+              {socialLinks.map((link: any, i: number) => {
+                const Icon = socialIconMap[link.platform] || SiLinkedin;
+                return (
+                  <a
+                    key={i}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
+                    data-testid={`link-hero-social-${i}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
-
-            {/* Image column — stretches to match text column height */}
-            <div className="flex-1 relative order-1 md:order-2 animate-fade-in-up animation-delay-200 overflow-visible min-h-[55vw] sm:min-h-[46vw] md:min-h-0">
-
-              {/* Concentric circle rings — responsive using % of container */}
-              <div className="absolute pointer-events-none" style={{ top: '50%', left: '54%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%' }}>
-                <div style={{ width: '90%', paddingBottom: '90%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.15)' }} />
-                <div style={{ width: '66%', paddingBottom: '66%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
-                <div style={{ width: '44%', paddingBottom: '44%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
-              </div>
-
-              {/* Warm amber radial glow — centered behind the subject */}
-              <div className="absolute inset-0 pointer-events-none" style={{
-                background: 'radial-gradient(ellipse 65% 65% at 54% 50%, rgba(210,140,80,0.36) 0%, rgba(200,120,60,0.12) 55%, transparent 80%)'
-              }} />
-
-              {/* Portrait — fills column height, only very subtle edge fade */}
-              <img
-                src={mahmoodPortrait}
-                alt="Mahmood Salah"
-                className="absolute top-0 right-0 h-full w-auto object-contain object-top"
-                data-testid="img-hero-portrait"
-                style={{
-                  maskImage: 'radial-gradient(ellipse 92% 96% at 56% 46%, black 72%, rgba(0,0,0,0.6) 84%, transparent 97%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 92% 96% at 56% 46%, black 72%, rgba(0,0,0,0.6) 84%, transparent 97%)',
-                }}
-              />
-            </div>
-
           </div>
+
+          {/* ── IMAGE COLUMN ── */}
+          <div className="
+            flex-1 relative
+            order-1 md:order-2
+            h-[70vw] sm:h-[55vw] md:h-auto
+            overflow-hidden
+            animate-fade-in-up animation-delay-200
+          ">
+            {/* Amber radial glow */}
+            <div className="absolute inset-0 pointer-events-none" style={{
+              background: 'radial-gradient(ellipse 70% 70% at 52% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 52%, transparent 78%)'
+            }} />
+
+            {/* Concentric circle rings — centered on subject */}
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <div className="relative" style={{ width: '72%', aspectRatio: '1' }}>
+                <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1px solid rgba(251,191,36,0.14)' }} />
+                <div style={{ position: 'absolute', inset: '16%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
+                <div style={{ position: 'absolute', inset: '32%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
+              </div>
+            </div>
+
+            {/* Portrait image — fills column, gentle radial fade at edges only */}
+            <img
+              src={mahmoodPortrait}
+              alt="Mahmood Salah"
+              className="absolute inset-0 w-full h-full object-contain object-center md:object-right md:object-top"
+              data-testid="img-hero-portrait"
+              style={{
+                maskImage: 'radial-gradient(ellipse 90% 94% at 52% 48%, black 68%, rgba(0,0,0,0.5) 82%, transparent 96%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 90% 94% at 52% 48%, black 68%, rgba(0,0,0,0.5) 82%, transparent 96%)',
+              }}
+            />
+          </div>
+
         </div>
       </section>
 
