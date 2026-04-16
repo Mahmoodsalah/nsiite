@@ -50,11 +50,11 @@ export default function HireMe() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
-        <div className="relative z-10 w-full h-full">
-          <div className="grid grid-cols-1 md:grid-cols-5 items-center min-h-[90vh]">
-            <div className="text-center md:text-left order-2 md:order-1 md:col-span-2 px-6 md:pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] md:pr-8 py-16 md:pt-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="flex flex-col md:flex-row items-center min-h-[90vh] gap-8">
+            <div className="text-center md:text-left flex-shrink-0 md:w-[40%] pt-24 md:pt-0 order-2 md:order-1">
               <h1
-                className="font-heading font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
+                className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
                 data-testid="text-hero-title"
               >
                 {heroTitle}
@@ -80,7 +80,7 @@ export default function HireMe() {
                 })}
               </div>
             </div>
-            <div className="flex justify-end items-end order-1 md:order-2 md:col-span-3 self-end animate-fade-in-up animation-delay-200 overflow-hidden">
+            <div className="flex-1 flex justify-center md:justify-end items-end order-1 md:order-2 animate-fade-in-up animation-delay-200 pt-20 md:pt-0">
               <div className="relative">
                 <div
                   className="absolute -inset-16 rounded-full blur-3xl -z-10 opacity-60"
@@ -89,7 +89,7 @@ export default function HireMe() {
                 <img
                   src={mahmoodPortrait}
                   alt="Mahmood Salah"
-                  className="w-[85vw] md:w-full md:max-w-[36rem] lg:max-w-[42rem] h-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
+                  className="max-h-[70vh] md:max-h-[80vh] w-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
                   data-testid="img-hero-portrait"
                 />
               </div>
