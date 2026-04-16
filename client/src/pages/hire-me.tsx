@@ -93,38 +93,42 @@ export default function HireMe() {
 
           {/* ── IMAGE COLUMN ── */}
           <div className="
-            flex-1 relative
+            flex-1 relative flex items-center
             order-1 md:order-2
             h-[90vw] sm:h-[65vw] md:h-auto
             mt-16 md:mt-0
             overflow-hidden
             animate-fade-in-up animation-delay-200
           ">
-            {/* Amber radial glow */}
-            <div className="absolute inset-0 pointer-events-none" style={{
-              background: 'radial-gradient(ellipse 70% 70% at 52% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 52%, transparent 78%)'
-            }} />
+            {/* Square photo wrapper — matches photo's visible size (1:1 aspect) */}
+            <div className="relative aspect-square h-full mx-auto md:ml-auto md:mr-0">
 
-            {/* Concentric circle rings — sized to match the portrait */}
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center md:justify-end md:pr-[6%]">
-              <div className="relative" style={{ height: '70%', aspectRatio: '1' }}>
-                <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1px solid rgba(251,191,36,0.14)' }} />
-                <div style={{ position: 'absolute', inset: '15%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
-                <div style={{ position: 'absolute', inset: '30%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
+              {/* Amber radial glow — constrained to photo area */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)'
+              }} />
+
+              {/* Concentric circle rings — centered on photo */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+                <div className="relative" style={{ width: '86%', aspectRatio: '1' }}>
+                  <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1px solid rgba(251,191,36,0.14)' }} />
+                  <div style={{ position: 'absolute', inset: '14%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
+                  <div style={{ position: 'absolute', inset: '28%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
+                </div>
               </div>
-            </div>
 
-            {/* Portrait image — fills column, gentle radial fade at edges only */}
-            <img
-              src={mahmoodPortrait}
-              alt="Mahmood Salah"
-              className="absolute inset-0 w-full h-full object-contain object-center md:object-right md:object-top"
-              data-testid="img-hero-portrait"
-              style={{
-                maskImage: 'radial-gradient(ellipse 90% 94% at 52% 48%, black 68%, rgba(0,0,0,0.5) 82%, transparent 96%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 90% 94% at 52% 48%, black 68%, rgba(0,0,0,0.5) 82%, transparent 96%)',
-              }}
-            />
+              {/* Portrait image — fills the square, soft circular fade at edges */}
+              <img
+                src={mahmoodPortrait}
+                alt="Mahmood Salah"
+                className="absolute inset-0 w-full h-full object-cover"
+                data-testid="img-hero-portrait"
+                style={{
+                  maskImage: 'radial-gradient(circle at 50% 48%, black 62%, rgba(0,0,0,0.5) 78%, transparent 94%)',
+                  WebkitMaskImage: 'radial-gradient(circle at 50% 48%, black 62%, rgba(0,0,0,0.5) 78%, transparent 94%)',
+                }}
+              />
+            </div>
           </div>
 
         </div>
