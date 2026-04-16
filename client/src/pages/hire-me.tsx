@@ -59,7 +59,7 @@ export default function HireMe() {
             flex-shrink-0 md:w-[46%]
             flex flex-col justify-center
             px-6 md:px-10 lg:px-14
-            pt-28 pb-10 md:pt-32 md:pb-16
+            pt-6 pb-10 md:pt-32 md:pb-16
             text-center md:text-left
             order-2 md:order-1
           ">
@@ -95,7 +95,7 @@ export default function HireMe() {
           <div className="
             flex-1 relative
             order-1 md:order-2
-            h-[70vw] sm:h-[55vw] md:h-auto
+            h-[90vw] sm:h-[65vw] md:h-auto
             mt-16 md:mt-0
             overflow-hidden
             animate-fade-in-up animation-delay-200
