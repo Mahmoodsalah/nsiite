@@ -52,7 +52,7 @@ export default function HireMe() {
         <NetworkBg />
 
         {/* Full-height flex wrapper — aligns with header's max-w-6xl + px-6 */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
+        <div className="relative z-10 flex flex-col md:flex-row md:items-end md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
 
           {/* ── TEXT COLUMN ── */}
           <div className="
@@ -91,12 +91,12 @@ export default function HireMe() {
             </div>
           </div>
 
-          {/* ── IMAGE COLUMN — square, constrained to flex slot on md+ ── */}
+          {/* ── IMAGE COLUMN — square, bottom aligned with social buttons ── */}
           <div
             className="
               relative overflow-hidden
               order-1 md:order-2 md:flex-1
-              mt-16 md:mt-0
+              mt-16 md:mt-0 md:mb-16
               mx-auto md:mx-0
               w-[min(90vw,90svh)] h-[min(90vw,90svh)]
               md:w-auto md:h-auto md:max-w-full
@@ -104,13 +104,24 @@ export default function HireMe() {
             "
             style={{ aspectRatio: '1 / 1' }}
           >
-            {/* Amber radial glow */}
-            <div className="absolute inset-0 pointer-events-none" style={{
-              background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)'
-            }} />
+            {/* Amber radial glow — fades at bottom */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 95%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 95%)',
+              }}
+            />
 
-            {/* Concentric circle rings — centered on photo */}
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+            {/* Concentric circle rings — fade out at bottom */}
+            <div
+              className="absolute inset-0 pointer-events-none flex items-center justify-center"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 90%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 90%)',
+              }}
+            >
               <div className="relative" style={{ width: '86%', aspectRatio: '1' }}>
                 <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1px solid rgba(251,191,36,0.14)' }} />
                 <div style={{ position: 'absolute', inset: '14%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
@@ -118,11 +129,15 @@ export default function HireMe() {
               </div>
             </div>
 
-            {/* Portrait image — fills the square */}
+            {/* Portrait image — fades at bottom */}
             <img
               src={mahmoodPortrait}
               alt="Mahmood Salah"
               className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+              }}
               data-testid="img-hero-portrait"
             />
           </div>
