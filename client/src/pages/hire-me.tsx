@@ -50,16 +50,16 @@ export default function HireMe() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="text-center md:text-left order-2 md:order-1">
+        <div className="relative z-10 w-full h-full">
+          <div className="grid grid-cols-1 md:grid-cols-5 items-center min-h-[90vh]">
+            <div className="text-center md:text-left order-2 md:order-1 md:col-span-2 px-6 md:pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] md:pr-8 py-16 md:pt-24">
               <h1
-                className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
+                className="font-heading font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
                 data-testid="text-hero-title"
               >
                 {heroTitle}
               </h1>
-              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+              <p className="text-muted-foreground text-lg md:text-xl max-w-lg mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
                 {heroSubtitle}
               </p>
               <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
@@ -80,16 +80,16 @@ export default function HireMe() {
                 })}
               </div>
             </div>
-            <div className="flex justify-center items-end order-1 md:order-2 animate-fade-in-up animation-delay-200">
+            <div className="flex justify-end items-end order-1 md:order-2 md:col-span-3 self-end animate-fade-in-up animation-delay-200 overflow-hidden">
               <div className="relative">
                 <div
-                  className="absolute -inset-12 rounded-full blur-3xl -z-10 opacity-60"
+                  className="absolute -inset-16 rounded-full blur-3xl -z-10 opacity-60"
                   style={{ background: 'radial-gradient(ellipse at center, rgba(177,143,106,0.3) 0%, rgba(177,143,106,0.08) 50%, transparent 80%)' }}
                 />
                 <img
                   src={mahmoodPortrait}
                   alt="Mahmood Salah"
-                  className="w-80 md:w-[22rem] lg:w-[28rem] h-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
+                  className="w-[85vw] md:w-full md:max-w-[36rem] lg:max-w-[42rem] h-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
                   data-testid="img-hero-portrait"
                 />
               </div>
