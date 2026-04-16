@@ -59,7 +59,7 @@ export default function HireMe() {
             md:flex-1
             flex flex-col justify-center
             px-6 md:px-0
-            pt-6 pb-10 md:py-16
+            pt-6 pb-10 md:pt-24 md:pb-32
             text-center md:text-left
             order-2 md:order-1
           ">
@@ -96,7 +96,7 @@ export default function HireMe() {
             className="
               relative overflow-hidden
               order-1 md:order-2 md:flex-1
-              mt-16 md:mt-0 md:mb-16
+              mt-20 md:mt-0 md:mb-32
               mx-auto md:mx-0
               w-[min(90vw,90svh)] h-[min(90vw,90svh)]
               md:w-auto md:h-auto md:max-w-full
