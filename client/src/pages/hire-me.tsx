@@ -80,13 +80,16 @@ export default function HireMe() {
                 })}
               </div>
             </div>
-            <div className="flex justify-center order-1 md:order-2 animate-fade-in-up animation-delay-200">
+            <div className="flex justify-center items-end order-1 md:order-2 animate-fade-in-up animation-delay-200">
               <div className="relative">
-                <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-3xl scale-90 -z-10" />
+                <div
+                  className="absolute -inset-12 rounded-full blur-3xl -z-10 opacity-60"
+                  style={{ background: 'radial-gradient(ellipse at center, rgba(177,143,106,0.3) 0%, rgba(177,143,106,0.08) 50%, transparent 80%)' }}
+                />
                 <img
                   src={mahmoodPortrait}
                   alt="Mahmood Salah"
-                  className="w-72 md:w-80 lg:w-96 h-auto object-contain drop-shadow-[0_0_40px_rgba(177,143,106,0.3)]"
+                  className="w-80 md:w-[22rem] lg:w-[28rem] h-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
                   data-testid="img-hero-portrait"
                 />
               </div>
