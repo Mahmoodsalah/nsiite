@@ -10,7 +10,7 @@ import {
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
-import mahmoodPortrait from "@assets/mahmood_portrait2.png";
+import mahmoodPortrait from "@assets/1a54ec53-5da8-4e83-87a5-02df3fc9d7ad_1776300934772.png";
 import mahmoodImg from "@assets/mahmood.jpg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
@@ -81,18 +81,21 @@ export default function HireMe() {
               </div>
             </div>
             <div className="flex-1 flex justify-center md:justify-end items-start order-1 md:order-2 animate-fade-in-up animation-delay-200 pt-10">
-              <div className="relative">
-                <div
-                  className="absolute -inset-20 rounded-full blur-3xl -z-10 opacity-70"
-                  style={{ background: 'radial-gradient(ellipse at center, rgba(177,143,106,0.35) 0%, rgba(177,143,106,0.1) 50%, transparent 80%)' }}
-                />
+              <div className="relative overflow-hidden">
                 <img
                   src={mahmoodPortrait}
                   alt="Mahmood Salah"
-                  className="w-full max-w-[420px] lg:max-w-[520px] h-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
-                  style={{ imageRendering: 'auto' }}
+                  className="w-full max-w-[420px] lg:max-w-[540px] h-auto object-contain"
                   data-testid="img-hero-portrait"
                 />
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  background: `
+                    linear-gradient(to right, rgb(246,247,249) 0%, transparent 28%),
+                    linear-gradient(to left, rgb(246,247,249) 0%, transparent 8%),
+                    linear-gradient(to bottom, rgb(246,247,249) 0%, transparent 8%),
+                    linear-gradient(to top, rgb(246,247,249) 0%, transparent 18%)
+                  `
+                }} />
               </div>
             </div>
           </div>
