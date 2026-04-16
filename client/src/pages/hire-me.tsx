@@ -51,14 +51,14 @@ export default function HireMe() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
 
-        {/* Full-height flex wrapper */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-14 max-w-7xl mx-auto" style={{ minHeight: '100svh' }}>
+        {/* Full-height flex wrapper — aligns with header's max-w-6xl + px-6 */}
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
 
           {/* ── TEXT COLUMN ── */}
           <div className="
-            flex-shrink-0 md:max-w-xl
+            md:flex-1 md:max-w-xl
             flex flex-col justify-center
-            px-6 md:pl-10 md:pr-0 lg:pl-14
+            px-6 md:px-0
             pt-6 pb-10 md:py-16
             text-center md:text-left
             order-2 md:order-1
