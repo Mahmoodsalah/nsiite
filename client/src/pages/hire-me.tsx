@@ -51,8 +51,8 @@ export default function HireMe() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-          <div className="flex flex-col md:flex-row items-center min-h-[90vh] gap-8 pt-16">
-            <div className="text-center md:text-left flex-shrink-0 md:w-[40%] pt-8 order-2 md:order-1">
+          <div className="flex flex-col md:flex-row items-start min-h-[90vh] gap-8 pt-16">
+            <div className="text-center md:text-left flex-shrink-0 md:w-[40%] pt-10 order-2 md:order-1">
               <h1
                 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
                 data-testid="text-hero-title"
@@ -80,16 +80,17 @@ export default function HireMe() {
                 })}
               </div>
             </div>
-            <div className="flex-1 flex justify-center md:justify-end items-end order-1 md:order-2 animate-fade-in-up animation-delay-200 pt-4 md:pt-0">
+            <div className="flex-1 flex justify-center md:justify-end items-start order-1 md:order-2 animate-fade-in-up animation-delay-200 pt-10">
               <div className="relative">
                 <div
-                  className="absolute -inset-16 rounded-full blur-3xl -z-10 opacity-60"
-                  style={{ background: 'radial-gradient(ellipse at center, rgba(177,143,106,0.3) 0%, rgba(177,143,106,0.08) 50%, transparent 80%)' }}
+                  className="absolute -inset-20 rounded-full blur-3xl -z-10 opacity-70"
+                  style={{ background: 'radial-gradient(ellipse at center, rgba(177,143,106,0.35) 0%, rgba(177,143,106,0.1) 50%, transparent 80%)' }}
                 />
                 <img
                   src={mahmoodPortrait}
                   alt="Mahmood Salah"
-                  className="max-h-[70vh] md:max-h-[80vh] w-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
+                  className="w-full max-w-[420px] lg:max-w-[520px] h-auto object-contain drop-shadow-[0_0_60px_rgba(177,143,106,0.35)]"
+                  style={{ imageRendering: 'auto' }}
                   data-testid="img-hero-portrait"
                 />
               </div>
