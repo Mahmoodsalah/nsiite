@@ -51,15 +51,17 @@ export default function HireMe() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-          <div className="flex flex-col md:flex-row items-start min-h-[90vh] gap-8 pt-16">
-            <div className="text-center md:text-left flex-shrink-0 md:w-[40%] pt-10 order-2 md:order-1">
+          <div className="flex flex-col md:flex-row pt-16 min-h-[90vh]">
+
+            {/* Text column — flex-col so social icons can sit at bottom */}
+            <div className="text-center md:text-left flex-shrink-0 md:w-[42%] flex flex-col justify-center py-12 order-2 md:order-1">
               <h1
                 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
                 data-testid="text-hero-title"
               >
                 {heroTitle}
               </h1>
-              <p className="text-muted-foreground text-lg md:text-xl max-w-lg mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+              <p className="text-muted-foreground text-lg md:text-xl max-w-lg mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
                 {heroSubtitle}
               </p>
               <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
@@ -80,24 +82,30 @@ export default function HireMe() {
                 })}
               </div>
             </div>
-            <div className="flex-1 flex justify-center md:justify-end items-start order-1 md:order-2 animate-fade-in-up animation-delay-200 pt-10">
-              <div className="relative overflow-hidden">
-                <img
-                  src={mahmoodPortrait}
-                  alt="Mahmood Salah"
-                  className="w-full max-w-[420px] lg:max-w-[540px] h-auto object-contain"
-                  data-testid="img-hero-portrait"
-                />
-                <div className="absolute inset-0 pointer-events-none" style={{
-                  background: `
-                    linear-gradient(to right, rgb(246,247,249) 0%, transparent 28%),
-                    linear-gradient(to left, rgb(246,247,249) 0%, transparent 8%),
-                    linear-gradient(to bottom, rgb(246,247,249) 0%, transparent 8%),
-                    linear-gradient(to top, rgb(246,247,249) 0%, transparent 18%)
-                  `
-                }} />
-              </div>
+
+            {/* Image column — stretches to match text column height */}
+            <div className="flex-1 relative order-1 md:order-2 animate-fade-in-up animation-delay-200 overflow-hidden min-h-[320px] md:min-h-0">
+              {/* Warm amber glow — matches reference photo */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: 'radial-gradient(ellipse 70% 60% at 60% 50%, rgba(210,140,80,0.35) 0%, rgba(200,120,60,0.12) 55%, transparent 80%)'
+              }} />
+              {/* Portrait — fills column height, anchored to top */}
+              <img
+                src={mahmoodPortrait}
+                alt="Mahmood Salah"
+                className="absolute top-0 right-0 h-full w-auto object-contain object-top"
+                data-testid="img-hero-portrait"
+              />
+              {/* Edge fade — blends into page background */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: `
+                  linear-gradient(to right, rgb(246,247,249) 0%, transparent 22%),
+                  linear-gradient(to top, rgb(246,247,249) 0%, transparent 10%),
+                  linear-gradient(to bottom, rgb(246,247,249) 0%, transparent 6%)
+                `
+              }} />
             </div>
+
           </div>
         </div>
       </section>
