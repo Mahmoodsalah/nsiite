@@ -119,16 +119,12 @@ export default function HireMe() {
               </div>
             </div>
 
-            {/* Portrait image — fills the square, soft circular fade at edges */}
+            {/* Portrait image — fills the square */}
             <img
               src={mahmoodPortrait}
               alt="Mahmood Salah"
               className="absolute inset-0 w-full h-full object-cover"
               data-testid="img-hero-portrait"
-              style={{
-                maskImage: 'radial-gradient(circle at 50% 48%, black 82%, rgba(0,0,0,0.7) 92%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(circle at 50% 48%, black 82%, rgba(0,0,0,0.7) 92%, transparent 100%)',
-              }}
             />
           </div>
 
