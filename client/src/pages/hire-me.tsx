@@ -10,7 +10,8 @@ import {
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
-import mahmoodImg from "@assets/mahmood_portrait2.png";
+import mahmoodPortrait from "@assets/mahmood_portrait2.png";
+import mahmoodImg from "@assets/mahmood.jpg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
@@ -49,32 +50,47 @@ export default function HireMe() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
-          <h1
-            className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
-            data-testid="text-hero-title"
-          >
-            {heroTitle}
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
-            {heroSubtitle}
-          </p>
-          <div className="flex justify-center gap-3 animate-fade-in-up animation-delay-400">
-            {socialLinks.map((link: any, i: number) => {
-              const Icon = socialIconMap[link.platform] || SiLinkedin;
-              return (
-                <a
-                  key={i}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
-                  data-testid={`link-hero-social-${i}`}
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              );
-            })}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="text-center md:text-left order-2 md:order-1">
+              <h1
+                className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"
+                data-testid="text-hero-title"
+              >
+                {heroTitle}
+              </h1>
+              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+                {heroSubtitle}
+              </p>
+              <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
+                {socialLinks.map((link: any, i: number) => {
+                  const Icon = socialIconMap[link.platform] || SiLinkedin;
+                  return (
+                    <a
+                      key={i}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
+                      data-testid={`link-hero-social-${i}`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="flex justify-center order-1 md:order-2 animate-fade-in-up animation-delay-200">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-3xl scale-90 -z-10" />
+                <img
+                  src={mahmoodPortrait}
+                  alt="Mahmood Salah"
+                  className="w-72 md:w-80 lg:w-96 h-auto object-contain drop-shadow-[0_0_40px_rgba(177,143,106,0.3)]"
+                  data-testid="img-hero-portrait"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -90,12 +106,11 @@ export default function HireMe() {
               <section data-testid="section-about">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
                   <div className="md:col-span-1 flex justify-center">
-                    <div className="relative animate-scale-in">
-                      <div className="absolute inset-0 rounded-2xl bg-primary/10 blur-2xl scale-90 -z-10" />
+                    <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in shadow-lg shadow-primary/10">
                       <img
                         src={mahmoodImg}
                         alt="Mahmood Salah"
-                        className="w-64 h-auto object-contain drop-shadow-[0_0_32px_rgba(177,143,106,0.25)]"
+                        className="w-full h-full object-cover"
                         data-testid="img-profile"
                       />
                     </div>
