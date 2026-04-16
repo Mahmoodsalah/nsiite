@@ -105,12 +105,12 @@ export default function HireMe() {
               background: 'radial-gradient(ellipse 70% 70% at 52% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 52%, transparent 78%)'
             }} />
 
-            {/* Concentric circle rings — centered on subject */}
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-              <div className="relative" style={{ width: 'min(36%, 260px)', aspectRatio: '1' }}>
+            {/* Concentric circle rings — sized to match the portrait */}
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center md:justify-end md:pr-[6%]">
+              <div className="relative" style={{ height: '70%', aspectRatio: '1' }}>
                 <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1px solid rgba(251,191,36,0.14)' }} />
-                <div style={{ position: 'absolute', inset: '16%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
-                <div style={{ position: 'absolute', inset: '32%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
+                <div style={{ position: 'absolute', inset: '15%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
+                <div style={{ position: 'absolute', inset: '30%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
               </div>
             </div>
 
