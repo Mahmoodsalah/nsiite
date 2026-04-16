@@ -109,8 +109,8 @@ export default function HireMe() {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)',
-                maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 95%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 95%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 78%, transparent 95%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 78%, transparent 95%)',
               }}
             />
 
@@ -118,8 +118,8 @@ export default function HireMe() {
             <div
               className="absolute inset-0 pointer-events-none flex items-center justify-center"
               style={{
-                maskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 90%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 90%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 73%, transparent 90%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 73%, transparent 90%)',
               }}
             >
               <div className="relative" style={{ width: '86%', aspectRatio: '1' }}>
@@ -135,8 +135,8 @@ export default function HireMe() {
               alt="Mahmood Salah"
               className="absolute inset-0 w-full h-full object-cover"
               style={{
-                maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
               }}
               data-testid="img-hero-portrait"
             />
