@@ -84,30 +84,29 @@ export default function HireMe() {
             </div>
 
             {/* Image column — stretches to match text column height */}
-            <div className="flex-1 relative order-1 md:order-2 animate-fade-in-up animation-delay-200 overflow-visible min-h-[320px] md:min-h-0">
+            <div className="flex-1 relative order-1 md:order-2 animate-fade-in-up animation-delay-200 overflow-visible min-h-[55vw] sm:min-h-[46vw] md:min-h-0">
 
-              {/* Concentric circle rings centered on the portrait */}
-              <div className="absolute pointer-events-none" style={{ top: '50%', left: '55%', transform: 'translate(-50%, -50%)' }}>
-                <div style={{ width: 600, height: 600, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.18)' }} />
-                <div style={{ width: 440, height: 440, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.26)' }} />
-                <div style={{ width: 290, height: 290, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.36)' }} />
+              {/* Concentric circle rings — responsive using % of container */}
+              <div className="absolute pointer-events-none" style={{ top: '50%', left: '54%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%' }}>
+                <div style={{ width: '90%', paddingBottom: '90%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.15)' }} />
+                <div style={{ width: '66%', paddingBottom: '66%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
+                <div style={{ width: '44%', paddingBottom: '44%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
               </div>
 
               {/* Warm amber radial glow — centered behind the subject */}
-              <div className="absolute pointer-events-none" style={{
-                inset: 0,
-                background: 'radial-gradient(circle 340px at 55% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.15) 50%, transparent 80%)'
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: 'radial-gradient(ellipse 65% 65% at 54% 50%, rgba(210,140,80,0.36) 0%, rgba(200,120,60,0.12) 55%, transparent 80%)'
               }} />
 
-              {/* Portrait — fills column height, anchored to top, with masked edges */}
+              {/* Portrait — fills column height, only very subtle edge fade */}
               <img
                 src={mahmoodPortrait}
                 alt="Mahmood Salah"
                 className="absolute top-0 right-0 h-full w-auto object-contain object-top"
                 data-testid="img-hero-portrait"
                 style={{
-                  maskImage: 'radial-gradient(ellipse 80% 92% at 58% 48%, black 50%, transparent 88%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 80% 92% at 58% 48%, black 50%, transparent 88%)',
+                  maskImage: 'radial-gradient(ellipse 92% 96% at 56% 46%, black 72%, rgba(0,0,0,0.6) 84%, transparent 97%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 92% 96% at 56% 46%, black 72%, rgba(0,0,0,0.6) 84%, transparent 97%)',
                 }}
               />
             </div>
