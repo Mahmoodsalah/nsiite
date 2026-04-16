@@ -10,7 +10,7 @@ import {
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
-import mahmoodImg from "@assets/mahmood.jpg";
+import mahmoodImg from "@assets/mahmood_portrait2.png";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
@@ -90,11 +90,12 @@ export default function HireMe() {
               <section data-testid="section-about">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
                   <div className="md:col-span-1 flex justify-center">
-                    <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in shadow-lg shadow-primary/10">
+                    <div className="relative animate-scale-in">
+                      <div className="absolute inset-0 rounded-2xl bg-primary/10 blur-2xl scale-90 -z-10" />
                       <img
                         src={mahmoodImg}
                         alt="Mahmood Salah"
-                        className="w-full h-full object-cover"
+                        className="w-64 h-auto object-contain drop-shadow-[0_0_32px_rgba(177,143,106,0.25)]"
                         data-testid="img-profile"
                       />
                     </div>
