@@ -51,17 +51,60 @@ export default function HireMe() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
 
-        {/* Full-height flex wrapper — aligns with header's max-w-6xl + px-6 */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
+        {/* ── DESKTOP IMAGE — bleeds to right edge with left-side fade ── */}
+        <div
+          className="hidden md:block absolute top-0 right-0 h-full w-[58%] lg:w-[55%] pointer-events-none animate-fade-in-up animation-delay-200"
+          aria-hidden="true"
+        >
+          {/* Warm cream/peach glow behind photo */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(ellipse 70% 80% at 35% 50%, rgba(230,170,120,0.35) 0%, rgba(230,170,120,0.12) 45%, transparent 75%)',
+            }}
+          />
+          {/* Photo with horizontal fade mask on the left */}
+          <img
+            src={mahmoodPortrait}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{
+              maskImage:
+                'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.85) 38%, black 55%)',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.85) 38%, black 55%)',
+            }}
+          />
+        </div>
 
-          {/* ── TEXT COLUMN ── */}
+        {/* ── CONTENT ROW — text aligned with nav container ── */}
+        <div className="relative z-10 flex flex-col md:block max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
+
+          {/* ── MOBILE IMAGE — centered square with radial glow ── */}
+          <div
+            className="md:hidden relative overflow-hidden mx-auto mt-16 w-[min(90vw,90svh)] h-[min(90vw,90svh)] animate-fade-in-up animation-delay-200 order-1"
+            style={{ aspectRatio: '1 / 1' }}
+          >
+            <div className="absolute inset-0 pointer-events-none" style={{
+              background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)'
+            }} />
+            <img
+              src={mahmoodPortrait}
+              alt="Mahmood Salah"
+              className="absolute inset-0 w-full h-full object-cover"
+              data-testid="img-hero-portrait"
+            />
+          </div>
+
+          {/* ── TEXT COLUMN — aligned with header logo ── */}
           <div className="
-            md:flex-1
             flex flex-col justify-center
+            md:min-h-screen md:max-w-xl
             px-6 md:px-0
             pt-6 pb-10 md:py-16
             text-center md:text-left
-            order-2 md:order-1
+            order-2
           ">
             <h1
               className="font-heading font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl text-foreground leading-tight mb-5 animate-fade-in-up"
@@ -89,42 +132,6 @@ export default function HireMe() {
                 );
               })}
             </div>
-          </div>
-
-          {/* ── IMAGE COLUMN — square, constrained to flex slot on md+ ── */}
-          <div
-            className="
-              relative overflow-hidden
-              order-1 md:order-2 md:flex-1
-              mt-16 md:mt-0
-              mx-auto md:mx-0
-              w-[min(90vw,90svh)] h-[min(90vw,90svh)]
-              md:w-auto md:h-auto md:max-w-full
-              animate-fade-in-up animation-delay-200
-            "
-            style={{ aspectRatio: '1 / 1' }}
-          >
-            {/* Amber radial glow */}
-            <div className="absolute inset-0 pointer-events-none" style={{
-              background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)'
-            }} />
-
-            {/* Concentric circle rings — centered on photo */}
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-              <div className="relative" style={{ width: '86%', aspectRatio: '1' }}>
-                <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '1px solid rgba(251,191,36,0.14)' }} />
-                <div style={{ position: 'absolute', inset: '14%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.22)' }} />
-                <div style={{ position: 'absolute', inset: '28%', borderRadius: '50%', border: '1px solid rgba(251,191,36,0.32)' }} />
-              </div>
-            </div>
-
-            {/* Portrait image — fills the square */}
-            <img
-              src={mahmoodPortrait}
-              alt="Mahmood Salah"
-              className="absolute inset-0 w-full h-full object-cover"
-              data-testid="img-hero-portrait"
-            />
           </div>
 
         </div>
