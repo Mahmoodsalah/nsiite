@@ -109,8 +109,8 @@ export default function HireMe() {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background: 'radial-gradient(circle at 50% 50%, rgba(210,140,80,0.38) 0%, rgba(200,120,60,0.13) 42%, transparent 70%)',
-                maskImage: 'linear-gradient(to bottom, black 0%, black 78%, rgba(0,0,0,0.3) 95%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 78%, rgba(0,0,0,0.3) 95%)',
+                maskImage: 'radial-gradient(ellipse 80% 90% at 50% 35%, black 60%, rgba(0,0,0,0.3) 95%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 80% 90% at 50% 35%, black 60%, rgba(0,0,0,0.3) 95%)',
               }}
             />
 
@@ -118,8 +118,8 @@ export default function HireMe() {
             <div
               className="absolute inset-0 pointer-events-none flex items-center justify-center"
               style={{
-                maskImage: 'linear-gradient(to bottom, black 0%, black 73%, rgba(0,0,0,0.3) 90%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 73%, rgba(0,0,0,0.3) 90%)',
+                maskImage: 'radial-gradient(ellipse 80% 90% at 50% 35%, black 60%, rgba(0,0,0,0.3) 95%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 80% 90% at 50% 35%, black 60%, rgba(0,0,0,0.3) 95%)',
               }}
             >
               <div className="relative" style={{ width: '86%', aspectRatio: '1' }}>
@@ -135,8 +135,8 @@ export default function HireMe() {
               alt="Mahmood Salah"
               className="absolute inset-0 w-full h-full object-cover"
               style={{
-                maskImage: 'linear-gradient(to bottom, black 0%, black 85%, rgba(0,0,0,0.3) 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, rgba(0,0,0,0.3) 100%)',
+                maskImage: 'radial-gradient(ellipse 85% 95% at 50% 35%, black 65%, rgba(0,0,0,0.3) 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 85% 95% at 50% 35%, black 65%, rgba(0,0,0,0.3) 100%)',
               }}
               data-testid="img-hero-portrait"
             />
