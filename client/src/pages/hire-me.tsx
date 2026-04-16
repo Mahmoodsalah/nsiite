@@ -96,6 +96,7 @@ export default function HireMe() {
             flex-1 relative
             order-1 md:order-2
             h-[70vw] sm:h-[55vw] md:h-auto
+            mt-16 md:mt-0
             overflow-hidden
             animate-fade-in-up animation-delay-200
           ">
