@@ -52,14 +52,14 @@ export default function HireMe() {
         <NetworkBg />
 
         {/* Full-height flex wrapper */}
-        <div className="relative z-10 flex flex-col md:flex-row" style={{ minHeight: '100svh' }}>
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-14 max-w-7xl mx-auto" style={{ minHeight: '100svh' }}>
 
           {/* ── TEXT COLUMN ── */}
           <div className="
-            flex-shrink-0 md:w-[46%]
+            flex-shrink-0 md:max-w-xl
             flex flex-col justify-center
-            px-6 md:px-10 lg:px-14
-            pt-6 pb-10 md:pt-32 md:pb-16
+            px-6 md:pl-10 md:pr-0 lg:pl-14
+            pt-6 pb-10 md:py-16
             text-center md:text-left
             order-2 md:order-1
           ">
@@ -94,10 +94,10 @@ export default function HireMe() {
           {/* ── IMAGE COLUMN — explicit square, sized per breakpoint ── */}
           <div
             className="
-              relative overflow-hidden
+              relative overflow-hidden flex-shrink-0
               order-1 md:order-2
               mt-16 md:mt-0
-              mx-auto md:ml-auto md:mr-0
+              mx-auto md:mx-0
               animate-fade-in-up animation-delay-200
             "
             style={{
