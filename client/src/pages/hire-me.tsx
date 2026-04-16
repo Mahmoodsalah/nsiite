@@ -56,7 +56,7 @@ export default function HireMe() {
 
           {/* ── TEXT COLUMN ── */}
           <div className="
-            md:flex-1 md:max-w-xl
+            md:flex-1
             flex flex-col justify-center
             px-6 md:px-0
             pt-6 pb-10 md:py-16
@@ -91,19 +91,18 @@ export default function HireMe() {
             </div>
           </div>
 
-          {/* ── IMAGE COLUMN — explicit square, sized per breakpoint ── */}
+          {/* ── IMAGE COLUMN — square, constrained to flex slot on md+ ── */}
           <div
             className="
-              relative overflow-hidden flex-shrink-0
-              order-1 md:order-2
+              relative overflow-hidden
+              order-1 md:order-2 md:flex-1
               mt-16 md:mt-0
               mx-auto md:mx-0
+              w-[min(90vw,90svh)] h-[min(90vw,90svh)]
+              md:w-auto md:h-auto md:max-w-full
               animate-fade-in-up animation-delay-200
             "
-            style={{
-              width: 'min(90vw, 90svh)',
-              height: 'min(90vw, 90svh)',
-            }}
+            style={{ aspectRatio: '1 / 1' }}
           >
             {/* Amber radial glow */}
             <div className="absolute inset-0 pointer-events-none" style={{
