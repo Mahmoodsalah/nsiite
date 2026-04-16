@@ -100,8 +100,17 @@ export default function HireMe() {
             overflow-hidden
             animate-fade-in-up animation-delay-200
           ">
-            {/* Square photo wrapper — matches photo's visible size (1:1 aspect) */}
-            <div className="relative aspect-square h-full mx-auto md:ml-auto md:mr-0">
+            {/* Square photo wrapper — sized to min(col width, col height), right-aligned on desktop */}
+            <div
+              className="relative mx-auto md:ml-auto md:mr-0"
+              style={{
+                aspectRatio: '1 / 1',
+                height: '100%',
+                width: 'auto',
+                maxWidth: '100%',
+                maxHeight: '100%',
+              }}
+            >
 
               {/* Amber radial glow — constrained to photo area */}
               <div className="absolute inset-0 pointer-events-none" style={{
