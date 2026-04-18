@@ -69,12 +69,12 @@ export default function HireMe() {
   }, [typed, phase, titleIndex]);
   // Companies carousel — track active dot for mobile swipe indicator
   const companies = [
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.3, tooltip: "Founding Director (Volunteer)" },
-    { name: "Innova",     kind: "image" as const, src: innovaLogo,      scale: 1.25, tooltip: "Senior Data Scientist" },
-    { name: "Udacity",   kind: "wordmark" as const, text: "Udacity",   textSize: "text-2xl", tooltip: "AI Mentor" },
-    { name: "GLG",       kind: "wordmark" as const, text: "GLG",       textSize: "text-3xl", tooltip: "Council Member" },
-    { name: "Nielsen",   kind: "wordmark" as const, text: "nielsen",   textSize: "text-3xl", tooltip: "Ex: Data acquisition Supervisor" },
-    { name: "Google",    kind: "image" as const, src: googleLogo,      scale: 1.0, tooltip: "Ex: Google Ambassador and GDG Manager" },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.4, tooltip: "Founding Director (Volunteer)" },
+    { name: "Innova",     kind: "image" as const, src: innovaLogo,      scale: 1.35, tooltip: "Senior Data Scientist" },
+    { name: "Udacity",   kind: "wordmark" as const, text: "Udacity",   textSize: "text-xl",  tooltip: "AI Mentor" },
+    { name: "GLG",       kind: "wordmark" as const, text: "GLG",       textSize: "text-2xl", tooltip: "Council Member" },
+    { name: "Nielsen",   kind: "wordmark" as const, text: "nielsen",   textSize: "text-2xl", tooltip: "Ex: Data acquisition Supervisor" },
+    { name: "Google",    kind: "image" as const, src: googleLogo,      scale: 1.1, tooltip: "Ex: Google Ambassador and GDG Manager" },
   ];
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
