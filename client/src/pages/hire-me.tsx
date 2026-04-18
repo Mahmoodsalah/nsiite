@@ -96,21 +96,22 @@ export default function HireMe() {
             order-2 md:order-1
           ">
             <h1
-              className="font-heading font-bold text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground leading-tight mb-5 animate-fade-in-up"
+              className="font-heading font-bold text-lg sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground leading-tight mb-5 animate-fade-in-up antialiased"
               data-testid="text-hero-title"
+              style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale' }}
             >
               <span className="block text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl">I'm</span>
-              <span className="text-primary relative inline-block align-baseline whitespace-nowrap">
-                {/* Invisible spacer reserves width for the longest title so
-                    the layout never shifts as text types/deletes */}
-                <span aria-hidden="true" className="invisible">
+              <span className="text-primary inline-grid align-baseline">
+                {/* Stack spacer + typed text in same grid cell so layout is reserved
+                    for the longest title without absolute positioning artifacts */}
+                <span aria-hidden="true" className="invisible whitespace-nowrap [grid-area:1/1]">
                   AI Transformation Consultant
                 </span>
-                <span className="absolute inset-0 whitespace-nowrap">
+                <span className="whitespace-nowrap [grid-area:1/1] text-left">
                   {typed}
                   <span
                     aria-hidden="true"
-                    className="inline-block w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
+                    className="inline-block w-[2px] sm:w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
                   />
                 </span>
               </span>
