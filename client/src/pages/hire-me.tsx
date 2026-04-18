@@ -264,7 +264,8 @@ export default function HireMe() {
                 return (
                   <Tooltip key={c.name} delayDuration={150}>
                     <TooltipTrigger asChild>
-                      <div
+                      <button
+                        type="button"
                         className="
                           relative shrink-0 md:shrink
                           h-24
@@ -320,9 +321,9 @@ export default function HireMe() {
                             </span>
                           )}
                         </div>
-                      </div>
+                      </button>
                     </TooltipTrigger>
-                      <TooltipContent
+                    <TooltipContent
                       side="top"
                       sideOffset={10}
                       className="
@@ -332,10 +333,6 @@ export default function HireMe() {
                       "
                     >
                       <div className="flex items-center gap-2">
-                        <span
-                          className="inline-block w-1.5 h-1.5 rounded-full"
-                          style={{ backgroundColor: brandColor || "hsl(var(--primary))" }}
-                        />
                       </div>
                       <span
                         className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5"
