@@ -11,11 +11,7 @@ import {
   Brain,
   HandshakeIcon,
   Users,
-  BarChart3,
-  MessageSquare,
-  FileSearch,
   Settings2,
-  Lightbulb,
 } from "lucide-react";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import NetworkBg from "@/components/network-bg";
@@ -55,71 +51,10 @@ export default function Automati() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-xl px-8 glass-card-hover" data-testid="button-automati-how" asChild>
-                <a href="#what-we-build">See What We Build</a>
+                <a href="#how-it-works">See How It Works</a>
               </Button>
             </div>
           </AnimateIn>
-        </div>
-      </section>
-
-      {/* WHAT WE BUILD */}
-      <section id="what-we-build" className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-        <AnimateIn>
-          <div className="text-center mb-12">
-            <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
-              What We Build
-            </Badge>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-what-title">
-              Not a tool. An intelligent system built around you.
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Automati builds AI systems that think, decide, and act — not just simple automations that connect two buttons. Here's a glimpse of what we've built for clients:
-            </p>
-          </div>
-        </AnimateIn>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            {
-              icon: MessageSquare,
-              title: "Smart Communication Systems",
-              desc: "AI agents that draft, send, follow up, and manage conversations across email, WhatsApp, or any platform — in your voice.",
-            },
-            {
-              icon: FileSearch,
-              title: "Research & Intelligence Agents",
-              desc: "Agents that browse, gather, summarize, and deliver exactly what you need to know — from the web, documents, or your own data.",
-            },
-            {
-              icon: BarChart3,
-              title: "Reporting & Analysis Pipelines",
-              desc: "Systems that pull data from multiple sources, interpret it, and produce structured reports — ready for review or delivery.",
-            },
-            {
-              icon: Workflow,
-              title: "End-to-End Workflow Automation",
-              desc: "Multi-step AI workflows that handle entire processes from start to finish — inputs, logic, decisions, and outputs all included.",
-            },
-            {
-              icon: Lightbulb,
-              title: "Decision-Support Systems",
-              desc: "AI that monitors conditions, evaluates options, and surfaces recommendations — so every decision you make is better informed.",
-            },
-            {
-              icon: Settings2,
-              title: "Custom AI Integrations",
-              desc: "Connect AI to the tools you already use — CRMs, spreadsheets, calendars, databases, or internal platforms — without replacing anything.",
-            },
-          ].map((item, i) => (
-            <AnimateIn key={item.title} delay={i * 0.05}>
-              <div className="glass-card-hover rounded-2xl p-6 h-full" data-testid={`card-what-${i}`}>
-                <div className="w-11 h-11 rounded-xl glass-badge flex items-center justify-center mb-4">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            </AnimateIn>
-          ))}
         </div>
       </section>
 
