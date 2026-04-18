@@ -96,10 +96,10 @@ export default function HireMe() {
             order-2 md:order-1
           ">
             <h1
-              className="font-heading font-bold text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground leading-tight mb-5 animate-fade-in-up"
+              className="font-heading font-bold text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground leading-tight mb-5 animate-fade-in-up"
               data-testid="text-hero-title"
             >
-              <span className="block text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl">I'm</span>
+              <span className="block text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl">I'm</span>
               <span className="text-primary relative inline-block align-baseline whitespace-nowrap">
                 {/* Invisible spacer reserves width for the longest title so
                     the layout never shifts as text types/deletes */}
