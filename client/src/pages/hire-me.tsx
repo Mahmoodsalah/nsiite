@@ -69,7 +69,7 @@ export default function HireMe() {
   }, [typed, phase, titleIndex]);
   // Companies carousel — track active dot for mobile swipe indicator
   const companies = [
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.47, tooltip: "Founding Director (Volunteer)" },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.54, tooltip: "Founding Director (Volunteer)" },
     { name: "Innova",     kind: "image" as const, src: innovaLogo,      scale: 1.35, tooltip: "Senior Data Scientist" },
     { name: "Udacity",   kind: "wordmark" as const, text: "Udacity",   textSize: "text-xl",  tooltip: "AI Mentor" },
     { name: "GLG",       kind: "wordmark" as const, text: "GLG",       textSize: "text-2xl", tooltip: "Council Member" },
