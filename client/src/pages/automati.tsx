@@ -254,6 +254,7 @@ export default function Automati() {
               </Badge>
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Subscription</p>
               <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Monthly</h3>
+              <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">$15</span>
                 <span className="text-sm text-muted-foreground">/ month</span>
@@ -279,6 +280,7 @@ export default function Automati() {
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-onetime">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">One-Time Setup</p>
               <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Custom Build</h3>
+              <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">$250</span>
                 <span className="text-sm text-muted-foreground">one-time</span>
@@ -304,6 +306,7 @@ export default function Automati() {
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-business">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">For Companies</p>
               <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Business</h3>
+              <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">Custom</span>
               </div>
