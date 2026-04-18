@@ -7,7 +7,7 @@ import {
   Eye,
   Loader2,
 } from "lucide-react";
-import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook, SiGoogle, SiUdacity } from "react-icons/si";
+import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import mahmoodPortrait from "@assets/1a54ec53-5da8-4e83-87a5-02df3fc9d7ad_1776300934772.png";
@@ -15,6 +15,7 @@ import mahmoodImg from "@assets/mahmood.jpg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import innovaLogo from "@assets/innova_nobg.png";
 import bootcampAiLogo from "@assets/bootcampai_nobg.png";
+import googleLogo from "@assets/google_nobg.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
 const iconMap: Record<string, any> = { Brain, Bot, Cloud, Eye };
@@ -211,51 +212,81 @@ export default function HireMe() {
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
               {[
-                { name: "Innova", kind: "mask", src: innovaLogo, w: 110 },
-                { name: "BootcampAI", kind: "mask", src: bootcampAiLogo, w: 130 },
-                { name: "Google", kind: "icon", Icon: SiGoogle },
-                { name: "Udacity", kind: "icon", Icon: SiUdacity },
+                { name: "Innova", kind: "image", src: innovaLogo },
+                { name: "BootcampAI", kind: "image", src: bootcampAiLogo },
+                { name: "Google", kind: "image", src: googleLogo },
+                { name: "Udacity", kind: "wordmark", text: "Udacity" },
                 { name: "GLG", kind: "wordmark", text: "GLG" },
                 { name: "Nielsen", kind: "wordmark", text: "nielsen" },
               ].map((c) => (
                 <div
                   key={c.name}
-                  className="h-20 w-40 md:w-44 rounded-2xl glass-card-hover flex items-center justify-center transition-all duration-300 group"
+                  className="relative h-20 w-40 md:w-44 rounded-2xl glass-card-hover flex items-center justify-center overflow-hidden transition-all duration-300 group"
                   title={c.name}
                   data-testid={`logo-company-${c.name.toLowerCase()}`}
                 >
-                  {c.kind === "mask" && (
-                    <div
-                      aria-label={c.name}
-                      role="img"
-                      className="bg-foreground/75 group-hover:bg-foreground transition-colors"
-                      style={{
-                        width: `${c.w}px`,
-                        height: '40px',
-                        WebkitMaskImage: `url(${c.src})`,
-                        maskImage: `url(${c.src})`,
-                        WebkitMaskRepeat: 'no-repeat',
-                        maskRepeat: 'no-repeat',
-                        WebkitMaskPosition: 'center',
-                        maskPosition: 'center',
-                        WebkitMaskSize: 'contain',
-                        maskSize: 'contain',
-                      }}
-                    />
-                  )}
-                  {c.kind === "icon" && c.Icon && (
-                    <div className="flex items-center gap-2 text-foreground/55 group-hover:text-foreground/80 transition-colors">
-                      <c.Icon className="w-7 h-7" />
-                      <span className="text-lg font-heading font-semibold tracking-wide">
-                        {c.name}
+                  {/* Default state: dark grey logo / wordmark */}
+                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-4">
+                    {c.kind === "image" ? (
+                      <div
+                        aria-label={c.name}
+                        role="img"
+                        className="bg-foreground/75 w-full"
+                        style={{
+                          height: '48px',
+                          WebkitMaskImage: `url(${c.src})`,
+                          maskImage: `url(${c.src})`,
+                          WebkitMaskRepeat: 'no-repeat',
+                          maskRepeat: 'no-repeat',
+                          WebkitMaskPosition: 'center',
+                          maskPosition: 'center',
+                          WebkitMaskSize: 'contain',
+                          maskSize: 'contain',
+                        }}
+                      />
+                    ) : (
+                      <span className="text-2xl font-heading font-bold tracking-tight text-foreground/75">
+                        {c.text}
                       </span>
-                    </div>
-                  )}
-                  {c.kind === "wordmark" && (
-                    <span className="text-2xl font-heading font-bold tracking-tight text-foreground/75 group-hover:text-foreground transition-colors">
-                      {c.text}
-                    </span>
-                  )}
+                    )}
+                  </div>
+
+                  {/* Hover state: real-color logo + name */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    {c.kind === "image" ? (
+                      <>
+                        <img
+                          src={c.src}
+                          alt={c.name}
+                          className="h-9 w-auto max-w-full object-contain"
+                        />
+                        <span className="text-[11px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
+                          {c.name}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span
+                          className="text-xl font-heading font-bold tracking-tight"
+                          style={{
+                            color:
+                              c.name === "Udacity"
+                                ? "#02b3e4"
+                                : c.name === "GLG"
+                                ? "#003a70"
+                                : c.name === "Nielsen"
+                                ? "#0033a0"
+                                : undefined,
+                          }}
+                        >
+                          {c.text}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
+                          {c.name}
+                        </span>
+                      </>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
