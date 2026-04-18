@@ -69,12 +69,12 @@ export default function HireMe() {
   }, [typed, phase, titleIndex]);
   // Companies carousel — track active dot for mobile swipe indicator
   const companies = [
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, maskSize: "82%", tooltip: "Founding Director (Volunteer)" },
-    { name: "Innova",     kind: "image" as const, src: innovaLogo,      maskSize: "78%", tooltip: "Senior Data Scientist" },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.3, tooltip: "Founding Director (Volunteer)" },
+    { name: "Innova",     kind: "image" as const, src: innovaLogo,      scale: 1.25, tooltip: "Senior Data Scientist" },
     { name: "Udacity",   kind: "wordmark" as const, text: "Udacity",   textSize: "text-2xl", tooltip: "AI Mentor" },
     { name: "GLG",       kind: "wordmark" as const, text: "GLG",       textSize: "text-3xl", tooltip: "Council Member" },
     { name: "Nielsen",   kind: "wordmark" as const, text: "nielsen",   textSize: "text-3xl", tooltip: "Ex: Data acquisition Supervisor" },
-    { name: "Google",    kind: "image" as const, src: googleLogo,      maskSize: "72%", tooltip: "Ex: Google Ambassador and GDG Manager" },
+    { name: "Google",    kind: "image" as const, src: googleLogo,      scale: 1.0, tooltip: "Ex: Google Ambassador and GDG Manager" },
   ];
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
@@ -282,6 +282,7 @@ export default function HireMe() {
                           transition-all duration-300 group cursor-pointer
                         "
                         data-testid={`logo-company-${c.name.toLowerCase()}`}
+                        style={{ transform: 'translateZ(0)' }}
                         onMouseEnter={() => setOpenTooltip(c.name)}
                         onMouseLeave={() => setOpenTooltip(null)}
                         onTouchEnd={(e) => {
@@ -289,8 +290,9 @@ export default function HireMe() {
                           setOpenTooltip(openTooltip === c.name ? null : c.name);
                         }}
                       >
-                        {/* Default: dark grey mask/wordmark — always within card bounds */}
-                        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 p-4">
+                        {/* Default: grey mask with scale zoom. Parent has translateZ(0)
+                            which forces GPU compositing — fixes iOS Safari overflow:hidden clip bug. */}
+                        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-3 py-3">
                           {c.kind === "image" ? (
                             <div
                               aria-label={c.name}
@@ -303,8 +305,9 @@ export default function HireMe() {
                                 maskRepeat: 'no-repeat',
                                 WebkitMaskPosition: 'center',
                                 maskPosition: 'center',
-                                WebkitMaskSize: c.maskSize ?? 'contain',
-                                maskSize: c.maskSize ?? 'contain',
+                                WebkitMaskSize: 'contain',
+                                maskSize: 'contain',
+                                transform: `scale(${c.scale ?? 1})`,
                               }}
                             />
                           ) : (
@@ -314,14 +317,14 @@ export default function HireMe() {
                           )}
                         </div>
 
-                        {/* Hover: real-color logo — constrained to padded inner area */}
-                        <div className="absolute inset-0 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        {/* Hover: full-color logo, same scale. */}
+                        <div className="absolute inset-0 flex items-center justify-center px-3 py-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                           {c.kind === "image" ? (
                             <img
                               src={c.src}
                               alt={c.name}
-                              className="max-w-full max-h-full object-contain"
-                              style={{ width: c.maskSize ?? '100%', height: c.maskSize ?? '100%' }}
+                              className="w-full h-full object-contain"
+                              style={{ transform: `scale(${c.scale ?? 1})` }}
                             />
                           ) : (
                             <span
