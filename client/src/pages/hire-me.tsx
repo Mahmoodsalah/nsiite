@@ -336,7 +336,6 @@ export default function HireMe() {
                           className="inline-block w-1.5 h-1.5 rounded-full"
                           style={{ backgroundColor: brandColor || "hsl(var(--primary))" }}
                         />
-                        <span className="text-foreground">{c.name}</span>
                       </div>
                       <span
                         className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5"
