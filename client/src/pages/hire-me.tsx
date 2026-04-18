@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Brain,
@@ -66,6 +66,37 @@ export default function HireMe() {
     }
     return () => clearTimeout(timeout);
   }, [typed, phase, titleIndex]);
+  // Companies carousel — track active dot for mobile swipe indicator
+  const companies = [
+    { name: "Innova", kind: "image" as const, src: innovaLogo },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo },
+    { name: "Google", kind: "image" as const, src: googleLogo },
+    { name: "Udacity", kind: "wordmark" as const, text: "Udacity" },
+    { name: "GLG", kind: "wordmark" as const, text: "GLG" },
+    { name: "Nielsen", kind: "wordmark" as const, text: "nielsen" },
+  ];
+  const companiesScrollRef = useRef<HTMLDivElement | null>(null);
+  const [activeCompany, setActiveCompany] = useState(0);
+
+  useEffect(() => {
+    const el = companiesScrollRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const cardWidth = el.scrollWidth / companies.length;
+      const idx = Math.round((el.scrollLeft + el.clientWidth / 2 - cardWidth / 2) / cardWidth);
+      setActiveCompany(Math.max(0, Math.min(companies.length - 1, idx)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [companies.length]);
+
+  const scrollToCompany = (idx: number) => {
+    const el = companiesScrollRef.current;
+    if (!el) return;
+    const cardWidth = el.scrollWidth / companies.length;
+    el.scrollTo({ left: cardWidth * idx, behavior: "smooth" });
+  };
+
   const socialLinks = getVal(content, "hero", "socialLinks", []);
   const aboutTitle = getVal(content, "about", "title", "About Me");
   const bio1 = getVal(content, "about", "bio1", "");
@@ -211,8 +242,9 @@ export default function HireMe() {
               Worked with
             </p>
             {/* Desktop: equal-width grid, all logos in one row.
-                Mobile: horizontal swipeable carousel with snap. */}
+                Mobile: horizontal swipeable carousel with snap + dot indicator. */}
             <div
+              ref={companiesScrollRef}
               className="
                 flex md:grid md:grid-cols-6 gap-3 md:gap-4
                 overflow-x-auto md:overflow-visible
@@ -222,20 +254,13 @@ export default function HireMe() {
                 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
               "
             >
-              {[
-                { name: "Innova", kind: "image", src: innovaLogo },
-                { name: "BootcampAI", kind: "image", src: bootcampAiLogo },
-                { name: "Google", kind: "image", src: googleLogo },
-                { name: "Udacity", kind: "wordmark", text: "Udacity" },
-                { name: "GLG", kind: "wordmark", text: "GLG" },
-                { name: "Nielsen", kind: "wordmark", text: "nielsen" },
-              ].map((c) => (
+              {companies.map((c) => (
                 <div
                   key={c.name}
                   className="
                     relative shrink-0 md:shrink
-                    h-24 md:h-24
-                    w-40 md:w-auto
+                    h-24
+                    w-[78%] sm:w-[44%] md:w-auto
                     snap-center md:snap-align-none
                     rounded-2xl glass-card-hover
                     flex items-center justify-center overflow-hidden
@@ -244,13 +269,13 @@ export default function HireMe() {
                   title={c.name}
                   data-testid={`logo-company-${c.name.toLowerCase()}`}
                 >
-                  {/* Default state: dark grey logo / wordmark — uniform sizing */}
-                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-5">
+                  {/* Default state: dark grey logo / wordmark — uniform visual size */}
+                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-3 py-3">
                     {c.kind === "image" ? (
                       <div
                         aria-label={c.name}
                         role="img"
-                        className="bg-foreground/75 w-full h-12"
+                        className="bg-foreground/75 w-full h-full"
                         style={{
                           WebkitMaskImage: `url(${c.src})`,
                           maskImage: `url(${c.src})`,
@@ -263,7 +288,7 @@ export default function HireMe() {
                         }}
                       />
                     ) : (
-                      <span className="text-2xl font-heading font-bold tracking-tight text-foreground/75 leading-none">
+                      <span className="text-3xl md:text-3xl font-heading font-bold tracking-tight text-foreground/75 leading-none">
                         {c.text}
                       </span>
                     )}
@@ -276,7 +301,7 @@ export default function HireMe() {
                         <img
                           src={c.src}
                           alt={c.name}
-                          className="h-10 w-auto max-w-full object-contain"
+                          className="h-12 w-auto max-w-full object-contain"
                         />
                         <span className="text-[10px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
                           {c.name}
@@ -285,7 +310,7 @@ export default function HireMe() {
                     ) : (
                       <>
                         <span
-                          className="text-xl font-heading font-bold tracking-tight leading-none"
+                          className="text-2xl font-heading font-bold tracking-tight leading-none"
                           style={{
                             color:
                               c.name === "Udacity"
@@ -307,6 +332,30 @@ export default function HireMe() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile-only dot indicator + swipe hint */}
+            <div className="md:hidden mt-4 flex flex-col items-center gap-2">
+              <div className="flex items-center gap-1.5">
+                {companies.map((c, i) => (
+                  <button
+                    key={c.name}
+                    type="button"
+                    onClick={() => scrollToCompany(i)}
+                    aria-label={`Go to ${c.name}`}
+                    data-testid={`dot-company-${i}`}
+                    className={`
+                      transition-all duration-300 rounded-full
+                      ${i === activeCompany
+                        ? "w-6 h-1.5 bg-primary"
+                        : "w-1.5 h-1.5 bg-foreground/25 hover:bg-foreground/40"}
+                    `}
+                  />
+                ))}
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/60">
+                Swipe to see more
+              </p>
             </div>
           </div>
 
