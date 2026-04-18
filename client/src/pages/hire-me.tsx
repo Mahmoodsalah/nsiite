@@ -267,7 +267,7 @@ export default function HireMe() {
                       <div
                         className="
                           relative shrink-0 md:shrink
-                          h-28
+                          h-24
                           w-[78%] sm:w-[44%] md:w-auto
                           snap-center md:snap-align-none
                           rounded-2xl glass-card-hover
