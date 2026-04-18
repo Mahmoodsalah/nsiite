@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Home from "@/pages/home";
 import HireMe from "@/pages/hire-me";
 import Consultation from "@/pages/consultation";
 import Bootcamp from "@/pages/bootcamp";
@@ -20,7 +21,8 @@ function App() {
           <Header />
           <main className="flex-1 pt-0">
             <Switch>
-              <Route path="/" component={HireMe} />
+              <Route path="/" component={Home} />
+              <Route path="/hire-me" component={HireMe} />
               <Route path="/consultation" component={Consultation} />
               <Route path="/bootcampai" component={Bootcamp} />
               <Route path="/mentorship" component={Mentorship} />
