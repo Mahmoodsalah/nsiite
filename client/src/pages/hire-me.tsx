@@ -99,21 +99,19 @@ export default function HireMe() {
               className="font-heading font-bold text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground leading-tight mb-5 animate-fade-in-up"
               data-testid="text-hero-title"
             >
-              <span className="whitespace-nowrap">
-                I'm{" "}
-                <span className="text-primary relative inline-block align-baseline">
-                  {/* Invisible spacer reserves width for the longest title so
-                      the layout never shifts as text types/deletes */}
-                  <span aria-hidden="true" className="invisible">
-                    AI Transformation Consultant
-                  </span>
-                  <span className="absolute inset-0 whitespace-nowrap">
-                    {typed}
-                    <span
-                      aria-hidden="true"
-                      className="inline-block w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
-                    />
-                  </span>
+              <span className="block">I'm</span>
+              <span className="text-primary relative inline-block align-baseline whitespace-nowrap">
+                {/* Invisible spacer reserves width for the longest title so
+                    the layout never shifts as text types/deletes */}
+                <span aria-hidden="true" className="invisible">
+                  AI Transformation Consultant
+                </span>
+                <span className="absolute inset-0 whitespace-nowrap">
+                  {typed}
+                  <span
+                    aria-hidden="true"
+                    className="inline-block w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
+                  />
                 </span>
               </span>
             </h1>
