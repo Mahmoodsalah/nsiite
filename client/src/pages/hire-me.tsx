@@ -157,7 +157,7 @@ export default function HireMe() {
               >
                 Worked with
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 {[
                   { name: "Innova", type: "image", src: innovaLogo },
                   { name: "BootcampAI", type: "image", src: bootcampAiLogo },
@@ -168,7 +168,7 @@ export default function HireMe() {
                 ].map((c) => (
                   <div
                     key={c.name}
-                    className="h-10 px-3.5 rounded-xl glass-card-hover flex items-center justify-center transition-all duration-300"
+                    className="h-14 px-5 rounded-2xl glass-card-hover flex items-center justify-center transition-all duration-300"
                     title={c.name}
                     data-testid={`logo-company-${c.name.toLowerCase()}`}
                   >
@@ -176,14 +176,14 @@ export default function HireMe() {
                       <img
                         src={c.src}
                         alt={c.name}
-                        className="h-6 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                        className="h-9 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                         style={{
                           filter: "grayscale(1) contrast(1.2)",
                           mixBlendMode: "multiply",
                         }}
                       />
                     ) : (
-                      <span className="text-[13px] font-heading font-semibold tracking-wide text-foreground/55 hover:text-foreground/80 transition-colors">
+                      <span className="text-base md:text-lg font-heading font-semibold tracking-wide text-foreground/60 hover:text-foreground/85 transition-colors">
                         {c.name}
                       </span>
                     )}
