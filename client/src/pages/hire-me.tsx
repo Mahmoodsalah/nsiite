@@ -69,12 +69,12 @@ export default function HireMe() {
   }, [typed, phase, titleIndex]);
   // Companies carousel — track active dot for mobile swipe indicator
   const companies = [
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.5 },
-    { name: "Innova", kind: "image" as const, src: innovaLogo, scale: 1.25 },
-    { name: "Udacity", kind: "wordmark" as const, text: "Udacity" },
-    { name: "GLG", kind: "wordmark" as const, text: "GLG" },
-    { name: "Nielsen", kind: "wordmark" as const, text: "nielsen" },
-    { name: "Google", kind: "image" as const, src: googleLogo, scale: 1 },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.5, tooltip: "Founding Director (Volunteer)" },
+    { name: "Innova", kind: "image" as const, src: innovaLogo, scale: 1.25, tooltip: "Senior Data Scientist" },
+    { name: "Udacity", kind: "wordmark" as const, text: "Udacity", tooltip: "AI Mentor" },
+    { name: "GLG", kind: "wordmark" as const, text: "GLG", tooltip: "Council Member" },
+    { name: "Nielsen", kind: "wordmark" as const, text: "nielsen", tooltip: "Ex: Data acquisition Supervisor" },
+    { name: "Google", kind: "image" as const, src: googleLogo, scale: 1, tooltip: "Ex: Google Ambassador and GDG Manager" },
   ];
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
@@ -322,7 +322,7 @@ export default function HireMe() {
                         </div>
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent
+                      <TooltipContent
                       side="top"
                       sideOffset={10}
                       className="
@@ -341,7 +341,7 @@ export default function HireMe() {
                       <span
                         className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5"
                       >
-                        Role coming soon
+                        {c.tooltip}
                       </span>
                     </TooltipContent>
                   </Tooltip>
