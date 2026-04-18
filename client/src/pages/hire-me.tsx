@@ -84,11 +84,11 @@ export default function HireMe() {
         <NetworkBg />
 
         {/* Full-height flex wrapper — aligns with header's max-w-6xl + px-6 */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-end md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
+        <div className="relative z-10 flex flex-col md:grid md:grid-cols-2 md:items-end md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
 
           {/* ── TEXT COLUMN ── */}
           <div className="
-            md:flex-1
+            min-w-0
             flex flex-col justify-center
             px-6 md:px-0
             pt-6 pb-10 md:pt-20 md:pb-48
@@ -96,25 +96,24 @@ export default function HireMe() {
             order-2 md:order-1
           ">
             <h1
-              className="font-heading font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl text-foreground leading-tight mb-5 animate-fade-in-up"
+              className="font-heading font-bold text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground leading-tight mb-5 animate-fade-in-up"
               data-testid="text-hero-title"
             >
-              <span className="block">I'm</span>
-              <span
-                className="block text-primary relative"
-                style={{ minHeight: '2.4em' }}
-              >
-                {/* Invisible spacer reserves space for the longest title so
-                    the layout never shifts as text types/deletes */}
-                <span aria-hidden="true" className="invisible block">
-                  AI Transformation Consultant
-                </span>
-                <span className="absolute inset-0">
-                  {typed}
-                  <span
-                    aria-hidden="true"
-                    className="inline-block w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
-                  />
+              <span className="whitespace-nowrap">
+                I'm{" "}
+                <span className="text-primary relative inline-block align-baseline">
+                  {/* Invisible spacer reserves width for the longest title so
+                      the layout never shifts as text types/deletes */}
+                  <span aria-hidden="true" className="invisible">
+                    AI Transformation Consultant
+                  </span>
+                  <span className="absolute inset-0 whitespace-nowrap">
+                    {typed}
+                    <span
+                      aria-hidden="true"
+                      className="inline-block w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
+                    />
+                  </span>
                 </span>
               </span>
             </h1>
