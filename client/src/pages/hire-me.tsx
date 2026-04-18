@@ -69,12 +69,12 @@ export default function HireMe() {
   }, [typed, phase, titleIndex]);
   // Companies carousel — track active dot for mobile swipe indicator
   const companies = [
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.5, tooltip: "Founding Director (Volunteer)" },
-    { name: "Innova", kind: "image" as const, src: innovaLogo, scale: 1.25, tooltip: "Senior Data Scientist" },
-    { name: "Udacity", kind: "wordmark" as const, text: "Udacity", scale: 0.9, tooltip: "AI Mentor" },
-    { name: "GLG", kind: "wordmark" as const, text: "GLG", tooltip: "Council Member" },
-    { name: "Nielsen", kind: "wordmark" as const, text: "nielsen", tooltip: "Ex: Data acquisition Supervisor" },
-    { name: "Google", kind: "image" as const, src: googleLogo, scale: 1, tooltip: "Ex: Google Ambassador and GDG Manager" },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, maskSize: "82%", tooltip: "Founding Director (Volunteer)" },
+    { name: "Innova",     kind: "image" as const, src: innovaLogo,      maskSize: "78%", tooltip: "Senior Data Scientist" },
+    { name: "Udacity",   kind: "wordmark" as const, text: "Udacity",   textSize: "text-2xl", tooltip: "AI Mentor" },
+    { name: "GLG",       kind: "wordmark" as const, text: "GLG",       textSize: "text-3xl", tooltip: "Council Member" },
+    { name: "Nielsen",   kind: "wordmark" as const, text: "nielsen",   textSize: "text-3xl", tooltip: "Ex: Data acquisition Supervisor" },
+    { name: "Google",    kind: "image" as const, src: googleLogo,      maskSize: "72%", tooltip: "Ex: Google Ambassador and GDG Manager" },
   ];
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
@@ -273,7 +273,7 @@ export default function HireMe() {
                       <button
                         type="button"
                         className="
-                          relative shrink-0 md:shrink
+                          relative isolate shrink-0 md:shrink
                           h-24
                           w-[78%] sm:w-[44%] md:w-auto
                           snap-center md:snap-align-none
@@ -289,8 +289,8 @@ export default function HireMe() {
                           setOpenTooltip(openTooltip === c.name ? null : c.name);
                         }}
                       >
-                        {/* Default: dark grey mask/wordmark, larger */}
-                        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-2 py-2">
+                        {/* Default: dark grey mask/wordmark — always within card bounds */}
+                        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 p-4">
                           {c.kind === "image" ? (
                             <div
                               aria-label={c.name}
@@ -303,30 +303,29 @@ export default function HireMe() {
                                 maskRepeat: 'no-repeat',
                                 WebkitMaskPosition: 'center',
                                 maskPosition: 'center',
-                                WebkitMaskSize: 'contain',
-                                maskSize: 'contain',
-                                transform: `scale(${c.scale ?? 1})`,
+                                WebkitMaskSize: c.maskSize ?? 'contain',
+                                maskSize: c.maskSize ?? 'contain',
                               }}
                             />
                           ) : (
-                            <span className="text-3xl font-heading font-bold tracking-tight text-foreground/80 leading-none">
+                            <span className={`${c.textSize ?? 'text-3xl'} font-heading font-bold tracking-tight text-foreground/80 leading-none`}>
                               {c.text}
                             </span>
                           )}
                         </div>
 
-                        {/* Hover: real-color logo (no inline name) */}
-                        <div className="absolute inset-0 flex items-center justify-center px-2 py-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        {/* Hover: real-color logo — constrained to padded inner area */}
+                        <div className="absolute inset-0 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                           {c.kind === "image" ? (
                             <img
                               src={c.src}
                               alt={c.name}
-                              className="w-full h-full object-contain"
-                              style={{ transform: `scale(${c.scale ?? 1})` }}
+                              className="max-w-full max-h-full object-contain"
+                              style={{ width: c.maskSize ?? '100%', height: c.maskSize ?? '100%' }}
                             />
                           ) : (
                             <span
-                              className="text-3xl font-heading font-bold tracking-tight leading-none"
+                              className={`${c.textSize ?? 'text-3xl'} font-heading font-bold tracking-tight leading-none`}
                               style={{ color: brandColor }}
                             >
                               {c.text}
