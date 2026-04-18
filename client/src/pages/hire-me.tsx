@@ -210,7 +210,18 @@ export default function HireMe() {
             >
               Worked with
             </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
+            {/* Desktop: equal-width grid, all logos in one row.
+                Mobile: horizontal swipeable carousel with snap. */}
+            <div
+              className="
+                flex md:grid md:grid-cols-6 gap-3 md:gap-4
+                overflow-x-auto md:overflow-visible
+                snap-x snap-mandatory md:snap-none
+                -mx-6 md:mx-0 px-6 md:px-0
+                pb-2 md:pb-0
+                [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
+              "
+            >
               {[
                 { name: "Innova", kind: "image", src: innovaLogo },
                 { name: "BootcampAI", kind: "image", src: bootcampAiLogo },
@@ -221,19 +232,26 @@ export default function HireMe() {
               ].map((c) => (
                 <div
                   key={c.name}
-                  className="relative h-20 w-40 md:w-44 rounded-2xl glass-card-hover flex items-center justify-center overflow-hidden transition-all duration-300 group"
+                  className="
+                    relative shrink-0 md:shrink
+                    h-24 md:h-24
+                    w-40 md:w-auto
+                    snap-center md:snap-align-none
+                    rounded-2xl glass-card-hover
+                    flex items-center justify-center overflow-hidden
+                    transition-all duration-300 group
+                  "
                   title={c.name}
                   data-testid={`logo-company-${c.name.toLowerCase()}`}
                 >
-                  {/* Default state: dark grey logo / wordmark */}
-                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-4">
+                  {/* Default state: dark grey logo / wordmark — uniform sizing */}
+                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-5">
                     {c.kind === "image" ? (
                       <div
                         aria-label={c.name}
                         role="img"
-                        className="bg-foreground/75 w-full"
+                        className="bg-foreground/75 w-full h-12"
                         style={{
-                          height: '48px',
                           WebkitMaskImage: `url(${c.src})`,
                           maskImage: `url(${c.src})`,
                           WebkitMaskRepeat: 'no-repeat',
@@ -245,7 +263,7 @@ export default function HireMe() {
                         }}
                       />
                     ) : (
-                      <span className="text-2xl font-heading font-bold tracking-tight text-foreground/75">
+                      <span className="text-2xl font-heading font-bold tracking-tight text-foreground/75 leading-none">
                         {c.text}
                       </span>
                     )}
@@ -258,16 +276,16 @@ export default function HireMe() {
                         <img
                           src={c.src}
                           alt={c.name}
-                          className="h-9 w-auto max-w-full object-contain"
+                          className="h-10 w-auto max-w-full object-contain"
                         />
-                        <span className="text-[11px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
+                        <span className="text-[10px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
                           {c.name}
                         </span>
                       </>
                     ) : (
                       <>
                         <span
-                          className="text-xl font-heading font-bold tracking-tight"
+                          className="text-xl font-heading font-bold tracking-tight leading-none"
                           style={{
                             color:
                               c.name === "Udacity"
@@ -281,7 +299,7 @@ export default function HireMe() {
                         >
                           {c.text}
                         </span>
-                        <span className="text-[11px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
+                        <span className="text-[10px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
                           {c.name}
                         </span>
                       </>
