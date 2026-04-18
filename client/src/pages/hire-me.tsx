@@ -126,7 +126,7 @@ export default function HireMe() {
                 </span>
               </span>
             </h1>
-            <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed text-justify animate-fade-in-up animation-delay-200">
               {heroSubtitle}
             </p>
             <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
