@@ -71,7 +71,7 @@ export default function HireMe() {
   const companies = [
     { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.5, tooltip: "Founding Director (Volunteer)" },
     { name: "Innova", kind: "image" as const, src: innovaLogo, scale: 1.25, tooltip: "Senior Data Scientist" },
-    { name: "Udacity", kind: "wordmark" as const, text: "Udacity", tooltip: "AI Mentor" },
+    { name: "Udacity", kind: "wordmark" as const, text: "Udacity", scale: 0.9, tooltip: "AI Mentor" },
     { name: "GLG", kind: "wordmark" as const, text: "GLG", tooltip: "Council Member" },
     { name: "Nielsen", kind: "wordmark" as const, text: "nielsen", tooltip: "Ex: Data acquisition Supervisor" },
     { name: "Google", kind: "image" as const, src: googleLogo, scale: 1, tooltip: "Ex: Google Ambassador and GDG Manager" },
