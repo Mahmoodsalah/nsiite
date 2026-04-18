@@ -78,6 +78,7 @@ export default function HireMe() {
   ];
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
+  const [openTooltip, setOpenTooltip] = useState<string | null>(null);
 
   useEffect(() => {
     const el = companiesScrollRef.current;
@@ -262,7 +263,12 @@ export default function HireMe() {
                   : c.name === "Nielsen" ? "#0033a0"
                   : undefined;
                 return (
-                  <Tooltip key={c.name} delayDuration={150}>
+                  <Tooltip
+                    key={c.name}
+                    delayDuration={150}
+                    open={openTooltip === c.name}
+                    onOpenChange={(open) => setOpenTooltip(open ? c.name : null)}
+                  >
                     <TooltipTrigger asChild>
                       <button
                         type="button"
@@ -276,6 +282,12 @@ export default function HireMe() {
                           transition-all duration-300 group cursor-pointer
                         "
                         data-testid={`logo-company-${c.name.toLowerCase()}`}
+                        onMouseEnter={() => setOpenTooltip(c.name)}
+                        onMouseLeave={() => setOpenTooltip(null)}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          setOpenTooltip(openTooltip === c.name ? null : c.name);
+                        }}
                       >
                         {/* Default: dark grey mask/wordmark, larger */}
                         <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-2 py-2">
@@ -332,11 +344,7 @@ export default function HireMe() {
                         text-sm font-heading font-semibold
                       "
                     >
-                      <div className="flex items-center gap-2">
-                      </div>
-                      <span
-                        className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5"
-                      >
+                      <span className="block text-[11px] uppercase tracking-[0.18em] text-foreground/80">
                         {c.tooltip}
                       </span>
                     </TooltipContent>
