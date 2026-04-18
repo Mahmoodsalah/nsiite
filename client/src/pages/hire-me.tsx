@@ -86,14 +86,14 @@ export default function HireMe() {
         <NetworkBg />
 
         {/* Full-height flex wrapper — aligns with header's max-w-6xl + px-6 */}
-        <div className="relative z-10 flex flex-col md:grid md:grid-cols-2 md:items-end md:gap-8 lg:gap-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
+        <div className="relative z-10 flex flex-col md:grid md:grid-cols-2 md:grid-rows-[1fr_auto] md:items-end md:gap-x-8 lg:gap-x-12 max-w-6xl mx-auto px-0 md:px-6" style={{ minHeight: '100svh' }}>
 
           {/* ── TEXT COLUMN ── */}
           <div className="
             min-w-0
             flex flex-col justify-center
             px-6 md:px-0
-            pt-6 pb-10 md:pt-20 md:pb-48
+            pt-6 pb-10 md:pt-20 md:pb-8
             text-center md:text-left
             order-2 md:order-1
           ">
@@ -148,49 +148,6 @@ export default function HireMe() {
                 );
               })}
             </div>
-
-            {/* ── Companies worked with ── */}
-            <div className="mt-8 animate-fade-in-up animation-delay-400">
-              <p
-                className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground/70 mb-3 text-center md:text-left"
-                data-testid="text-companies-label"
-              >
-                Worked with
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                {[
-                  { name: "Innova", type: "image", src: innovaLogo },
-                  { name: "BootcampAI", type: "image", src: bootcampAiLogo },
-                  { name: "Google", type: "text" },
-                  { name: "Udacity", type: "text" },
-                  { name: "GLG", type: "text" },
-                  { name: "Nielsen", type: "text" },
-                ].map((c) => (
-                  <div
-                    key={c.name}
-                    className="h-14 px-5 rounded-2xl glass-card-hover flex items-center justify-center transition-all duration-300"
-                    title={c.name}
-                    data-testid={`logo-company-${c.name.toLowerCase()}`}
-                  >
-                    {c.type === "image" ? (
-                      <img
-                        src={c.src}
-                        alt={c.name}
-                        className="h-9 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                        style={{
-                          filter: "grayscale(1) contrast(1.2)",
-                          mixBlendMode: "multiply",
-                        }}
-                      />
-                    ) : (
-                      <span className="text-base md:text-lg font-heading font-semibold tracking-wide text-foreground/60 hover:text-foreground/85 transition-colors">
-                        {c.name}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* ── IMAGE COLUMN — square, bottom aligned with social buttons ── */}
@@ -198,7 +155,7 @@ export default function HireMe() {
             className="
               relative overflow-hidden
               order-1 md:order-2 md:flex-1
-              mt-20 md:mt-0 md:mb-48
+              mt-20 md:mt-0 md:mb-0
               mx-auto md:mx-0
               w-[min(90vw,90svh)] h-[min(90vw,90svh)]
               md:w-auto md:h-auto md:max-w-full
@@ -242,6 +199,49 @@ export default function HireMe() {
               }}
               data-testid="img-hero-portrait"
             />
+          </div>
+
+          {/* ── Companies worked with — full width row under social buttons + photo ── */}
+          <div className="order-3 md:col-span-2 md:row-start-2 mt-2 md:mt-8 mb-10 md:mb-12 px-6 md:px-0 animate-fade-in-up animation-delay-400">
+            <p
+              className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mb-4 text-center md:text-left"
+              data-testid="text-companies-label"
+            >
+              Worked with
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
+              {[
+                { name: "Innova", type: "image", src: innovaLogo },
+                { name: "BootcampAI", type: "image", src: bootcampAiLogo },
+                { name: "Google", type: "text" },
+                { name: "Udacity", type: "text" },
+                { name: "GLG", type: "text" },
+                { name: "Nielsen", type: "text" },
+              ].map((c) => (
+                <div
+                  key={c.name}
+                  className="h-16 md:h-20 px-6 md:px-8 rounded-2xl glass-card-hover flex items-center justify-center transition-all duration-300"
+                  title={c.name}
+                  data-testid={`logo-company-${c.name.toLowerCase()}`}
+                >
+                  {c.type === "image" ? (
+                    <img
+                      src={c.src}
+                      alt={c.name}
+                      className="h-10 md:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                      style={{
+                        filter: "grayscale(1) contrast(1.2)",
+                        mixBlendMode: "multiply",
+                      }}
+                    />
+                  ) : (
+                    <span className="text-lg md:text-2xl font-heading font-semibold tracking-wide text-foreground/60 hover:text-foreground/85 transition-colors">
+                      {c.name}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
