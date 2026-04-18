@@ -16,6 +16,7 @@ import {
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import NetworkBg from "@/components/network-bg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
+import automatiLogo from "@assets/automati_logo_nobg.png";
 
 export default function Automati() {
   return (
@@ -26,10 +27,9 @@ export default function Automati() {
         <NetworkBg />
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <AnimateIn>
-            <Badge variant="outline" className="glass-badge rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] mb-6" data-testid="badge-automati-tag">
-              <Sparkles className="w-3 h-3 mr-2 text-primary" />
-              AI Agent Systems
-            </Badge>
+            <div className="flex justify-center mb-6" data-testid="badge-automati-tag">
+              <img src={automatiLogo} alt="Automati" className="h-10 w-auto dark:invert" />
+            </div>
           </AnimateIn>
           <AnimateIn delay={0.05}>
             <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6" data-testid="text-automati-title">
@@ -214,7 +214,10 @@ export default function Automati() {
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <AnimateIn delay={0.05}>
-            <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-subscription">
+            <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col relative ring-2 ring-primary/40" data-testid="card-plan-subscription">
+              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
+                Most Popular
+              </Badge>
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Subscription</p>
               <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Monthly</h3>
               <div className="flex items-baseline gap-1 mb-5">
@@ -232,17 +235,14 @@ export default function Automati() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-subscription" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Subscription">Start Subscription</a>
+              <Button className="rounded-xl" data-testid="button-plan-subscription" asChild>
+                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Subscription">Get Started</a>
               </Button>
             </div>
           </AnimateIn>
 
           <AnimateIn delay={0.1}>
-            <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col relative ring-2 ring-primary/40" data-testid="card-plan-onetime">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
-                Most Popular
-              </Badge>
+            <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-onetime">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">One-Time Setup</p>
               <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Custom Build</h3>
               <div className="flex items-baseline gap-1 mb-5">
@@ -250,7 +250,7 @@ export default function Automati() {
                 <span className="text-sm text-muted-foreground">one-time</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                A complete, custom-built AI system designed around your workflow — yours to keep, no ongoing fees.
+                A complete, custom-built AI system designed around your workflows to keep, no ongoing fees.
               </p>
               <ul className="space-y-2.5 mb-6 flex-1">
                 {["Workflow discovery session", "Fully custom AI system", "Setup, testing & full handover", "No subscription required"].map((f) => (
@@ -260,8 +260,8 @@ export default function Automati() {
                   </li>
                 ))}
               </ul>
-              <Button className="rounded-xl" data-testid="button-plan-onetime" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Custom%20Setup">Book Your Build</a>
+              <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-onetime" asChild>
+                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Custom%20Setup">Get Started</a>
               </Button>
             </div>
           </AnimateIn>
@@ -285,7 +285,7 @@ export default function Automati() {
                 ))}
               </ul>
               <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-business" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Business%20Inquiry">Let's Talk</a>
+                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Business%20Inquiry">Get Started</a>
               </Button>
             </div>
           </AnimateIn>
