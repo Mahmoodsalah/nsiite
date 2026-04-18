@@ -21,6 +21,7 @@ import {
   Users,
   Settings,
   Search,
+  Bot,
 } from "lucide-react";
 
 type SiteContent = {
@@ -36,6 +37,7 @@ const PAGE_CONFIG: Record<string, { label: string; icon: any; description: strin
   consultation: { label: "Consultation", icon: FileText, description: "Consultation services & contact" },
   bootcamp: { label: "BootcampAI", icon: GraduationCap, description: "Bootcamp program details & applications" },
   mentorship: { label: "Mentorship", icon: Users, description: "Mentorship plans, benefits & pricing" },
+  automati: { label: "Automati", icon: Bot, description: "Custom AI automation services & pricing" },
   global: { label: "Global Settings", icon: Settings, description: "Site-wide settings" },
 };
 
@@ -56,6 +58,12 @@ const SECTION_LABELS: Record<string, string> = {
   mentoringStyle: "Mentoring Style",
   bottomCta: "Bottom CTA",
   settings: "Settings",
+  howItWorks: "How It Works",
+  whoFor: "Who It's For",
+  privacy: "Privacy & Security",
+  valueStrip: "Value Strip",
+  pricing: "Pricing",
+  closingCta: "Closing CTA",
 };
 
 export default function Admin() {

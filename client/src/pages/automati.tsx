@@ -15,9 +15,14 @@ import {
   Settings2,
 } from "lucide-react";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
+import { usePageContent, getVal } from "@/hooks/use-content";
 import NetworkBg from "@/components/network-bg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import automatiLogo from "@assets/automati_logo_nobg.png";
+
+const iconMap: Record<string, any> = {
+  Bot, Sparkles, ShieldCheck, Workflow, Zap, Brain, HandshakeIcon, Users, Settings2,
+};
 
 function useCountUp(target: number, duration = 1200) {
   const [count, setCount] = useState(0);
@@ -48,7 +53,48 @@ function useCountUp(target: number, duration = 1200) {
 }
 
 export default function Automati() {
-  const { count: clientCount, ref: clientRef } = useCountUp(23);
+  const { data: content } = usePageContent("automati");
+
+  const heroLogo = getVal(content, "hero", "logoImage", "");
+  const heroTitle = getVal(content, "hero", "title", "Your work, powered by");
+  const heroHighlight = getVal(content, "hero", "titleHighlight", "intelligence.");
+  const heroSubtitle = getVal(content, "hero", "subtitle", "");
+  const heroCtaPrimary = getVal(content, "hero", "ctaPrimary", "Get Started");
+  const heroCtaSecondary = getVal(content, "hero", "ctaSecondary", "See How It Works");
+
+  const howBadge = getVal(content, "howItWorks", "badge", "How It Works");
+  const howTitle = getVal(content, "howItWorks", "title", "");
+  const howDesc = getVal(content, "howItWorks", "description", "");
+  const howSteps: any[] = getVal(content, "howItWorks", "steps", []);
+
+  const whoBadge = getVal(content, "whoFor", "badge", "Who It's For");
+  const whoTitle = getVal(content, "whoFor", "title", "");
+  const whoDesc1 = getVal(content, "whoFor", "description1", "");
+  const whoDesc2 = getVal(content, "whoFor", "description2", "");
+  const audiences: any[] = getVal(content, "whoFor", "audiences", []);
+
+  const privTitle = getVal(content, "privacy", "title", "");
+  const privDesc1 = getVal(content, "privacy", "description1", "");
+  const privDesc2 = getVal(content, "privacy", "description2", "");
+  const privItems: any[] = getVal(content, "privacy", "items", []);
+
+  const clientCountTarget = parseInt(getVal(content, "valueStrip", "clientCount", "23"), 10) || 23;
+  const clientLabel = getVal(content, "valueStrip", "clientLabel", "Happy Clients");
+  const stats: any[] = getVal(content, "valueStrip", "stats", []);
+  const { count: clientCount, ref: clientRef } = useCountUp(clientCountTarget);
+
+  const pricingBadge = getVal(content, "pricing", "badge", "Pricing");
+  const pricingTitle = getVal(content, "pricing", "title", "");
+  const pricingDesc = getVal(content, "pricing", "description", "");
+  const plans: any[] = getVal(content, "pricing", "plans", []);
+
+  const closingTitle = getVal(content, "closingCta", "title", "");
+  const closingDesc = getVal(content, "closingCta", "description", "");
+  const closingCta = getVal(content, "closingCta", "cta", "");
+  const closingUrl = getVal(content, "closingCta", "ctaUrl", "#");
+
+  const logoSrc = heroLogo && heroLogo.startsWith("/attached_assets/") ? automatiLogo : (heroLogo || automatiLogo);
+
   return (
     <div className="min-h-screen">
       {/* HERO */}
@@ -58,30 +104,30 @@ export default function Automati() {
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <AnimateIn>
             <div className="flex justify-center mb-6" data-testid="badge-automati-tag">
-              <img src={automatiLogo} alt="Automati" className="h-40 w-auto dark:invert" />
+              <img src={logoSrc} alt="Automati" className="h-40 w-auto dark:invert" />
             </div>
           </AnimateIn>
           <AnimateIn delay={0.05}>
             <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6" data-testid="text-automati-title">
-              Your work, powered by{" "}
-              <span className="text-primary">intelligence.</span>
+              {heroTitle}{" "}
+              <span className="text-primary">{heroHighlight}</span>
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10" data-testid="text-automati-subtitle">
-              We design and build custom AI agent systems tailored to the way you work — whether that's running entire workflows on your behalf, supporting your decisions, generating content, handling communications, or anything in between. You tell us what you want to hand off. We make it happen.
+              {heroSubtitle}
             </p>
           </AnimateIn>
           <AnimateIn delay={0.15}>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button size="lg" className="rounded-xl px-8" data-testid="button-automati-start" asChild>
                 <a href="#pricing">
-                  Get Started
+                  {heroCtaPrimary}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-xl px-8 glass-card-hover" data-testid="button-automati-how" asChild>
-                <a href="#how-it-works">See How It Works</a>
+                <a href="#how-it-works">{heroCtaSecondary}</a>
               </Button>
             </div>
           </AnimateIn>
@@ -93,33 +139,32 @@ export default function Automati() {
         <AnimateIn>
           <div className="text-center mb-14">
             <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
-              How It Works
+              {howBadge}
             </Badge>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-how-title">
-              We design around your goals — not a template
+              {howTitle}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We don't offer a generic automation platform. We study how you work, what you're trying to achieve, and we engineer an AI system built specifically for that.
+              {howDesc}
             </p>
           </div>
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { icon: Brain, step: "01", title: "Discovery", desc: "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small." },
-            { icon: Bot, step: "02", title: "Design & Build", desc: "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation." },
-            { icon: ShieldCheck, step: "03", title: "You Stay in Command", desc: "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way." },
-          ].map((s, i) => (
-            <AnimateIn key={s.step} delay={i * 0.08}>
-              <div className="glass-card-hover rounded-2xl p-7 h-full relative" data-testid={`card-step-${i}`}>
-                <div className="absolute top-6 right-6 font-heading font-bold text-3xl text-primary/20">{s.step}</div>
-                <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-5">
-                  <s.icon className="w-5 h-5 text-primary" />
+          {howSteps.map((s: any, i: number) => {
+            const Icon = iconMap[s.icon] || Bot;
+            return (
+              <AnimateIn key={s.step || i} delay={i * 0.08}>
+                <div className="glass-card-hover rounded-2xl p-7 h-full relative" data-testid={`card-step-${i}`}>
+                  <div className="absolute top-6 right-6 font-heading font-bold text-3xl text-primary/20">{s.step}</div>
+                  <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-5">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-xl text-foreground mb-3">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="font-heading font-semibold text-xl text-foreground mb-3">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            </AnimateIn>
-          ))}
+              </AnimateIn>
+            );
+          })}
         </div>
       </section>
 
@@ -129,34 +174,30 @@ export default function Automati() {
           <AnimateIn>
             <div>
               <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
-                Who It's For
+                {whoBadge}
               </Badge>
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-5" data-testid="text-who-title">
-                You don't need to understand AI to benefit from it.
+                {whoTitle}
               </h2>
               <p className="text-muted-foreground text-base leading-relaxed mb-4">
-                Whether you're a solo creator managing content and clients, a consultant drowning in admin, or a business with complex processes — if there's a workflow that could be smarter, faster, or handled without you, we can build a system for it.
+                {whoDesc1}
               </p>
               <p className="text-muted-foreground text-base leading-relaxed">
-                You only need to describe what you want to change. We figure out the rest, and we keep you in control of exactly as much as you want.
+                {whoDesc2}
               </p>
             </div>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Users, label: "Individuals" },
-                { icon: Sparkles, label: "Creators & Writers" },
-                { icon: Brain, label: "Freelancers" },
-                { icon: HandshakeIcon, label: "Consultants" },
-                { icon: Zap, label: "Small Teams" },
-                { icon: Settings2, label: "Businesses" },
-              ].map((p) => (
-                <div key={p.label} className="glass-card-hover rounded-xl p-5 flex flex-col items-center text-center gap-2" data-testid={`card-audience-${p.label.toLowerCase().replace(/[\s&]+/g,'-')}`}>
-                  <p.icon className="w-6 h-6 text-primary" />
-                  <span className="text-sm font-medium text-foreground">{p.label}</span>
-                </div>
-              ))}
+              {audiences.map((p: any) => {
+                const Icon = iconMap[p.icon] || Users;
+                return (
+                  <div key={p.label} className="glass-card-hover rounded-xl p-5 flex flex-col items-center text-center gap-2" data-testid={`card-audience-${(p.label || '').toLowerCase().replace(/[\s&]+/g,'-')}`}>
+                    <Icon className="w-6 h-6 text-primary" />
+                    <span className="text-sm font-medium text-foreground">{p.label}</span>
+                  </div>
+                );
+              })}
             </div>
           </AnimateIn>
         </div>
@@ -176,32 +217,31 @@ export default function Automati() {
                     <ShieldCheck className="w-6 h-6 text-primary" />
                   </div>
                   <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
-                    Your data stays yours. Always.
+                    {privTitle}
                   </h2>
                 </div>
                 <p className="text-muted-foreground text-base leading-relaxed mb-4">
-                  We guarantee full privacy and security across every system we build. Your workflows, data, and information are never shared, stored beyond what's necessary, or used for any purpose other than serving you.
+                  {privDesc1}
                 </p>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  Every system we design is built with confidentiality at its core — not as an afterthought. What you share with us stays with us.
+                  {privDesc2}
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-4">
-                {[
-                  { icon: ShieldCheck, title: "Full Confidentiality", desc: "Your data and workflow details are never shared with third parties." },
-                  { icon: Brain, title: "Minimal Data Principle", desc: "We only work with what's strictly needed to build and run your system." },
-                  { icon: Settings2, title: "Secure by Design", desc: "Privacy and security are engineered in from day one — not added later." },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 glass-card-hover rounded-xl p-4" data-testid={`card-privacy-${item.title.toLowerCase().replace(/\s/g,'-')}`}>
-                    <div className="w-9 h-9 rounded-lg glass-badge flex items-center justify-center shrink-0 mt-0.5">
-                      <item.icon className="w-4 h-4 text-primary" />
+                {privItems.map((item: any) => {
+                  const Icon = iconMap[item.icon] || ShieldCheck;
+                  return (
+                    <div key={item.title} className="flex items-start gap-4 glass-card-hover rounded-xl p-4" data-testid={`card-privacy-${(item.title || '').toLowerCase().replace(/\s/g,'-')}`}>
+                      <div className="w-9 h-9 rounded-lg glass-badge flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-semibold text-sm text-foreground mb-1">{item.title}</h3>
+                        <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-heading font-semibold text-sm text-foreground mb-1">{item.title}</h3>
-                      <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -214,14 +254,9 @@ export default function Automati() {
           <div className="glass-card rounded-2xl px-8 py-8 grid grid-cols-2 md:grid-cols-5 gap-6 text-center" data-testid="section-values">
             <div ref={clientRef} data-testid="stat-clients">
               <p className="font-heading font-bold text-3xl text-primary mb-1">{clientCount}+</p>
-              <p className="text-muted-foreground text-sm">Happy Clients</p>
+              <p className="text-muted-foreground text-sm">{clientLabel}</p>
             </div>
-            {[
-              { value: "100%", label: "Custom-built" },
-              { value: "Any", label: "Workflow or industry" },
-              { value: "Full", label: "Control, always yours" },
-              { value: "Zero", label: "Technical knowledge needed" },
-            ].map((v) => (
+            {stats.map((v: any) => (
               <div key={v.label}>
                 <p className="font-heading font-bold text-3xl text-primary mb-1">{v.value}</p>
                 <p className="text-muted-foreground text-sm">{v.label}</p>
@@ -236,105 +271,58 @@ export default function Automati() {
         <AnimateIn>
           <div className="text-center mb-12">
             <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
-              Pricing
+              {pricingBadge}
             </Badge>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-pricing-title">
-              Simple, fair, and built to scale with you
+              {pricingTitle}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Start with what you need. Refer a friend and get 10% off your subscription for every person you bring in.
+              {pricingDesc}
             </p>
           </div>
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          <AnimateIn delay={0.05}>
-            <div className="flex flex-col h-full">
-              <div className="flex justify-center mb-3">
-                <Badge className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
-                  Most Popular
-                </Badge>
-              </div>
-            <div className="glass-card-hover rounded-2xl p-7 flex-1 flex flex-col ring-2 ring-primary/40" data-testid="card-plan-subscription">
-              <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">Subscription</p>
-              <p className="text-xs text-muted-foreground mb-1">Starting from</p>
-              <div className="flex items-baseline gap-1 mb-5">
-                <span className="font-heading font-bold text-4xl text-primary">$15</span>
-                <span className="text-sm text-muted-foreground">/ month</span>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Ongoing access to your AI system — updates, improvements, and support as your needs evolve.
-              </p>
-              <ul className="space-y-2.5 mb-6 flex-1">
-                {["Continuous AI system access", "Adjustments as you grow", "10% off per referral you bring", "Email support"].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Button className="rounded-xl" data-testid="button-plan-subscription" asChild>
-                <a href="https://forms.gle/3yTJCcHsxeRQ1zdk8" target="_blank" rel="noopener noreferrer">Get Started</a>
-              </Button>
-            </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn delay={0.1}>
-            <div className="flex flex-col h-full">
-              <div className="flex justify-center mb-3 invisible">
-                <Badge className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em]">Most Popular</Badge>
-              </div>
-            <div className="glass-card-hover rounded-2xl p-7 flex-1 flex flex-col" data-testid="card-plan-onetime">
-              <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">One-Time Setup</p>
-              <p className="text-xs text-muted-foreground mb-1">Starting from</p>
-              <div className="flex items-baseline gap-1 mb-5">
-                <span className="font-heading font-bold text-4xl text-primary">$250</span>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.
-              </p>
-              <ul className="space-y-2.5 mb-6 flex-1">
-                {["Workflow discovery session", "Fully custom AI system", "Setup, testing & full handover", "No subscription required"].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-onetime" asChild>
-                <a href="https://forms.gle/3yTJCcHsxeRQ1zdk8" target="_blank" rel="noopener noreferrer">Get Started</a>
-              </Button>
-            </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn delay={0.15}>
-            <div className="flex flex-col h-full">
-              <div className="flex justify-center mb-3 invisible">
-                <Badge className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em]">Most Popular</Badge>
-              </div>
-            <div className="glass-card-hover rounded-2xl p-7 flex-1 flex flex-col" data-testid="card-plan-business">
-              <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">For Companies</p>
-              <div className="flex items-baseline gap-1 mb-5">
-                <span className="font-heading font-bold text-4xl text-primary">Custom</span>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Tailored pricing for teams and organisations with more complex systems and larger-scale needs.
-              </p>
-              <ul className="space-y-2.5 mb-6 flex-1">
-                {["Multi-system AI architecture", "Team onboarding & training", "Priority support", "Flexible integrations"].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-business" asChild>
-                <a href="https://forms.gle/3yTJCcHsxeRQ1zdk8" target="_blank" rel="noopener noreferrer">Get Started</a>
-              </Button>
-            </div>
-            </div>
-          </AnimateIn>
+          {plans.map((plan: any, i: number) => {
+            const isPopular = String(plan.popular) === "true";
+            const features: string[] = Array.isArray(plan.features) ? plan.features : [];
+            return (
+              <AnimateIn key={plan.label || i} delay={0.05 + i * 0.05}>
+                <div className="flex flex-col h-full">
+                  <div className={`flex justify-center mb-3 ${isPopular ? "" : "invisible"}`}>
+                    <Badge className={`rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] ${isPopular ? "bg-primary text-primary-foreground" : ""}`}>
+                      Most Popular
+                    </Badge>
+                  </div>
+                  <div className={`glass-card-hover rounded-2xl p-7 flex-1 flex flex-col ${isPopular ? "ring-2 ring-primary/40" : ""}`} data-testid={`card-plan-${i}`}>
+                    <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">{plan.label}</p>
+                    {plan.startingFrom ? (
+                      <p className="text-xs text-muted-foreground mb-1">{plan.startingFrom}</p>
+                    ) : null}
+                    <div className="flex items-baseline gap-1 mb-5">
+                      <span className="font-heading font-bold text-4xl text-primary">{plan.price}</span>
+                      {plan.priceUnit ? (
+                        <span className="text-sm text-muted-foreground">{plan.priceUnit}</span>
+                      ) : null}
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {plan.description}
+                    </p>
+                    <ul className="space-y-2.5 mb-6 flex-1">
+                      {features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant={isPopular ? "default" : "outline"} className={`rounded-xl ${isPopular ? "" : "glass-card-hover"}`} data-testid={`button-plan-${i}`} asChild>
+                      <a href={plan.ctaUrl || "#"} target="_blank" rel="noopener noreferrer">{plan.cta || "Get Started"}</a>
+                    </Button>
+                  </div>
+                </div>
+              </AnimateIn>
+            );
+          })}
         </div>
       </section>
 
@@ -347,14 +335,14 @@ export default function Automati() {
             }} />
             <div className="relative">
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-                Your time is your most valuable asset.
+                {closingTitle}
               </h2>
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-                The goal isn't to make your work feel robotic. It's to remove the parts of your day that don't deserve your attention — so you can invest it where it actually matters.
+                {closingDesc}
               </p>
               <Button size="lg" className="rounded-xl px-8" data-testid="button-automati-cta" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Inquiry">
-                  Tell Us What You Want to Change
+                <a href={closingUrl}>
+                  {closingCta}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>

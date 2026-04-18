@@ -830,5 +830,269 @@
     "section": "about",
     "contentKey": "videoUrl",
     "value": "https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252"
+  },
+  {
+    "id": 71,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "logoImage",
+    "value": "/attached_assets/automati_logo_nobg.png"
+  },
+  {
+    "id": 72,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "title",
+    "value": "Your work, powered by"
+  },
+  {
+    "id": 73,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "titleHighlight",
+    "value": "intelligence."
+  },
+  {
+    "id": 74,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "We design and build custom AI agent systems tailored to the way you work — whether that's running entire workflows on your behalf, supporting your decisions, generating content, handling communications, or anything in between. You tell us what you want to hand off. We make it happen."
+  },
+  {
+    "id": 75,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "ctaPrimary",
+    "value": "Get Started"
+  },
+  {
+    "id": 76,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "ctaSecondary",
+    "value": "See How It Works"
+  },
+  {
+    "id": 77,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "badge",
+    "value": "How It Works"
+  },
+  {
+    "id": 78,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "title",
+    "value": "We design around your goals — not a template"
+  },
+  {
+    "id": 79,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "description",
+    "value": "We don't offer a generic automation platform. We study how you work, what you're trying to achieve, and we engineer an AI system built specifically for that."
+  },
+  {
+    "id": 80,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "steps",
+    "value": [
+      { "icon": "Brain", "step": "01", "title": "Discovery", "desc": "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small." },
+      { "icon": "Bot", "step": "02", "title": "Design & Build", "desc": "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation." },
+      { "icon": "ShieldCheck", "step": "03", "title": "You Stay in Command", "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way." }
+    ]
+  },
+  {
+    "id": 81,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "badge",
+    "value": "Who It's For"
+  },
+  {
+    "id": 82,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "title",
+    "value": "You don't need to understand AI to benefit from it."
+  },
+  {
+    "id": 83,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "description1",
+    "value": "Whether you're a solo creator managing content and clients, a consultant drowning in admin, or a business with complex processes — if there's a workflow that could be smarter, faster, or handled without you, we can build a system for it."
+  },
+  {
+    "id": 84,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "description2",
+    "value": "You only need to describe what you want to change. We figure out the rest, and we keep you in control of exactly as much as you want."
+  },
+  {
+    "id": 85,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "audiences",
+    "value": [
+      { "icon": "Users", "label": "Individuals" },
+      { "icon": "Sparkles", "label": "Creators & Writers" },
+      { "icon": "Brain", "label": "Freelancers" },
+      { "icon": "HandshakeIcon", "label": "Consultants" },
+      { "icon": "Zap", "label": "Small Teams" },
+      { "icon": "Settings2", "label": "Businesses" }
+    ]
+  },
+  {
+    "id": 86,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "title",
+    "value": "Your data stays yours. Always."
+  },
+  {
+    "id": 87,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "description1",
+    "value": "We guarantee full privacy and security across every system we build. Your workflows, data, and information are never shared, stored beyond what's necessary, or used for any purpose other than serving you."
+  },
+  {
+    "id": 88,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "description2",
+    "value": "Every system we design is built with confidentiality at its core — not as an afterthought. What you share with us stays with us."
+  },
+  {
+    "id": 89,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "items",
+    "value": [
+      { "icon": "ShieldCheck", "title": "Full Confidentiality", "desc": "Your data and workflow details are never shared with third parties." },
+      { "icon": "Brain", "title": "Minimal Data Principle", "desc": "We only work with what's strictly needed to build and run your system." },
+      { "icon": "Settings2", "title": "Secure by Design", "desc": "Privacy and security are engineered in from day one — not added later." }
+    ]
+  },
+  {
+    "id": 90,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "clientCount",
+    "value": "23"
+  },
+  {
+    "id": 91,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "clientLabel",
+    "value": "Happy Clients"
+  },
+  {
+    "id": 92,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "stats",
+    "value": [
+      { "value": "100%", "label": "Custom-built" },
+      { "value": "Any", "label": "Workflow or industry" },
+      { "value": "Full", "label": "Control, always yours" },
+      { "value": "Zero", "label": "Technical knowledge needed" }
+    ]
+  },
+  {
+    "id": 93,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "badge",
+    "value": "Pricing"
+  },
+  {
+    "id": 94,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "title",
+    "value": "Simple, fair, and built to scale with you"
+  },
+  {
+    "id": 95,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "description",
+    "value": "Start with what you need. Refer a friend and get 10% off your subscription for every person you bring in."
+  },
+  {
+    "id": 96,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "plans",
+    "value": [
+      {
+        "label": "Subscription",
+        "popular": "true",
+        "startingFrom": "Starting from",
+        "price": "$15",
+        "priceUnit": "/ month",
+        "description": "Ongoing access to your AI system — updates, improvements, and support as your needs evolve.",
+        "features": ["Continuous AI system access", "Adjustments as you grow", "10% off per referral you bring", "Email support"],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      },
+      {
+        "label": "One-Time Setup",
+        "popular": "false",
+        "startingFrom": "Starting from",
+        "price": "$250",
+        "priceUnit": "",
+        "description": "A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.",
+        "features": ["Workflow discovery session", "Fully custom AI system", "Setup, testing & full handover", "No subscription required"],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      },
+      {
+        "label": "For Companies",
+        "popular": "false",
+        "startingFrom": "",
+        "price": "Custom",
+        "priceUnit": "",
+        "description": "Tailored pricing for teams and organisations with more complex systems and larger-scale needs.",
+        "features": ["Multi-system AI architecture", "Team onboarding & training", "Priority support", "Flexible integrations"],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "title",
+    "value": "Your time is your most valuable asset."
+  },
+  {
+    "id": 98,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "description",
+    "value": "The goal isn't to make your work feel robotic. It's to remove the parts of your day that don't deserve your attention — so you can invest it where it actually matters."
+  },
+  {
+    "id": 99,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "cta",
+    "value": "Tell Us What You Want to Change"
+  },
+  {
+    "id": 100,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "ctaUrl",
+    "value": "mailto:contact@mahmoodsalah.com?subject=Automati%20Inquiry"
   }
 ]
