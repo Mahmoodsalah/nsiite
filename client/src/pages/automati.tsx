@@ -132,6 +132,52 @@ export default function Automati() {
         </div>
       </section>
 
+      {/* PRIVACY & SECURITY */}
+      <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <AnimateIn>
+          <div className="glass-card rounded-3xl p-10 md:p-14 relative overflow-hidden" data-testid="section-privacy">
+            <div className="absolute inset-0 pointer-events-none" style={{
+              background: 'radial-gradient(circle at 0% 50%, rgba(210,140,80,0.10), transparent 60%)',
+            }} />
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-6 h-6 text-primary" />
+                  </div>
+                  <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
+                    Your data stays yours. Always.
+                  </h2>
+                </div>
+                <p className="text-muted-foreground text-base leading-relaxed mb-4">
+                  We guarantee full privacy and security across every system we build. Your workflows, data, and information are never shared, stored beyond what's necessary, or used for any purpose other than serving you.
+                </p>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  Every system we design is built with confidentiality at its core — not as an afterthought. What you share with us stays with us.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-4">
+                {[
+                  { icon: ShieldCheck, title: "Full Confidentiality", desc: "Your data and workflow details are never shared with third parties." },
+                  { icon: Brain, title: "Minimal Data Principle", desc: "We only work with what's strictly needed to build and run your system." },
+                  { icon: Settings2, title: "Secure by Design", desc: "Privacy and security are engineered in from day one — not added later." },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-4 glass-card-hover rounded-xl p-4" data-testid={`card-privacy-${item.title.toLowerCase().replace(/\s/g,'-')}`}>
+                    <div className="w-9 h-9 rounded-lg glass-badge flex items-center justify-center shrink-0 mt-0.5">
+                      <item.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading font-semibold text-sm text-foreground mb-1">{item.title}</h3>
+                      <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </AnimateIn>
+      </section>
+
       {/* VALUE STRIP */}
       <section className="max-w-6xl mx-auto px-6 py-8 md:py-12">
         <AnimateIn>
