@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +19,36 @@ import NetworkBg from "@/components/network-bg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import automatiLogo from "@assets/automati_logo_nobg.png";
 
+function useCountUp(target: number, duration = 1200) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const start = performance.now();
+          const step = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            setCount(Math.round(progress * target));
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+  return { count, ref };
+}
+
 export default function Automati() {
+  const { count: clientCount, ref: clientRef } = useCountUp(23);
   return (
     <div className="min-h-screen">
       {/* HERO */}
@@ -181,7 +211,11 @@ export default function Automati() {
       {/* VALUE STRIP */}
       <section className="max-w-6xl mx-auto px-6 py-8 md:py-12">
         <AnimateIn>
-          <div className="glass-card rounded-2xl px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-testid="section-values">
+          <div className="glass-card rounded-2xl px-8 py-8 grid grid-cols-2 md:grid-cols-5 gap-6 text-center" data-testid="section-values">
+            <div ref={clientRef} data-testid="stat-clients">
+              <p className="font-heading font-bold text-3xl text-primary mb-1">{clientCount}+</p>
+              <p className="text-muted-foreground text-sm">Happy Clients</p>
+            </div>
             {[
               { value: "100%", label: "Custom-built" },
               { value: "Any", label: "Workflow or process" },
