@@ -238,7 +238,7 @@ export default function HireMe() {
           {/* ── Companies worked with — full width row under social buttons + photo ── */}
           <div className="order-3 md:col-span-2 md:row-start-2 mt-2 md:mt-8 mb-10 md:mb-12 px-6 md:px-0 animate-fade-in-up animation-delay-400">
             <p
-              className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mb-4 text-center md:text-left"
+              className="text-xs uppercase tracking-[0.2em] text-foreground/70 mb-4 text-center md:text-left"
               data-testid="text-companies-label"
             >
               Worked with
