@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Brain,
@@ -31,6 +31,38 @@ export default function HireMe() {
 
   const heroTitle = getVal(content, "hero", "title", "Senior Data Scientist, AI Engineer, and Consultant");
   const heroSubtitle = getVal(content, "hero", "subtitle", "");
+
+  const titles = [
+    "Senior Data Scientist",
+    "AI Solutions Architect",
+    "AI Transformation Consultant",
+  ];
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [typed, setTyped] = useState("");
+  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
+
+  useEffect(() => {
+    const current = titles[titleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (phase === "typing") {
+      if (typed.length < current.length) {
+        timeout = setTimeout(() => setTyped(current.slice(0, typed.length + 1)), 80);
+      } else {
+        timeout = setTimeout(() => setPhase("pausing"), 1400);
+      }
+    } else if (phase === "pausing") {
+      timeout = setTimeout(() => setPhase("deleting"), 600);
+    } else {
+      if (typed.length > 0) {
+        timeout = setTimeout(() => setTyped(current.slice(0, typed.length - 1)), 40);
+      } else {
+        setTitleIndex((i) => (i + 1) % titles.length);
+        setPhase("typing");
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [typed, phase, titleIndex]);
   const socialLinks = getVal(content, "hero", "socialLinks", []);
   const aboutTitle = getVal(content, "about", "title", "About Me");
   const bio1 = getVal(content, "about", "bio1", "");
@@ -67,7 +99,14 @@ export default function HireMe() {
               className="font-heading font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl text-foreground leading-tight mb-5 animate-fade-in-up"
               data-testid="text-hero-title"
             >
-              {heroTitle}
+              <span>I'm </span>
+              <span className="text-primary whitespace-nowrap">
+                {typed}
+                <span
+                  aria-hidden="true"
+                  className="inline-block w-[3px] md:w-[4px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
+                />
+              </span>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
               {heroSubtitle}
