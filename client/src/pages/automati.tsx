@@ -273,7 +273,7 @@ export default function Automati() {
                 ))}
               </ul>
               <Button className="rounded-xl" data-testid="button-plan-subscription" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Subscription">Get Started</a>
+                <a href="https://forms.gle/3yTJCcHsxeRQ1zdk8" target="_blank" rel="noopener noreferrer">Get Started</a>
               </Button>
             </div>
             </div>
@@ -302,7 +302,7 @@ export default function Automati() {
                 ))}
               </ul>
               <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-onetime" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Custom%20Setup">Get Started</a>
+                <a href="https://forms.gle/3yTJCcHsxeRQ1zdk8" target="_blank" rel="noopener noreferrer">Get Started</a>
               </Button>
             </div>
             </div>
@@ -330,7 +330,7 @@ export default function Automati() {
                 ))}
               </ul>
               <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-business" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Business%20Inquiry">Get Started</a>
+                <a href="https://forms.gle/3yTJCcHsxeRQ1zdk8" target="_blank" rel="noopener noreferrer">Get Started</a>
               </Button>
             </div>
             </div>
