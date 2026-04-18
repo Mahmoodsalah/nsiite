@@ -252,8 +252,7 @@ export default function Automati() {
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
                 Most Popular
               </Badge>
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Subscription</p>
-              <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Monthly</h3>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Subscription</p>
               <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">$15</span>
@@ -278,12 +277,10 @@ export default function Automati() {
 
           <AnimateIn delay={0.1}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-onetime">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">One-Time Setup</p>
-              <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Custom Build</h3>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">One-Time Setup</p>
               <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">$250</span>
-                <span className="text-sm text-muted-foreground">one-time</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.
@@ -304,9 +301,7 @@ export default function Automati() {
 
           <AnimateIn delay={0.15}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-business">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">For Companies</p>
-              <h3 className="font-heading font-bold text-2xl text-foreground mb-1">Business</h3>
-              <p className="text-xs text-muted-foreground mb-1">Starting from</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">For Companies</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">Custom</span>
               </div>
