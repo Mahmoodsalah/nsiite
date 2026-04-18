@@ -13,6 +13,8 @@ import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import mahmoodPortrait from "@assets/1a54ec53-5da8-4e83-87a5-02df3fc9d7ad_1776300934772.png";
 import mahmoodImg from "@assets/mahmood.jpg";
 import patternBg from "@assets/pattern_white_1771718036073.png";
+import innovaLogo from "@assets/f8834349-c7e5-48cc-90b7-dad6e04142f6_1776538768725.jpg";
+import bootcampAiLogo from "@assets/bootcampai_1771717943410.png";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
 const iconMap: Record<string, any> = { Brain, Bot, Cloud, Eye };
@@ -145,6 +147,49 @@ export default function HireMe() {
                   </a>
                 );
               })}
+            </div>
+
+            {/* ── Companies worked with ── */}
+            <div className="mt-8 animate-fade-in-up animation-delay-400">
+              <p
+                className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground/70 mb-3 text-center md:text-left"
+                data-testid="text-companies-label"
+              >
+                Worked with
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-2.5">
+                {[
+                  { name: "Innova", type: "image", src: innovaLogo },
+                  { name: "BootcampAI", type: "image", src: bootcampAiLogo },
+                  { name: "Google", type: "text" },
+                  { name: "Udacity", type: "text" },
+                  { name: "GLG", type: "text" },
+                  { name: "Nielsen", type: "text" },
+                ].map((c) => (
+                  <div
+                    key={c.name}
+                    className="h-10 px-3.5 rounded-xl glass-card-hover flex items-center justify-center transition-all duration-300"
+                    title={c.name}
+                    data-testid={`logo-company-${c.name.toLowerCase()}`}
+                  >
+                    {c.type === "image" ? (
+                      <img
+                        src={c.src}
+                        alt={c.name}
+                        className="h-6 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                        style={{
+                          filter: "grayscale(1) contrast(1.2)",
+                          mixBlendMode: "multiply",
+                        }}
+                      />
+                    ) : (
+                      <span className="text-[13px] font-heading font-semibold tracking-wide text-foreground/55 hover:text-foreground/80 transition-colors">
+                        {c.name}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
