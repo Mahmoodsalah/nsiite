@@ -16,6 +16,7 @@ import patternBg from "@assets/pattern_white_1771718036073.png";
 import innovaLogo from "@assets/innova_nobg.png";
 import bootcampAiLogo from "@assets/bootcampai_nobg.png";
 import googleLogo from "@assets/google_nobg.png";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { usePageContent, getVal } from "@/hooks/use-content";
 
 const iconMap: Record<string, any> = { Brain, Bot, Cloud, Eye };
@@ -254,84 +255,96 @@ export default function HireMe() {
                 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
               "
             >
-              {companies.map((c) => (
-                <div
-                  key={c.name}
-                  className="
-                    relative shrink-0 md:shrink
-                    h-24
-                    w-[78%] sm:w-[44%] md:w-auto
-                    snap-center md:snap-align-none
-                    rounded-2xl glass-card-hover
-                    flex items-center justify-center overflow-hidden
-                    transition-all duration-300 group
-                  "
-                  title={c.name}
-                  data-testid={`logo-company-${c.name.toLowerCase()}`}
-                >
-                  {/* Default state: dark grey logo / wordmark — uniform visual size */}
-                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-3 py-3">
-                    {c.kind === "image" ? (
+              {companies.map((c) => {
+                const brandColor =
+                  c.name === "Udacity" ? "#02b3e4"
+                  : c.name === "GLG" ? "#003a70"
+                  : c.name === "Nielsen" ? "#0033a0"
+                  : undefined;
+                return (
+                  <Tooltip key={c.name} delayDuration={150}>
+                    <TooltipTrigger asChild>
                       <div
-                        aria-label={c.name}
-                        role="img"
-                        className="bg-foreground/75 w-full h-full"
-                        style={{
-                          WebkitMaskImage: `url(${c.src})`,
-                          maskImage: `url(${c.src})`,
-                          WebkitMaskRepeat: 'no-repeat',
-                          maskRepeat: 'no-repeat',
-                          WebkitMaskPosition: 'center',
-                          maskPosition: 'center',
-                          WebkitMaskSize: 'contain',
-                          maskSize: 'contain',
-                        }}
-                      />
-                    ) : (
-                      <span className="text-3xl md:text-3xl font-heading font-bold tracking-tight text-foreground/75 leading-none">
-                        {c.text}
-                      </span>
-                    )}
-                  </div>
+                        className="
+                          relative shrink-0 md:shrink
+                          h-28
+                          w-[78%] sm:w-[44%] md:w-auto
+                          snap-center md:snap-align-none
+                          rounded-2xl glass-card-hover
+                          flex items-center justify-center overflow-hidden
+                          transition-all duration-300 group cursor-pointer
+                        "
+                        data-testid={`logo-company-${c.name.toLowerCase()}`}
+                      >
+                        {/* Default: dark grey mask/wordmark, larger */}
+                        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-2 py-2">
+                          {c.kind === "image" ? (
+                            <div
+                              aria-label={c.name}
+                              role="img"
+                              className="bg-foreground/80 w-full h-full"
+                              style={{
+                                WebkitMaskImage: `url(${c.src})`,
+                                maskImage: `url(${c.src})`,
+                                WebkitMaskRepeat: 'no-repeat',
+                                maskRepeat: 'no-repeat',
+                                WebkitMaskPosition: 'center',
+                                maskPosition: 'center',
+                                WebkitMaskSize: 'contain',
+                                maskSize: 'contain',
+                              }}
+                            />
+                          ) : (
+                            <span className="text-3xl font-heading font-bold tracking-tight text-foreground/80 leading-none">
+                              {c.text}
+                            </span>
+                          )}
+                        </div>
 
-                  {/* Hover state: real-color logo + name */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {c.kind === "image" ? (
-                      <>
-                        <img
-                          src={c.src}
-                          alt={c.name}
-                          className="h-12 w-auto max-w-full object-contain"
-                        />
-                        <span className="text-[10px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
-                          {c.name}
-                        </span>
-                      </>
-                    ) : (
-                      <>
+                        {/* Hover: real-color logo (no inline name) */}
+                        <div className="absolute inset-0 flex items-center justify-center px-2 py-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          {c.kind === "image" ? (
+                            <img
+                              src={c.src}
+                              alt={c.name}
+                              className="w-full h-full object-contain"
+                            />
+                          ) : (
+                            <span
+                              className="text-3xl font-heading font-bold tracking-tight leading-none"
+                              style={{ color: brandColor }}
+                            >
+                              {c.text}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="top"
+                      sideOffset={10}
+                      className="
+                        liquid-tooltip
+                        border-0 px-4 py-2.5 rounded-2xl
+                        text-sm font-heading font-semibold
+                      "
+                    >
+                      <div className="flex items-center gap-2">
                         <span
-                          className="text-2xl font-heading font-bold tracking-tight leading-none"
-                          style={{
-                            color:
-                              c.name === "Udacity"
-                                ? "#02b3e4"
-                                : c.name === "GLG"
-                                ? "#003a70"
-                                : c.name === "Nielsen"
-                                ? "#0033a0"
-                                : undefined,
-                          }}
-                        >
-                          {c.text}
-                        </span>
-                        <span className="text-[10px] uppercase tracking-[0.16em] font-heading font-semibold text-primary">
-                          {c.name}
-                        </span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              ))}
+                          className="inline-block w-1.5 h-1.5 rounded-full"
+                          style={{ backgroundColor: brandColor || "hsl(var(--primary))" }}
+                        />
+                        <span className="text-foreground">{c.name}</span>
+                      </div>
+                      <span
+                        className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5"
+                      >
+                        Role coming soon
+                      </span>
+                    </TooltipContent>
+                  </Tooltip>
+                );
+              })}
             </div>
 
             {/* Mobile-only dot indicator + swipe hint */}
