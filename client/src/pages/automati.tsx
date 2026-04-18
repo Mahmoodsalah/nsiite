@@ -2,16 +2,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Bot,
-  Clock,
   Sparkles,
   ShieldCheck,
   Workflow,
-  Users,
   CheckCircle2,
   ArrowRight,
   Zap,
   Brain,
   HandshakeIcon,
+  Users,
+  BarChart3,
+  MessageSquare,
+  FileSearch,
+  Settings2,
+  Lightbulb,
 } from "lucide-react";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import NetworkBg from "@/components/network-bg";
@@ -28,18 +32,18 @@ export default function Automati() {
           <AnimateIn>
             <Badge variant="outline" className="glass-badge rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] mb-6" data-testid="badge-automati-tag">
               <Sparkles className="w-3 h-3 mr-2 text-primary" />
-              AI Automation Service
+              AI Agent Systems
             </Badge>
           </AnimateIn>
           <AnimateIn delay={0.05}>
             <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6" data-testid="text-automati-title">
-              Automate the work that{" "}
-              <span className="text-primary">drains your time.</span>
+              Your work, powered by{" "}
+              <span className="text-primary">intelligence.</span>
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10" data-testid="text-automati-subtitle">
-              We build custom AI agent systems that handle the repetitive parts of your work — so you can focus on what actually moves your life or business forward.
+              We design and build custom AI agent systems tailored to the way you work — whether that's running entire workflows on your behalf, supporting your decisions, generating content, handling communications, or anything in between. You tell us what you want to hand off. We make it happen.
             </p>
           </AnimateIn>
           <AnimateIn delay={0.15}>
@@ -51,39 +55,68 @@ export default function Automati() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-xl px-8 glass-card-hover" data-testid="button-automati-how" asChild>
-                <a href="#how-it-works">See How It Works</a>
+                <a href="#what-we-build">See What We Build</a>
               </Button>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      {/* VALUE / OUTCOMES */}
-      <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+      {/* WHAT WE BUILD */}
+      <section id="what-we-build" className="max-w-6xl mx-auto px-6 py-16 md:py-20">
         <AnimateIn>
           <div className="text-center mb-12">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-outcomes-title">
-              Reclaim hours every week
+            <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
+              What We Build
+            </Badge>
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-what-title">
+              Not a tool. An intelligent system built around you.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Stop spending your day on follow-ups, sorting, copying data, reports, and admin work. Let automation do the heavy lifting.
+              Automati builds AI systems that think, decide, and act — not just simple automations that connect two buttons. Here's a glimpse of what we've built for clients:
             </p>
           </div>
         </AnimateIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            { icon: Clock, title: "More Time", desc: "Reclaim hours each week from repetitive tasks." },
-            { icon: ShieldCheck, title: "Fewer Mistakes", desc: "Consistent execution, every single time." },
-            { icon: Zap, title: "Less Stress", desc: "Stop dreading the boring parts of your day." },
-            { icon: Sparkles, title: "Higher Value", desc: "Focus on better decisions and real growth." },
-          ].map((o, i) => (
-            <AnimateIn key={o.title} delay={i * 0.05}>
-              <div className="glass-card-hover rounded-2xl p-6 h-full" data-testid={`card-outcome-${i}`}>
-                <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4">
-                  <o.icon className="w-5 h-5 text-primary" />
+            {
+              icon: MessageSquare,
+              title: "Smart Communication Systems",
+              desc: "AI agents that draft, send, follow up, and manage conversations across email, WhatsApp, or any platform — in your voice.",
+            },
+            {
+              icon: FileSearch,
+              title: "Research & Intelligence Agents",
+              desc: "Agents that browse, gather, summarize, and deliver exactly what you need to know — from the web, documents, or your own data.",
+            },
+            {
+              icon: BarChart3,
+              title: "Reporting & Analysis Pipelines",
+              desc: "Systems that pull data from multiple sources, interpret it, and produce structured reports — ready for review or delivery.",
+            },
+            {
+              icon: Workflow,
+              title: "End-to-End Workflow Automation",
+              desc: "Multi-step AI workflows that handle entire processes from start to finish — inputs, logic, decisions, and outputs all included.",
+            },
+            {
+              icon: Lightbulb,
+              title: "Decision-Support Systems",
+              desc: "AI that monitors conditions, evaluates options, and surfaces recommendations — so every decision you make is better informed.",
+            },
+            {
+              icon: Settings2,
+              title: "Custom AI Integrations",
+              desc: "Connect AI to the tools you already use — CRMs, spreadsheets, calendars, databases, or internal platforms — without replacing anything.",
+            },
+          ].map((item, i) => (
+            <AnimateIn key={item.title} delay={i * 0.05}>
+              <div className="glass-card-hover rounded-2xl p-6 h-full" data-testid={`card-what-${i}`}>
+                <div className="w-11 h-11 rounded-xl glass-badge flex items-center justify-center mb-4">
+                  <item.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">{o.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{o.desc}</p>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </div>
             </AnimateIn>
           ))}
@@ -98,18 +131,18 @@ export default function Automati() {
               How It Works
             </Badge>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-how-title">
-              Built around your workflow — not a template
+              We design around your goals — not a template
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We study how you actually work, then design an AI system around your process, your goals, and your comfort level.
+              We don't offer a generic automation platform. We study how you work, what you're trying to achieve, and we engineer an AI system built specifically for that.
             </p>
           </div>
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { icon: Brain, step: "01", title: "We Study Your Workflow", desc: "Tell us what you do, what takes too long, or what feels boring. We map every repetitive step." },
-            { icon: Workflow, step: "02", title: "We Design Around You", desc: "We build an automation tailored to your process — not a generic one-size-fits-all template." },
-            { icon: Bot, step: "03", title: "You Stay In Control", desc: "Some systems run fully on their own. Others wait for your approval. The choice is always yours." },
+            { icon: Brain, step: "01", title: "Discovery", desc: "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small." },
+            { icon: Bot, step: "02", title: "Design & Build", desc: "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation." },
+            { icon: ShieldCheck, step: "03", title: "You Stay in Command", desc: "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way." },
           ].map((s, i) => (
             <AnimateIn key={s.step} delay={i * 0.08}>
               <div className="glass-card-hover rounded-2xl p-7 h-full relative" data-testid={`card-step-${i}`}>
@@ -134,13 +167,13 @@ export default function Automati() {
                 Who It's For
               </Badge>
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-5" data-testid="text-who-title">
-                You don't need to be technical.
+                You don't need to understand AI to benefit from it.
               </h2>
               <p className="text-muted-foreground text-base leading-relaxed mb-4">
-                You only need to explain what you want to simplify — we handle the rest. If a task can be automated safely, we automate it. If it needs human judgment, we keep you in control.
+                Whether you're a solo creator managing content and clients, a consultant drowning in admin, or a business with complex processes — if there's a workflow that could be smarter, faster, or handled without you, we can build a system for it.
               </p>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Any workflow with repeated steps, clear patterns, or decision-based actions can usually be improved with AI automation.
+                You only need to describe what you want to change. We figure out the rest, and we keep you in control of exactly as much as you want.
               </p>
             </div>
           </AnimateIn>
@@ -148,13 +181,13 @@ export default function Automati() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { icon: Users, label: "Individuals" },
-                { icon: Sparkles, label: "Creators" },
+                { icon: Sparkles, label: "Creators & Writers" },
                 { icon: Brain, label: "Freelancers" },
                 { icon: HandshakeIcon, label: "Consultants" },
-                { icon: Workflow, label: "Small Teams" },
-                { icon: Bot, label: "Businesses" },
+                { icon: Zap, label: "Small Teams" },
+                { icon: Settings2, label: "Businesses" },
               ].map((p) => (
-                <div key={p.label} className="glass-card-hover rounded-xl p-5 flex flex-col items-center text-center gap-2" data-testid={`card-audience-${p.label.toLowerCase().replace(/\s/g,'-')}`}>
+                <div key={p.label} className="glass-card-hover rounded-xl p-5 flex flex-col items-center text-center gap-2" data-testid={`card-audience-${p.label.toLowerCase().replace(/[\s&]+/g,'-')}`}>
                   <p.icon className="w-6 h-6 text-primary" />
                   <span className="text-sm font-medium text-foreground">{p.label}</span>
                 </div>
@@ -162,6 +195,25 @@ export default function Automati() {
             </div>
           </AnimateIn>
         </div>
+      </section>
+
+      {/* VALUE STRIP */}
+      <section className="max-w-6xl mx-auto px-6 py-8 md:py-12">
+        <AnimateIn>
+          <div className="glass-card rounded-2xl px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-testid="section-values">
+            {[
+              { value: "100%", label: "Custom-built" },
+              { value: "Any", label: "Workflow or process" },
+              { value: "Your", label: "Level of control" },
+              { value: "Zero", label: "Technical knowledge needed" },
+            ].map((v) => (
+              <div key={v.label}>
+                <p className="font-heading font-bold text-3xl text-primary mb-1">{v.value}</p>
+                <p className="text-muted-foreground text-sm">{v.label}</p>
+              </div>
+            ))}
+          </div>
+        </AnimateIn>
       </section>
 
       {/* PRICING */}
@@ -172,15 +224,14 @@ export default function Automati() {
               Pricing
             </Badge>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-pricing-title">
-              Simple, fair, flexible
+              Simple, fair, and built to scale with you
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Start small, scale when you're ready. Refer a friend and save 10% on your subscription for every referral.
+              Start with what you need. Refer a friend and get 10% off your subscription for every person you bring in.
             </p>
           </div>
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {/* Subscription */}
           <AnimateIn delay={0.05}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-subscription">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">Subscription</p>
@@ -190,10 +241,10 @@ export default function Automati() {
                 <span className="text-sm text-muted-foreground">/ month</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Best for individuals starting their automation journey.
+                Ongoing access to your AI system — updates, improvements, and support as your needs evolve.
               </p>
               <ul className="space-y-2.5 mb-6 flex-1">
-                {["Ongoing AI automation access", "Workflow updates as you grow", "10% off per referral", "Email support"].map((f) => (
+                {["Continuous AI system access", "Adjustments as you grow", "10% off per referral you bring", "Email support"].map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                     {f}
@@ -206,7 +257,6 @@ export default function Automati() {
             </div>
           </AnimateIn>
 
-          {/* One-time — featured */}
           <AnimateIn delay={0.1}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col relative ring-2 ring-primary/40" data-testid="card-plan-onetime">
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
@@ -219,10 +269,10 @@ export default function Automati() {
                 <span className="text-sm text-muted-foreground">one-time</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                A complete automation system designed and delivered for your exact workflow.
+                A complete, custom-built AI system designed around your workflow — yours to keep, no ongoing fees.
               </p>
               <ul className="space-y-2.5 mb-6 flex-1">
-                {["Workflow discovery session", "Custom AI agent build", "Setup, testing, handover", "Yours to keep — no monthly fee"].map((f) => (
+                {["Workflow discovery session", "Fully custom AI system", "Setup, testing & full handover", "No subscription required"].map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                     {f}
@@ -230,12 +280,11 @@ export default function Automati() {
                 ))}
               </ul>
               <Button className="rounded-xl" data-testid="button-plan-onetime" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Custom%20Setup">Book Custom Setup</a>
+                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Custom%20Setup">Book Your Build</a>
               </Button>
             </div>
           </AnimateIn>
 
-          {/* Business */}
           <AnimateIn delay={0.15}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-business">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">For Companies</p>
@@ -244,10 +293,10 @@ export default function Automati() {
                 <span className="font-heading font-bold text-4xl text-primary">Custom</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Pricing scaled to the size and complexity of your team's workflow.
+                Tailored pricing for teams and organisations with more complex systems and larger-scale needs.
               </p>
               <ul className="space-y-2.5 mb-6 flex-1">
-                {["Multi-workflow automation", "Team onboarding & training", "Priority support", "Tailored integrations"].map((f) => (
+                {["Multi-system AI architecture", "Team onboarding & training", "Priority support", "Flexible integrations"].map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                     {f}
@@ -255,7 +304,7 @@ export default function Automati() {
                 ))}
               </ul>
               <Button variant="outline" className="rounded-xl glass-card-hover" data-testid="button-plan-business" asChild>
-                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Business%20Inquiry">Talk to Us</a>
+                <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Business%20Inquiry">Let's Talk</a>
               </Button>
             </div>
           </AnimateIn>
@@ -271,14 +320,14 @@ export default function Automati() {
             }} />
             <div className="relative">
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-                Make your time work for you.
+                Your time is your most valuable asset.
               </h2>
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-                The goal isn't to make your work feel robotic. It's to remove the robotic parts from your day — so you can live better, work smarter, and free up time for what matters.
+                The goal isn't to make your work feel robotic. It's to remove the parts of your day that don't deserve your attention — so you can invest it where it actually matters.
               </p>
               <Button size="lg" className="rounded-xl px-8" data-testid="button-automati-cta" asChild>
                 <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Inquiry">
-                  Tell Us What to Automate
+                  Tell Us What You Want to Change
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
