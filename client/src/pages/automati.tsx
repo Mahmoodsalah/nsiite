@@ -218,8 +218,8 @@ export default function Automati() {
             </div>
             {[
               { value: "100%", label: "Custom-built" },
-              { value: "Any", label: "Workflow or process" },
-              { value: "Your", label: "Level of control" },
+              { value: "Any", label: "Workflow or industry" },
+              { value: "Full", label: "Control, always yours" },
               { value: "Zero", label: "Technical knowledge needed" },
             ].map((v) => (
               <div key={v.label}>
@@ -284,7 +284,7 @@ export default function Automati() {
                 <span className="text-sm text-muted-foreground">one-time</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                A complete, custom-built AI system designed around your workflows to keep, no ongoing fees.
+                A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.
               </p>
               <ul className="space-y-2.5 mb-6 flex-1">
                 {["Workflow discovery session", "Fully custom AI system", "Setup, testing & full handover", "No subscription required"].map((f) => (
