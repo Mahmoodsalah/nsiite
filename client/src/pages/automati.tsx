@@ -248,11 +248,14 @@ export default function Automati() {
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <AnimateIn delay={0.05}>
-            <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col relative ring-2 ring-primary/40" data-testid="card-plan-subscription">
-              <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
-                Most Popular
-              </Badge>
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Subscription</p>
+            <div className="flex flex-col h-full">
+              <div className="flex justify-center mb-3">
+                <Badge className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] bg-primary text-primary-foreground">
+                  Most Popular
+                </Badge>
+              </div>
+            <div className="glass-card-hover rounded-2xl p-7 flex-1 flex flex-col ring-2 ring-primary/40" data-testid="card-plan-subscription">
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">Subscription</p>
               <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">$15</span>
@@ -273,11 +276,12 @@ export default function Automati() {
                 <a href="mailto:contact@mahmoodsalah.com?subject=Automati%20Subscription">Get Started</a>
               </Button>
             </div>
+            </div>
           </AnimateIn>
 
           <AnimateIn delay={0.1}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-onetime">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">One-Time Setup</p>
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">One-Time Setup</p>
               <p className="text-xs text-muted-foreground mb-1">Starting from</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">$250</span>
@@ -301,7 +305,7 @@ export default function Automati() {
 
           <AnimateIn delay={0.15}>
             <div className="glass-card-hover rounded-2xl p-7 h-full flex flex-col" data-testid="card-plan-business">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">For Companies</p>
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-foreground mb-4">For Companies</p>
               <div className="flex items-baseline gap-1 mb-5">
                 <span className="font-heading font-bold text-4xl text-primary">Custom</span>
               </div>
