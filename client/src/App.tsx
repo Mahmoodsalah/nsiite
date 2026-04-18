@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import Home from "@/pages/home";
 import HireMe from "@/pages/hire-me";
 import Consultation from "@/pages/consultation";
+import Automati from "@/pages/automati";
 import Bootcamp from "@/pages/bootcamp";
 import Mentorship from "@/pages/mentorship";
 import Admin from "@/pages/admin";
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" component={Home} />
               <Route path="/hire-me" component={HireMe} />
               <Route path="/consultation" component={Consultation} />
+              <Route path="/automati" component={Automati} />
               <Route path="/bootcampai" component={Bootcamp} />
               <Route path="/mentorship" component={Mentorship} />
               <Route path="/admin" component={Admin} />

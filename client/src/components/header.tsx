@@ -33,7 +33,7 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isHireSection = location === "/" || location === "/consultation";
+  const isHireSection = location === "/hire-me" || location === "/consultation" || location === "/automati";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -67,9 +67,9 @@ export default function Header() {
                   ? "text-primary glass-badge"
                   : "text-muted-foreground hover:text-foreground hover:bg-white/10"
               }`}
-              data-testid="link-nav-hire-me"
+              data-testid="link-nav-work"
             >
-              Hire Me
+              Work
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${hireDropdownOpen ? "rotate-180" : ""}`} />
             </button>
 
@@ -91,6 +91,15 @@ export default function Header() {
                     data-testid="button-view-consult"
                   >
                     Need a Consultation?
+                  </span>
+                </Link>
+                <Link href="/automati" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
+                  <span
+                    className="block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 text-muted-foreground hover:text-foreground hover:bg-white/10"
+                    style={{ width: "calc(100% - 8px)" }}
+                    data-testid="button-view-automati"
+                  >
+                    Automati
                   </span>
                 </Link>
               </div>
@@ -144,9 +153,9 @@ export default function Header() {
                   ? "text-primary glass-badge"
                   : "text-muted-foreground hover:text-foreground"
               }`}
-              data-testid="button-mobile-hire-toggle"
+              data-testid="button-mobile-work-toggle"
             >
-              Hire Me
+              Work
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileHireOpen ? "rotate-180" : ""}`} />
             </button>
             {mobileHireOpen && (
@@ -165,6 +174,14 @@ export default function Header() {
                     data-testid="link-mobile-consultation"
                   >
                     Need a Consultation?
+                  </span>
+                </Link>
+                <Link href="/automati" onClick={() => { setMobileMenuOpen(false); setMobileHireOpen(false); scrollToTop(); }}>
+                  <span
+                    className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
+                    data-testid="link-mobile-automati"
+                  >
+                    Automati
                   </span>
                 </Link>
               </div>
