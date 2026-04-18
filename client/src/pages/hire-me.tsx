@@ -69,12 +69,12 @@ export default function HireMe() {
   }, [typed, phase, titleIndex]);
   // Companies carousel — track active dot for mobile swipe indicator
   const companies = [
-    { name: "Innova", kind: "image" as const, src: innovaLogo },
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo },
-    { name: "Google", kind: "image" as const, src: googleLogo },
+    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.25 },
+    { name: "Innova", kind: "image" as const, src: innovaLogo, scale: 1.25 },
     { name: "Udacity", kind: "wordmark" as const, text: "Udacity" },
     { name: "GLG", kind: "wordmark" as const, text: "GLG" },
     { name: "Nielsen", kind: "wordmark" as const, text: "nielsen" },
+    { name: "Google", kind: "image" as const, src: googleLogo, scale: 1 },
   ];
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
@@ -292,6 +292,7 @@ export default function HireMe() {
                                 maskPosition: 'center',
                                 WebkitMaskSize: 'contain',
                                 maskSize: 'contain',
+                                transform: `scale(${c.scale ?? 1})`,
                               }}
                             />
                           ) : (
