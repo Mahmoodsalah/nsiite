@@ -28,7 +28,7 @@ export default function Automati() {
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <AnimateIn>
             <div className="flex justify-center mb-6" data-testid="badge-automati-tag">
-              <img src={automatiLogo} alt="Automati" className="h-10 w-auto dark:invert" />
+              <img src={automatiLogo} alt="Automati" className="h-20 w-auto dark:invert" />
             </div>
           </AnimateIn>
           <AnimateIn delay={0.05}>
