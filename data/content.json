@@ -772,55 +772,51 @@
         "href": "https://cal.com/mahmoodsalah/secret",
         "icon": "BookOpen",
         "price": "$25",
-        "title": "Course Learning Support (test)",
-        "bestFor": "AI learners at any level",
-        "discount": "67% OFF",
+        "title": "AI Learning Support",
+        "bestFor": "Learners building AI foundations",
         "duration": "1 month",
         "features": [
           "Unlimited chat support",
           "2 hours of 1:1 mentoring",
-          "Course material review and explanation",
-          "Study plan recommendations"
+          "Concept explanation",
+          "Study plan guidance"
         ],
-        "description": "Focused guidance on AI courses and learning paths. Get unstuck, understand concepts deeply, and accelerate your AI learning journey.",
-        "originalPrice": "$75"
+        "description": "Get unstuck faster with direct support on AI courses, concepts, assignments, and study direction."
       },
       {
         "cta": "Get Started",
         "href": "https://cal.com/mahmoodsalah/30min",
         "icon": "Code",
         "price": "$150",
-        "title": "Personal Project Mentorship",
-        "bestFor": "Aspiring AI engineers",
+        "title": "AI Project Mentorship",
+        "bestFor": "Aspiring AI engineers and portfolio builders",
         "popular": true,
-        "discount": "70% OFF",
         "duration": "2 months",
         "features": [
           "Unlimited chat support",
           "10 hours of 1:1 mentoring",
-          "Project architecture review",
-          "Code review and best practices",
-          "Model selection and optimization",
-          "Deployment strategy guidance"
+          "Architecture review",
+          "Code review",
+          "Model optimization guidance",
+          "Deployment strategy"
         ],
-        "description": "Hands-on collaboration to bring your AI project to life. Get expert feedback, code reviews, and architecture guidance for your personal AI projects.",
-        "originalPrice": "$500"
+        "description": "Build your personal AI project with hands-on feedback on architecture, code quality, model choices, and deployment strategy."
       },
       {
         "cta": "Get Started",
         "href": "https://cal.com/mahmoodsalah/15min",
         "icon": "Building2",
         "price": "$1,200",
-        "title": "Company Project Consulting",
-        "bestFor": "Teams & organizations",
-        "duration": "3-4 months",
+        "title": "AI Consulting for Teams",
+        "bestFor": "Startups, teams, and organizations",
+        "duration": "3–4 months",
         "features": [
-          "AI feasibility assessment",
+          "AI use-case assessment",
           "Technical architecture planning",
-          "Team training and upskilling",
-          "Production deployment support"
+          "Team training",
+          "Implementation and deployment support"
         ],
-        "description": "Strategic AI consulting for your organization. From feasibility studies to production deployment, get expert guidance on integrating AI into your business."
+        "description": "Work with us to evaluate, design, and implement AI solutions that fit your business goals and technical capacity."
       }
     ]
   },
