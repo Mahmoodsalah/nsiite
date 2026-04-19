@@ -74,11 +74,10 @@ export default function Header() {
             </button>
 
             {hireDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-52 glass-card rounded-xl py-1.5 animate-scale-in origin-top-left bg-[#ffffff]">
+              <div className="absolute top-full left-0 mt-2 w-56 glass-card rounded-xl p-1.5 animate-scale-in origin-top-left bg-white shadow-lg border border-black/5">
                 <Link href="/hire-me" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
                   <span
-                    className="block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 text-muted-foreground hover:text-foreground hover:bg-white/10"
-                    style={{ width: "calc(100% - 8px)" }}
+                    className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-primary/10 whitespace-nowrap"
                     data-testid="button-view-hire"
                   >
                     Hire Me
@@ -86,8 +85,7 @@ export default function Header() {
                 </Link>
                 <Link href="/consultation" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
                   <span
-                    className="block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 text-muted-foreground hover:text-foreground hover:bg-white/10"
-                    style={{ width: "calc(100% - 8px)" }}
+                    className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-primary/10 whitespace-nowrap"
                     data-testid="button-view-consult"
                   >
                     Need a Consultation?
@@ -95,8 +93,7 @@ export default function Header() {
                 </Link>
                 <Link href="/automati" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
                   <span
-                    className="block w-full text-left px-4 py-2.5 text-sm cursor-pointer transition-all rounded-lg mx-1 text-muted-foreground hover:text-foreground hover:bg-white/10"
-                    style={{ width: "calc(100% - 8px)" }}
+                    className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-primary/10 whitespace-nowrap"
                     data-testid="button-view-automati"
                   >
                     Automati
