@@ -28,6 +28,7 @@ import {
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { usePageContent, getVal } from "@/hooks/use-content";
+import { useCountUp } from "@/hooks/use-count-up";
 import {
   Accordion,
   AccordionContent,
@@ -47,6 +48,11 @@ export default function Mentorship() {
 
   const heroTitle = getVal(content, "hero", "title", "Information Is Everywhere. Direction Is Rare.");
   const heroSubtitle = getVal(content, "hero", "subtitle", "");
+
+  const statCount = parseInt(getVal(content, "stats", "count", "572"), 10) || 572;
+  const statLabel = getVal(content, "stats", "label", "Mentees Guided");
+  const statDesc = getVal(content, "stats", "description", "");
+  const { count: statValue, ref: statRef } = useCountUp(statCount);
   const introTitle = getVal(content, "intro", "title", "Being an AI learner is tough.");
   const introDesc = getVal(content, "intro", "description", "");
   const plansTitle = getVal(content, "plans", "title", "Mentorship Plans");
@@ -264,6 +270,39 @@ export default function Mentorship() {
             </Button>
           </div>
         </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-6 -mt-8 md:-mt-12 relative z-10" data-testid="section-mentorship-stats">
+        <AnimateIn>
+          <div
+            ref={statRef}
+            className="glass-card rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+          >
+            <div
+              className="absolute inset-0 pointer-events-none opacity-60"
+              style={{
+                background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.12), transparent 65%)",
+              }}
+            />
+            <div className="relative z-10">
+              <div
+                className="font-heading font-bold text-6xl sm:text-7xl md:text-8xl text-primary leading-none mb-3 tabular-nums"
+                data-testid="text-mentorship-count"
+              >
+                {statValue}
+                <span className="text-primary/70">+</span>
+              </div>
+              <p className="font-heading font-semibold text-lg md:text-xl text-foreground mb-3" data-testid="text-mentorship-stat-label">
+                {statLabel}
+              </p>
+              {statDesc && (
+                <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto" data-testid="text-mentorship-stat-desc">
+                  {statDesc}
+                </p>
+              )}
+            </div>
+          </div>
+        </AnimateIn>
       </section>
 
       <section className="py-20 relative overflow-hidden" data-testid="section-mentorship-intro">

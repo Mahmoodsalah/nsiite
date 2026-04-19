@@ -9,6 +9,7 @@ import googleLogo from "@assets/google_nobg.png";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { usePageSEO } from "@/hooks/use-seo";
+import StatsDashboard from "@/components/stats-dashboard";
 
 const socialIconMap: Record<string, any> = { linkedin: SiLinkedin, youtube: SiYoutube, instagram: SiInstagram, facebook: SiFacebook };
 
@@ -403,6 +404,8 @@ export default function Home() {
 
         </div>
       </section>
+
+      <StatsDashboard />
     </div>
   );
 }

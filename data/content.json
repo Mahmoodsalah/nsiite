@@ -1628,5 +1628,47 @@
     "section": "seoHireMe",
     "contentKey": "ogImage",
     "value": "https://mahmoodsalah.com/favicon.png"
+  },
+  {
+    "id": 154,
+    "page": "bootcamp",
+    "section": "stats",
+    "contentKey": "count",
+    "value": "320"
+  },
+  {
+    "id": 155,
+    "page": "bootcamp",
+    "section": "stats",
+    "contentKey": "label",
+    "value": "Students Trained"
+  },
+  {
+    "id": 156,
+    "page": "bootcamp",
+    "section": "stats",
+    "contentKey": "description",
+    "value": "Learners across the Middle East who have completed BootcampAI programs and built production-ready AI projects."
+  },
+  {
+    "id": 157,
+    "page": "mentorship",
+    "section": "stats",
+    "contentKey": "count",
+    "value": "572"
+  },
+  {
+    "id": 158,
+    "page": "mentorship",
+    "section": "stats",
+    "contentKey": "label",
+    "value": "Mentees Guided"
+  },
+  {
+    "id": 159,
+    "page": "mentorship",
+    "section": "stats",
+    "contentKey": "description",
+    "value": "Engineers, students, and career-changers I have personally mentored toward AI roles and high-impact projects."
   }
 ]
