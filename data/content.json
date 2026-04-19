@@ -772,6 +772,8 @@
         "href": "https://cal.com/mahmoodsalah/secret",
         "icon": "BookOpen",
         "price": "$25",
+        "originalPrice": "$75",
+        "discount": "67% OFF",
         "title": "AI Learning Support",
         "bestFor": "Learners building AI foundations",
         "duration": "1 month",
@@ -788,6 +790,8 @@
         "href": "https://cal.com/mahmoodsalah/30min",
         "icon": "Code",
         "price": "$150",
+        "originalPrice": "$500",
+        "discount": "70% OFF",
         "title": "AI Project Mentorship",
         "bestFor": "Aspiring AI engineers and portfolio builders",
         "popular": true,
@@ -807,6 +811,8 @@
         "href": "https://cal.com/mahmoodsalah/15min",
         "icon": "Building2",
         "price": "$1,200",
+        "originalPrice": "$2,000",
+        "discount": "40% OFF",
         "title": "AI Consulting for Teams",
         "bestFor": "Startups, teams, and organizations",
         "duration": "3–4 months",
@@ -1336,5 +1342,12 @@
     "section": "seo",
     "contentKey": "canonicalUrl",
     "value": "https://mahmoodsalah.com/consultation"
+  },
+  {
+    "id": 120,
+    "page": "mentorship",
+    "section": "plans",
+    "contentKey": "limitedTimeNotice",
+    "value": "Limited-time early pricing — these rates will increase soon. Lock in your spot now."
   }
 ]

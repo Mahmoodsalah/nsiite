@@ -23,6 +23,7 @@ import {
   Rocket,
   Target,
   Zap,
+  Clock,
 } from "lucide-react";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
@@ -44,6 +45,7 @@ export default function Mentorship() {
   const introDesc = getVal(content, "intro", "description", "");
   const plansTitle = getVal(content, "plans", "title", "Mentorship Plans");
   const plansSubtitle = getVal(content, "plans", "subtitle", "");
+  const plansLimitedNotice = getVal(content, "plans", "limitedTimeNotice", "");
   const plans = getVal(content, "plans", "items", []);
   const benefitsTitle = getVal(content, "benefits", "title", "Benefits of Mentorship");
   const benefitsSubtitle = getVal(content, "benefits", "subtitle", "");
@@ -167,8 +169,17 @@ export default function Mentorship() {
         <div className="max-w-6xl mx-auto px-6">
           <AnimateIn>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-3 text-center">{plansTitle}</h2>
-            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">{plansSubtitle}</p>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-6">{plansSubtitle}</p>
           </AnimateIn>
+
+          {plansLimitedNotice && (
+            <AnimateIn delay={0.05}>
+              <div className="flex items-center justify-center gap-2.5 mb-10 px-5 py-3 rounded-full border border-primary/30 bg-primary/5 w-fit mx-auto" data-testid="banner-limited-time">
+                <Clock className="w-4 h-4 text-primary shrink-0 animate-pulse" />
+                <span className="text-sm font-medium text-foreground">{plansLimitedNotice}</span>
+              </div>
+            </AnimateIn>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan: any, i: number) => {
