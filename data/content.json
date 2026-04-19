@@ -103,13 +103,13 @@
       },
       {
         "tags": [
-          "Computer Vision",
-          "YOLO",
-          "ROS",
-          "Drone Technology"
+          "Agentic AI",
+          "LLM Fine-Tuning",
+          "RAG",
+          "LangChain"
         ],
-        "title": "Autonomous Drone Navigation",
-        "description": "Implemented a real-time object detection and tracking system for autonomous drone navigation in urban environments, achieving 95% accuracy"
+        "title": "Agentic AI System",
+        "description": "Built an end-to-end Agentic AI platform combining fine-tuned LLMs with a Retrieval-Augmented Generation (RAG) pipeline, enabling autonomous agents to reason, retrieve, and act on enterprise knowledge with high accuracy and reliability"
       },
       {
         "tags": [
