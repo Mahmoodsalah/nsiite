@@ -70,6 +70,12 @@ const SECTION_LABELS: Record<string, string> = {
   seoHome: "SEO - Home Page",
   seoHireMe: "SEO - Hire Me Page",
   stats: "Stats Counter",
+  navigation: "Navigation Bar",
+  footer: "Footer",
+  statsDashboard: "Stats Dashboard (Home)",
+  floatingCards: "Floating Cards",
+  techMarquee: "Tech Marquee",
+  ui: "UI Labels",
 };
 
 export default function Admin() {

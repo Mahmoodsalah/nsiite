@@ -76,6 +76,7 @@ export default function HireMe() {
   });
 
   const aboutTitle = getVal(content, "about", "title", "About Me");
+  const competenciesTitle = getVal(content, "about", "competenciesTitle", "Core Competencies");
   const bio1 = getVal(content, "about", "bio1", "");
   const bio2 = getVal(content, "about", "bio2", "");
   const coreCompetencies = getVal(content, "about", "coreCompetencies", []);
@@ -84,6 +85,7 @@ export default function HireMe() {
   const projects = getVal(content, "projects", "items", []);
   const resumeEmbedUrl = getVal(content, "resume", "embedUrl", "");
   const resumeViewUrl = getVal(content, "resume", "viewUrl", "");
+  const resumeTitle = getVal(content, "resume", "title", "Resume");
   const testimonialsTitle = getVal(content, "testimonials", "title", "Testimonials");
   const testimonialsSubtitle = getVal(content, "testimonials", "subtitle", "");
   const testimonials = getVal(content, "testimonials", "items", []);
@@ -118,7 +120,7 @@ export default function HireMe() {
                     <p className="text-muted-foreground leading-relaxed mb-8">{bio2}</p>
 
                     <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-                      Core Competencies
+                      {competenciesTitle}
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                       {coreCompetencies.map((comp: any) => {
@@ -172,7 +174,7 @@ export default function HireMe() {
               <AnimateIn>
                 <section data-testid="section-resume">
                   <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
-                    Resume
+                    {resumeTitle}
                   </h2>
                   <div className="w-full rounded-2xl overflow-hidden glass-card">
                     <iframe

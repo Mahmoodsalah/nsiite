@@ -12,10 +12,22 @@ const socialIconMap: Record<string, any> = {
 
 export default function Footer() {
   const { data: content } = usePageContent("hireme");
+  const { data: globalContent } = usePageContent("global");
   const socialLinks = getVal(content, "hero", "socialLinks", []);
-  const email = getVal(content, "hero", "socialLinks", []).length > 0
-    ? "mahmood.salah@email.com"
-    : "mahmood.salah@email.com";
+
+  const brandName = getVal(globalContent, "footer", "brandName", "Mahmood Salah");
+  const brandTagline = getVal(globalContent, "footer", "brandTagline", "Senior Data Scientist and AI Engineer specializing in AI agents, computer vision, and deep learning technologies.");
+  const quickLinksTitle = getVal(globalContent, "footer", "quickLinksTitle", "Quick Links");
+  const connectTitle = getVal(globalContent, "footer", "connectTitle", "Connect");
+  const contactEmail = getVal(globalContent, "footer", "contactEmail", "mahmoodsalah89@gmail.com");
+  const copyrightTpl = getVal(globalContent, "footer", "copyrightText", "© {year} Mahmood Salah. All rights reserved.");
+  const copyright = copyrightTpl.replace("{year}", String(new Date().getFullYear()));
+
+  const navHire = getVal(globalContent, "navigation", "hireMeLabel", "Hire Me");
+  const navConsult = getVal(globalContent, "navigation", "consultationLabel", "Consultation");
+  const navBootcamp = getVal(globalContent, "navigation", "bootcampLabel", "BootcampAI");
+  const navMentorship = getVal(globalContent, "navigation", "mentorshipLabel", "Mentorship");
+  const navAutomati = getVal(globalContent, "navigation", "automatiLabel", "Automati");
 
   return (
     <footer className="relative overflow-hidden" data-testid="footer">
@@ -24,45 +36,43 @@ export default function Footer() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12 text-background">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Mahmood Salah</h3>
-            <p className="text-background/60 text-sm leading-relaxed">
-              Senior Data Scientist and AI Engineer specializing in AI agents, computer vision, and deep learning technologies.
-            </p>
+            <h3 className="font-heading font-semibold text-lg mb-4">{brandName}</h3>
+            <p className="text-background/60 text-sm leading-relaxed">{brandTagline}</p>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-heading font-semibold text-lg mb-4">{quickLinksTitle}</h3>
             <nav className="flex flex-col gap-2">
               <Link href="/hire-me" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-hire">
-                  Hire Me
+                  {navHire}
                 </span>
               </Link>
               <Link href="/consultation" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-consultation">
-                  Consultation
+                  {navConsult}
                 </span>
               </Link>
               <Link href="/bootcampai" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-bootcamp">
-                  BootcampAI
+                  {navBootcamp}
                 </span>
               </Link>
               <Link href="/mentorship" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-mentorship">
-                  Mentorship
+                  {navMentorship}
                 </span>
               </Link>
               <Link href="/automati" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-automati">
-                  Automati
+                  {navAutomati}
                 </span>
               </Link>
             </nav>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Connect</h3>
+            <h3 className="font-heading font-semibold text-lg mb-4">{connectTitle}</h3>
             <div className="flex gap-3">
               {socialLinks.map((link: any, i: number) => {
                 const Icon = socialIconMap[link.platform] || SiLinkedin;
@@ -81,19 +91,17 @@ export default function Footer() {
               })}
             </div>
             <a
-              href="mailto:mahmoodsalah89@gmail.com"
+              href={`mailto:${contactEmail}`}
               className="mt-4 inline-block text-background/60 text-sm hover:text-background transition-colors"
               data-testid="link-email"
             >
-              mahmoodsalah89@gmail.com
+              {contactEmail}
             </a>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-background/10 text-center">
-          <p className="text-background/40 text-xs">
-            &copy; {new Date().getFullYear()} Mahmood Salah. All rights reserved.
-          </p>
+          <p className="text-background/40 text-xs">{copyright}</p>
         </div>
       </div>
     </footer>

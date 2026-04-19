@@ -53,6 +53,11 @@ export default function StatsDashboard() {
   const { data: bootcamp } = usePageContent("bootcamp");
   const { data: mentorship } = usePageContent("mentorship");
   const { data: automati } = usePageContent("automati");
+  const { data: globalContent } = usePageContent("global");
+
+  const dashEyebrow = getVal(globalContent, "statsDashboard", "eyebrow", "By the numbers");
+  const dashTitle = getVal(globalContent, "statsDashboard", "title", "Impact across every service");
+  const dashSubtitle = getVal(globalContent, "statsDashboard", "subtitle", "A snapshot of the people, projects, and engagements behind the work. Tap any card to explore that service.");
 
   const parseCount = (raw: string, fallback: number) => {
     const n = parseInt(raw, 10);
@@ -95,13 +100,13 @@ export default function StatsDashboard() {
       <AnimateIn>
         <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-3" data-testid="text-dashboard-eyebrow">
-            By the numbers
+            {dashEyebrow}
           </p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground" data-testid="text-dashboard-title">
-            Impact across every service
+            {dashTitle}
           </h2>
           <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto mt-3" data-testid="text-dashboard-subtitle">
-            A snapshot of the people, projects, and engagements behind the work. Tap any card to explore that service.
+            {dashSubtitle}
           </p>
         </div>
       </AnimateIn>

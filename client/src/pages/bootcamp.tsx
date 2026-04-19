@@ -326,14 +326,14 @@ export default function Bootcamp() {
           <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex gap-4 bootcamp-ticker">
               {[
-                { icon: Bot, label: "AI Agents", color: "text-[#FD6215]", bg: "bg-[#FD6215]/15" },
-                { icon: MessageSquare, label: "LLMs", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/15" },
-                { icon: Database, label: "RAG", color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-500/15" },
-                { icon: Eye, label: "Computer Vision", color: "text-green-600 dark:text-green-400", bg: "bg-green-500/15" },
-                { icon: Brain, label: "Deep Learning", color: "text-rose-600 dark:text-rose-400", bg: "bg-rose-500/15" },
-                { icon: Cpu, label: "Fine-Tuning", color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/15" },
-                { icon: Layers, label: "Prompt Engineering", color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-500/15" },
-                { icon: Globe, label: "MLOps", color: "text-teal-600 dark:text-teal-400", bg: "bg-teal-500/15" },
+                { icon: Bot, label: getVal(content, "techMarquee", "label1", "AI Agents"), color: "text-[#FD6215]", bg: "bg-[#FD6215]/15" },
+                { icon: MessageSquare, label: getVal(content, "techMarquee", "label2", "LLMs"), color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/15" },
+                { icon: Database, label: getVal(content, "techMarquee", "label3", "RAG"), color: "text-purple-600 dark:text-purple-400", bg: "bg-purple-500/15" },
+                { icon: Eye, label: getVal(content, "techMarquee", "label4", "Computer Vision"), color: "text-green-600 dark:text-green-400", bg: "bg-green-500/15" },
+                { icon: Brain, label: getVal(content, "techMarquee", "label5", "Deep Learning"), color: "text-rose-600 dark:text-rose-400", bg: "bg-rose-500/15" },
+                { icon: Cpu, label: getVal(content, "techMarquee", "label6", "Fine-Tuning"), color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/15" },
+                { icon: Layers, label: getVal(content, "techMarquee", "label7", "Prompt Engineering"), color: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-500/15" },
+                { icon: Globe, label: getVal(content, "techMarquee", "label8", "MLOps"), color: "text-teal-600 dark:text-teal-400", bg: "bg-teal-500/15" },
               ].flatMap((item, i) => [item, item].map((t, j) => {
                 const TIcon = t.icon;
                 return (

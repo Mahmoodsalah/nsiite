@@ -1670,5 +1670,299 @@
     "section": "stats",
     "contentKey": "description",
     "value": "Engineers, students, and career-changers I have personally mentored toward AI roles and high-impact projects."
+  },
+  {
+    "id": 160,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "workLabel",
+    "value": "Work"
+  },
+  {
+    "id": 161,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "hireMeLabel",
+    "value": "Hire Me"
+  },
+  {
+    "id": 162,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "consultationLabel",
+    "value": "Need a Consultation?"
+  },
+  {
+    "id": 163,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "automatiLabel",
+    "value": "Automati"
+  },
+  {
+    "id": 164,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "bootcampLabel",
+    "value": "BootcampAI"
+  },
+  {
+    "id": 165,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "mentorshipLabel",
+    "value": "Mentorship"
+  },
+  {
+    "id": 166,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "brandName",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 167,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "brandName",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 168,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "brandTagline",
+    "value": "Senior Data Scientist and AI Engineer specializing in AI agents, computer vision, and deep learning technologies."
+  },
+  {
+    "id": 169,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "quickLinksTitle",
+    "value": "Quick Links"
+  },
+  {
+    "id": 170,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "connectTitle",
+    "value": "Connect"
+  },
+  {
+    "id": 171,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "contactEmail",
+    "value": "mahmoodsalah89@gmail.com"
+  },
+  {
+    "id": 172,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "copyrightText",
+    "value": "© {year} Mahmood Salah. All rights reserved."
+  },
+  {
+    "id": 173,
+    "page": "global",
+    "section": "statsDashboard",
+    "contentKey": "eyebrow",
+    "value": "By the numbers"
+  },
+  {
+    "id": 174,
+    "page": "global",
+    "section": "statsDashboard",
+    "contentKey": "title",
+    "value": "Impact across every service"
+  },
+  {
+    "id": 175,
+    "page": "global",
+    "section": "statsDashboard",
+    "contentKey": "subtitle",
+    "value": "A snapshot of the people, projects, and engagements behind the work. Tap any card to explore that service."
+  },
+  {
+    "id": 176,
+    "page": "hireme",
+    "section": "about",
+    "contentKey": "competenciesTitle",
+    "value": "Core Competencies"
+  },
+  {
+    "id": 177,
+    "page": "hireme",
+    "section": "hero",
+    "contentKey": "typedTitles",
+    "value": "Senior Data Scientist|AI Solutions Architect|AI Transformation Consultant"
+  },
+  {
+    "id": 178,
+    "page": "hireme",
+    "section": "hero",
+    "contentKey": "workedWithLabel",
+    "value": "Worked with"
+  },
+  {
+    "id": 179,
+    "page": "hireme",
+    "section": "hero",
+    "contentKey": "swipeLabel",
+    "value": "Swipe to see more"
+  },
+  {
+    "id": 180,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card1Top",
+    "value": "Personalized"
+  },
+  {
+    "id": 181,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card1Bottom",
+    "value": "1-on-1 Sessions"
+  },
+  {
+    "id": 182,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card2Top",
+    "value": "Goal-Driven"
+  },
+  {
+    "id": 183,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card2Bottom",
+    "value": "Real Projects"
+  },
+  {
+    "id": 184,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card3Top",
+    "value": "Fast-Track"
+  },
+  {
+    "id": 185,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card3Bottom",
+    "value": "Your AI Career"
+  },
+  {
+    "id": 186,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "badgeText",
+    "value": "Mentorship Program"
+  },
+  {
+    "id": 187,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "viewPlansLabel",
+    "value": "View Plans"
+  },
+  {
+    "id": 188,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "mostPopularLabel",
+    "value": "Most Popular"
+  },
+  {
+    "id": 189,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "bestForLabel",
+    "value": "Best for:"
+  },
+  {
+    "id": 190,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label1",
+    "value": "AI Agents"
+  },
+  {
+    "id": 191,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label2",
+    "value": "LLMs"
+  },
+  {
+    "id": 192,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label3",
+    "value": "RAG"
+  },
+  {
+    "id": 193,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label4",
+    "value": "Computer Vision"
+  },
+  {
+    "id": 194,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label5",
+    "value": "Deep Learning"
+  },
+  {
+    "id": 195,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label6",
+    "value": "Fine-Tuning"
+  },
+  {
+    "id": 196,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label7",
+    "value": "Prompt Engineering"
+  },
+  {
+    "id": 197,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label8",
+    "value": "MLOps"
+  },
+  {
+    "id": 198,
+    "page": "automati",
+    "section": "ui",
+    "contentKey": "mostPopularLabel",
+    "value": "Most Popular"
+  },
+  {
+    "id": 199,
+    "page": "consultation",
+    "section": "ui",
+    "contentKey": "sendEmailLabel",
+    "value": "Send me an email"
+  },
+  {
+    "id": 200,
+    "page": "consultation",
+    "section": "ui",
+    "contentKey": "copyEmailLabel",
+    "value": "Copy email"
+  },
+  {
+    "id": 201,
+    "page": "consultation",
+    "section": "ui",
+    "contentKey": "copiedLabel",
+    "value": "Copied!"
   }
 ]

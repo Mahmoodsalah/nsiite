@@ -200,8 +200,8 @@ export default function Mentorship() {
                 <Rocket className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Personalized</p>
-                <p className="font-heading font-semibold text-sm text-foreground">1-on-1 Sessions</p>
+                <p className="text-xs text-muted-foreground">{getVal(content, "floatingCards", "card1Top", "Personalized")}</p>
+                <p className="font-heading font-semibold text-sm text-foreground">{getVal(content, "floatingCards", "card1Bottom", "1-on-1 Sessions")}</p>
               </div>
             </div>
           </div>
@@ -214,8 +214,8 @@ export default function Mentorship() {
                 <Target className="w-5 h-5 text-green-600 dark:text-green-400" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Goal-Driven</p>
-                <p className="font-heading font-semibold text-sm text-foreground">Real Projects</p>
+                <p className="text-xs text-muted-foreground">{getVal(content, "floatingCards", "card2Top", "Goal-Driven")}</p>
+                <p className="font-heading font-semibold text-sm text-foreground">{getVal(content, "floatingCards", "card2Bottom", "Real Projects")}</p>
               </div>
             </div>
           </div>
@@ -228,8 +228,8 @@ export default function Mentorship() {
                 <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Fast-Track</p>
-                <p className="font-heading font-semibold text-sm text-foreground">Your AI Career</p>
+                <p className="text-xs text-muted-foreground">{getVal(content, "floatingCards", "card3Top", "Fast-Track")}</p>
+                <p className="font-heading font-semibold text-sm text-foreground">{getVal(content, "floatingCards", "card3Bottom", "Your AI Career")}</p>
               </div>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function Mentorship() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 mb-8 animate-fade-in-up" data-testid="badge-mentorship">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-foreground">Mentorship Program</span>
+            <span className="text-sm font-medium text-foreground">{getVal(content, "ui", "badgeText", "Mentorship Program")}</span>
           </div>
 
           <h1
@@ -265,7 +265,7 @@ export default function Mentorship() {
               onClick={() => document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="button-view-plans"
             >
-              View Plans
+              {getVal(content, "ui", "viewPlansLabel", "View Plans")}
               <ArrowDown className="w-4 h-4 ml-2" />
             </Button>
           </div>
@@ -310,7 +310,7 @@ export default function Mentorship() {
                     {(plan.popular || plan.discount) && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
                         {plan.popular && (
-                          <Badge className="rounded-full">Most Popular</Badge>
+                          <Badge className="rounded-full">{getVal(content, "ui", "mostPopularLabel", "Most Popular")}</Badge>
                         )}
                         {plan.discount && (
                           <Badge variant="destructive" className="rounded-full">{plan.discount}</Badge>
@@ -334,7 +334,7 @@ export default function Mentorship() {
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4">{plan.description}</p>
 
                       <p className="text-xs text-muted-foreground mb-4">
-                        <span className="font-semibold text-foreground">Best for: </span>
+                        <span className="font-semibold text-foreground">{getVal(content, "ui", "bestForLabel", "Best for:")} </span>
                         {plan.bestFor}
                       </p>
 

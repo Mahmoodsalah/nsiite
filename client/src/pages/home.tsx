@@ -84,11 +84,10 @@ export default function Home() {
     jsonLdId: "home-jsonld",
   });
 
-  const titles = [
-    "Senior Data Scientist",
-    "AI Solutions Architect",
-    "AI Transformation Consultant",
-  ];
+  const typedTitlesRaw = getVal(content, "hero", "typedTitles", "Senior Data Scientist|AI Solutions Architect|AI Transformation Consultant");
+  const titles = typedTitlesRaw.split("|").map((t: string) => t.trim()).filter(Boolean);
+  const workedWithLabel = getVal(content, "hero", "workedWithLabel", "Worked with");
+  const swipeLabel = getVal(content, "hero", "swipeLabel", "Swipe to see more");
   const [titleIndex, setTitleIndex] = useState(0);
   const [typed, setTyped] = useState("");
   const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
@@ -269,7 +268,7 @@ export default function Home() {
               className="text-xs uppercase tracking-[0.2em] text-foreground/70 mb-4 text-center md:text-left"
               data-testid="text-companies-label"
             >
-              Worked with
+              {workedWithLabel}
             </p>
             <div
               ref={companiesScrollRef}
@@ -397,7 +396,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/60">
-                Swipe to see more
+                {swipeLabel}
               </p>
             </div>
           </div>

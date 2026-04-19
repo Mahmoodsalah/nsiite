@@ -2,10 +2,19 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { usePageContent, getVal } from "@/hooks/use-content";
 import logoPath from "@assets/logo.png";
 
 export default function Header() {
   const [location] = useLocation();
+  const { data: globalContent } = usePageContent("global");
+  const navWork = getVal(globalContent, "navigation", "workLabel", "Work");
+  const navHire = getVal(globalContent, "navigation", "hireMeLabel", "Hire Me");
+  const navConsult = getVal(globalContent, "navigation", "consultationLabel", "Need a Consultation?");
+  const navAutomati = getVal(globalContent, "navigation", "automatiLabel", "Automati");
+  const navBootcamp = getVal(globalContent, "navigation", "bootcampLabel", "BootcampAI");
+  const navMentorship = getVal(globalContent, "navigation", "mentorshipLabel", "Mentorship");
+  const brandName = getVal(globalContent, "navigation", "brandName", "Mahmood Salah");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hireDropdownOpen, setHireDropdownOpen] = useState(false);
@@ -51,9 +60,9 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" onClick={scrollToTop} data-testid="link-home">
           <div className="flex items-center gap-3 cursor-pointer">
-            <img src={logoPath} alt="Mahmood Salah" className="h-8 w-auto" />
+            <img src={logoPath} alt={brandName} className="h-8 w-auto" />
             <span className="font-heading font-semibold text-foreground text-sm tracking-wide">
-              Mahmood Salah
+              {brandName}
             </span>
           </div>
         </Link>
@@ -69,7 +78,7 @@ export default function Header() {
               }`}
               data-testid="link-nav-work"
             >
-              Work
+              {navWork}
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${hireDropdownOpen ? "rotate-180" : ""}`} />
             </button>
 
@@ -80,7 +89,7 @@ export default function Header() {
                     className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-primary/10 whitespace-nowrap"
                     data-testid="button-view-hire"
                   >
-                    Hire Me
+                    {navHire}
                   </span>
                 </Link>
                 <Link href="/consultation" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
@@ -88,7 +97,7 @@ export default function Header() {
                     className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-primary/10 whitespace-nowrap"
                     data-testid="button-view-consult"
                   >
-                    Need a Consultation?
+                    {navConsult}
                   </span>
                 </Link>
                 <Link href="/automati" onClick={() => { setHireDropdownOpen(false); scrollToTop(); }}>
@@ -96,7 +105,7 @@ export default function Header() {
                     className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-primary/10 whitespace-nowrap"
                     data-testid="button-view-automati"
                   >
-                    Automati
+                    {navAutomati}
                   </span>
                 </Link>
               </div>
@@ -112,7 +121,7 @@ export default function Header() {
               }`}
               data-testid="link-nav-bootcampai"
             >
-              BootcampAI
+              {navBootcamp}
             </span>
           </Link>
 
@@ -125,7 +134,7 @@ export default function Header() {
               }`}
               data-testid="link-nav-mentorship"
             >
-              Mentorship
+              {navMentorship}
             </span>
           </Link>
         </nav>
@@ -152,7 +161,7 @@ export default function Header() {
               }`}
               data-testid="button-mobile-work-toggle"
             >
-              Work
+              {navWork}
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileHireOpen ? "rotate-180" : ""}`} />
             </button>
             {mobileHireOpen && (
@@ -162,7 +171,7 @@ export default function Header() {
                     className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-hire-me"
                   >
-                    Hire Me
+                    {navHire}
                   </span>
                 </Link>
                 <Link href="/consultation" onClick={() => { setMobileMenuOpen(false); setMobileHireOpen(false); scrollToTop(); }}>
@@ -170,7 +179,7 @@ export default function Header() {
                     className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-consultation"
                   >
-                    Need a Consultation?
+                    {navConsult}
                   </span>
                 </Link>
                 <Link href="/automati" onClick={() => { setMobileMenuOpen(false); setMobileHireOpen(false); scrollToTop(); }}>
@@ -178,7 +187,7 @@ export default function Header() {
                     className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
                     data-testid="link-mobile-automati"
                   >
-                    Automati
+                    {navAutomati}
                   </span>
                 </Link>
               </div>
@@ -192,7 +201,7 @@ export default function Header() {
                 }`}
                 data-testid="link-mobile-bootcampai"
               >
-                BootcampAI
+                {navBootcamp}
               </span>
             </Link>
             <Link href="/mentorship" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
@@ -204,7 +213,7 @@ export default function Header() {
                 }`}
                 data-testid="link-mobile-mentorship"
               >
-                Mentorship
+                {navMentorship}
               </span>
             </Link>
           </nav>
