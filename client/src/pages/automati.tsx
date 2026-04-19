@@ -397,7 +397,7 @@ export default function Automati() {
                 <div className="flex flex-col h-full">
                   <div className={`flex justify-center mb-3 ${isPopular ? "" : "invisible"}`}>
                     <Badge className={`rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] ${isPopular ? "bg-primary text-primary-foreground" : ""}`}>
-                      Most Popular
+                      {getVal(content, "ui", "mostPopularLabel", "Most Popular")}
                     </Badge>
                   </div>
                   <div className={`glass-card-hover rounded-2xl p-7 flex-1 flex flex-col ${isPopular ? "ring-2 ring-primary/40" : ""}`} data-testid={`card-plan-${i}`}>

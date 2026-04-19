@@ -151,19 +151,19 @@ export default function Consultation() {
             <Button asChild className="rounded-xl">
               <a href={`mailto:${email}`} data-testid="button-send-email">
                 <Mail className="w-4 h-4 mr-2" />
-                Send me an email
+                {getVal(content, "ui", "sendEmailLabel", "Send me an email")}
               </a>
             </Button>
             <Button variant="outline" onClick={handleCopyEmail} className="rounded-xl glass-card" data-testid="button-copy-email">
               {emailCopied ? (
                 <>
                   <Check className="w-4 h-4 mr-2" />
-                  Copied!
+                  {getVal(content, "ui", "copiedLabel", "Copied!")}
                 </>
               ) : (
                 <>
                   <Copy className="w-4 h-4 mr-2" />
-                  Copy email
+                  {getVal(content, "ui", "copyEmailLabel", "Copy email")}
                 </>
               )}
             </Button>
