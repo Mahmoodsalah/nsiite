@@ -871,7 +871,7 @@
     "page": "automati",
     "section": "valueStrip",
     "contentKey": "clientLabel",
-    "value": "Happy Clients"
+    "value": "Automati Clients"
   },
   {
     "id": 92,
@@ -1641,7 +1641,7 @@
     "page": "bootcamp",
     "section": "stats",
     "contentKey": "label",
-    "value": "Students Trained"
+    "value": "BootcampAI Students"
   },
   {
     "id": 156,

@@ -69,7 +69,7 @@ export default function StatsDashboard() {
     },
     {
       count: parseCount(getVal(bootcamp, "stats", "count", "320"), 320),
-      label: getVal(bootcamp, "stats", "label", "Students Trained"),
+      label: getVal(bootcamp, "stats", "label", "BootcampAI Students"),
       href: "/bootcampai",
       icon: GraduationCap,
       testid: "bootcamp",
@@ -83,7 +83,7 @@ export default function StatsDashboard() {
     },
     {
       count: parseCount(getVal(automati, "valueStrip", "clientCount", "26"), 26),
-      label: getVal(automati, "valueStrip", "clientLabel", "Happy Clients"),
+      label: getVal(automati, "valueStrip", "clientLabel", "Automati Clients"),
       href: "/automati",
       icon: Sparkles,
       testid: "automati",
