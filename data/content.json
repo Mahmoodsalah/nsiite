@@ -1158,14 +1158,14 @@
     "page": "automati",
     "section": "closingCta",
     "contentKey": "cta",
-    "value": "Tell Us What You Want to Change"
+    "value": "Get Started"
   },
   {
     "id": 100,
     "page": "automati",
     "section": "closingCta",
     "contentKey": "ctaUrl",
-    "value": "mailto:contact@mahmoodsalah.com?subject=Automati%20Inquiry"
+    "value": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
   },
   {
     "id": 101,

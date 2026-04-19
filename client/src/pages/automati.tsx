@@ -486,7 +486,7 @@ export default function Automati() {
               </p>
               <div className="flex justify-center">
                 <Button size="lg" className="rounded-xl px-8" data-testid="button-automati-cta" asChild>
-                  <a href={closingUrl}>
+                  <a href={closingUrl} target="_blank" rel="noopener noreferrer">
                     {closingCta}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
