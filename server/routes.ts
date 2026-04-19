@@ -5,6 +5,7 @@ import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 import { storage } from "./storage";
 import { pool } from "./db";
+import { registerUploadRoute } from "./upload";
 
 if (process.env.NODE_ENV === "production") {
   const required = ["ADMIN_USERNAME", "ADMIN_PASSWORD", "SESSION_SECRET"];
@@ -149,6 +150,8 @@ export async function registerRoutes(
       res.status(500).json({ message: "Failed to update content" });
     }
   });
+
+  registerUploadRoute(app, isAuthenticated);
 
   app.delete("/api/content/:id", isAuthenticated, async (req, res) => {
     try {

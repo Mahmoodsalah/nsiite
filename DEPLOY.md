@@ -42,8 +42,32 @@ Go to **Project Settings → Environment Variables** and add:
 | `ADMIN_USERNAME`  | Your admin username (default: `admin`)                         | Production     |
 | `ADMIN_PASSWORD`  | A strong password (replace the default `Mahmood@2025`)         | Production     |
 | `NODE_ENV`        | `production`                                                   | Production     |
+| `BLOB_READ_WRITE_TOKEN` | Vercel Blob token (see step 5b below)                    | Production     |
 
 Click **Save**, then trigger a redeploy.
+
+## 5b. Enable image uploads (Vercel Blob)
+
+Vercel's filesystem is read-only at runtime, so uploaded images must live in a
+durable blob store. The admin panel is wired up to use **Vercel Blob** in
+production:
+
+1. In Vercel: **Storage → Create Database → Blob → Create**
+2. Connect the Blob store to your project — Vercel will automatically expose
+   `BLOB_READ_WRITE_TOKEN` as an environment variable
+3. Redeploy so the server picks up the new env var
+
+Once configured, the **Upload image** button in `/admin` (next to any
+image-typed field — logos, hero illustrations, etc.) will send the file to
+Vercel Blob and write the returned public URL straight into the CMS. No code
+push or rebuild is needed to add a new "Worked With" logo.
+
+If `BLOB_READ_WRITE_TOKEN` is **not** set (e.g. local dev), uploads fall back to
+writing into `client/public/uploads/` and are served from `/uploads/...`.
+That's fine for development on Replit but will not persist on Vercel.
+
+Alternative storage providers (Cloudinary, S3, R2) can be wired up by editing
+`server/upload.ts` — the contract is simply "save buffer, return public URL".
 
 ## 6. Attach the custom domain
 
@@ -62,7 +86,7 @@ Click **Save**, then trigger a redeploy.
 
 - **Code changes**: push to GitHub; Vercel auto-deploys
 - **Content changes**: edit at `/admin` on the live site; saves immediately, no rebuild
-- **Adding a new "Worked With" logo image**: put the PNG into `client/public/logos/` in the repo, push to GitHub, then reference it as `/logos/yourfile.png` in the admin panel
+- **Adding a new "Worked With" logo image**: log into `/admin`, click **Upload image** next to any logo field, pick a PNG, and the new URL is saved automatically (no code push needed). Existing `/logos/*.png` references in the repo continue to work.
 
 ## Troubleshooting
 

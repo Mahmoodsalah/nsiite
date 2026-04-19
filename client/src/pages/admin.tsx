@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { apiRequest, queryClient } from "@/lib/queryClient";
@@ -25,6 +25,8 @@ import {
   Search,
   Bot,
   Home,
+  Upload,
+  Image as ImageIcon,
 } from "lucide-react";
 
 type SiteContent = {
@@ -392,6 +394,114 @@ function SectionEditor({
   );
 }
 
+const IMAGE_KEY_REGEX = /(logo|image|icon|avatar|photo|picture|banner|background|thumbnail|favicon|cover|illustration|graphic|asset|src)/i;
+const IMAGE_EXT_REGEX = /\.(png|jpe?g|gif|webp|svg|ico|bmp|avif)(\?.*)?$/i;
+
+function isImageField(key: string, value: any): boolean {
+  if (typeof value !== "string") return false;
+  if (IMAGE_KEY_REGEX.test(key)) return true;
+  if (value.startsWith("/logos/") || value.startsWith("/uploads/")) return true;
+  if (IMAGE_EXT_REGEX.test(value)) return true;
+  return false;
+}
+
+function ImageUploadButton({
+  onUploaded,
+  testId,
+  size = "sm",
+}: {
+  onUploaded: (url: string) => void;
+  testId: string;
+  size?: "sm" | "xs";
+}) {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const { toast } = useToast();
+
+  const handleFile = async (file: File) => {
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        credentials: "include",
+        body: fd,
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ message: "Upload failed" }));
+        throw new Error(err.message || "Upload failed");
+      }
+      const data = await res.json();
+      onUploaded(data.url);
+      toast({ title: "Uploaded", description: "Image saved." });
+    } catch (e: any) {
+      toast({ title: "Upload failed", description: e?.message || "Try a smaller image or different format.", variant: "destructive" });
+    } finally {
+      setUploading(false);
+      if (inputRef.current) inputRef.current.value = "";
+    }
+  };
+
+  return (
+    <>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          if (f) handleFile(f);
+        }}
+        data-testid={`${testId}-input`}
+      />
+      <Button
+        type="button"
+        size="sm"
+        variant="outline"
+        onClick={() => inputRef.current?.click()}
+        disabled={uploading}
+        className={size === "xs" ? "h-7 text-xs" : "h-8 text-xs"}
+        data-testid={testId}
+      >
+        {uploading ? (
+          <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+        ) : (
+          <Upload className="w-3 h-3 mr-1" />
+        )}
+        {uploading ? "Uploading…" : "Upload image"}
+      </Button>
+    </>
+  );
+}
+
+function ImagePreview({ url, testId }: { url: string; testId: string }) {
+  const [errored, setErrored] = useState(false);
+  useEffect(() => { setErrored(false); }, [url]);
+  if (!url) return null;
+  if (errored) {
+    return (
+      <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+        <ImageIcon className="w-3 h-3" />
+        <span className="truncate">{url}</span>
+      </div>
+    );
+  }
+  return (
+    <div className="mt-2 inline-flex items-center gap-2 p-2 rounded-md border border-white/10 bg-background/40">
+      <img
+        src={url}
+        alt="preview"
+        onError={() => setErrored(true)}
+        className="h-12 w-12 object-contain rounded bg-white/5"
+        data-testid={testId}
+      />
+      <span className="text-xs text-muted-foreground truncate max-w-xs">{url}</span>
+    </div>
+  );
+}
+
 function ContentFieldEditor({
   item,
   onSave,
@@ -406,7 +516,16 @@ function ContentFieldEditor({
   const isString = typeof value === "string";
 
   if (isString) {
-    return <StringEditor label={item.contentKey} value={value} onSave={onSave} isSaving={isSaving} />;
+    const showUpload = isImageField(item.contentKey, value) || IMAGE_KEY_REGEX.test(item.contentKey);
+    return (
+      <StringEditor
+        label={item.contentKey}
+        value={value}
+        onSave={onSave}
+        isSaving={isSaving}
+        isImage={showUpload}
+      />
+    );
   }
 
   if (isArray) {
@@ -431,11 +550,13 @@ function StringEditor({
   value,
   onSave,
   isSaving,
+  isImage = false,
 }: {
   label: string;
   value: string;
   onSave: (value: string) => void;
   isSaving: boolean;
+  isImage?: boolean;
 }) {
   const [editValue, setEditValue] = useState(value);
   const [dirty, setDirty] = useState(false);
@@ -453,18 +574,27 @@ function StringEditor({
         <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
           {formatLabel(label)}
         </label>
-        {dirty && (
-          <Button
-            size="sm"
-            onClick={() => { onSave(editValue); setDirty(false); }}
-            disabled={isSaving}
-            className="h-7 text-xs"
-            data-testid={`button-save-${label}`}
-          >
-            <Save className="w-3 h-3 mr-1" />
-            Save
-          </Button>
-        )}
+        <div className="flex items-center gap-1">
+          {isImage && (
+            <ImageUploadButton
+              testId={`button-upload-${label}`}
+              size="xs"
+              onUploaded={(url) => { setEditValue(url); onSave(url); }}
+            />
+          )}
+          {dirty && (
+            <Button
+              size="sm"
+              onClick={() => { onSave(editValue); setDirty(false); }}
+              disabled={isSaving}
+              className="h-7 text-xs"
+              data-testid={`button-save-${label}`}
+            >
+              <Save className="w-3 h-3 mr-1" />
+              Save
+            </Button>
+          )}
+        </div>
       </div>
       {isLong ? (
         <Textarea
@@ -481,6 +611,9 @@ function StringEditor({
           className="text-sm bg-background/50"
           data-testid={`input-${label}`}
         />
+      )}
+      {isImage && editValue && (
+        <ImagePreview url={editValue} testId={`img-preview-${label}`} />
       )}
     </div>
   );
@@ -597,6 +730,14 @@ function ObjectArrayEditor({
     const next = [...items];
     next[index] = { ...next[index], [field]: val };
     commitInline(next);
+  };
+
+  const updateItemFieldAndSave = (index: number, field: string, val: any) => {
+    const next = [...items];
+    next[index] = { ...next[index], [field]: val };
+    setItems(next);
+    setDirty(false);
+    onSave(next);
   };
 
   const removeItem = (index: number) => {
@@ -733,9 +874,19 @@ function ObjectArrayEditor({
                     }
                     const strVal = String(fieldVal ?? "");
                     const isLong = strVal.length > 80;
+                    const showUpload = isImageField(field, strVal) || IMAGE_KEY_REGEX.test(field);
                     return (
                       <div key={field} className="pt-2">
-                        <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
+                        <div className="flex items-center justify-between">
+                          <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
+                          {showUpload && (
+                            <ImageUploadButton
+                              testId={`button-upload-${label}-${i}-${field}`}
+                              size="xs"
+                              onUploaded={(url) => updateItemFieldAndSave(i, field, url)}
+                            />
+                          )}
+                        </div>
                         {isLong ? (
                           <Textarea
                             value={strVal}
@@ -751,6 +902,9 @@ function ObjectArrayEditor({
                             className="text-sm bg-background/50 mt-1"
                             data-testid={`input-${label}-${i}-${field}`}
                           />
+                        )}
+                        {showUpload && strVal && (
+                          <ImagePreview url={strVal} testId={`img-preview-${label}-${i}-${field}`} />
                         )}
                       </div>
                     );
