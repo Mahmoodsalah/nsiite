@@ -11,6 +11,8 @@ import {
   LogOut,
   Save,
   ChevronDown,
+  ArrowUp,
+  ArrowDown,
   ChevronRight,
   Plus,
   Trash2,
@@ -590,6 +592,16 @@ function ObjectArrayEditor({
     setExpandedIndex(null);
   };
 
+  const moveItem = (index: number, dir: -1 | 1) => {
+    const target = index + dir;
+    if (target < 0 || target >= items.length) return;
+    const next = [...items];
+    [next[index], next[target]] = [next[target], next[index]];
+    setItems(next);
+    setDirty(true);
+    setExpandedIndex((prev) => (prev === index ? target : prev === target ? index : prev));
+  };
+
   const addItem = () => {
     const template = items.length > 0 ? Object.fromEntries(Object.keys(items[0]).map(k => [k, ""])) : {};
     setItems([...items, template]);
@@ -629,6 +641,24 @@ function ObjectArrayEditor({
               >
                 <span className="font-medium text-foreground truncate">{displayTitle}</span>
                 <div className="flex items-center gap-1">
+                  <span
+                    role="button"
+                    onClick={(e) => { e.stopPropagation(); moveItem(i, -1); }}
+                    className={`p-1 rounded cursor-pointer ${i === 0 ? "text-muted-foreground/30 pointer-events-none" : "text-muted-foreground hover:bg-white/5"}`}
+                    data-testid={`button-move-up-${label}-${i}`}
+                    title="Move up"
+                  >
+                    <ArrowUp className="w-3 h-3" />
+                  </span>
+                  <span
+                    role="button"
+                    onClick={(e) => { e.stopPropagation(); moveItem(i, 1); }}
+                    className={`p-1 rounded cursor-pointer ${i === items.length - 1 ? "text-muted-foreground/30 pointer-events-none" : "text-muted-foreground hover:bg-white/5"}`}
+                    data-testid={`button-move-down-${label}-${i}`}
+                    title="Move down"
+                  >
+                    <ArrowDown className="w-3 h-3" />
+                  </span>
                   <span
                     role="button"
                     onClick={(e) => { e.stopPropagation(); removeItem(i); }}

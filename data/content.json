@@ -1971,5 +1971,67 @@
     "section": "analytics",
     "contentKey": "enabled",
     "value": "true"
+  },
+  {
+    "id": 204,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "companies",
+    "value": [
+      {
+        "name": "BootcampAI",
+        "kind": "image",
+        "src": "/logos/bootcampai.png",
+        "scale": 1.73,
+        "text": "",
+        "textSize": "",
+        "tooltip": "Founding Director (Volunteer)"
+      },
+      {
+        "name": "Innova",
+        "kind": "image",
+        "src": "/logos/innova.png",
+        "scale": 1.35,
+        "text": "",
+        "textSize": "",
+        "tooltip": "Senior Data Scientist"
+      },
+      {
+        "name": "Udacity",
+        "kind": "wordmark",
+        "src": "",
+        "scale": 1,
+        "text": "Udacity",
+        "textSize": "text-xl",
+        "tooltip": "AI Mentor"
+      },
+      {
+        "name": "GLG",
+        "kind": "wordmark",
+        "src": "",
+        "scale": 1,
+        "text": "GLG",
+        "textSize": "text-2xl",
+        "tooltip": "Council Member"
+      },
+      {
+        "name": "Nielsen",
+        "kind": "wordmark",
+        "src": "",
+        "scale": 1,
+        "text": "nielsen",
+        "textSize": "text-2xl",
+        "tooltip": "Ex: Data acquisition Supervisor"
+      },
+      {
+        "name": "Google",
+        "kind": "image",
+        "src": "/logos/google.png",
+        "scale": 1.1,
+        "text": "",
+        "textSize": "",
+        "tooltip": "Ex: Google Ambassador and GDG Manager"
+      }
+    ]
   }
 ]

@@ -3,9 +3,6 @@ import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
 import mahmoodPortrait from "@assets/1a54ec53-5da8-4e83-87a5-02df3fc9d7ad_1776300934772.png";
 import patternBg from "@assets/pattern_white_1771718036073.png";
-import innovaLogo from "@assets/innova_nobg.png";
-import bootcampAiLogo from "@assets/bootcampai_nobg.png";
-import googleLogo from "@assets/google_nobg.png";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { usePageSEO } from "@/hooks/use-seo";
@@ -115,14 +112,24 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [typed, phase, titleIndex]);
 
-  const companies = [
-    { name: "BootcampAI", kind: "image" as const, src: bootcampAiLogo, scale: 1.73, tooltip: "Founding Director (Volunteer)" },
-    { name: "Innova",     kind: "image" as const, src: innovaLogo,      scale: 1.35, tooltip: "Senior Data Scientist" },
-    { name: "Udacity",   kind: "wordmark" as const, text: "Udacity",   textSize: "text-xl",  tooltip: "AI Mentor" },
-    { name: "GLG",       kind: "wordmark" as const, text: "GLG",       textSize: "text-2xl", tooltip: "Council Member" },
-    { name: "Nielsen",   kind: "wordmark" as const, text: "nielsen",   textSize: "text-2xl", tooltip: "Ex: Data acquisition Supervisor" },
-    { name: "Google",    kind: "image" as const, src: googleLogo,      scale: 1.1, tooltip: "Ex: Google Ambassador and GDG Manager" },
+  const companiesFallback = [
+    { name: "BootcampAI", kind: "image",    src: "/logos/bootcampai.png", scale: 1.73, text: "",        textSize: "",         tooltip: "Founding Director (Volunteer)" },
+    { name: "Innova",     kind: "image",    src: "/logos/innova.png",     scale: 1.35, text: "",        textSize: "",         tooltip: "Senior Data Scientist" },
+    { name: "Udacity",    kind: "wordmark", src: "",                      scale: 1,    text: "Udacity", textSize: "text-xl",  tooltip: "AI Mentor" },
+    { name: "GLG",        kind: "wordmark", src: "",                      scale: 1,    text: "GLG",     textSize: "text-2xl", tooltip: "Council Member" },
+    { name: "Nielsen",    kind: "wordmark", src: "",                      scale: 1,    text: "nielsen", textSize: "text-2xl", tooltip: "Ex: Data acquisition Supervisor" },
+    { name: "Google",     kind: "image",    src: "/logos/google.png",     scale: 1.1,  text: "",        textSize: "",         tooltip: "Ex: Google Ambassador and GDG Manager" },
   ];
+  const companiesRaw = getVal(content, "hero", "companies", companiesFallback);
+  const companies = (Array.isArray(companiesRaw) ? companiesRaw : companiesFallback).map((c: any) => ({
+    name: String(c?.name ?? ""),
+    kind: c?.kind === "image" ? "image" : "wordmark",
+    src: String(c?.src ?? ""),
+    scale: typeof c?.scale === "number" ? c.scale : parseFloat(c?.scale) || 1,
+    text: String(c?.text ?? ""),
+    textSize: String(c?.textSize ?? "text-xl"),
+    tooltip: String(c?.tooltip ?? ""),
+  }));
   const companiesScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeCompany, setActiveCompany] = useState(0);
   const [openTooltip, setOpenTooltip] = useState<string | null>(null);
