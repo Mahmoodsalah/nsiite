@@ -82,7 +82,7 @@ const SECTION_LABELS: Record<string, string> = {
 };
 
 export default function Admin() {
-  const { user, isLoading: authLoading, isAuthenticated } = useAuth();
+  const { user, isLoading: authLoading, isAuthenticated, logout, isLoggingOut } = useAuth();
   const { toast } = useToast();
   const [activePage, setActivePage] = useState("hireme");
   const [searchTerm, setSearchTerm] = useState("");
@@ -223,11 +223,14 @@ export default function Admin() {
               Welcome, {user?.firstName || user?.email || "Admin"}. Edit your site content below.
             </p>
           </div>
-          <Button variant="outline" asChild data-testid="button-admin-logout">
-            <a href="/api/logout">
-              <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
-            </a>
+          <Button
+            variant="outline"
+            onClick={() => logout()}
+            disabled={isLoggingOut}
+            data-testid="button-admin-logout"
+          >
+            <LogOut className="w-4 h-4 mr-2" />
+            {isLoggingOut ? "Signing Out..." : "Sign Out"}
           </Button>
         </div>
 

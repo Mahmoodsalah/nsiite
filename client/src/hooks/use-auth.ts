@@ -29,7 +29,7 @@ async function logout(): Promise<void> {
     method: "POST",
     credentials: "include",
   });
-  window.location.href = "/admin";
+  window.location.href = "/";
 }
 
 export function useAuth() {
