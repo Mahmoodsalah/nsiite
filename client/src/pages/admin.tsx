@@ -64,6 +64,8 @@ const SECTION_LABELS: Record<string, string> = {
   valueStrip: "Value Strip",
   pricing: "Pricing",
   closingCta: "Closing CTA",
+  faq: "FAQ",
+  seo: "SEO & Meta",
 };
 
 export default function Admin() {

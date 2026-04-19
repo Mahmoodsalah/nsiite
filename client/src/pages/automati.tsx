@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +17,12 @@ import {
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import NetworkBg from "@/components/network-bg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 import automatiLogo from "@assets/automati_logo_nobg.png";
 
@@ -93,7 +99,108 @@ export default function Automati() {
   const closingCta = getVal(content, "closingCta", "cta", "");
   const closingUrl = getVal(content, "closingCta", "ctaUrl", "#");
 
+  const faqBadge = getVal(content, "faq", "badge", "FAQ");
+  const faqTitle = getVal(content, "faq", "title", "Questions people often ask");
+  const faqDesc = getVal(content, "faq", "description", "");
+  const faqItems: any[] = getVal(content, "faq", "items", []);
+
+  const seoTitle = getVal(content, "seo", "title", "Automati — Custom AI Agent Systems | Mahmood Salah");
+  const seoDescription = getVal(content, "seo", "description", "");
+  const seoKeywords = getVal(content, "seo", "keywords", "");
+  const serviceName = getVal(content, "seo", "serviceName", "Automati");
+  const serviceProvider = getVal(content, "seo", "serviceProvider", "Mahmood Salah");
+  const canonicalUrl = getVal(content, "seo", "canonicalUrl", "");
+
   const logoSrc = heroLogo && heroLogo.startsWith("/attached_assets/") ? automatiLogo : (heroLogo || automatiLogo);
+
+  const structuredData = useMemo(() => {
+    const graph: any[] = [];
+    if (serviceName) {
+      graph.push({
+        "@type": "Service",
+        "@id": (canonicalUrl || "") + "#service",
+        name: serviceName,
+        serviceType: "Custom AI Agent Development",
+        description: seoDescription,
+        provider: { "@type": "Person", name: serviceProvider, url: canonicalUrl?.replace(/\/automati$/, "") || undefined },
+        areaServed: "Worldwide",
+        offers: plans.map((p: any) => ({
+          "@type": "Offer",
+          name: p.label,
+          description: p.description,
+          price: typeof p.price === "string" ? p.price.replace(/[^0-9.]/g, "") || undefined : undefined,
+          priceCurrency: "USD",
+          url: p.ctaUrl,
+        })),
+      });
+    }
+    if (Array.isArray(faqItems) && faqItems.length > 0) {
+      graph.push({
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((q: any) => ({
+          "@type": "Question",
+          name: q.question,
+          acceptedAnswer: { "@type": "Answer", text: q.answer },
+        })),
+      });
+    }
+    return { "@context": "https://schema.org", "@graph": graph };
+  }, [serviceName, serviceProvider, seoDescription, canonicalUrl, plans, faqItems]);
+
+  useEffect(() => {
+    if (!seoTitle && !seoDescription) return;
+    const prevTitle = document.title;
+    if (seoTitle) document.title = seoTitle;
+
+    const setMeta = (selector: string, attr: string, name: string, value: string) => {
+      if (!value) return null;
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+      return el;
+    };
+
+    const created: HTMLElement[] = [];
+    const desc = setMeta('meta[name="description"]', "name", "description", seoDescription);
+    const kw = setMeta('meta[name="keywords"]', "name", "keywords", seoKeywords);
+    const ogT = setMeta('meta[property="og:title"]', "property", "og:title", seoTitle);
+    const ogD = setMeta('meta[property="og:description"]', "property", "og:description", seoDescription);
+    const ogType = setMeta('meta[property="og:type"]', "property", "og:type", "website");
+    const ogUrl = setMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
+    const twC = setMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
+    const twT = setMeta('meta[name="twitter:title"]', "name", "twitter:title", seoTitle);
+    const twD = setMeta('meta[name="twitter:description"]', "name", "twitter:description", seoDescription);
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonicalUrl) {
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        document.head.appendChild(canonical);
+        created.push(canonical);
+      }
+      canonical.href = canonicalUrl;
+    }
+
+    let ld = document.getElementById("automati-jsonld") as HTMLScriptElement | null;
+    if (!ld) {
+      ld = document.createElement("script");
+      ld.id = "automati-jsonld";
+      ld.type = "application/ld+json";
+      document.head.appendChild(ld);
+    }
+    ld.text = JSON.stringify(structuredData);
+
+    return () => {
+      document.title = prevTitle;
+      ld?.remove();
+      created.forEach((el) => el.remove());
+    };
+  }, [seoTitle, seoDescription, seoKeywords, canonicalUrl, structuredData]);
 
   return (
     <div className="min-h-screen">
@@ -325,6 +432,43 @@ export default function Automati() {
           })}
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqItems.length > 0 && (
+        <section id="faq" className="max-w-4xl mx-auto px-6 py-16 md:py-20">
+          <AnimateIn>
+            <div className="text-center mb-10">
+              <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
+                {faqBadge}
+              </Badge>
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-faq-title">
+                {faqTitle}
+              </h2>
+              {faqDesc && (
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  {faqDesc}
+                </p>
+              )}
+            </div>
+          </AnimateIn>
+          <AnimateIn delay={0.05}>
+            <div className="glass-card rounded-2xl p-4 md:p-6">
+              <Accordion type="single" collapsible className="w-full">
+                {faqItems.map((q: any, i: number) => (
+                  <AccordionItem key={i} value={`faq-${i}`} data-testid={`accordion-faq-${i}`} className="border-b border-border/40 last:border-b-0">
+                    <AccordionTrigger className="text-left font-heading font-semibold text-base md:text-lg text-foreground hover:no-underline py-5">
+                      {q.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pb-5">
+                      {q.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </AnimateIn>
+        </section>
+      )}
 
       {/* CLOSING CTA */}
       <section className="max-w-4xl mx-auto px-6 py-20 md:py-28">

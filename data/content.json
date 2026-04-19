@@ -900,9 +900,24 @@
     "section": "howItWorks",
     "contentKey": "steps",
     "value": [
-      { "icon": "Brain", "step": "01", "title": "Discovery", "desc": "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small." },
-      { "icon": "Bot", "step": "02", "title": "Design & Build", "desc": "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation." },
-      { "icon": "ShieldCheck", "step": "03", "title": "You Stay in Command", "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way." }
+      {
+        "icon": "Brain",
+        "step": "01",
+        "title": "Discovery",
+        "desc": "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small."
+      },
+      {
+        "icon": "Bot",
+        "step": "02",
+        "title": "Design & Build",
+        "desc": "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation."
+      },
+      {
+        "icon": "ShieldCheck",
+        "step": "03",
+        "title": "You Stay in Command",
+        "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way."
+      }
     ]
   },
   {
@@ -939,12 +954,30 @@
     "section": "whoFor",
     "contentKey": "audiences",
     "value": [
-      { "icon": "Users", "label": "Individuals" },
-      { "icon": "Sparkles", "label": "Creators & Writers" },
-      { "icon": "Brain", "label": "Freelancers" },
-      { "icon": "HandshakeIcon", "label": "Consultants" },
-      { "icon": "Zap", "label": "Small Teams" },
-      { "icon": "Settings2", "label": "Businesses" }
+      {
+        "icon": "Users",
+        "label": "Individuals"
+      },
+      {
+        "icon": "Sparkles",
+        "label": "Creators & Writers"
+      },
+      {
+        "icon": "Brain",
+        "label": "Freelancers"
+      },
+      {
+        "icon": "HandshakeIcon",
+        "label": "Consultants"
+      },
+      {
+        "icon": "Zap",
+        "label": "Small Teams"
+      },
+      {
+        "icon": "Settings2",
+        "label": "Businesses"
+      }
     ]
   },
   {
@@ -974,9 +1007,21 @@
     "section": "privacy",
     "contentKey": "items",
     "value": [
-      { "icon": "ShieldCheck", "title": "Full Confidentiality", "desc": "Your data and workflow details are never shared with third parties." },
-      { "icon": "Brain", "title": "Minimal Data Principle", "desc": "We only work with what's strictly needed to build and run your system." },
-      { "icon": "Settings2", "title": "Secure by Design", "desc": "Privacy and security are engineered in from day one — not added later." }
+      {
+        "icon": "ShieldCheck",
+        "title": "Full Confidentiality",
+        "desc": "Your data and workflow details are never shared with third parties."
+      },
+      {
+        "icon": "Brain",
+        "title": "Minimal Data Principle",
+        "desc": "We only work with what's strictly needed to build and run your system."
+      },
+      {
+        "icon": "Settings2",
+        "title": "Secure by Design",
+        "desc": "Privacy and security are engineered in from day one — not added later."
+      }
     ]
   },
   {
@@ -984,7 +1029,7 @@
     "page": "automati",
     "section": "valueStrip",
     "contentKey": "clientCount",
-    "value": "23"
+    "value": "26"
   },
   {
     "id": 91,
@@ -999,10 +1044,22 @@
     "section": "valueStrip",
     "contentKey": "stats",
     "value": [
-      { "value": "100%", "label": "Custom-built" },
-      { "value": "Any", "label": "Workflow or industry" },
-      { "value": "Full", "label": "Control, always yours" },
-      { "value": "Zero", "label": "Technical knowledge needed" }
+      {
+        "value": "100%",
+        "label": "Custom-built"
+      },
+      {
+        "value": "Any",
+        "label": "Workflow or industry"
+      },
+      {
+        "value": "Full",
+        "label": "Control, always yours"
+      },
+      {
+        "value": "Zero",
+        "label": "Technical knowledge needed"
+      }
     ]
   },
   {
@@ -1039,7 +1096,12 @@
         "price": "$15",
         "priceUnit": "/ month",
         "description": "Ongoing access to your AI system — updates, improvements, and support as your needs evolve.",
-        "features": ["Continuous AI system access", "Adjustments as you grow", "10% off per referral you bring", "Email support"],
+        "features": [
+          "Continuous AI system access",
+          "Adjustments as you grow",
+          "10% off per referral you bring",
+          "Email support"
+        ],
         "cta": "Get Started",
         "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
       },
@@ -1050,7 +1112,12 @@
         "price": "$250",
         "priceUnit": "",
         "description": "A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.",
-        "features": ["Workflow discovery session", "Fully custom AI system", "Setup, testing & full handover", "No subscription required"],
+        "features": [
+          "Workflow discovery session",
+          "Fully custom AI system",
+          "Setup, testing & full handover",
+          "No subscription required"
+        ],
         "cta": "Get Started",
         "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
       },
@@ -1061,7 +1128,12 @@
         "price": "Custom",
         "priceUnit": "",
         "description": "Tailored pricing for teams and organisations with more complex systems and larger-scale needs.",
-        "features": ["Multi-system AI architecture", "Team onboarding & training", "Priority support", "Flexible integrations"],
+        "features": [
+          "Multi-system AI architecture",
+          "Team onboarding & training",
+          "Priority support",
+          "Flexible integrations"
+        ],
         "cta": "Get Started",
         "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
       }
@@ -1094,5 +1166,116 @@
     "section": "closingCta",
     "contentKey": "ctaUrl",
     "value": "mailto:contact@mahmoodsalah.com?subject=Automati%20Inquiry"
+  },
+  {
+    "id": 101,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 102,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Questions people often ask"
+  },
+  {
+    "id": 103,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "If your question isn't here, just ask — we're happy to walk you through how a custom AI system would work for you."
+  },
+  {
+    "id": 104,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What exactly is Automati?",
+        "answer": "Automati is a service that designs and builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Instead of giving you a generic tool, we engineer an AI system around the specific way you work — to run workflows, support decisions, generate content, or handle communications on your behalf."
+      },
+      {
+        "question": "Do I need any technical knowledge to use it?",
+        "answer": "No. You only need to describe what you want to change or hand off in your day-to-day work. We handle the design, build, integration, and handover. You stay in control of how much autonomy your AI system has."
+      },
+      {
+        "question": "What kind of tasks can an Automati AI system handle?",
+        "answer": "Almost anything that involves repeatable thinking, writing, decision-making, or coordination — for example: managing inboxes and replies, generating content and reports, qualifying leads, summarising documents, running research, scheduling, customer support triage, internal Q&A, or multi-step business workflows."
+      },
+      {
+        "question": "How is this different from tools like Zapier, Make, or n8n?",
+        "answer": "Those tools connect apps with rules. Automati builds intelligent agents that can reason, decide, and act using LLMs and custom logic — tailored to your goals. We can also integrate with Zapier, Make, or n8n where it makes sense, but the intelligence layer is custom-built for you."
+      },
+      {
+        "question": "How long does it take to build a system?",
+        "answer": "Most one-time builds are delivered within 1–3 weeks depending on complexity. We start with a short discovery session, then design, build, test, and hand over. Larger company-wide systems are scoped individually."
+      },
+      {
+        "question": "How much does it cost?",
+        "answer": "Subscriptions start from $15/month for ongoing access and improvements. One-time custom builds start from $250. For companies with multi-system needs, we offer tailored pricing. You can also get 10% off your subscription for every person you refer."
+      },
+      {
+        "question": "Is my data safe? Will it be shared or used for training?",
+        "answer": "Yes, your data is safe. We never share your workflows or data with third parties, never use it for training, and only work with what is strictly necessary to build and run your system. Privacy and security are engineered in from day one."
+      },
+      {
+        "question": "Do I own the AI system you build for me?",
+        "answer": "With the One-Time Setup, the system is yours to keep with no ongoing fees. With the Subscription, you get continuous access, updates, and improvements as your needs evolve. Companies get fully owned, tailored architectures."
+      },
+      {
+        "question": "Can the AI system run on its own, or do I stay in control?",
+        "answer": "You decide. Some systems run fully autonomously, others wait for your approval before acting, and many sit in between. We design exactly the level of autonomy and control you're comfortable with."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Fill out the short form via the Get Started button. We'll set up a discovery session, understand your goals and workflow, and propose a custom AI system designed around exactly what you want to change."
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "Automati — Custom AI Agent Systems for Your Workflow | Mahmood Salah"
+  },
+  {
+    "id": 106,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Automati builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Hand off entire workflows, content, decisions, and communications to AI designed around how you work. Subscriptions from $15/month, custom builds from $250."
+  },
+  {
+    "id": 107,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "custom AI agents, AI automation, AI workflow automation, AI for freelancers, AI for consultants, AI for businesses, custom LLM agents, AI agent development, business AI automation, Mahmood Salah Automati"
+  },
+  {
+    "id": 108,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "Automati - Custom AI Agent Systems"
+  },
+  {
+    "id": 109,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 110,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.com/automati"
   }
 ]
