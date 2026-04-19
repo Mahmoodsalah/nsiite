@@ -9,11 +9,71 @@ import {
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import mahmoodImg from "@assets/mahmood.jpg";
 import { usePageContent, getVal } from "@/hooks/use-content";
+import { usePageSEO } from "@/hooks/use-seo";
 
 const iconMap: Record<string, any> = { Brain, Bot, Cloud, Eye };
 
 export default function HireMe() {
   const { data: content, isLoading } = usePageContent("hireme");
+
+  const seoTitle = getVal(content, "seoHireMe", "title", "Hire Mahmood Salah - AI Engineer & Data Scientist");
+  const seoDescription = getVal(content, "seoHireMe", "description", "Hire Mahmood Salah for AI engineering, data science, and consulting work across LLMs, AI agents, computer vision, and deep learning.");
+  const seoKeywords = getVal(content, "seoHireMe", "keywords", "");
+  const seoCanonical = getVal(content, "seoHireMe", "canonicalUrl", "https://mahmoodsalah.com/hire-me");
+  const seoOgImage = getVal(content, "seoHireMe", "ogImage", "https://mahmoodsalah.com/favicon.png");
+
+  const hireMeJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${seoCanonical}#service`,
+        "name": "Mahmood Salah - AI Engineering & Data Science Services",
+        "url": seoCanonical,
+        "image": seoOgImage,
+        "description": seoDescription,
+        "provider": { "@id": "https://mahmoodsalah.com/#person" },
+        "areaServed": ["Middle East", "Worldwide"],
+        "serviceType": [
+          "AI Engineering",
+          "Data Science Consulting",
+          "LLM Development",
+          "AI Agents Development",
+          "Computer Vision",
+          "Deep Learning",
+          "AI Strategy"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mahmoodsalah.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Hire Me", "item": seoCanonical }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${seoCanonical}#webpage`,
+        "url": seoCanonical,
+        "name": seoTitle,
+        "description": seoDescription,
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://mahmoodsalah.com/#website" },
+        "about": { "@id": "https://mahmoodsalah.com/#person" }
+      }
+    ]
+  };
+
+  usePageSEO({
+    title: seoTitle,
+    description: seoDescription,
+    keywords: seoKeywords,
+    canonicalUrl: seoCanonical,
+    ogImage: seoOgImage,
+    ogType: "website",
+    jsonLd: hireMeJsonLd,
+    jsonLdId: "hireme-jsonld",
+  });
 
   const aboutTitle = getVal(content, "about", "title", "About Me");
   const bio1 = getVal(content, "about", "bio1", "");

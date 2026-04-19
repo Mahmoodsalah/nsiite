@@ -67,6 +67,8 @@ const SECTION_LABELS: Record<string, string> = {
   closingCta: "Closing CTA",
   faq: "FAQ",
   seo: "SEO & Meta",
+  seoHome: "SEO - Home Page",
+  seoHireMe: "SEO - Hire Me Page",
   stats: "Stats Counter",
 };
 

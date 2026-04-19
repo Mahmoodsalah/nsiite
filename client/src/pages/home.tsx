@@ -8,11 +8,80 @@ import bootcampAiLogo from "@assets/bootcampai_nobg.png";
 import googleLogo from "@assets/google_nobg.png";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { usePageContent, getVal } from "@/hooks/use-content";
+import { usePageSEO } from "@/hooks/use-seo";
 
 const socialIconMap: Record<string, any> = { linkedin: SiLinkedin, youtube: SiYoutube, instagram: SiInstagram, facebook: SiFacebook };
 
 export default function Home() {
   const { data: content } = usePageContent("hireme");
+
+  const seoTitle = getVal(content, "seoHome", "title", "Mahmood Salah - Senior Data Scientist & AI Engineer");
+  const seoDescription = getVal(content, "seoHome", "description", "Senior Data Scientist and AI Engineer specializing in LLMs, AI agents, computer vision, and deep learning.");
+  const seoKeywords = getVal(content, "seoHome", "keywords", "");
+  const seoCanonical = getVal(content, "seoHome", "canonicalUrl", "https://mahmoodsalah.com/");
+  const seoOgImage = getVal(content, "seoHome", "ogImage", "https://mahmoodsalah.com/favicon.png");
+
+  const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": `${seoCanonical}#profilepage`,
+        "url": seoCanonical,
+        "name": seoTitle,
+        "description": seoDescription,
+        "inLanguage": "en",
+        "mainEntity": { "@id": "https://mahmoodsalah.com/#person" },
+        "isPartOf": { "@id": "https://mahmoodsalah.com/#website" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mahmoodsalah.com/#person",
+        "name": "Mahmood Salah",
+        "alternateName": "Mahmoud Salah",
+        "url": "https://mahmoodsalah.com/",
+        "image": seoOgImage,
+        "jobTitle": "Senior Data Scientist & AI Engineer",
+        "description": seoDescription,
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Large Language Models",
+          "AI Agents",
+          "Computer Vision",
+          "Deep Learning",
+          "Machine Learning",
+          "Data Science",
+          "MLOps",
+          "AI Strategy",
+          "AI Automation"
+        ],
+        "knowsLanguage": ["English", "Arabic"],
+        "sameAs": [
+          "https://www.linkedin.com/in/mahmoodsalah/",
+          "https://www.youtube.com/@mahmoodsalah",
+          "https://www.facebook.com/mahmoodsalah",
+          "https://x.com/mahmoodsalah"
+        ],
+        "makesOffer": [
+          { "@type": "Offer", "name": "AI Consulting", "url": "https://mahmoodsalah.com/consultation" },
+          { "@type": "Offer", "name": "AI Mentorship", "url": "https://mahmoodsalah.com/mentorship" },
+          { "@type": "Offer", "name": "BootcampAI Training", "url": "https://mahmoodsalah.com/bootcampai" },
+          { "@type": "Offer", "name": "Automati - AI Automation", "url": "https://mahmoodsalah.com/automati" }
+        ]
+      }
+    ]
+  };
+
+  usePageSEO({
+    title: seoTitle,
+    description: seoDescription,
+    keywords: seoKeywords,
+    canonicalUrl: seoCanonical,
+    ogImage: seoOgImage,
+    ogType: "profile",
+    jsonLd: homeJsonLd,
+    jsonLdId: "home-jsonld",
+  });
 
   const titles = [
     "Senior Data Scientist",

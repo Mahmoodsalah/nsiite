@@ -1558,5 +1558,75 @@
     "section": "seo",
     "contentKey": "organizationName",
     "value": "BootcampAI"
+  },
+  {
+    "id": 144,
+    "page": "hireme",
+    "section": "seoHome",
+    "contentKey": "title",
+    "value": "Mahmood Salah - Senior Data Scientist & AI Engineer | Hire AI Expert"
+  },
+  {
+    "id": 145,
+    "page": "hireme",
+    "section": "seoHome",
+    "contentKey": "description",
+    "value": "Hire Mahmood Salah, a Senior Data Scientist and AI Engineer specializing in LLMs, AI agents, computer vision, and deep learning. Trusted by Google, Nielsen, Udacity, GLG, and Innova for AI consulting, mentorship, automation, and BootcampAI training in the Middle East."
+  },
+  {
+    "id": 146,
+    "page": "hireme",
+    "section": "seoHome",
+    "contentKey": "keywords",
+    "value": "Mahmood Salah, hire AI engineer, senior data scientist, AI consultant Middle East, LLM expert, AI agents developer, computer vision engineer, deep learning specialist, AI strategy, data science consultant"
+  },
+  {
+    "id": 147,
+    "page": "hireme",
+    "section": "seoHome",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.com/"
+  },
+  {
+    "id": 148,
+    "page": "hireme",
+    "section": "seoHome",
+    "contentKey": "ogImage",
+    "value": "https://mahmoodsalah.com/favicon.png"
+  },
+  {
+    "id": 149,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "title",
+    "value": "Hire Me - Mahmood Salah | AI Engineer, Data Scientist & Consultant"
+  },
+  {
+    "id": 150,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "description",
+    "value": "Hire Mahmood Salah for senior-level AI engineering, data science, and consulting work. Expertise across LLMs, AI agents, computer vision, deep learning, MLOps, and end-to-end AI strategy. Portfolio of projects with Google, Nielsen, Udacity, GLG, Innova, and BootcampAI."
+  },
+  {
+    "id": 151,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "keywords",
+    "value": "hire Mahmood Salah, hire AI engineer, hire data scientist, AI consultant for hire, freelance AI expert, LLM engineer for hire, AI agents developer, computer vision freelancer, AI strategy consultant"
+  },
+  {
+    "id": 152,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.com/hire-me"
+  },
+  {
+    "id": 153,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "ogImage",
+    "value": "https://mahmoodsalah.com/favicon.png"
   }
 ]
