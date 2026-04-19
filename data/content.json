@@ -1104,7 +1104,7 @@
     "page": "automati",
     "section": "seo",
     "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.com/automati"
+    "value": "https://mahmoodsalah.xyz/automati"
   },
   {
     "id": 111,
@@ -1167,7 +1167,7 @@
     "page": "consultation",
     "section": "seo",
     "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.com/consultation"
+    "value": "https://mahmoodsalah.xyz/consultation"
   },
   {
     "id": 120,
@@ -1202,7 +1202,7 @@
     "page": "mentorship",
     "section": "seo",
     "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.com/mentorship"
+    "value": "https://mahmoodsalah.xyz/mentorship"
   },
   {
     "id": 125,
@@ -1543,7 +1543,7 @@
     "page": "bootcamp",
     "section": "seo",
     "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.com/bootcampai"
+    "value": "https://mahmoodsalah.xyz/bootcampai"
   },
   {
     "id": 143,
@@ -1578,14 +1578,14 @@
     "page": "home",
     "section": "seoHome",
     "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.com/"
+    "value": "https://mahmoodsalah.xyz/"
   },
   {
     "id": 148,
     "page": "home",
     "section": "seoHome",
     "contentKey": "ogImage",
-    "value": "https://mahmoodsalah.com/favicon.png"
+    "value": "https://mahmoodsalah.xyz/favicon.png"
   },
   {
     "id": 149,
@@ -1613,14 +1613,14 @@
     "page": "hireme",
     "section": "seoHireMe",
     "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.com/hire-me"
+    "value": "https://mahmoodsalah.xyz/hire-me"
   },
   {
     "id": 153,
     "page": "hireme",
     "section": "seoHireMe",
     "contentKey": "ogImage",
-    "value": "https://mahmoodsalah.com/favicon.png"
+    "value": "https://mahmoodsalah.xyz/favicon.png"
   },
   {
     "id": 154,

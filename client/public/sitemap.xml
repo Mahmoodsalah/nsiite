@@ -4,32 +4,32 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://mahmoodsalah.com/</loc>
+    <loc>https://mahmoodsalah.xyz/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mahmoodsalah.com/hire-me</loc>
+    <loc>https://mahmoodsalah.xyz/hire-me</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mahmoodsalah.com/consultation</loc>
+    <loc>https://mahmoodsalah.xyz/consultation</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mahmoodsalah.com/bootcampai</loc>
+    <loc>https://mahmoodsalah.xyz/bootcampai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mahmoodsalah.com/mentorship</loc>
+    <loc>https://mahmoodsalah.xyz/mentorship</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mahmoodsalah.com/automati</loc>
+    <loc>https://mahmoodsalah.xyz/automati</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

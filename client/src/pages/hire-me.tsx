@@ -19,8 +19,8 @@ export default function HireMe() {
   const seoTitle = getVal(content, "seoHireMe", "title", "Hire Mahmood Salah - AI Engineer & Data Scientist");
   const seoDescription = getVal(content, "seoHireMe", "description", "Hire Mahmood Salah for AI engineering, data science, and consulting work across LLMs, AI agents, computer vision, and deep learning.");
   const seoKeywords = getVal(content, "seoHireMe", "keywords", "");
-  const seoCanonical = getVal(content, "seoHireMe", "canonicalUrl", "https://mahmoodsalah.com/hire-me");
-  const seoOgImage = getVal(content, "seoHireMe", "ogImage", "https://mahmoodsalah.com/favicon.png");
+  const seoCanonical = getVal(content, "seoHireMe", "canonicalUrl", "https://mahmoodsalah.xyz/hire-me");
+  const seoOgImage = getVal(content, "seoHireMe", "ogImage", "https://mahmoodsalah.xyz/favicon.png");
 
   const hireMeJsonLd = {
     "@context": "https://schema.org",
@@ -32,7 +32,7 @@ export default function HireMe() {
         "url": seoCanonical,
         "image": seoOgImage,
         "description": seoDescription,
-        "provider": { "@id": "https://mahmoodsalah.com/#person" },
+        "provider": { "@id": "https://mahmoodsalah.xyz/#person" },
         "areaServed": ["Middle East", "Worldwide"],
         "serviceType": [
           "AI Engineering",
@@ -47,7 +47,7 @@ export default function HireMe() {
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mahmoodsalah.com/" },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mahmoodsalah.xyz/" },
           { "@type": "ListItem", "position": 2, "name": "Hire Me", "item": seoCanonical }
         ]
       },
@@ -58,8 +58,8 @@ export default function HireMe() {
         "name": seoTitle,
         "description": seoDescription,
         "inLanguage": "en",
-        "isPartOf": { "@id": "https://mahmoodsalah.com/#website" },
-        "about": { "@id": "https://mahmoodsalah.com/#person" }
+        "isPartOf": { "@id": "https://mahmoodsalah.xyz/#website" },
+        "about": { "@id": "https://mahmoodsalah.xyz/#person" }
       }
     ]
   };

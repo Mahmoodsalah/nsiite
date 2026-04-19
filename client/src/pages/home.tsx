@@ -19,8 +19,8 @@ export default function Home() {
   const seoTitle = getVal(content, "seoHome", "title", "Mahmood Salah - Senior Data Scientist & AI Engineer");
   const seoDescription = getVal(content, "seoHome", "description", "Senior Data Scientist and AI Engineer specializing in LLMs, AI agents, computer vision, and deep learning.");
   const seoKeywords = getVal(content, "seoHome", "keywords", "");
-  const seoCanonical = getVal(content, "seoHome", "canonicalUrl", "https://mahmoodsalah.com/");
-  const seoOgImage = getVal(content, "seoHome", "ogImage", "https://mahmoodsalah.com/favicon.png");
+  const seoCanonical = getVal(content, "seoHome", "canonicalUrl", "https://mahmoodsalah.xyz/");
+  const seoOgImage = getVal(content, "seoHome", "ogImage", "https://mahmoodsalah.xyz/favicon.png");
 
   const homeJsonLd = {
     "@context": "https://schema.org",
@@ -32,15 +32,15 @@ export default function Home() {
         "name": seoTitle,
         "description": seoDescription,
         "inLanguage": "en",
-        "mainEntity": { "@id": "https://mahmoodsalah.com/#person" },
-        "isPartOf": { "@id": "https://mahmoodsalah.com/#website" }
+        "mainEntity": { "@id": "https://mahmoodsalah.xyz/#person" },
+        "isPartOf": { "@id": "https://mahmoodsalah.xyz/#website" }
       },
       {
         "@type": "Person",
-        "@id": "https://mahmoodsalah.com/#person",
+        "@id": "https://mahmoodsalah.xyz/#person",
         "name": "Mahmood Salah",
         "alternateName": "Mahmoud Salah",
-        "url": "https://mahmoodsalah.com/",
+        "url": "https://mahmoodsalah.xyz/",
         "image": seoOgImage,
         "jobTitle": "Senior Data Scientist & AI Engineer",
         "description": seoDescription,
@@ -64,10 +64,10 @@ export default function Home() {
           "https://x.com/mahmoodsalah"
         ],
         "makesOffer": [
-          { "@type": "Offer", "name": "AI Consulting", "url": "https://mahmoodsalah.com/consultation" },
-          { "@type": "Offer", "name": "AI Mentorship", "url": "https://mahmoodsalah.com/mentorship" },
-          { "@type": "Offer", "name": "BootcampAI Training", "url": "https://mahmoodsalah.com/bootcampai" },
-          { "@type": "Offer", "name": "Automati - AI Automation", "url": "https://mahmoodsalah.com/automati" }
+          { "@type": "Offer", "name": "AI Consulting", "url": "https://mahmoodsalah.xyz/consultation" },
+          { "@type": "Offer", "name": "AI Mentorship", "url": "https://mahmoodsalah.xyz/mentorship" },
+          { "@type": "Offer", "name": "BootcampAI Training", "url": "https://mahmoodsalah.xyz/bootcampai" },
+          { "@type": "Offer", "name": "Automati - AI Automation", "url": "https://mahmoodsalah.xyz/automati" }
         ]
       }
     ]

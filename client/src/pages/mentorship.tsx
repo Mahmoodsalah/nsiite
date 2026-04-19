@@ -86,15 +86,15 @@ export default function Mentorship() {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://mahmoodsalah.com/" },
-          { "@type": "ListItem", position: 2, name: "Mentorship", item: seoCanonical || "https://mahmoodsalah.com/mentorship" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://mahmoodsalah.xyz/" },
+          { "@type": "ListItem", position: 2, name: "Mentorship", item: seoCanonical || "https://mahmoodsalah.xyz/mentorship" },
         ],
       },
       {
         "@type": "Person",
-        "@id": "https://mahmoodsalah.com/#person",
+        "@id": "https://mahmoodsalah.xyz/#person",
         name: seoProvider,
-        url: "https://mahmoodsalah.com",
+        url: "https://mahmoodsalah.xyz",
         jobTitle: "Senior Data Scientist & AI Engineer",
         description: "Senior Data Scientist and AI Engineer specialising in AI agents, LLMs, and computer vision. AI Mentor at Udacity.",
         sameAs: [
@@ -108,7 +108,7 @@ export default function Mentorship() {
         name: seoServiceName,
         serviceType: "AI Mentorship",
         description: seoDescription,
-        provider: { "@id": "https://mahmoodsalah.com/#person" },
+        provider: { "@id": "https://mahmoodsalah.xyz/#person" },
         areaServed: "Worldwide",
         offers: (Array.isArray(plans) ? plans : []).map((p: any) => ({
           "@type": "Offer",
