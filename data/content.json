@@ -1277,5 +1277,68 @@
     "section": "seo",
     "contentKey": "canonicalUrl",
     "value": "https://mahmoodsalah.com/automati"
+  },
+  {
+    "id": 111,
+    "page": "consultation",
+    "section": "stats",
+    "contentKey": "count",
+    "value": "48"
+  },
+  {
+    "id": 112,
+    "page": "consultation",
+    "section": "stats",
+    "contentKey": "label",
+    "value": "Consultations Delivered"
+  },
+  {
+    "id": 113,
+    "page": "consultation",
+    "section": "stats",
+    "contentKey": "description",
+    "value": "Trusted by individuals, startups, and organizations to translate AI ideas into deployed, production-ready systems."
+  },
+  {
+    "id": 114,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "AI Consultation — Strategy, Architecture & Production Guidance | Mahmood Salah"
+  },
+  {
+    "id": 115,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Book an AI consultation with Mahmood Salah, Senior Data Scientist & AI Engineer. Get expert guidance on AI agents, LLMs, computer vision, deep learning, architecture decisions, and production deployment. Over 48 consultations delivered."
+  },
+  {
+    "id": 116,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI consultation, AI consultant, AI strategy advisor, LLM consultant, computer vision expert, deep learning consultant, AI architecture review, AI deployment, AI agent consulting, Mahmood Salah"
+  },
+  {
+    "id": 117,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "AI Consultation Services"
+  },
+  {
+    "id": 118,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 119,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.com/consultation"
   }
 ]

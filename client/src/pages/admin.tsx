@@ -66,6 +66,7 @@ const SECTION_LABELS: Record<string, string> = {
   closingCta: "Closing CTA",
   faq: "FAQ",
   seo: "SEO & Meta",
+  stats: "Stats Counter",
 };
 
 export default function Admin() {
