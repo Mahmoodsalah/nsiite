@@ -484,12 +484,14 @@ export default function Automati() {
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
                 {closingDesc}
               </p>
-              <Button size="lg" className="rounded-xl px-8" data-testid="button-automati-cta" asChild>
-                <a href={closingUrl}>
-                  {closingCta}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </Button>
+              <div className="flex justify-center">
+                <Button size="lg" className="rounded-xl px-8" data-testid="button-automati-cta" asChild>
+                  <a href={closingUrl}>
+                    {closingCta}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </AnimateIn>
