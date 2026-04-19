@@ -2033,5 +2033,19 @@
         "tooltip": "Ex: Google Ambassador and GDG Manager"
       }
     ]
+  },
+  {
+    "id": 205,
+    "page": "global",
+    "section": "nav",
+    "contentKey": "items",
+    "value": [
+      { "label": "Work", "href": "", "parent": "", "visible": true },
+      { "label": "Hire Me", "href": "/hire-me", "parent": "Work", "visible": true },
+      { "label": "Need a Consultation?", "href": "/consultation", "parent": "Work", "visible": true },
+      { "label": "Automati", "href": "/automati", "parent": "Work", "visible": true },
+      { "label": "BootcampAI", "href": "/bootcampai", "parent": "", "visible": true },
+      { "label": "Mentorship", "href": "/mentorship", "parent": "", "visible": true }
+    ]
   }
 ]

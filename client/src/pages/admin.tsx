@@ -75,6 +75,7 @@ const SECTION_LABELS: Record<string, string> = {
   seoHireMe: "SEO - Hire Me Page",
   stats: "Stats Counter",
   navigation: "Navigation Bar",
+  nav: "Navigation Menu Items",
   footer: "Footer",
   statsDashboard: "Stats Dashboard (Home)",
   floatingCards: "Floating Cards",
@@ -603,7 +604,14 @@ function ObjectArrayEditor({
   };
 
   const addItem = () => {
-    const template = items.length > 0 ? Object.fromEntries(Object.keys(items[0]).map(k => [k, ""])) : {};
+    const template = items.length > 0
+      ? Object.fromEntries(
+          Object.entries(items[0]).map(([k, v]) => [
+            k,
+            Array.isArray(v) ? [] : typeof v === "boolean" ? false : typeof v === "number" ? 0 : "",
+          ])
+        )
+      : {};
     setItems([...items, template]);
     setExpandedIndex(items.length);
     setDirty(true);
