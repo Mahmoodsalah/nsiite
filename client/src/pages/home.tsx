@@ -14,7 +14,7 @@ import StatsDashboard from "@/components/stats-dashboard";
 const socialIconMap: Record<string, any> = { linkedin: SiLinkedin, youtube: SiYoutube, instagram: SiInstagram, facebook: SiFacebook };
 
 export default function Home() {
-  const { data: content } = usePageContent("hireme");
+  const { data: content } = usePageContent("home");
 
   const seoTitle = getVal(content, "seoHome", "title", "Mahmood Salah - Senior Data Scientist & AI Engineer");
   const seoDescription = getVal(content, "seoHome", "description", "Senior Data Scientist and AI Engineer specializing in LLMs, AI agents, computer vision, and deep learning.");

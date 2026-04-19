@@ -11,7 +11,7 @@ const socialIconMap: Record<string, any> = {
 };
 
 export default function Footer() {
-  const { data: content } = usePageContent("hireme");
+  const { data: content } = usePageContent("home");
   const { data: globalContent } = usePageContent("global");
   const socialLinks = getVal(content, "hero", "socialLinks", []);
 

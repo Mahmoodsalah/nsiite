@@ -22,6 +22,7 @@ import {
   Settings,
   Search,
   Bot,
+  Home,
 } from "lucide-react";
 
 type SiteContent = {
@@ -33,12 +34,13 @@ type SiteContent = {
 };
 
 const PAGE_CONFIG: Record<string, { label: string; icon: any; description: string }> = {
-  hireme: { label: "Hire Me", icon: Briefcase, description: "Portfolio, projects, resume & testimonials" },
+  home: { label: "Home Page", icon: Home, description: "Landing hero, typing titles, social links & SEO" },
+  hireme: { label: "Hire Me", icon: Briefcase, description: "About, projects, resume & testimonials" },
   consultation: { label: "Consultation", icon: FileText, description: "Consultation services & contact" },
   bootcamp: { label: "BootcampAI", icon: GraduationCap, description: "Bootcamp program details & applications" },
   mentorship: { label: "Mentorship", icon: Users, description: "Mentorship plans, benefits & pricing" },
   automati: { label: "Automati", icon: Bot, description: "Custom AI automation services & pricing" },
-  global: { label: "Global Settings", icon: Settings, description: "Site-wide settings" },
+  global: { label: "Global Settings", icon: Settings, description: "Navigation, footer, stats dashboard & site-wide settings" },
 };
 
 const SECTION_LABELS: Record<string, string> = {

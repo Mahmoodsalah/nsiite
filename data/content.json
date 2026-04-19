@@ -1,7 +1,7 @@
 [
   {
     "id": 2,
-    "page": "hireme",
+    "page": "home",
     "section": "hero",
     "contentKey": "subtitle",
     "value": "I specialize in leveraging advanced data science techniques and AI engineering to drive innovative solutions for complex business challenges. As a consultant and mentor, I help organizations transform through the strategic adoption of AI technologies."
@@ -329,7 +329,7 @@
   },
   {
     "id": 1,
-    "page": "hireme",
+    "page": "home",
     "section": "hero",
     "contentKey": "title",
     "value": "Senior Data Scientist, AI Engineer, and Consultant"
@@ -579,7 +579,7 @@
   },
   {
     "id": 3,
-    "page": "hireme",
+    "page": "home",
     "section": "hero",
     "contentKey": "socialLinks",
     "value": [
@@ -1561,35 +1561,35 @@
   },
   {
     "id": 144,
-    "page": "hireme",
+    "page": "home",
     "section": "seoHome",
     "contentKey": "title",
     "value": "Mahmood Salah - Senior Data Scientist & AI Engineer | Hire AI Expert"
   },
   {
     "id": 145,
-    "page": "hireme",
+    "page": "home",
     "section": "seoHome",
     "contentKey": "description",
     "value": "Hire Mahmood Salah, a Senior Data Scientist and AI Engineer specializing in LLMs, AI agents, computer vision, and deep learning. Trusted by Google, Nielsen, Udacity, GLG, and Innova for AI consulting, mentorship, automation, and BootcampAI training in the Middle East."
   },
   {
     "id": 146,
-    "page": "hireme",
+    "page": "home",
     "section": "seoHome",
     "contentKey": "keywords",
     "value": "Mahmood Salah, hire AI engineer, senior data scientist, AI consultant Middle East, LLM expert, AI agents developer, computer vision engineer, deep learning specialist, AI strategy, data science consultant"
   },
   {
     "id": 147,
-    "page": "hireme",
+    "page": "home",
     "section": "seoHome",
     "contentKey": "canonicalUrl",
     "value": "https://mahmoodsalah.com/"
   },
   {
     "id": 148,
-    "page": "hireme",
+    "page": "home",
     "section": "seoHome",
     "contentKey": "ogImage",
     "value": "https://mahmoodsalah.com/favicon.png"
@@ -1792,21 +1792,21 @@
   },
   {
     "id": 177,
-    "page": "hireme",
+    "page": "home",
     "section": "hero",
     "contentKey": "typedTitles",
     "value": "Senior Data Scientist|AI Solutions Architect|AI Transformation Consultant"
   },
   {
     "id": 178,
-    "page": "hireme",
+    "page": "home",
     "section": "hero",
     "contentKey": "workedWithLabel",
     "value": "Worked with"
   },
   {
     "id": 179,
-    "page": "hireme",
+    "page": "home",
     "section": "hero",
     "contentKey": "swipeLabel",
     "value": "Swipe to see more"
