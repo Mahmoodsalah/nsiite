@@ -290,14 +290,7 @@
     "page": "bootcamp",
     "section": "about",
     "contentKey": "description1",
-    "value": "BootcampAI is the first non-profit platform in the Arab region dedicated to AI education through immersive bootcamps. Our mission is to make high-quality Artificial Intelligence education accessible, practical, and career-transforming."
-  },
-  {
-    "id": 28,
-    "page": "bootcamp",
-    "section": "about",
-    "contentKey": "description2",
-    "value": "We combine academic rigor with hands-on practice: every topic includes real project implementation that bridges the gap between theory and real-world solutions. Participants not only learn how AI models work but also build and deploy them under expert mentorship."
+    "value": "BootcampAI is the first non-profit platform in the Arab region dedicated to AI education through immersive, project-based bootcamps. Our philosophy: world-class AI education must be accessible, deeply practical, and tied directly to real career outcomes — not behind paywalls or buried in theory."
   },
   {
     "id": 60,
@@ -349,29 +342,6 @@
     "value": "Need a Consultation?"
   },
   {
-    "id": 29,
-    "page": "bootcamp",
-    "section": "about",
-    "contentKey": "duringBenefits",
-    "value": [
-      "Daily mentoring from experienced AI engineers.",
-      "24/7 AI-powered assistance for technical support.",
-      "Weekly practical projects reinforcing each concept.",
-      "A collaborative learning environment designed to inspire innovation."
-    ]
-  },
-  {
-    "id": 30,
-    "page": "bootcamp",
-    "section": "about",
-    "contentKey": "afterBenefits",
-    "value": [
-      "Three months of free mentorship to support further growth.",
-      "Access to advanced, specialized AI courses.",
-      "Real paths to commercializing their projects through European partnerships."
-    ]
-  },
-  {
     "id": 31,
     "page": "bootcamp",
     "section": "whyChoose",
@@ -405,16 +375,6 @@
         "desc": "6 month free learning with extended mentorship and guidance after graduation.",
         "icon": "Handshake",
         "title": "Career Support & Mentorship"
-      },
-      {
-        "desc": "Unlock opportunities to develop and commercialize ideas with European partners.",
-        "icon": "Globe",
-        "title": "International Collaboration"
-      },
-      {
-        "desc": "Market value: 12,000 SAR. Join for only 2,400 SAR after 80% scholarship -- or secure one of 30 full scholarships (100%).",
-        "icon": "Lightbulb",
-        "title": "Non-Profit Scholarships"
       }
     ]
   },
@@ -424,126 +384,6 @@
     "section": "whyChoose",
     "contentKey": "cta",
     "value": "Your future as an AI Engineer starts here."
-  },
-  {
-    "id": 35,
-    "page": "bootcamp",
-    "section": "llmBootcamp",
-    "contentKey": "title",
-    "value": "LLM & AI Agent Bootcamp"
-  },
-  {
-    "id": 36,
-    "page": "bootcamp",
-    "section": "llmBootcamp",
-    "contentKey": "subtitle",
-    "value": "BootcampAI's flagship 10-week intensive program designed for professionals and learners who want to master Large Language Models (LLMs) and AI Agent frameworks."
-  },
-  {
-    "id": 37,
-    "page": "bootcamp",
-    "section": "llmBootcamp",
-    "contentKey": "whatYoullLearn",
-    "value": [
-      "Core mathematics and architectures behind LLMs.",
-      "The mechanics of attention, tokenization, and transformers.",
-      "Fine-tuning pre-trained models and building custom AI agents.",
-      "Building, deploying, and optimizing real-world LLM applications."
-    ]
-  },
-  {
-    "id": 38,
-    "page": "bootcamp",
-    "section": "llmBootcamp",
-    "contentKey": "programDetails",
-    "value": [
-      {
-        "icon": "Clock",
-        "label": "Duration",
-        "value": "10 Weeks"
-      },
-      {
-        "icon": "HeadphonesIcon",
-        "label": "Support",
-        "value": "24/7 AI assistant + daily engineer mentorship"
-      },
-      {
-        "icon": "Layers",
-        "label": "Hands-On Projects",
-        "value": "Each week includes a working project prototype"
-      }
-    ]
-  },
-  {
-    "id": 39,
-    "page": "bootcamp",
-    "section": "llmBootcamp",
-    "contentKey": "scholarships",
-    "value": [
-      "30 Fully Funded Scholarships (100%)",
-      "30 Partially Funded Seats (80%), reducing cost to 2,400 SAR | 630 $ only"
-    ]
-  },
-  {
-    "id": 40,
-    "page": "bootcamp",
-    "section": "llmBootcamp",
-    "contentKey": "bottomNote",
-    "value": "Top participants receive Technical Excellence Awards and real opportunities to commercialize their bootcamp projects with European collaborators."
-  },
-  {
-    "id": 41,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "title",
-    "value": "How to Apply"
-  },
-  {
-    "id": 42,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "subtitle",
-    "value": "Applying to BootcampAI is simple:"
-  },
-  {
-    "id": 43,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "steps",
-    "value": [
-      "Submit your application through our official form.",
-      "Complete a short technical challenge to assess readiness.",
-      "Receive scholarship results and secure your seat.",
-      "Begin your 10-week transformation into an AI Engineer."
-    ]
-  },
-  {
-    "id": 44,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "badge",
-    "value": "Applications are now open"
-  },
-  {
-    "id": 45,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "cta",
-    "value": "Take your step toward leading the next AI revolution."
-  },
-  {
-    "id": 46,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "applyUrl",
-    "value": "https://forms.gle/ergHXAYYbaoSmFtg7"
-  },
-  {
-    "id": 47,
-    "page": "bootcamp",
-    "section": "howToApply",
-    "contentKey": "applyText",
-    "value": "Apply Now -- Become an LLM Engineer"
   },
   {
     "id": 48,
@@ -825,13 +665,6 @@
         "description": "Work with us to evaluate, design, and implement AI solutions that fit your business goals and technical capacity."
       }
     ]
-  },
-  {
-    "id": 70,
-    "page": "bootcamp",
-    "section": "about",
-    "contentKey": "videoUrl",
-    "value": "https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252"
   },
   {
     "id": 71,
@@ -1460,5 +1293,270 @@
         "answer": "Yes. The AI Consulting for Teams plan is specifically designed for organisations. It covers assessment, architecture, training, and deployment support across your team. Pricing is fixed at ,200 for a 3–4 month engagement, with custom arrangements available for larger teams."
       }
     ]
+  },
+  {
+    "id": 131,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "badge",
+    "value": "Our Programs"
+  },
+  {
+    "id": 132,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "title",
+    "value": "BootcampAI Programs"
+  },
+  {
+    "id": 133,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "subtitle",
+    "value": "Three intensive bootcamps covering the most in-demand areas of modern AI. Click any programme to expand the full curriculum, scholarships, and how to apply."
+  },
+  {
+    "id": 134,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "items",
+    "value": [
+      {
+        "id": "llm",
+        "title": "LLM & Agentic AI Bootcamp",
+        "icon": "MessageSquare",
+        "accentColor": "#FD6215",
+        "status": "active",
+        "statusLabel": "Applications Open",
+        "duration": "10 Weeks",
+        "shortDesc": "Master Large Language Models and build production-ready AI agents from first principles to deployment.",
+        "whatYoullLearn": [
+          "Core mathematics and architectures behind LLMs.",
+          "The mechanics of attention, tokenization, and transformers.",
+          "Fine-tuning pre-trained models and building custom AI agents.",
+          "Building, deploying, and optimizing real-world LLM applications."
+        ],
+        "programDetails": [
+          {
+            "icon": "Clock",
+            "label": "Duration",
+            "value": "10 Weeks"
+          },
+          {
+            "icon": "HeadphonesIcon",
+            "label": "Support",
+            "value": "24/7 AI assistant + daily engineer mentorship"
+          },
+          {
+            "icon": "Layers",
+            "label": "Hands-On Projects",
+            "value": "Each week includes a working project prototype"
+          }
+        ],
+        "tuitions": [
+          "Market value: 12,000 SAR (~$3,200 USD)",
+          "30 Fully Funded Scholarships (100% coverage)",
+          "30 Partially Funded Seats (80%) — final cost only 2,400 SAR (~$630 USD)"
+        ],
+        "tuitionNote": "BootcampAI is non-profit. Every seat is subsidised — pricing reflects programme costs only, never profit.",
+        "videoUrl": "https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252",
+        "applySteps": [
+          "Submit your application through our official form.",
+          "Complete a short technical challenge to assess readiness.",
+          "Receive scholarship results and secure your seat.",
+          "Begin your 10-week transformation into an AI Engineer."
+        ],
+        "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
+        "applyText": "Apply Now"
+      },
+      {
+        "id": "cv",
+        "title": "Computer Vision Bootcamp",
+        "icon": "Eye",
+        "accentColor": "#0258DB",
+        "status": "coming-soon",
+        "statusLabel": "Coming Soon",
+        "duration": "10 Weeks",
+        "shortDesc": "Build state-of-the-art vision systems for detection, segmentation, tracking, and generative imagery.",
+        "whatYoullLearn": [
+          "CNN architectures from fundamentals to modern research.",
+          "Object detection, segmentation, and tracking with YOLO, SAM, and DETR.",
+          "Vision transformers (ViT, DINO) and multimodal vision-language models.",
+          "Deploying computer vision models on edge devices and cloud infrastructure."
+        ],
+        "programDetails": [
+          {
+            "icon": "Clock",
+            "label": "Duration",
+            "value": "10 Weeks (planned)"
+          },
+          {
+            "icon": "HeadphonesIcon",
+            "label": "Support",
+            "value": "Mentor sessions + AI assistant"
+          },
+          {
+            "icon": "Layers",
+            "label": "Hands-On Projects",
+            "value": "Weekly portfolio-grade projects"
+          }
+        ],
+        "tuitions": [
+          "Scholarship structure to be announced.",
+          "Join the waitlist now to receive early-bird pricing and priority admission."
+        ],
+        "tuitionNote": "",
+        "videoUrl": "",
+        "applySteps": [],
+        "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
+        "applyText": "Join the Waitlist"
+      },
+      {
+        "id": "dl",
+        "title": "Deep Learning Bootcamp",
+        "icon": "Brain",
+        "accentColor": "#9333EA",
+        "status": "coming-soon",
+        "statusLabel": "Coming Soon",
+        "duration": "10 Weeks",
+        "shortDesc": "Master neural networks, optimisation, and modern deep learning architectures from theory to production.",
+        "whatYoullLearn": [
+          "Mathematical foundations: linear algebra, calculus, and probability for DL.",
+          "Neural network architectures from MLPs to transformers.",
+          "Training, regularisation, and optimisation at scale.",
+          "Deploying production deep learning systems with MLOps best practices."
+        ],
+        "programDetails": [
+          {
+            "icon": "Clock",
+            "label": "Duration",
+            "value": "10 Weeks (planned)"
+          },
+          {
+            "icon": "HeadphonesIcon",
+            "label": "Support",
+            "value": "Mentor sessions + AI assistant"
+          },
+          {
+            "icon": "Layers",
+            "label": "Hands-On Projects",
+            "value": "Weekly portfolio-grade projects"
+          }
+        ],
+        "tuitions": [
+          "Scholarship structure to be announced.",
+          "Join the waitlist now to receive early-bird pricing and priority admission."
+        ],
+        "tuitionNote": "",
+        "videoUrl": "",
+        "applySteps": [],
+        "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
+        "applyText": "Join the Waitlist"
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 136,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Frequently Asked Questions"
+  },
+  {
+    "id": 137,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "Everything you need to know about BootcampAI's programmes, scholarships, and applications."
+  },
+  {
+    "id": 138,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What is BootcampAI?",
+        "answer": "BootcampAI is the first non-profit AI education platform in the Arab region. We run intensive, project-based bootcamps that take learners from foundational concepts to building, deploying, and shipping real AI systems — covering Large Language Models, Computer Vision, and Deep Learning."
+      },
+      {
+        "question": "Who can apply to a BootcampAI programme?",
+        "answer": "Anyone serious about becoming an AI engineer can apply. We welcome computer science students, software engineers, data analysts, recent graduates, and self-taught developers. A short technical challenge during the application process helps us match learners to the right programme and scholarship tier."
+      },
+      {
+        "question": "Are the bootcamps really free or subsidised?",
+        "answer": "Yes. Because BootcampAI is non-profit, every seat is subsidised. The LLM & Agentic AI Bootcamp offers 30 fully funded scholarships (100% coverage) and 30 partially funded seats at 80% off — bringing the cost down to only ~30 USD versus the ~,200 market value. Future programmes will follow a similar model."
+      },
+      {
+        "question": "Do I need prior AI or programming experience?",
+        "answer": "You should be comfortable with Python and have basic familiarity with linear algebra and probability. You do not need prior machine learning experience — we build everything from first principles. The technical challenge in the application is designed to verify readiness, not gatekeep."
+      },
+      {
+        "question": "What language is the instruction in?",
+        "answer": "Instruction is delivered in English with Arabic-language support available throughout the programme via mentors and the 24/7 AI assistant. All written materials, code, and project assignments are in English to match industry practice."
+      },
+      {
+        "question": "How much time do I need to commit per week?",
+        "answer": "Plan for around 15–20 hours per week across live sessions, project work, code reviews, and self-study. The 10-week format is intentionally intensive — graduates leave with a portfolio, not just a certificate."
+      },
+      {
+        "question": "What do I get when I graduate?",
+        "answer": "A verified BootcampAI certificate, a portfolio of weekly projects you can publish on GitHub and LinkedIn, a capstone project ready to demo to employers, six months of post-graduation mentorship, and access to our hiring network of partner companies."
+      },
+      {
+        "question": "When will the Computer Vision and Deep Learning bootcamps launch?",
+        "answer": "Both programmes are in active development and will launch in the coming cohorts. Join the waitlist on either programme card above to receive launch dates, early-bird pricing, and priority admission as soon as applications open."
+      },
+      {
+        "question": "Can companies sponsor employees or run a private cohort?",
+        "answer": "Yes. The For Companies / Enterprise Programs section below explains how we partner with organisations to upskill teams, design private custom curricula, and integrate AI into your business. Get in touch by email to discuss."
+      },
+      {
+        "question": "How is BootcampAI different from an online course?",
+        "answer": "A course gives you content. BootcampAI gives you a structured 10-week journey with live mentorship, weekly project deliverables, code reviews, accountability, and a graduating cohort. You do not finish with notes — you finish with shipped projects and the engineering judgement to build more."
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "BootcampAI — Non-Profit AI Bootcamps in LLMs, Computer Vision & Deep Learning"
+  },
+  {
+    "id": 140,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "BootcampAI is the first non-profit AI education platform in the Arab region. Intensive 10-week project-based bootcamps in LLMs & AI Agents, Computer Vision, and Deep Learning. Up to 100% scholarships available."
+  },
+  {
+    "id": 141,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI bootcamp, LLM bootcamp, agentic AI, computer vision bootcamp, deep learning bootcamp, AI scholarships, learn AI Arabic, non-profit AI education, BootcampAI, Mahmood Salah"
+  },
+  {
+    "id": 142,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.com/bootcampai"
+  },
+  {
+    "id": 143,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "organizationName",
+    "value": "BootcampAI"
   }
 ]

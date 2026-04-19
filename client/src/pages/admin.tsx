@@ -49,6 +49,7 @@ const SECTION_LABELS: Record<string, string> = {
   testimonials: "Testimonials",
   services: "Services",
   whyChoose: "Why Choose",
+  programs: "Programs",
   llmBootcamp: "LLM Bootcamp",
   howToApply: "How to Apply",
   enterprise: "Enterprise",
