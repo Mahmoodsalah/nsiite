@@ -33,13 +33,14 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-lg mb-4">Quick Links</h3>
             <nav className="flex flex-col gap-2">
-              <Link href="/#about" onClick={() => {
-                setTimeout(() => {
-                  document.getElementById("about")?.scrollIntoView({ behavior: "instant" });
-                }, 100);
-              }}>
+              <Link href="/hire-me" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-hire">
                   Hire Me
+                </span>
+              </Link>
+              <Link href="/consultation" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
+                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-consultation">
+                  Consultation
                 </span>
               </Link>
               <Link href="/bootcampai" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
@@ -50,6 +51,11 @@ export default function Footer() {
               <Link href="/mentorship" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
                 <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-mentorship">
                   Mentorship
+                </span>
+              </Link>
+              <Link href="/automati" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
+                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-automati">
+                  Automati
                 </span>
               </Link>
             </nav>
