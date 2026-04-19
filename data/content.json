@@ -1349,5 +1349,116 @@
     "section": "plans",
     "contentKey": "limitedTimeNotice",
     "value": "Limited-time early pricing — these rates will increase soon. Lock in your spot now."
+  },
+  {
+    "id": 121,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "AI Mentorship for Learners, Engineers & Teams | Mahmood Salah"
+  },
+  {
+    "id": 122,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Get 1-on-1 AI mentorship with Mahmood Salah, Senior Data Scientist & AI Engineer. Plans from $25/month — for AI learners, project builders, and company teams. Limited-time early pricing."
+  },
+  {
+    "id": 123,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI mentorship, AI mentor, 1on1 AI coaching, learn AI, AI project guidance, data science mentor, LLM mentorship, AI for beginners, AI consultant, Mahmood Salah mentorship"
+  },
+  {
+    "id": 124,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.com/mentorship"
+  },
+  {
+    "id": 125,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "AI Mentorship Programme"
+  },
+  {
+    "id": 126,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 127,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 128,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Common questions about the mentorship"
+  },
+  {
+    "id": 129,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "Can't find your answer here? Reach out directly — I respond to every message."
+  },
+  {
+    "id": 130,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What is the AI Mentorship Programme?",
+        "answer": "A structured 1-on-1 mentorship service with Mahmood Salah, a Senior Data Scientist and AI Engineer. Depending on your plan, you get direct chat support, live video sessions, code reviews, architecture guidance, and a clear roadmap to reach your AI goals — whether you are learning, building a project, or scaling AI within your company."
+      },
+      {
+        "question": "Who is this mentorship for?",
+        "answer": "There are three audiences: (1) Learners taking AI or data science courses who want expert support to move faster and understand deeply. (2) Aspiring AI engineers who want hands-on guidance to build, ship, and showcase a real AI project. (3) Startups, teams, and companies that need expert direction to evaluate, design, and implement AI solutions in their business."
+      },
+      {
+        "question": "Do I need prior programming experience?",
+        "answer": "For the AI Learning Support plan, basic familiarity with Python is helpful but not required. We will start from where you are and build from there. For the AI Project Mentorship, you should be comfortable writing code. For the AI Consulting for Teams plan, no technical background is required from you — we handle the technical depth."
+      },
+      {
+        "question": "What does each plan include?",
+        "answer": "AI Learning Support (5/month): Unlimited chat support, 2 hours of 1:1 video mentoring, concept explanations, and a personalised study plan. — AI Project Mentorship (50 for 2 months): Unlimited chat, 10 hours of 1:1 video, architecture review, code review, model optimisation guidance, and deployment strategy. — AI Consulting for Teams (,200 for 3–4 months): AI use-case assessment, technical architecture planning, team training, and full implementation and deployment support."
+      },
+      {
+        "question": "How is this different from an online course?",
+        "answer": "A course gives you content. This gives you a thinking partner. You get real-time feedback on your specific situation, decisions, and code — not generic lectures. The sessions are designed around your goals, your blockers, and your timeline. Everything is adapted to you."
+      },
+      {
+        "question": "What outcomes can I expect?",
+        "answer": "AI Learning Support: Faster learning, fewer sticking points, and a structured path through your course or subject. AI Project Mentorship: A complete, deployable AI project ready for your portfolio or production. AI Consulting for Teams: A clear AI implementation roadmap and a working system integrated into your business processes."
+      },
+      {
+        "question": "How much time do I need to commit each week?",
+        "answer": "It depends on your plan and pace. For AI Learning Support, even 3–5 hours per week is enough to make real progress. For AI Project Mentorship, plan for around 8–10 hours per week to move quickly over 2 months. For AI Consulting for Teams, your involvement is flexible — we work around your schedule."
+      },
+      {
+        "question": "Is pricing really limited time?",
+        "answer": "Yes. These are early-access rates offered while I scale the programme. The prices will increase once each cohort is full. Booking now locks in the current rate for your full engagement period."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Click the Get Started button on your chosen plan. You will be taken to a short booking form or calendar link to schedule an introductory call. We will then align on your goals, confirm the plan details, and kick off your mentorship."
+      },
+      {
+        "question": "Can companies or teams enrol?",
+        "answer": "Yes. The AI Consulting for Teams plan is specifically designed for organisations. It covers assessment, architecture, training, and deployment support across your team. Pricing is fixed at ,200 for a 3–4 month engagement, with custom arrangements available for larger teams."
+      }
+    ]
   }
 ]

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +28,12 @@ import {
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { usePageContent, getVal } from "@/hooks/use-content";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import patternBg from "@assets/pattern_white_1771718036073.png";
 
 const iconMap: Record<string, any> = {
@@ -56,6 +62,110 @@ export default function Mentorship() {
   const ctaTitle = getVal(content, "bottomCta", "title", "Book a Consult");
   const ctaSubtitle = getVal(content, "bottomCta", "subtitle", "");
   const ctaEmail = getVal(content, "bottomCta", "email", "mahmood.salah@email.com");
+
+  const faqBadge = getVal(content, "faq", "badge", "FAQ");
+  const faqTitle = getVal(content, "faq", "title", "Common questions about the mentorship");
+  const faqDesc = getVal(content, "faq", "description", "");
+  const faqItems: any[] = getVal(content, "faq", "items", []);
+
+  const seoTitle = getVal(content, "seo", "title", "AI Mentorship | Mahmood Salah");
+  const seoDescription = getVal(content, "seo", "description", "");
+  const seoKeywords = getVal(content, "seo", "keywords", "");
+  const seoCanonical = getVal(content, "seo", "canonicalUrl", "");
+  const seoServiceName = getVal(content, "seo", "serviceName", "AI Mentorship Programme");
+  const seoProvider = getVal(content, "seo", "serviceProvider", "Mahmood Salah");
+
+  const structuredData = useMemo(() => {
+    const graph: any[] = [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://mahmoodsalah.com/" },
+          { "@type": "ListItem", position: 2, name: "Mentorship", item: seoCanonical || "https://mahmoodsalah.com/mentorship" },
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mahmoodsalah.com/#person",
+        name: seoProvider,
+        url: "https://mahmoodsalah.com",
+        jobTitle: "Senior Data Scientist & AI Engineer",
+        description: "Senior Data Scientist and AI Engineer specialising in AI agents, LLMs, and computer vision. AI Mentor at Udacity.",
+        sameAs: [
+          "https://www.linkedin.com/in/mahmoodsalah",
+          "https://www.youtube.com/@MahmoodSalah",
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": (seoCanonical || "") + "#service",
+        name: seoServiceName,
+        serviceType: "AI Mentorship",
+        description: seoDescription,
+        provider: { "@id": "https://mahmoodsalah.com/#person" },
+        areaServed: "Worldwide",
+        offers: (Array.isArray(plans) ? plans : []).map((p: any) => ({
+          "@type": "Offer",
+          name: p.title,
+          description: p.description,
+          price: typeof p.price === "string" ? p.price.replace(/[^0-9.,]/g, "") || undefined : undefined,
+          priceCurrency: "USD",
+          url: p.href,
+          eligibleDuration: p.duration,
+        })),
+      },
+    ];
+    if (Array.isArray(faqItems) && faqItems.length > 0) {
+      graph.push({
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((q: any) => ({
+          "@type": "Question",
+          name: q.question,
+          acceptedAnswer: { "@type": "Answer", text: q.answer },
+        })),
+      });
+    }
+    return { "@context": "https://schema.org", "@graph": graph };
+  }, [seoServiceName, seoProvider, seoDescription, seoCanonical, plans, faqItems]);
+
+  useEffect(() => {
+    if (!seoTitle) return;
+    const prevTitle = document.title;
+    document.title = seoTitle;
+
+    const setMeta = (sel: string, attr: string, name: string, val: string) => {
+      if (!val) return;
+      let el = document.head.querySelector<HTMLMetaElement>(sel);
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, name); document.head.appendChild(el); }
+      el.setAttribute("content", val);
+    };
+    setMeta('meta[name="description"]', "name", "description", seoDescription);
+    setMeta('meta[name="keywords"]', "name", "keywords", seoKeywords);
+    setMeta('meta[property="og:title"]', "property", "og:title", seoTitle);
+    setMeta('meta[property="og:description"]', "property", "og:description", seoDescription);
+    setMeta('meta[property="og:type"]', "property", "og:type", "website");
+    setMeta('meta[property="og:url"]', "property", "og:url", seoCanonical);
+    setMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
+    setMeta('meta[name="twitter:title"]', "name", "twitter:title", seoTitle);
+    setMeta('meta[name="twitter:description"]', "name", "twitter:description", seoDescription);
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    const createdCanonical = !canonical;
+    if (seoCanonical) {
+      if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+      canonical.href = seoCanonical;
+    }
+
+    let ld = document.getElementById("mentorship-jsonld") as HTMLScriptElement | null;
+    if (!ld) { ld = document.createElement("script"); ld.id = "mentorship-jsonld"; ld.type = "application/ld+json"; document.head.appendChild(ld); }
+    ld.text = JSON.stringify(structuredData);
+
+    return () => {
+      document.title = prevTitle;
+      ld?.remove();
+      if (createdCanonical) canonical?.remove();
+    };
+  }, [seoTitle, seoDescription, seoKeywords, seoCanonical, structuredData]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(ctaEmail);
@@ -299,6 +409,43 @@ export default function Mentorship() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqItems.length > 0 && (
+        <section id="faq" className="py-20" data-testid="section-mentorship-faq">
+          <div className="max-w-4xl mx-auto px-6">
+            <AnimateIn>
+              <div className="text-center mb-10">
+                <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
+                  {faqBadge}
+                </Badge>
+                <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3">
+                  {faqTitle}
+                </h2>
+                {faqDesc && (
+                  <p className="text-muted-foreground max-w-2xl mx-auto">{faqDesc}</p>
+                )}
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.05}>
+              <div className="glass-card rounded-2xl p-4 md:p-6">
+                <Accordion type="single" collapsible className="w-full">
+                  {faqItems.map((q: any, i: number) => (
+                    <AccordionItem key={i} value={`faq-${i}`} data-testid={`accordion-mentorship-faq-${i}`} className="border-b border-border/40 last:border-b-0">
+                      <AccordionTrigger className="text-left font-heading font-semibold text-base md:text-lg text-foreground hover:no-underline py-5">
+                        {q.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pb-5">
+                        {q.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )}
 
       <section className="py-20 glass-section" data-testid="section-bottom-cta">
         <AnimateIn className="max-w-3xl mx-auto px-6 text-center">

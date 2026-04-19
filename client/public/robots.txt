@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Allow major AI crawlers explicitly
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Do not block assets — needed for rendering
+User-agent: *
+Allow: /assets/
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.svg
+Allow: /*.woff2
+
+Sitemap: https://mahmoodsalah.com/sitemap.xml
