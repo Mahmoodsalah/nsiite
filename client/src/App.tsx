@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AnalyticsLoader from "@/components/analytics-loader";
 import Home from "@/pages/home";
 import HireMe from "@/pages/hire-me";
 import Consultation from "@/pages/consultation";
@@ -18,6 +19,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <AnalyticsLoader />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1 pt-0">

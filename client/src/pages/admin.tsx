@@ -78,6 +78,7 @@ const SECTION_LABELS: Record<string, string> = {
   floatingCards: "Floating Cards",
   techMarquee: "Tech Marquee",
   ui: "UI Labels",
+  analytics: "Analytics (Google Analytics)",
 };
 
 export default function Admin() {

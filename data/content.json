@@ -1957,5 +1957,19 @@
     "section": "ui",
     "contentKey": "copiedLabel",
     "value": "Copied!"
+  },
+  {
+    "id": 202,
+    "page": "global",
+    "section": "analytics",
+    "contentKey": "gaMeasurementId",
+    "value": "G-LGFJ0RRZZK"
+  },
+  {
+    "id": 203,
+    "page": "global",
+    "section": "analytics",
+    "contentKey": "enabled",
+    "value": "true"
   }
 ]
