@@ -565,11 +565,15 @@ function ObjectArrayEditor({
   value,
   onSave,
   isSaving,
+  inline = false,
+  displayLabel,
 }: {
   label: string;
   value: any[];
   onSave: (value: any[]) => void;
   isSaving: boolean;
+  inline?: boolean;
+  displayLabel?: string;
 }) {
   const [items, setItems] = useState<any[]>(value);
   const [dirty, setDirty] = useState(false);
@@ -580,16 +584,23 @@ function ObjectArrayEditor({
     setDirty(false);
   }, [value]);
 
+  const commitInline = (next: any[]) => {
+    setItems(next);
+    if (inline) {
+      onSave(next);
+    } else {
+      setDirty(true);
+    }
+  };
+
   const updateItemField = (index: number, field: string, val: any) => {
     const next = [...items];
     next[index] = { ...next[index], [field]: val };
-    setItems(next);
-    setDirty(true);
+    commitInline(next);
   };
 
   const removeItem = (index: number) => {
-    setItems(items.filter((_, i) => i !== index));
-    setDirty(true);
+    commitInline(items.filter((_, i) => i !== index));
     setExpandedIndex(null);
   };
 
@@ -598,8 +609,7 @@ function ObjectArrayEditor({
     if (target < 0 || target >= items.length) return;
     const next = [...items];
     [next[index], next[target]] = [next[target], next[index]];
-    setItems(next);
-    setDirty(true);
+    commitInline(next);
     setExpandedIndex((prev) => (prev === index ? target : prev === target ? index : prev));
   };
 
@@ -612,23 +622,23 @@ function ObjectArrayEditor({
           ])
         )
       : {};
-    setItems([...items, template]);
+    const next = [...items, template];
+    commitInline(next);
     setExpandedIndex(items.length);
-    setDirty(true);
   };
 
   return (
     <div data-testid={`field-${label}`} className="pt-3">
       <div className="flex items-center justify-between mb-2">
         <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-          {formatLabel(label)} <span className="normal-case font-normal">({items.length} items)</span>
+          {formatLabel(displayLabel ?? label)} <span className="normal-case font-normal">({items.length} items)</span>
         </label>
         <div className="flex gap-1">
           <Button size="sm" variant="outline" onClick={addItem} className="h-7 text-xs" data-testid={`button-add-${label}`}>
             <Plus className="w-3 h-3 mr-1" />
             Add
           </Button>
-          {dirty && (
+          {!inline && dirty && (
             <Button size="sm" onClick={() => { onSave(items); setDirty(false); }} disabled={isSaving} className="h-7 text-xs" data-testid={`button-save-${label}`}>
               <Save className="w-3 h-3 mr-1" />
               Save
@@ -682,6 +692,21 @@ function ObjectArrayEditor({
                 <div className="px-3 pb-3 space-y-3 border-t border-white/5">
                   {Object.entries(item).map(([field, fieldVal]) => {
                     if (Array.isArray(fieldVal)) {
+                      const isObjectArray = fieldVal.length > 0 && typeof fieldVal[0] === "object" && fieldVal[0] !== null && !Array.isArray(fieldVal[0]);
+                      if (isObjectArray) {
+                        return (
+                          <div key={field} className="pt-2 pl-2 border-l-2 border-primary/20">
+                            <ObjectArrayEditor
+                              label={`${label}-${i}-${field}`}
+                              value={fieldVal as any[]}
+                              onSave={(next) => updateItemField(i, field, next)}
+                              isSaving={isSaving}
+                              inline
+                              displayLabel={field}
+                            />
+                          </div>
+                        );
+                      }
                       return (
                         <div key={field} className="pt-2">
                           <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
