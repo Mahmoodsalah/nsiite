@@ -272,39 +272,6 @@ export default function Mentorship() {
         </div>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 -mt-8 md:-mt-12 relative z-10" data-testid="section-mentorship-stats">
-        <AnimateIn>
-          <div
-            ref={statRef}
-            className="glass-card rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
-          >
-            <div
-              className="absolute inset-0 pointer-events-none opacity-60"
-              style={{
-                background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.12), transparent 65%)",
-              }}
-            />
-            <div className="relative z-10">
-              <div
-                className="font-heading font-bold text-6xl sm:text-7xl md:text-8xl text-primary leading-none mb-3 tabular-nums"
-                data-testid="text-mentorship-count"
-              >
-                {statValue}
-                <span className="text-primary/70">+</span>
-              </div>
-              <p className="font-heading font-semibold text-lg md:text-xl text-foreground mb-3" data-testid="text-mentorship-stat-label">
-                {statLabel}
-              </p>
-              {statDesc && (
-                <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto" data-testid="text-mentorship-stat-desc">
-                  {statDesc}
-                </p>
-              )}
-            </div>
-          </div>
-        </AnimateIn>
-      </section>
-
       <section className="py-20 relative overflow-hidden" data-testid="section-mentorship-intro">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
@@ -418,6 +385,39 @@ export default function Mentorship() {
             })}
           </div>
         </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-6 pb-20" data-testid="section-mentorship-stats">
+        <AnimateIn>
+          <div
+            ref={statRef}
+            className="glass-card rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+          >
+            <div
+              className="absolute inset-0 pointer-events-none opacity-60"
+              style={{
+                background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.12), transparent 65%)",
+              }}
+            />
+            <div className="relative z-10">
+              <div
+                className="font-heading font-bold text-6xl sm:text-7xl md:text-8xl text-primary leading-none mb-3 tabular-nums"
+                data-testid="text-mentorship-count"
+              >
+                {statValue}
+                <span className="text-primary/70">+</span>
+              </div>
+              <p className="font-heading font-semibold text-lg md:text-xl text-foreground mb-3" data-testid="text-mentorship-stat-label">
+                {statLabel}
+              </p>
+              {statDesc && (
+                <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto" data-testid="text-mentorship-stat-desc">
+                  {statDesc}
+                </p>
+              )}
+            </div>
+          </div>
+        </AnimateIn>
       </section>
 
       <section className="py-20" data-testid="section-mentoring-style">
