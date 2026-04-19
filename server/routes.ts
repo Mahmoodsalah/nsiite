@@ -2,7 +2,20 @@ import type { Express, RequestHandler } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
 import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 import { storage } from "./storage";
+import { pool } from "./db";
+
+if (process.env.NODE_ENV === "production") {
+  const required = ["ADMIN_USERNAME", "ADMIN_PASSWORD", "SESSION_SECRET"];
+  const missing = required.filter((k) => !process.env[k]);
+  if (missing.length > 0) {
+    throw new Error(
+      `Refusing to start in production: missing required env vars ${missing.join(", ")}. ` +
+        "Set these in your hosting provider before deploying.",
+    );
+  }
+}
 
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Mahmood@2025";
@@ -26,14 +39,28 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000;
+  const isProd = process.env.NODE_ENV === "production";
+
+  let sessionStore: session.Store | undefined;
+  if (process.env.DATABASE_URL) {
+    const PgSession = connectPgSimple(session);
+    sessionStore = new PgSession({
+      pool,
+      tableName: "session",
+      createTableIfMissing: true,
+    });
+  }
+
   app.use(
     session({
+      store: sessionStore,
       secret: process.env.SESSION_SECRET || "admin-secret-key-change-me",
       resave: false,
       saveUninitialized: false,
       cookie: {
         httpOnly: true,
-        secure: false,
+        secure: isProd,
+        sameSite: "lax",
         maxAge: sessionTtl,
       },
     })
