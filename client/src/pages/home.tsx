@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
-import mahmoodPortrait from "@assets/1a54ec53-5da8-4e83-87a5-02df3fc9d7ad_1776300934772.png";
 import patternBg from "@assets/pattern_white_1771718036073.png";
+
+const mahmoodPortrait = "/mahmood-portrait.webp";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { usePageSEO } from "@/hooks/use-seo";
@@ -261,6 +262,8 @@ export default function Home() {
             <img
               src={mahmoodPortrait}
               alt="Mahmood Salah"
+              width={900}
+              height={900}
               className="absolute inset-0 w-full h-full object-cover"
               style={{
                 maskImage: 'radial-gradient(ellipse 85% 95% at 50% 35%, black 65%, rgba(0,0,0,0.3) 100%)',
