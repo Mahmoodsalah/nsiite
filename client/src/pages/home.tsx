@@ -266,8 +266,8 @@ export default function Home() {
               height={900}
               className="absolute inset-0 w-full h-full object-cover"
               style={{
-                maskImage: 'radial-gradient(ellipse 85% 95% at 50% 35%, black 65%, rgba(0,0,0,0.3) 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 85% 95% at 50% 35%, black 65%, rgba(0,0,0,0.3) 100%)',
+                maskImage: 'radial-gradient(ellipse 90% 100% at 50% 35%, black 75%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 90% 100% at 50% 35%, black 75%, transparent 100%)',
               }}
               data-testid="img-hero-portrait"
             />
