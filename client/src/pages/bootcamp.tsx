@@ -227,7 +227,7 @@ export default function Bootcamp() {
             {heroBadge}
           </Badge>
           <div className="flex justify-center -my-[5.5rem] animate-fade-in-up mt-[-100px] mb-[-100px]">
-            <img src={bootcampLogo} alt="BootcampAI" className="h-[15rem] sm:h-[18rem] md:h-[21rem] w-auto" data-testid="img-bootcamp-logo" />
+            <img src={bootcampLogo} alt="BootcampAI" className="h-[15rem] sm:h-[18rem] md:h-[21rem] w-auto" decoding="async" data-testid="img-bootcamp-logo" />
           </div>
           <h1
             className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-foreground leading-tight mb-6 animate-fade-in-up"

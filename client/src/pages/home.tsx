@@ -264,6 +264,7 @@ export default function Home() {
               alt="Mahmood Salah"
               width={900}
               height={900}
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover"
               style={{
                 maskImage: 'radial-gradient(ellipse 85% 95% at 50% 35%, black 65%, rgba(0,0,0,0.3) 100%)',
@@ -355,6 +356,8 @@ export default function Home() {
                             <img
                               src={c.src}
                               alt={c.name}
+                              loading="lazy"
+                              decoding="async"
                               className="w-full h-full object-contain"
                               style={{ transform: `scale(${c.scale ?? 1})` }}
                             />
