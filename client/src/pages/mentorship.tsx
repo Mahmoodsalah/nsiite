@@ -35,7 +35,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import patternBg from "@assets/pattern_white_1771718036073.png";
+import patternBg from "@assets/pattern_white_1771718036073.webp";
 
 const iconMap: Record<string, any> = {
   BookOpen, Code, Building2, Wrench, BookMarked, Network, Sparkles,

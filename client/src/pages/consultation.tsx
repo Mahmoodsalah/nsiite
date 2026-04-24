@@ -13,7 +13,7 @@ import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { useCountUp } from "@/hooks/use-count-up";
-import patternBg from "@assets/pattern_white_1771718036073.png";
+import patternBg from "@assets/pattern_white_1771718036073.webp";
 
 const iconMap: Record<string, any> = { Brain, Bot, Eye };
 

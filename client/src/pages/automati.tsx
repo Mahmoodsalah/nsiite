@@ -23,7 +23,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import patternBg from "@assets/pattern_white_1771718036073.png";
+import patternBg from "@assets/pattern_white_1771718036073.webp";
 import automatiLogo from "@assets/automati_logo_nobg.png";
 
 const iconMap: Record<string, any> = {

@@ -1,7 +1,7 @@
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import { Link } from "wouter";
 import { usePageContent, getVal } from "@/hooks/use-content";
-import patternBg from "@assets/pattern_white_1771718036073.png";
+import patternBg from "@assets/pattern_white_1771718036073.webp";
 
 const socialIconMap: Record<string, any> = {
   linkedin: SiLinkedin,

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SiLinkedin, SiYoutube, SiInstagram, SiFacebook } from "react-icons/si";
 import NetworkBg from "@/components/network-bg";
-import patternBg from "@assets/pattern_white_1771718036073.png";
+import patternBg from "@assets/pattern_white_1771718036073.webp";
 
 const mahmoodPortrait = "/mahmood-portrait.webp";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
