@@ -258,63 +258,98 @@ export default function Admin() {
             </Button>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-1 space-y-4">
-            <div className="glass-card rounded-2xl p-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
-                <Input
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="Search content"
-                  className="pl-9 rounded-xl"
-                  data-testid="input-admin-search"
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              {Object.entries(PAGE_CONFIG).map(([key, cfg]) => {
-                const Icon = cfg.icon;
-                const active = activePage === key;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setActivePage(key)}
-                    className={`w-full text-left p-4 rounded-2xl border transition-all ${active ? "bg-primary/10 border-primary/30" : "bg-white/5 border-white/10 hover:bg-white/10"}`}
-                    data-testid={`button-page-${key}`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <Icon className="w-4 h-4" />
-                      <div>
-                        <div className="font-medium text-foreground">{cfg.label}</div>
-                        <div className="text-xs text-muted-foreground">{cfg.description}</div>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
+
+        <AccountSettingsDialog
+          open={showAccountDialog}
+          onOpenChange={setShowAccountDialog}
+          currentUsername={user?.username || user?.firstName || ""}
+        />
+
+        <div className="flex flex-col lg:flex-row gap-6">
+          <div className="lg:w-64 flex-shrink-0">
+            <div className="glass-card rounded-xl p-3 lg:sticky lg:top-24">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 mb-2">Pages</p>
+              <nav className="space-y-1" data-testid="nav-admin-pages">
+                {Object.entries(PAGE_CONFIG).map(([key, config]) => {
+                  const Icon = config.icon;
+                  const isActive = activePage === key;
+                  const hasContent = grouped[key] && Object.keys(grouped[key]).length > 0;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => { setActivePage(key); setSearchTerm(""); }}
+                      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
+                        isActive
+                          ? "bg-primary/15 text-primary border border-primary/20"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      }`}
+                      data-testid={`button-page-${key}`}
+                    >
+                      <Icon className="w-4 h-4 flex-shrink-0" />
+                      <span className="truncate">{config.label}</span>
+                      {!hasContent && <span className="ml-auto text-xs text-muted-foreground/50">empty</span>}
+                    </button>
+                  );
+                })}
+              </nav>
             </div>
           </div>
-          <div className="lg:col-span-3 space-y-4">
-            {activePage === "bootcamp" && (
-              <div className="glass-card rounded-2xl p-4 border border-primary/20">
-                <h2 className="font-heading font-semibold text-foreground mb-2">Program expandability</h2>
-                <p className="text-sm text-muted-foreground mb-4">Turn a program back into an accordion later by setting <span className="font-mono">expandable</span> to true inside its item.</p>
-                <div className="text-xs text-muted-foreground">
-                  Default is locked for Computer Vision Bootcamp and Deep Learning Bootcamp.
-                </div>
-              </div>
-            )}
+
+          <div className="flex-1 min-w-0">
             {contentLoading ? (
-              <div className="glass-card rounded-2xl p-8 text-center text-muted-foreground">Loading content…</div>
+              <div className="flex justify-center py-20">
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+              </div>
             ) : (
-              Object.entries(filteredSections).map(([section, items]) => (
-                <SectionEditor key={section} page={activePage} section={section} items={items} onSave={(page, sec, key, value) => updateMutation.mutate({ page, section: sec, contentKey: key, value })} isSaving={updateMutation.isPending} defaultOpen={section === "hero" || section === "programs" || section === "faq" || section === "seo"} />
-              ))
+              <>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex-1">
+                    <h2 className="font-heading font-semibold text-xl text-foreground">
+                      {PAGE_CONFIG[activePage]?.label || activePage}
+                    </h2>
+                    <p className="text-muted-foreground text-sm">
+                      {PAGE_CONFIG[activePage]?.description || ""}
+                    </p>
+                  </div>
+                  <div className="relative w-64">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Search fields..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-9 text-sm"
+                      data-testid="input-search-fields"
+                    />
+                  </div>
+                </div>
+
+                {Object.keys(filteredSections).length === 0 ? (
+                  <div className="glass-card rounded-xl p-12 text-center">
+                    <p className="text-muted-foreground">
+                      {searchTerm ? "No fields match your search." : "No content found for this page."}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {Object.entries(filteredSections).map(([section, items]) => (
+                      <SectionEditor
+                        key={`${activePage}-${section}`}
+                        page={activePage}
+                        section={section}
+                        items={items}
+                        onSave={(page, section, key, value) =>
+                          updateMutation.mutate({ page, section, contentKey: key, value })
+                        }
+                        isSaving={updateMutation.isPending}
+                        defaultOpen={Object.keys(filteredSections).length <= 3}
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
-        <AccountSettingsDialog open={showAccountDialog} onOpenChange={setShowAccountDialog} currentUsername={user?.username || "admin"} />
       </div>
     </div>
   );
@@ -447,8 +482,20 @@ function ImageUploadButton({
         }}
         data-testid={`${testId}-input`}
       />
-      <Button type="button" size="sm" variant="outline" onClick={() => inputRef.current?.click()} disabled={uploading} className={size === "xs" ? "h-7 text-xs" : "h-8 text-xs"} data-testid={testId}>
-        {uploading ? <Loader2 className="w-3 h-3 mr-1 animate-spin" /> : <Upload className="w-3 h-3 mr-1" />}
+      <Button
+        type="button"
+        size="sm"
+        variant="outline"
+        onClick={() => inputRef.current?.click()}
+        disabled={uploading}
+        className={size === "xs" ? "h-7 text-xs" : "h-8 text-xs"}
+        data-testid={testId}
+      >
+        {uploading ? (
+          <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+        ) : (
+          <Upload className="w-3 h-3 mr-1" />
+        )}
         {uploading ? "Uploading…" : "Upload image"}
       </Button>
     </>
@@ -779,29 +826,38 @@ function ObjectArrayEditor({
               >
                 <span className="font-medium text-foreground truncate">{displayTitle}</span>
                 <div className="flex items-center gap-1">
-                  <span role="button" onClick={(e) => { e.stopPropagation(); moveItem(i, -1); }} className={`p-1 rounded cursor-pointer ${i === 0 ? "text-muted-foreground/30 pointer-events-none" : "text-muted-foreground hover:bg-white/5"}`} data-testid={`button-move-up-${label}-${i}`} title="Move up"><ArrowUp className="w-3 h-3" /></span>
-                  <span role="button" onClick={(e) => { e.stopPropagation(); moveItem(i, 1); }} className={`p-1 rounded cursor-pointer ${i === items.length - 1 ? "text-muted-foreground/30 pointer-events-none" : "text-muted-foreground hover:bg-white/5"}`} data-testid={`button-move-down-${label}-${i}`} title="Move down"><ArrowDown className="w-3 h-3" /></span>
-                  <span role="button" onClick={(e) => { e.stopPropagation(); removeItem(i); }} className="text-destructive hover:bg-destructive/10 p-1 rounded cursor-pointer" data-testid={`button-remove-${label}-${i}`}><Trash2 className="w-3 h-3" /></span>
+                  <span
+                    role="button"
+                    onClick={(e) => { e.stopPropagation(); moveItem(i, -1); }}
+                    className={`p-1 rounded cursor-pointer ${i === 0 ? "text-muted-foreground/30 pointer-events-none" : "text-muted-foreground hover:bg-white/5"}`}
+                    data-testid={`button-move-up-${label}-${i}`}
+                    title="Move up"
+                  >
+                    <ArrowUp className="w-3 h-3" />
+                  </span>
+                  <span
+                    role="button"
+                    onClick={(e) => { e.stopPropagation(); moveItem(i, 1); }}
+                    className={`p-1 rounded cursor-pointer ${i === items.length - 1 ? "text-muted-foreground/30 pointer-events-none" : "text-muted-foreground hover:bg-white/5"}`}
+                    data-testid={`button-move-down-${label}-${i}`}
+                    title="Move down"
+                  >
+                    <ArrowDown className="w-3 h-3" />
+                  </span>
+                  <span
+                    role="button"
+                    onClick={(e) => { e.stopPropagation(); removeItem(i); }}
+                    className="text-destructive hover:bg-destructive/10 p-1 rounded cursor-pointer"
+                    data-testid={`button-remove-${label}-${i}`}
+                  >
+                    <Trash2 className="w-3 h-3" />
+                  </span>
                   {isExpanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
                 </div>
               </button>
               {isExpanded && (
                 <div className="px-3 pb-3 space-y-3 border-t border-white/5">
                   {Object.entries(item).map(([field, fieldVal]) => {
-                    if (field === "expandable" && typeof fieldVal === "boolean") {
-                      return (
-                        <div key={field} className="flex items-center gap-2 pt-2">
-                          <input
-                            type="checkbox"
-                            checked={fieldVal}
-                            onChange={(e) => updateItemField(i, field, e.target.checked)}
-                            className="rounded"
-                            data-testid={`checkbox-${label}-${i}-${field}`}
-                          />
-                          <label className="text-xs text-muted-foreground font-medium">{formatLabel(field)}</label>
-                        </div>
-                      );
-                    }
                     if (Array.isArray(fieldVal)) {
                       const isObjectArray = fieldVal.length > 0 && typeof fieldVal[0] === "object" && fieldVal[0] !== null && !Array.isArray(fieldVal[0]);
                       if (isObjectArray) {
@@ -903,7 +959,10 @@ function TagsEditor({ tags, onChange }: { tags: string[]; onChange: (tags: strin
     <div>
       <div className="flex flex-wrap gap-1 mb-1 mt-1">
         {tags.map((tag, i) => (
-          <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs border border-primary/20">
+          <span
+            key={i}
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs border border-primary/20"
+          >
             {tag}
             <button onClick={() => onChange(tags.filter((_, j) => j !== i))} className="hover:text-destructive ml-0.5">
               &times;

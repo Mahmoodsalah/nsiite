@@ -164,6 +164,7 @@ export async function registerRoutes(
         return res.status(400).json({ message: result.error });
       }
 
+      // Regenerate session id to defend against session-fixation after a credential change.
       req.session.regenerate((regenErr: any) => {
         if (regenErr) {
           console.error("Session regenerate error:", regenErr);

@@ -1360,7 +1360,8 @@
           "Begin your 10-week transformation into an AI Engineer."
         ],
         "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
-        "applyText": "Apply Now"
+        "applyText": "Apply Now",
+        "expandable": true
       },
       {
         "id": "cv",
@@ -1402,7 +1403,8 @@
         "videoUrl": "",
         "applySteps": [],
         "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
-        "applyText": "Join the Waitlist"
+        "applyText": "Join the Waitlist",
+        "expandable": false
       },
       {
         "id": "dl",
@@ -1444,7 +1446,8 @@
         "videoUrl": "",
         "applySteps": [],
         "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
-        "applyText": "Join the Waitlist"
+        "applyText": "Join the Waitlist",
+        "expandable": false
       }
     ]
   },
@@ -2040,12 +2043,42 @@
     "section": "nav",
     "contentKey": "items",
     "value": [
-      { "label": "Work", "href": "", "parent": "", "visible": true },
-      { "label": "Hire Me", "href": "/hire-me", "parent": "Work", "visible": true },
-      { "label": "Need a Consultation?", "href": "/consultation", "parent": "Work", "visible": true },
-      { "label": "Automati", "href": "/automati", "parent": "Work", "visible": true },
-      { "label": "BootcampAI", "href": "/bootcampai", "parent": "", "visible": true },
-      { "label": "Mentorship", "href": "/mentorship", "parent": "", "visible": true }
+      {
+        "label": "Work",
+        "href": "",
+        "parent": "",
+        "visible": true
+      },
+      {
+        "label": "Hire Me",
+        "href": "/hire-me",
+        "parent": "Work",
+        "visible": true
+      },
+      {
+        "label": "Need a Consultation?",
+        "href": "/consultation",
+        "parent": "Work",
+        "visible": true
+      },
+      {
+        "label": "Automati",
+        "href": "/automati",
+        "parent": "Work",
+        "visible": true
+      },
+      {
+        "label": "BootcampAI",
+        "href": "/bootcampai",
+        "parent": "",
+        "visible": true
+      },
+      {
+        "label": "Mentorship",
+        "href": "/mentorship",
+        "parent": "",
+        "visible": true
+      }
     ]
   }
 ]
