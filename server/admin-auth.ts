@@ -20,17 +20,17 @@ export async function ensureAdminSeeded(): Promise<void> {
   const envUsername = (process.env.ADMIN_USERNAME || "admin").trim();
   const envPassword = process.env.ADMIN_PASSWORD || "Mahmood@2025";
 
-  if (isProd && !process.env.ADMIN_PASSWORD) {
-    console.warn(
-      "[admin-auth] WARNING: ADMIN_PASSWORD env var is not set in production. " +
-        "If admin_users is empty, the default seed password will be used — " +
-        "change it immediately via /admin → Account.",
-    );
-  }
-
   try {
     const existing = await db.select().from(adminUsers).limit(1);
     if (existing.length > 0) return;
+
+    if (isProd && !process.env.ADMIN_PASSWORD) {
+      throw new Error(
+        "[admin-auth] FATAL: admin_users is empty and ADMIN_PASSWORD env var is not set. " +
+          "Refusing to seed a default password in production. Set ADMIN_PASSWORD and redeploy; " +
+          "you can change it via /admin → Account afterwards.",
+      );
+    }
 
     const passwordHash = await bcrypt.hash(envPassword, SALT_ROUNDS);
     await db.insert(adminUsers).values({
