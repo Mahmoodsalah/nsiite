@@ -1,7 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-interface AdminUser {
+export interface AdminUser {
   id: string;
+  username: string;
   email: string;
   firstName: string;
   lastName: string;

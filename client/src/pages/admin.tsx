@@ -262,7 +262,7 @@ export default function Admin() {
         <AccountSettingsDialog
           open={showAccountDialog}
           onOpenChange={setShowAccountDialog}
-          currentUsername={(user as any)?.username || (user as any)?.firstName || ""}
+          currentUsername={user?.username || user?.firstName || ""}
         />
 
         <div className="flex flex-col lg:flex-row gap-6">
@@ -1072,7 +1072,13 @@ function AccountSettingsDialog({
     }
   }, [open, currentUsername]);
 
-  const mutation = useMutation({
+  type ChangeCredentialsResponse = {
+    success: true;
+    username: string;
+    passwordChanged: boolean;
+  };
+
+  const mutation = useMutation<ChangeCredentialsResponse, Error>({
     mutationFn: async () => {
       const res = await fetch("/api/admin/change-credentials", {
         method: "POST",
@@ -1084,20 +1090,24 @@ function AccountSettingsDialog({
           newPassword: newPassword || undefined,
         }),
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data?.message || "Update failed");
-      return data;
+      const data = (await res.json().catch(() => ({}))) as
+        | ChangeCredentialsResponse
+        | { message?: string };
+      if (!res.ok) {
+        throw new Error(("message" in data && data.message) || "Update failed");
+      }
+      return data as ChangeCredentialsResponse;
     },
-    onSuccess: (data: any) => {
+    onSuccess: (data) => {
       toast({
         title: "Account updated",
-        description: `Sign in next time with username "${data.username}"${newPassword ? " and your new password." : "."}`,
+        description: `Sign in next time with username "${data.username}"${data.passwordChanged ? " and your new password." : "."}`,
       });
       queryClient.invalidateQueries({ queryKey: ["/api/auth/user"] });
       onOpenChange(false);
     },
-    onError: (err: any) => {
-      setError(err?.message || "Failed to update credentials");
+    onError: (err) => {
+      setError(err.message || "Failed to update credentials");
     },
   });
 
