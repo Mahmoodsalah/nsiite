@@ -27,7 +27,16 @@ import {
   Home,
   Upload,
   Image as ImageIcon,
+  UserCog,
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 type SiteContent = {
   id: number;
@@ -94,6 +103,7 @@ export default function Admin() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [showAccountDialog, setShowAccountDialog] = useState(false);
 
   const { data: allContent, isLoading: contentLoading } = useQuery<SiteContent[]>({
     queryKey: ["/api/content"],
@@ -228,16 +238,32 @@ export default function Admin() {
               Welcome, {user?.firstName || user?.email || "Admin"}. Edit your site content below.
             </p>
           </div>
-          <Button
-            variant="outline"
-            onClick={() => logout()}
-            disabled={isLoggingOut}
-            data-testid="button-admin-logout"
-          >
-            <LogOut className="w-4 h-4 mr-2" />
-            {isLoggingOut ? "Signing Out..." : "Sign Out"}
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setShowAccountDialog(true)}
+              data-testid="button-admin-account"
+            >
+              <UserCog className="w-4 h-4 mr-2" />
+              Account
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => logout()}
+              disabled={isLoggingOut}
+              data-testid="button-admin-logout"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              {isLoggingOut ? "Signing Out..." : "Sign Out"}
+            </Button>
+          </div>
         </div>
+
+        <AccountSettingsDialog
+          open={showAccountDialog}
+          onOpenChange={setShowAccountDialog}
+          currentUsername={(user as any)?.username || (user as any)?.firstName || ""}
+        />
 
         <div className="flex flex-col lg:flex-row gap-6">
           <div className="lg:w-64 flex-shrink-0">
@@ -1018,4 +1044,178 @@ function JsonEditor({
 
 function formatLabel(key: string): string {
   return key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
+}
+
+function AccountSettingsDialog({
+  open,
+  onOpenChange,
+  currentUsername,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  currentUsername: string;
+}) {
+  const { toast } = useToast();
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newUsername, setNewUsername] = useState(currentUsername);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (open) {
+      setNewUsername(currentUsername);
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+      setError("");
+    }
+  }, [open, currentUsername]);
+
+  const mutation = useMutation({
+    mutationFn: async () => {
+      const res = await fetch("/api/admin/change-credentials", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          currentPassword,
+          newUsername: newUsername.trim(),
+          newPassword: newPassword || undefined,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.message || "Update failed");
+      return data;
+    },
+    onSuccess: (data: any) => {
+      toast({
+        title: "Account updated",
+        description: `Sign in next time with username "${data.username}"${newPassword ? " and your new password." : "."}`,
+      });
+      queryClient.invalidateQueries({ queryKey: ["/api/auth/user"] });
+      onOpenChange(false);
+    },
+    onError: (err: any) => {
+      setError(err?.message || "Failed to update credentials");
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    if (!currentPassword) {
+      setError("Please enter your current password");
+      return;
+    }
+    if (newUsername.trim().length < 3) {
+      setError("Username must be at least 3 characters");
+      return;
+    }
+    if (newPassword && newPassword.length < 8) {
+      setError("New password must be at least 8 characters");
+      return;
+    }
+    if (newPassword && newPassword !== confirmPassword) {
+      setError("New password and confirmation do not match");
+      return;
+    }
+    mutation.mutate();
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-md" data-testid="dialog-account-settings">
+        <DialogHeader>
+          <DialogTitle>Account Settings</DialogTitle>
+          <DialogDescription>
+            Change your admin username or password. Updates take effect immediately — no redeploy needed.
+          </DialogDescription>
+        </DialogHeader>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1.5">
+              Current Password <span className="text-destructive">*</span>
+            </label>
+            <Input
+              type="password"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder="Enter your current password to confirm"
+              data-testid="input-current-password"
+              autoComplete="current-password"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1.5">New Username</label>
+            <Input
+              type="text"
+              value={newUsername}
+              onChange={(e) => setNewUsername(e.target.value)}
+              placeholder="New username"
+              data-testid="input-new-username"
+              autoComplete="username"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1.5">
+              New Password <span className="text-muted-foreground text-xs">(leave empty to keep current)</span>
+            </label>
+            <Input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="At least 8 characters"
+              data-testid="input-new-password"
+              autoComplete="new-password"
+            />
+          </div>
+          {newPassword && (
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Confirm New Password</label>
+              <Input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Re-enter new password"
+                data-testid="input-confirm-password"
+                autoComplete="new-password"
+              />
+            </div>
+          )}
+          {error && (
+            <p className="text-destructive text-sm" data-testid="text-account-error">
+              {error}
+            </p>
+          )}
+          <DialogFooter className="gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => onOpenChange(false)}
+              disabled={mutation.isPending}
+              data-testid="button-cancel-account"
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              disabled={mutation.isPending}
+              data-testid="button-save-account"
+            >
+              {mutation.isPending ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Saving…
+                </>
+              ) : (
+                <>
+                  <Save className="w-4 h-4 mr-2" /> Save Changes
+                </>
+              )}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
 }

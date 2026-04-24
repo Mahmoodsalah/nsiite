@@ -6,9 +6,10 @@ import connectPgSimple from "connect-pg-simple";
 import { storage } from "./storage";
 import { pool } from "./db";
 import { registerUploadRoute } from "./upload";
+import { ensureAdminSeeded, verifyCredentials, updateAdminCredentials } from "./admin-auth";
 
 if (process.env.NODE_ENV === "production") {
-  const required = ["ADMIN_USERNAME", "ADMIN_PASSWORD", "SESSION_SECRET"];
+  const required = ["SESSION_SECRET"];
   const missing = required.filter((k) => !process.env[k]);
   if (missing.length > 0) {
     throw new Error(
@@ -17,9 +18,6 @@ if (process.env.NODE_ENV === "production") {
     );
   }
 }
-
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Mahmood@2025";
 
 const isAuthenticated: RequestHandler = (req: any, res, next) => {
   if (req.session?.adminAuthenticated) {
@@ -67,24 +65,35 @@ export async function registerRoutes(
     })
   );
 
-  app.post("/api/admin/login", (req: any, res) => {
-    const { username, password } = req.body;
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+  await ensureAdminSeeded();
+
+  app.post("/api/admin/login", async (req: any, res) => {
+    try {
+      const { username, password } = req.body ?? {};
+      if (typeof username !== "string" || typeof password !== "string") {
+        return res.status(400).json({ message: "Username and password are required" });
+      }
+      const user = await verifyCredentials(username, password);
+      if (!user) {
+        return res.status(401).json({ message: "Invalid credentials" });
+      }
       req.session.adminAuthenticated = true;
+      req.session.adminUserId = user.id;
+      req.session.adminUsername = user.username;
       req.session.save((err: any) => {
-        if (err) {
-          return res.status(500).json({ message: "Failed to save session" });
-        }
+        if (err) return res.status(500).json({ message: "Failed to save session" });
         res.json({
           id: "admin",
+          username: user.username,
           email: "admin@local",
-          firstName: "Admin",
+          firstName: user.username || "Admin",
           lastName: "",
           profileImageUrl: null,
         });
       });
-    } else {
-      res.status(401).json({ message: "Invalid credentials" });
+    } catch (err) {
+      console.error("Login error:", err);
+      res.status(500).json({ message: "Login failed" });
     }
   });
 
@@ -100,15 +109,79 @@ export async function registerRoutes(
 
   app.get("/api/auth/user", (req: any, res) => {
     if (req.session?.adminAuthenticated) {
+      const username = req.session.adminUsername || "admin";
       return res.json({
         id: "admin",
+        username,
         email: "admin@local",
-        firstName: "Admin",
+        firstName: username,
         lastName: "",
         profileImageUrl: null,
       });
     }
     return res.status(401).json({ message: "Unauthorized" });
+  });
+
+  const changeCredentialsSchema = z.object({
+    currentPassword: z.string().min(1, "Current password is required"),
+    newUsername: z
+      .string()
+      .transform((v) => v.trim())
+      .pipe(
+        z
+          .string()
+          .min(3, "Username must be at least 3 characters")
+          .max(100)
+          .regex(/^[A-Za-z0-9._-]+$/, "Username may only contain letters, numbers, '.', '_' or '-'"),
+      ),
+    newPassword: z
+      .string()
+      .min(8, "Password must be at least 8 characters")
+      .max(200)
+      .optional()
+      .or(z.literal("")),
+  });
+
+  app.post("/api/admin/change-credentials", isAuthenticated, async (req: any, res) => {
+    try {
+      const parsed = changeCredentialsSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ message: parsed.error.issues[0]?.message || "Invalid input" });
+      }
+      const userId = req.session.adminUserId;
+      if (typeof userId !== "number") {
+        return res.status(401).json({ message: "Session missing user id, please re-login" });
+      }
+      const { currentPassword, newUsername, newPassword } = parsed.data;
+      const passwordChanged = !!(newPassword && newPassword.length > 0);
+      const result = await updateAdminCredentials(
+        userId,
+        currentPassword,
+        newUsername,
+        passwordChanged ? newPassword! : null,
+      );
+      if (!result.ok) {
+        return res.status(400).json({ message: result.error });
+      }
+
+      // Regenerate session id to defend against session-fixation after a credential change.
+      req.session.regenerate((regenErr: any) => {
+        if (regenErr) {
+          console.error("Session regenerate error:", regenErr);
+          return res.status(500).json({ message: "Failed to refresh session" });
+        }
+        req.session.adminAuthenticated = true;
+        req.session.adminUserId = userId;
+        req.session.adminUsername = newUsername;
+        req.session.save((saveErr: any) => {
+          if (saveErr) return res.status(500).json({ message: "Failed to save session" });
+          res.json({ success: true, username: newUsername, passwordChanged });
+        });
+      });
+    } catch (err) {
+      console.error("Change credentials error:", err);
+      res.status(500).json({ message: "Failed to update credentials" });
+    }
   });
 
   app.get("/api/content/:page", async (req, res) => {

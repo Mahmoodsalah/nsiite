@@ -1,4 +1,4 @@
-import { pgTable, text, varchar, jsonb, serial } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, jsonb, serial, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -18,3 +18,12 @@ export const insertSiteContentSchema = createInsertSchema(siteContent).omit({
 
 export type InsertSiteContent = z.infer<typeof insertSiteContentSchema>;
 export type SiteContent = typeof siteContent.$inferSelect;
+
+export const adminUsers = pgTable("admin_users", {
+  id: serial("id").primaryKey(),
+  username: varchar("username", { length: 100 }).notNull().unique(),
+  passwordHash: text("password_hash").notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export type AdminUser = typeof adminUsers.$inferSelect;

@@ -39,12 +39,18 @@ Go to **Project Settings → Environment Variables** and add:
 |-------------------|----------------------------------------------------------------|----------------|
 | `DATABASE_URL`    | Your Neon connection string                                    | Production     |
 | `SESSION_SECRET`  | A long random string (e.g. `openssl rand -hex 32`)             | Production     |
-| `ADMIN_USERNAME`  | Your admin username (default: `admin`)                         | Production     |
-| `ADMIN_PASSWORD`  | A strong password (replace the default `Mahmood@2025`)         | Production     |
+| `ADMIN_USERNAME`  | **Initial seed only** — first-run username (default: `admin`)  | Production     |
+| `ADMIN_PASSWORD`  | **Initial seed only** — first-run password (default: `Mahmood@2025`) | Production |
 | `NODE_ENV`        | `production`                                                   | Production     |
 | `BLOB_READ_WRITE_TOKEN` | Vercel Blob token (see step 5b below)                    | Production     |
 
 Click **Save**, then trigger a redeploy.
+
+> **About `ADMIN_USERNAME` / `ADMIN_PASSWORD`:** these are only used the *first
+> time* the app starts against an empty `admin_users` table. After that, change
+> your username and password directly from `/admin → Account` (top-right). The
+> new credentials live in the database, so updating them does **not** require a
+> redeploy and the env vars in Vercel are ignored on subsequent boots.
 
 ## 5b. Enable image uploads (Vercel Blob)
 
