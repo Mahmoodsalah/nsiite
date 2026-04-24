@@ -99,7 +99,7 @@ export default function StatsDashboard() {
     <section className="max-w-6xl mx-auto px-6 py-16 md:py-20" data-testid="section-stats-dashboard">
       <AnimateIn>
         <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-3" data-testid="text-dashboard-eyebrow">
+          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-3 font-bold" data-testid="text-dashboard-eyebrow">
             {dashEyebrow}
           </p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground" data-testid="text-dashboard-title">
