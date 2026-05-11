@@ -760,21 +760,21 @@
     "page": "automati",
     "section": "whoFor",
     "contentKey": "title",
-    "value": "You don't need to understand AI to benefit from it."
+    "value": "Built for everyone who works."
   },
   {
     "id": 83,
     "page": "automati",
     "section": "whoFor",
     "contentKey": "description1",
-    "value": "Whether you are a solo creator managing content and clients, a consultant drowning in admin, or a business with complex processes — if there is a workflow that could be smarter, faster, or handled without you, we can build a system for it. It reduces mistakes and repetitive task noise so your work is cleaner and easier to show to your manager."
+    "value": "Whatever your role — employee, manager, freelancer, creator, or business owner — if part of your day is repetitive, slow, or easy to forget, Automati can handle it for you."
   },
   {
     "id": 84,
     "page": "automati",
     "section": "whoFor",
     "contentKey": "description2",
-    "value": "We automate tasks, not roles — helping you work smarter, grow your skills, and become harder to replace, not easier. You only need to describe what you want to change. We figure out the rest, and you stay in control of exactly as much as you want."
+    "value": "We automate the tasks, not the people doing them. You stay in control, your work gets cleaner, and you have more time for what actually matters."
   },
   {
     "id": 85,
@@ -784,15 +784,19 @@
     "value": [
       {
         "icon": "Users",
-        "label": "Individuals"
+        "label": "Employees"
       },
       {
-        "icon": "Sparkles",
-        "label": "Creators & Writers"
+        "icon": "Settings2",
+        "label": "Managers"
       },
       {
         "icon": "Brain",
         "label": "Freelancers"
+      },
+      {
+        "icon": "Sparkles",
+        "label": "Creators"
       },
       {
         "icon": "HandshakeIcon",
@@ -800,11 +804,7 @@
       },
       {
         "icon": "Zap",
-        "label": "Small Teams"
-      },
-      {
-        "icon": "Settings2",
-        "label": "Businesses"
+        "label": "Business Owners"
       }
     ]
   },
