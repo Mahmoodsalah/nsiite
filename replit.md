@@ -36,7 +36,7 @@ Preferred communication style: Simple, everyday language.
 - **API Pattern**: All API routes should be prefixed with `/api` and registered in `server/routes.ts`
 - **Storage Layer**: Abstracted via `IStorage` interface in `server/storage.ts`. Uses `JsonStorage` implementation backed by `data/content.json` file
 - **Authentication**: Simple username/password login with in-memory sessions. Admin credentials configurable via `ADMIN_USERNAME` and `ADMIN_PASSWORD` env vars (defaults: admin / Mahmood@2025). No database needed.
-- **Storage mode**: JSON-only. CMS reads/writes go directly to `data/content.json`. No Postgres, no Drizzle queries at runtime, no third-party dependencies — fully self-contained.
+- **Storage mode**: JSON-only. In local/dev (no `BLOB_READ_WRITE_TOKEN`), CMS reads/writes go to `data/content.json` on disk. On Vercel (with `BLOB_READ_WRITE_TOKEN` set), CMS persists to a single Vercel Blob at `cms/content.json` so edits survive across serverless invocations. The bundled `data/content.json` acts as the seed on first deploy and any new content keys added in code are auto-merged into the blob on next read.
 - **Development**: Vite dev server runs as middleware for HMR. In production, static files are served from `dist/public/`
 - **Build**: Custom build script (`script/build.ts`) that runs Vite for the client and esbuild for the server, outputting to `dist/`
 

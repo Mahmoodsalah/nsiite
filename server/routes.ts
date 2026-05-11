@@ -1,10 +1,10 @@
 import type { Express, RequestHandler } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
-import session from "express-session";
 import { storage } from "./storage";
 import { registerUploadRoute } from "./upload";
 import { verifyCredentials } from "./admin-auth";
+import { cookieSession } from "./session";
 
 if (process.env.NODE_ENV === "production") {
   const required = ["SESSION_SECRET"];
@@ -35,22 +35,7 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express,
 ): Promise<Server> {
-  const sessionTtl = 7 * 24 * 60 * 60 * 1000;
-  const isProd = process.env.NODE_ENV === "production";
-
-  app.use(
-    session({
-      secret: process.env.SESSION_SECRET || "admin-secret-key-change-me",
-      resave: false,
-      saveUninitialized: false,
-      cookie: {
-        httpOnly: true,
-        secure: isProd,
-        sameSite: "lax",
-        maxAge: sessionTtl,
-      },
-    }),
-  );
+  app.use(cookieSession());
 
   app.post("/api/admin/login", async (req: any, res) => {
     try {
@@ -62,18 +47,17 @@ export async function registerRoutes(
       if (!user) {
         return res.status(401).json({ message: "Invalid credentials" });
       }
-      req.session.adminAuthenticated = true;
-      req.session.adminUsername = user.username;
-      req.session.save((err: any) => {
-        if (err) return res.status(500).json({ message: "Failed to save session" });
-        res.json({
-          id: "admin",
-          username: user.username,
-          email: "admin@local",
-          firstName: user.username || "Admin",
-          lastName: "",
-          profileImageUrl: null,
-        });
+      req.setSession({
+        adminAuthenticated: true,
+        adminUsername: user.username,
+      });
+      res.json({
+        id: "admin",
+        username: user.username,
+        email: "admin@local",
+        firstName: user.username || "Admin",
+        lastName: "",
+        profileImageUrl: null,
       });
     } catch (err) {
       console.error("Login error:", err);
@@ -82,13 +66,8 @@ export async function registerRoutes(
   });
 
   app.post("/api/admin/logout", (req: any, res) => {
-    if (req.session) {
-      req.session.destroy(() => {
-        res.json({ success: true });
-      });
-    } else {
-      res.json({ success: true });
-    }
+    req.setSession(null);
+    res.json({ success: true });
   });
 
   app.get("/api/auth/user", (req: any, res) => {
