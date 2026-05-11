@@ -98,7 +98,7 @@ export default function Header() {
                 <div key={item.label} className="relative" ref={open ? dropdownRef : undefined}>
                   <button
                     onClick={() => setOpenDropdown(open ? null : item.label)}
-                    className={`flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                    className={`flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
                       groupActive
                         ? "text-primary glass-badge"
                         : "text-muted-foreground hover:text-foreground hover:bg-white/10"
@@ -131,7 +131,7 @@ export default function Header() {
                           }}
                         >
                           <span
-                            className="block px-3 py-2.5 text-sm font-medium cursor-pointer rounded-lg transition-colors text-foreground hover:bg-primary/10 whitespace-nowrap"
+                            className="block px-3 py-2.5 text-sm font-bold cursor-pointer rounded-lg transition-colors text-foreground hover:bg-primary/10 whitespace-nowrap"
                             data-testid={`button-view-${slugify(kid.label)}`}
                           >
                             {kid.label}
@@ -146,7 +146,7 @@ export default function Header() {
             return (
               <Link key={item.label} href={item.href || "#"} onClick={scrollToTop}>
                 <span
-                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
                     isItemActive(item)
                       ? "text-primary glass-badge"
                       : "text-muted-foreground hover:text-foreground hover:bg-white/10"
@@ -185,7 +185,7 @@ export default function Header() {
                       onClick={() =>
                         setMobileOpenGroups((prev) => ({ ...prev, [item.label]: !prev[item.label] }))
                       }
-                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all w-full ${
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold cursor-pointer transition-all w-full ${
                         groupActive
                           ? "text-primary glass-badge"
                           : "text-muted-foreground hover:text-foreground"
@@ -232,7 +232,7 @@ export default function Header() {
                   }}
                 >
                   <span
-                    className={`block px-4 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all ${
+                    className={`block px-4 py-3 rounded-xl text-sm font-bold cursor-pointer transition-all ${
                       isItemActive(item)
                         ? "text-primary glass-badge"
                         : "text-muted-foreground hover:text-foreground"
