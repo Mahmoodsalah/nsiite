@@ -111,7 +111,14 @@ export default function Header() {
                     />
                   </button>
                   {open && (
-                    <div className="absolute top-full left-0 mt-2 w-56 rounded-xl p-1.5 animate-scale-in origin-top-left glass-nav">
+                    <div
+                      className="absolute top-full left-0 mt-2 w-56 rounded-xl p-1.5 animate-scale-in origin-top-left shadow-xl border border-white/40"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.85)",
+                        backdropFilter: "blur(40px) saturate(2)",
+                        WebkitBackdropFilter: "blur(40px) saturate(2)",
+                      }}
+                    >
                       {kids.map((kid) => (
                         <Link
                           key={kid.label}
