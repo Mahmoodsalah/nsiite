@@ -112,11 +112,13 @@ export default function Header() {
                   </button>
                   {open && (
                     <div
-                      className="absolute top-full left-0 mt-2 w-56 rounded-xl p-1.5 animate-scale-in origin-top-left shadow-xl border border-white/40"
+                      className="absolute top-full left-0 mt-2 w-56 rounded-xl p-1.5 animate-scale-in origin-top-left"
                       style={{
-                        background: "rgba(255, 255, 255, 0.85)",
-                        backdropFilter: "blur(40px) saturate(2)",
-                        WebkitBackdropFilter: "blur(40px) saturate(2)",
+                        background: "var(--glass-bg-strong)",
+                        backdropFilter: "blur(28px) saturate(1.8)",
+                        WebkitBackdropFilter: "blur(28px) saturate(1.8)",
+                        border: "1px solid var(--glass-border)",
+                        boxShadow: "0 4px 24px rgba(0, 0, 0, 0.06)",
                       }}
                     >
                       {kids.map((kid) => (
