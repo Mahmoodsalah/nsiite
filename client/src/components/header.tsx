@@ -114,9 +114,9 @@ export default function Header() {
                     <div
                       className="absolute top-full left-0 mt-2 w-56 rounded-xl p-1.5 animate-scale-in origin-top-left"
                       style={{
-                        background: "var(--glass-bg-strong)",
-                        backdropFilter: "blur(28px) saturate(1.8)",
-                        WebkitBackdropFilter: "blur(28px) saturate(1.8)",
+                        background: "rgba(255, 255, 255, 0.75)",
+                        backdropFilter: "blur(60px) saturate(2)",
+                        WebkitBackdropFilter: "blur(60px) saturate(2)",
                         border: "1px solid var(--glass-border)",
                         boxShadow: "0 4px 24px rgba(0, 0, 0, 0.06)",
                       }}
