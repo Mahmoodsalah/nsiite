@@ -28,6 +28,7 @@ import automatiLogo from "@assets/automati_logo_nobg.png";
 
 const iconMap: Record<string, any> = {
   Bot, Sparkles, ShieldCheck, Workflow, Zap, Brain, HandshakeIcon, Users, Settings2,
+  CheckCircle: CheckCircle2, CheckCircle2,
 };
 
 function useCountUp(target: number, duration = 1200) {

@@ -767,14 +767,14 @@
     "page": "automati",
     "section": "whoFor",
     "contentKey": "description1",
-    "value": "Whether you're a solo creator managing content and clients, a consultant drowning in admin, or a business with complex processes — if there's a workflow that could be smarter, faster, or handled without you, we can build a system for it."
+    "value": "Whether you are a solo creator managing content and clients, a consultant drowning in admin, or a business with complex processes — if there is a workflow that could be smarter, faster, or handled without you, we can build a system for it. It reduces mistakes and repetitive task noise so your work is cleaner and easier to show to your manager."
   },
   {
     "id": 84,
     "page": "automati",
     "section": "whoFor",
     "contentKey": "description2",
-    "value": "You only need to describe what you want to change. We figure out the rest, and we keep you in control of exactly as much as you want."
+    "value": "We automate tasks, not roles — helping you work smarter, grow your skills, and become harder to replace, not easier. You only need to describe what you want to change. We figure out the rest, and you stay in control of exactly as much as you want."
   },
   {
     "id": 85,
@@ -820,7 +820,7 @@
     "page": "automati",
     "section": "privacy",
     "contentKey": "description1",
-    "value": "We guarantee full privacy and security across every system we build. Your workflows, data, and information are never shared, stored beyond what's necessary, or used for any purpose other than serving you."
+    "value": "We guarantee full privacy and security across every system we build. At any time you can choose exactly what data your Automati app can and cannot access — or pause it whenever you want."
   },
   {
     "id": 88,
@@ -849,6 +849,11 @@
         "icon": "Settings2",
         "title": "Secure by Design",
         "desc": "Privacy and security are engineered in from day one — not added later."
+      },
+      {
+        "icon": "CheckCircle",
+        "title": "Approval Required",
+        "desc": "You stay in control: no email is sent and no action is taken without your explicit approval."
       }
     ]
   },
