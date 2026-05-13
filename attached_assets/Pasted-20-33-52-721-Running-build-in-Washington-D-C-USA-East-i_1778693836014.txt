@@ -1,0 +1,61 @@
+20:33:52.721 Running build in Washington, D.C., USA (East) – iad1
+20:33:52.722 Build machine configuration: 2 cores, 8 GB
+20:33:52.733 Cloning github.com/Mahmoodsalah/nsiite (Branch: main, Commit: 9a32fa2)
+20:33:52.734 Skipping build cache, deployment was triggered without cache.
+20:33:53.465 Cloning completed: 732.000ms
+20:33:53.811 Running "vercel build"
+20:33:53.831 Vercel CLI 53.3.2
+20:33:54.491 Installing dependencies...
+20:34:04.433 
+20:34:04.434 added 518 packages in 10s
+20:34:04.434 
+20:34:04.435 83 packages are looking for funding
+20:34:04.435   run `npm fund` for details
+20:34:04.599 
+20:34:04.600 > rest-express@1.0.0 build
+20:34:04.600 > tsx script/build.ts
+20:34:04.600 
+20:34:05.404 building client...
+20:34:05.471 vite v7.3.0 building client environment for production...
+20:34:05.754 transforming...
+20:34:06.112 Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+20:34:06.112   npx update-browserslist-db@latest
+20:34:06.113   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+20:34:07.145 
+20:34:07.145 A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+20:34:10.478 ✓ 1693 modules transformed.
+20:34:10.673 rendering chunks...
+20:34:10.827 computing gzip size...
+20:34:10.846 ../dist/public/index.html                                          4.67 kB │ gzip:   1.35 kB
+20:34:10.847 ../dist/public/assets/logo_1771719358200-daUWXyel.png            168.99 kB
+20:34:10.847 ../dist/public/assets/mahmood-L1ZcyCMk.jpg                       202.13 kB
+20:34:10.847 ../dist/public/assets/automati_logo_nobg-vom7lZbT.png            240.70 kB
+20:34:10.848 ../dist/public/assets/pattern_white_1771718036073-CCbWH0Rj.webp  373.96 kB
+20:34:10.848 ../dist/public/assets/index-ENfkZJ4J.css                          91.04 kB │ gzip:  15.49 kB
+20:34:10.848 ../dist/public/assets/loader-circle-BfkJFDyG.js                    0.14 kB │ gzip:   0.15 kB
+20:34:10.848 ../dist/public/assets/arrow-down-C2W3D_nm.js                       0.16 kB │ gzip:   0.16 kB
+20:34:10.849 ../dist/public/assets/eye-q3ZwcmxY.js                              0.25 kB │ gzip:   0.19 kB
+20:34:10.849 ../dist/public/assets/zap-D3IgCbvx.js                              0.26 kB │ gzip:   0.20 kB
+20:34:10.849 ../dist/public/assets/copy-BJQUPjUx.js                             0.30 kB │ gzip:   0.23 kB
+20:34:10.849 ../dist/public/assets/bot-BZa1j91K.js                              0.33 kB │ gzip:   0.22 kB
+20:34:10.849 ../dist/public/assets/handshake-CHBKH9y8.js                        0.44 kB │ gzip:   0.28 kB
+20:34:10.849 ../dist/public/assets/brain-DF5_2Hej.js                            0.73 kB │ gzip:   0.35 kB
+20:34:10.850 ../dist/public/assets/badge-CEOgH75i.js                            0.73 kB │ gzip:   0.40 kB
+20:34:10.850 ../dist/public/assets/target-C8L_w8hl.js                           1.11 kB │ gzip:   0.50 kB
+20:34:10.850 ../dist/public/assets/hire-me-WiizdCn4.js                          6.32 kB │ gzip:   2.14 kB
+20:34:10.850 ../dist/public/assets/consultation-Cq6Lv-x0.js                     6.37 kB │ gzip:   2.50 kB
+20:34:10.851 ../dist/public/assets/accordion-CyVobBj9.js                        6.67 kB │ gzip:   2.49 kB
+20:34:10.851 ../dist/public/assets/automati-CwpFJNWw.js                        15.90 kB │ gzip:   4.60 kB
+20:34:10.851 ../dist/public/assets/mentorship-BXRmFiep.js                      18.59 kB │ gzip:   5.50 kB
+20:34:10.851 ../dist/public/assets/bootcamp-DhRyJCJV.js                        26.14 kB │ gzip:   7.60 kB
+20:34:10.851 ../dist/public/assets/admin-CSsuXwX6.js                           26.63 kB │ gzip:   8.32 kB
+20:34:10.851 ../dist/public/assets/index-Cr8Mityr.js                          307.35 kB │ gzip: 101.36 kB
+20:34:10.852 ✓ built in 5.14s
+20:34:10.852 building server...
+20:34:11.034 
+20:34:11.034   dist/index.cjs  1.1mb ⚠️
+20:34:11.035 
+20:34:11.035 ⚡ Done in 170ms
+20:34:11.412 Using TypeScript 5.6.3 (local user-provided)
+20:34:19.173 Build Completed in /vercel/output [25s]
+20:34:19.302 Deploying outputs...
