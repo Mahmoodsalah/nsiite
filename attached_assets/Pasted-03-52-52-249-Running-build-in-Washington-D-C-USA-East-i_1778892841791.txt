@@ -1,0 +1,82 @@
+03:52:52.249 Running build in Washington, D.C., USA (East) – iad1
+03:52:52.250 Build machine configuration: 2 cores, 8 GB
+03:52:52.265 Cloning github.com/Mahmoodsalah/nsiite (Branch: main, Commit: b702cce)
+03:52:52.267 Skipping build cache, deployment was triggered without cache.
+03:52:53.643 Cloning completed: 1.378s
+03:52:54.119 Running "vercel build"
+03:52:54.150 Vercel CLI 53.3.2
+03:52:54.789 Installing dependencies...
+03:53:10.163 
+03:53:10.164 added 518 packages in 15s
+03:53:10.164 
+03:53:10.165 83 packages are looking for funding
+03:53:10.165   run `npm fund` for details
+03:53:10.442 
+03:53:10.442 > rest-express@1.0.0 build
+03:53:10.443 > tsx script/build.ts
+03:53:10.443 
+03:53:11.627 building client...
+03:53:11.729 vite v7.3.0 building client environment for production...
+03:53:12.171 transforming...
+03:53:12.711 Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+03:53:12.712   npx update-browserslist-db@latest
+03:53:12.712   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+03:53:14.111 
+03:53:14.112 A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+03:53:18.317 ✓ 1693 modules transformed.
+03:53:18.555 rendering chunks...
+03:53:18.767 computing gzip size...
+03:53:18.792 ../dist/public/index.html                                          4.67 kB │ gzip:   1.35 kB
+03:53:18.793 ../dist/public/assets/logo_1771719358200-daUWXyel.png            168.99 kB
+03:53:18.793 ../dist/public/assets/mahmood-L1ZcyCMk.jpg                       202.13 kB
+03:53:18.794 ../dist/public/assets/automati_logo_nobg-vom7lZbT.png            240.70 kB
+03:53:18.794 ../dist/public/assets/pattern_white_1771718036073-CCbWH0Rj.webp  373.96 kB
+03:53:18.794 ../dist/public/assets/index-ENfkZJ4J.css                          91.04 kB │ gzip:  15.49 kB
+03:53:18.794 ../dist/public/assets/loader-circle-BfkJFDyG.js                    0.14 kB │ gzip:   0.15 kB
+03:53:18.795 ../dist/public/assets/arrow-down-C2W3D_nm.js                       0.16 kB │ gzip:   0.16 kB
+03:53:18.795 ../dist/public/assets/eye-q3ZwcmxY.js                              0.25 kB │ gzip:   0.19 kB
+03:53:18.795 ../dist/public/assets/zap-D3IgCbvx.js                              0.26 kB │ gzip:   0.20 kB
+03:53:18.795 ../dist/public/assets/copy-BJQUPjUx.js                             0.30 kB │ gzip:   0.23 kB
+03:53:18.795 ../dist/public/assets/bot-BZa1j91K.js                              0.33 kB │ gzip:   0.22 kB
+03:53:18.796 ../dist/public/assets/handshake-CHBKH9y8.js                        0.44 kB │ gzip:   0.28 kB
+03:53:18.796 ../dist/public/assets/brain-DF5_2Hej.js                            0.73 kB │ gzip:   0.35 kB
+03:53:18.796 ../dist/public/assets/badge-CEOgH75i.js                            0.73 kB │ gzip:   0.40 kB
+03:53:18.796 ../dist/public/assets/target-C8L_w8hl.js                           1.11 kB │ gzip:   0.50 kB
+03:53:18.797 ../dist/public/assets/hire-me-WiizdCn4.js                          6.32 kB │ gzip:   2.14 kB
+03:53:18.798 ../dist/public/assets/consultation-Cq6Lv-x0.js                     6.37 kB │ gzip:   2.50 kB
+03:53:18.798 ../dist/public/assets/accordion-CyVobBj9.js                        6.67 kB │ gzip:   2.49 kB
+03:53:18.798 ../dist/public/assets/automati-CwpFJNWw.js                        15.90 kB │ gzip:   4.60 kB
+03:53:18.799 ../dist/public/assets/mentorship-BXRmFiep.js                      18.59 kB │ gzip:   5.50 kB
+03:53:18.799 ../dist/public/assets/bootcamp-DhRyJCJV.js                        26.14 kB │ gzip:   7.60 kB
+03:53:18.799 ../dist/public/assets/admin-CSsuXwX6.js                           26.63 kB │ gzip:   8.32 kB
+03:53:18.800 ../dist/public/assets/index-Cr8Mityr.js                          307.35 kB │ gzip: 101.36 kB
+03:53:18.800 ✓ built in 6.72s
+03:53:18.800 building server...
+03:53:19.045 
+03:53:19.046   dist/index.cjs  1.1mb ⚠️
+03:53:19.046 
+03:53:19.047 ⚡ Done in 228ms
+03:53:19.047 building serverless function for vercel...
+03:53:19.050 ▲ [WARNING] The CommonJS "module" variable is treated as a global variable in an ECMAScript module and may not work as expected [commonjs-variable-in-esm]
+03:53:19.053 
+03:53:19.054     server/serverless.ts:6:0:
+03:53:19.054       6 │ module.exports = async function handler(
+03:53:19.054         ╵ ~~~~~~
+03:53:19.055 
+03:53:19.056   This file is considered to be an ECMAScript module because the enclosing "package.json" file sets the type of this file to "module":
+03:53:19.056 
+03:53:19.056     package.json:4:10:
+03:53:19.057       4 │   "type": "module",
+03:53:19.057         ╵           ~~~~~~~~
+03:53:19.058 
+03:53:19.058   Node's package format requires that CommonJS files in a "type": "module" package use the ".cjs" file extension. If you are using TypeScript, you can use the ".cts" file extension with esbuild instead.
+03:53:19.058 
+03:53:19.269 1 warning
+03:53:19.270 
+03:53:19.270   api/index.cjs  1.1mb ⚠️
+03:53:19.270 
+03:53:19.270 ⚡ Done in 221ms
+03:53:19.611 Build Completed in /vercel/output [25s]
+03:53:19.690 Deploying outputs...
+03:53:21.206 Deployment completed
+03:53:21.375 Creating build cache...
