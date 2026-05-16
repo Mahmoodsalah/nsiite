@@ -3,11 +3,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
   "framework": null,
-  "functions": {
-    "api/index.ts": {
-      "includeFiles": "{server,shared,data}/**"
-    }
-  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" },
     { "source": "/((?!api/|assets/|logos/|.*\\..*).*)", "destination": "/index.html" }
