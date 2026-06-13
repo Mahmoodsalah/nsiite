@@ -1,0 +1,2 @@
+- [Vercel deploy of Vite+Express app](vercel-fullstack-deploy.md) — function detection runs pre-build; .cjs not auto-detected; Blob store must be Public for access:"public" code.
+- [Count-up observer + loading skeleton race](count-up-observer-race.md) — counters stuck at 0 on direct page load when element mounts after isLoading; use a callback ref so the observer reattaches.
