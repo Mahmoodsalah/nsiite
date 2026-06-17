@@ -35,6 +35,7 @@ import {
   Wallet,
   Send,
   Sparkles,
+  Quote,
 } from "lucide-react";
 import NetworkBg from "@/components/network-bg";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
@@ -80,6 +81,13 @@ export default function Bootcamp() {
   const programsTitle = getVal(content, "programs", "title", "BootcampAI Programs");
   const programsSubtitle = getVal(content, "programs", "subtitle", "");
   const programItems: any[] = getVal(content, "programs", "items", []);
+
+  // Testimonials (new)
+  const testimonialsBadge = getVal(content, "testimonials", "badge", "Student Voices");
+  const testimonialsTitle = getVal(content, "testimonials", "title", "Real Stories From Our Community");
+  const testimonialsSubtitle = getVal(content, "testimonials", "subtitle", "");
+  const testimonialsButton = getVal(content, "testimonials", "buttonLabel", "Student Voices");
+  const testimonialItems: any[] = getVal(content, "testimonials", "items", []);
 
   // Enterprise (unchanged)
   const entTitle = getVal(content, "enterprise", "title", "For Companies / Enterprise Programs");
@@ -258,13 +266,21 @@ export default function Bootcamp() {
             })}
           </div>
 
-          <div className="animate-fade-in-up animation-delay-400">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in-up animation-delay-400">
             <Button asChild size="lg" className="rounded-xl bg-[#FD6215] hover:bg-[#e5580f]">
               <a href={heroApplyUrl} target="_blank" rel="noopener noreferrer" data-testid="button-apply-hero">
                 Apply Now
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </Button>
+            {testimonialItems.length > 0 && (
+              <Button asChild size="lg" variant="outline" className="rounded-xl glass-badge border-primary/30">
+                <a href="#testimonials" data-testid="button-testimonials-hero">
+                  <Quote className="w-4 h-4 mr-2" />
+                  {testimonialsButton}
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </section>
@@ -632,6 +648,62 @@ export default function Bootcamp() {
           </Accordion>
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      {testimonialItems.length > 0 && (
+        <section id="testimonials" className="py-20" data-testid="section-testimonials">
+          <div className="max-w-6xl mx-auto px-6">
+            <AnimateIn>
+              <div className="text-center mb-12">
+                <Badge variant="outline" className="glass-badge rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] mb-4">
+                  {testimonialsBadge}
+                </Badge>
+                <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-3" data-testid="text-testimonials-title">
+                  {testimonialsTitle}
+                </h2>
+                {testimonialsSubtitle && (
+                  <p className="text-muted-foreground max-w-2xl mx-auto">{testimonialsSubtitle}</p>
+                )}
+              </div>
+            </AnimateIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {testimonialItems.map((t: any, i: number) => {
+                const accent = t.accentColor || "#FD6215";
+                return (
+                  <AnimateIn key={i} delay={(i % 3) * 0.08}>
+                    <div
+                      dir="rtl"
+                      className="glass-card-hover rounded-2xl p-6 h-full flex flex-col text-right"
+                      data-testid={`card-testimonial-${i}`}
+                    >
+                      <Quote
+                        className="w-7 h-7 mb-3 flex-shrink-0"
+                        style={{ color: accent, opacity: 0.35, transform: "scaleX(-1)" }}
+                      />
+                      <p className="text-foreground/90 text-sm md:text-base leading-loose flex-1 mb-5" data-testid={`text-testimonial-quote-${i}`}>
+                        {t.quote}
+                      </p>
+                      <div className="flex items-center gap-3 pt-4 border-t border-border/40">
+                        <div
+                          className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                          style={{ backgroundColor: accent }}
+                          data-testid={`avatar-testimonial-${i}`}
+                        >
+                          {t.initials}
+                        </div>
+                        <span className="font-heading font-semibold text-foreground" data-testid={`text-testimonial-name-${i}`}>
+                          {t.name}
+                        </span>
+                      </div>
+                    </div>
+                  </AnimateIn>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ENTERPRISE — unchanged */}
       <section className="py-20 glass-section" data-testid="section-enterprise">

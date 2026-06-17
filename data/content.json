@@ -2085,5 +2085,101 @@
         "visible": true
       }
     ]
+  },
+  {
+    "id": 206,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "badge",
+    "value": "Student Voices"
+  },
+  {
+    "id": 207,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "title",
+    "value": "Real Stories From Our Community"
+  },
+  {
+    "id": 208,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "subtitle",
+    "value": "What BootcampAI graduates say about their journey."
+  },
+  {
+    "id": 209,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "buttonLabel",
+    "value": "Student Voices"
+  },
+  {
+    "id": 210,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "items",
+    "value": [
+      {
+        "name": "منة الله أحمد",
+        "initials": "م.أ",
+        "quote": "البرنامج مميز في إنه بيخلّي المفاهيم الصعبة بسيطة. الشرح واضح، والتطبيق العملي بيخليك تستوعب الفكرة حتى لو أول مرة تشوفها.",
+        "accentColor": "#1F3A5F"
+      },
+      {
+        "name": "إسلام عبد الرحمن",
+        "initials": "إ.ع",
+        "quote": "كل يوم بتتعلم حاجة جديدة وبتطبقها في نفس الوقت، وده اللي شجعني اني اكمل.",
+        "accentColor": "#FD6215"
+      },
+      {
+        "name": "نورهان سامي",
+        "initials": "ن.س",
+        "quote": "حسيت إن طريقة الشرح عملية جدًا. كل سيشن بطلع منها بمشروع.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "أحمد شوقي",
+        "initials": "أ.ش",
+        "quote": "من أكتر الحاجات اللي فرقت معايا إن كلّ حاجة بنفهمها بنطبقها فورًا. ده خلاني أحس إني بتقدم فعليًا مش مجرد بسمع شرح.",
+        "accentColor": "#FD6215"
+      },
+      {
+        "name": "ريم مصطفى",
+        "initials": "ر.م",
+        "quote": "التجربة بشكل عام محفزة جدًا. أسلوب الشرح، التطبيق العملي، والإحساس إنك قادر تنفذ بنفسك خلا البرنامج يستاهل فعلًا.",
+        "accentColor": "#FD6215"
+      },
+      {
+        "name": "محمد طارق",
+        "initials": "م.ط",
+        "quote": "أكتر حاجة عجبتني هي ربط الكود بالمفهوم نفسه. مش بنكتب كود وخلاص، كل خطوة ليها سبب متوهتش في النص زي بقية الكورسات.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "سارة عبد الله",
+        "initials": "س.ع",
+        "quote": "البرنامج مناسب جدًا للي عايز يفهم المجال صح من البداية. الأسلوب منظم وبيخليك تبني معرفتك واحدة واحدة بثقة.",
+        "accentColor": "#1F3A5F"
+      },
+      {
+        "name": "كريم محمود",
+        "initials": "ك.م",
+        "quote": "أسلوب Learning by Example هنا قوي جدًا. إنك تشوف المثال قدامك وتبنيه خطوة خطوة بيخلي الفكرة تثبت بسهولة.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "يوسف حسن",
+        "initials": "ي.ح",
+        "quote": "المتابعة أثناء الشرح فرقت معايا جدًا، أي نقطة مش واضحة بتتشرح فورًا. ده مخليك دايمًا متفاعل ومش تايه.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "دينا فؤاد",
+        "initials": "د.ف",
+        "quote": "اللي شدّني في البرنامج إن مفيش فجوة بين النظري والتطبيق. حتى الحاجات النظرية بتتفهم من خلال الشغل العملي.",
+        "accentColor": "#FD6215"
+      }
+    ]
   }
 ]
