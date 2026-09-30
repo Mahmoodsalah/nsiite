@@ -282,41 +282,41 @@ export default function Bootcamp() {
               </Button>
             )}
           </div>
-        </div>
-      </section>
 
-      {/* STATS COUNTER */}
-      <section className="max-w-4xl mx-auto px-6 -mt-8 md:-mt-12 relative z-10" data-testid="section-bootcamp-stats">
-        <AnimateIn>
+          {/* Social proof: student count next to faces from the testimonials */}
           <div
             ref={statRef}
-            className="glass-card rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+            className="mt-10 flex flex-col items-center animate-fade-in-up animation-delay-500"
+            data-testid="section-bootcamp-stats"
           >
-            <div
-              className="absolute inset-0 pointer-events-none opacity-60"
-              style={{
-                background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.12), transparent 65%)",
-              }}
-            />
-            <div className="relative z-10">
-              <div
-                className="font-heading font-bold text-6xl sm:text-7xl md:text-8xl text-primary leading-none mb-3 tabular-nums"
-                data-testid="text-bootcamp-count"
-              >
-                {statValue}
-                <span className="text-primary/70">+</span>
-              </div>
-              <p className="font-heading font-semibold text-lg md:text-xl text-foreground mb-3" data-testid="text-bootcamp-stat-label">
-                {statLabel}
-              </p>
-              {statDesc && (
-                <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto" data-testid="text-bootcamp-stat-desc">
-                  {statDesc}
-                </p>
+            <div className="inline-flex items-center gap-3 rounded-full bg-card/80 border border-border/60 pl-2 pr-5 py-2 shadow-sm">
+              {testimonialItems.length > 0 && (
+                <div className="flex -space-x-2" aria-hidden="true">
+                  {testimonialItems.slice(0, 4).map((t: any, i: number) => (
+                    <span
+                      key={i}
+                      className="w-8 h-8 rounded-full ring-2 ring-background flex items-center justify-center text-sm font-bold text-white"
+                      style={{ backgroundColor: t.accentColor || "#FD6215" }}
+                    >
+                      {(t.name || t.initials || "").trim().charAt(0)}
+                    </span>
+                  ))}
+                </div>
               )}
+              <p className="text-sm md:text-base text-foreground text-left">
+                <span className="font-heading font-bold text-[#FD6215] tabular-nums" data-testid="text-bootcamp-count">
+                  {statValue}+
+                </span>{" "}
+                <span className="font-semibold" data-testid="text-bootcamp-stat-label">{statLabel}</span>
+              </p>
             </div>
+            {statDesc && (
+              <p className="mt-3 text-muted-foreground text-xs md:text-sm max-w-md" data-testid="text-bootcamp-stat-desc">
+                {statDesc}
+              </p>
+            )}
           </div>
-        </AnimateIn>
+        </div>
       </section>
 
       {/* ABOUT — short philosophy */}
