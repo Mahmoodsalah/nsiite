@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import AdminBackups from "@/components/admin-backups";
 import {
   LogIn,
   LogOut,
@@ -27,6 +28,7 @@ import {
   Home,
   Upload,
   Image as ImageIcon,
+  History,
 } from "lucide-react";
 
 type SiteContent = {
@@ -46,6 +48,8 @@ const PAGE_CONFIG: Record<string, { label: string; icon: any; description: strin
   automati: { label: "Automati", icon: Bot, description: "Custom AI automation services & pricing" },
   global: { label: "Global Settings", icon: Settings, description: "Navigation, footer, stats dashboard & site-wide settings" },
 };
+
+const BACKUPS_VIEW = "__backups";
 
 const SECTION_LABELS: Record<string, string> = {
   hero: "Hero Section",
@@ -268,11 +272,27 @@ export default function Admin() {
                   );
                 })}
               </nav>
+              <div className="border-t border-white/10 mt-3 pt-3">
+                <button
+                  onClick={() => { setActivePage(BACKUPS_VIEW); setSearchTerm(""); }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
+                    activePage === BACKUPS_VIEW
+                      ? "bg-primary/15 text-primary border border-primary/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                  }`}
+                  data-testid="button-page-backups"
+                >
+                  <History className="w-4 h-4 flex-shrink-0" />
+                  <span className="truncate">Backups & Restore</span>
+                </button>
+              </div>
             </div>
           </div>
 
           <div className="flex-1 min-w-0">
-            {contentLoading ? (
+            {activePage === BACKUPS_VIEW ? (
+              <AdminBackups />
+            ) : contentLoading ? (
               <div className="flex justify-center py-20">
                 <Loader2 className="w-8 h-8 animate-spin text-primary" />
               </div>

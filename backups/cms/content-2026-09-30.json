@@ -34,20 +34,20 @@
     "contentKey": "coreCompetencies",
     "value": [
       {
-        "icon": "Brain",
-        "label": "Deep Learning"
-      },
-      {
         "icon": "Bot",
-        "label": "AI Agents"
-      },
-      {
-        "icon": "Cloud",
-        "label": "Cloud Computing"
+        "label": "Agentic AI"
       },
       {
         "icon": "Eye",
         "label": "Computer Vision"
+      },
+      {
+        "icon": "Brain",
+        "label": "Deep Learning"
+      },
+      {
+        "icon": "Cloud",
+        "label": "Cloud Computing"
       }
     ]
   },
@@ -304,7 +304,7 @@
     "page": "hireme",
     "section": "resume",
     "contentKey": "embedUrl",
-    "value": "https://drive.google.com/file/d/1L4oF4mlBVTii1biCXXXDye6MiWry1Fye/preview"
+    "value": "https://drive.google.com/file/d/13wd7GWnubmKvmuJP_6dwCxU5akGutECb/view"
   },
   {
     "id": 13,
@@ -318,7 +318,7 @@
     "page": "consultation",
     "section": "hero",
     "contentKey": "email",
-    "value": "mahmoodsalah89@gmail.com"
+    "value": "work@mahmoodsalah.xyz"
   },
   {
     "id": 22,
@@ -465,7 +465,7 @@
     "page": "bootcamp",
     "section": "enterprise",
     "contentKey": "email",
-    "value": "mahmoodsalah89@gmail.com"
+    "value": "work@mahmoodsalah.xyz"
   },
   {
     "id": 61,
@@ -568,7 +568,7 @@
     "page": "mentorship",
     "section": "bottomCta",
     "contentKey": "email",
-    "value": "mahmoodsalah89@gmail.com"
+    "value": "work@mahmoodsalah.xyz"
   },
   {
     "id": 3,
@@ -604,7 +604,7 @@
         "cta": "Get Started",
         "href": "https://cal.com/mahmoodsalah/secret",
         "icon": "BookOpen",
-        "price": "$25",
+        "price": "$27",
         "originalPrice": "$75",
         "discount": "67% OFF",
         "title": "AI Learning Support",
@@ -622,7 +622,7 @@
         "cta": "Get Started",
         "href": "https://cal.com/mahmoodsalah/30min",
         "icon": "Code",
-        "price": "$150",
+        "price": "$149",
         "originalPrice": "$500",
         "discount": "70% OFF",
         "title": "AI Project Mentorship",
@@ -643,7 +643,7 @@
         "cta": "Get Started",
         "href": "https://cal.com/mahmoodsalah/15min",
         "icon": "Building2",
-        "price": "$1,200",
+        "price": "$1,199",
         "originalPrice": "$2,000",
         "discount": "40% OFF",
         "title": "AI Consulting for Teams",
@@ -664,7 +664,7 @@
     "page": "automati",
     "section": "hero",
     "contentKey": "logoImage",
-    "value": "/attached_assets/automati_logo_nobg.png"
+    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
   },
   {
     "id": 72,
@@ -678,14 +678,14 @@
     "page": "automati",
     "section": "hero",
     "contentKey": "titleHighlight",
-    "value": "intelligence."
+    "value": "intelligence"
   },
   {
     "id": 74,
     "page": "automati",
     "section": "hero",
     "contentKey": "subtitle",
-    "value": "We design and build custom AI agent systems tailored to the way you work — whether that's running entire workflows on your behalf, supporting your decisions, generating content, handling communications, or anything in between. You tell us what you want to hand off. We make it happen."
+    "value": "We don’t sell generic software. We engineer bespoke, multi-agent AI systems designed for your exact operational reality. You tell us what to hand off. We build the architecture to automate it."
   },
   {
     "id": 75,
@@ -713,14 +713,14 @@
     "page": "automati",
     "section": "howItWorks",
     "contentKey": "title",
-    "value": "We design around your goals — not a template"
+    "value": "Zero Templates. 100% Engineered for You."
   },
   {
     "id": 79,
     "page": "automati",
     "section": "howItWorks",
     "contentKey": "description",
-    "value": "We don't offer a generic automation platform. We study how you work, what you're trying to achieve, and we engineer an AI system built specifically for that."
+    "value": "Stop adapting your work to fit generic tools. We build the tool to fit your work."
   },
   {
     "id": 80,
@@ -732,19 +732,19 @@
         "icon": "Brain",
         "step": "01",
         "title": "Discovery",
-        "desc": "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small."
+        "desc": "We start with a deep dive into your current operations. You show us the repetitive tasks, manual reporting, and coordination loops you want to eliminate."
       },
       {
         "icon": "Bot",
         "step": "02",
-        "title": "Design & Build",
-        "desc": "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation."
+        "title": "Custom Engineering",
+        "desc": "We build a specialized AI system around your exact needs, calibrating the right level of intelligence, autonomy, and security for your specific use case."
       },
       {
         "icon": "ShieldCheck",
         "step": "03",
         "title": "You Stay in Command",
-        "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way."
+        "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep. We build it exactly that way."
       }
     ]
   },
@@ -760,21 +760,21 @@
     "page": "automati",
     "section": "whoFor",
     "contentKey": "title",
-    "value": "Built for everyone who works."
+    "value": "Built for Leaders, Engineered for Scale."
   },
   {
     "id": 83,
     "page": "automati",
     "section": "whoFor",
     "contentKey": "description1",
-    "value": "Whatever your role — employee, manager, freelancer, creator, or business owner — if part of your day is repetitive, slow, or easy to forget, Automati can handle it for you."
+    "value": "Endless coordination, boring tasks and manual reporting kill growth. We automate the overhead so Project Managers, Operations Heads, and Consultants can focus entirely on strategy."
   },
   {
     "id": 84,
     "page": "automati",
     "section": "whoFor",
     "contentKey": "description2",
-    "value": "We automate the tasks, not the people doing them. You stay in control, your work gets cleaner, and you have more time for what actually matters."
+    "value": "We automate the management and operation overhead so you can focus entirely on strategy and growth."
   },
   {
     "id": 85,
@@ -784,19 +784,19 @@
     "value": [
       {
         "icon": "Users",
-        "label": "Employees"
+        "label": "Project Managers"
       },
       {
         "icon": "Settings2",
-        "label": "Managers"
+        "label": "Operations Managers"
       },
       {
         "icon": "Brain",
-        "label": "Freelancers"
+        "label": "Department Heads"
       },
       {
         "icon": "Sparkles",
-        "label": "Creators"
+        "label": "PMO Leaders"
       },
       {
         "icon": "HandshakeIcon",
@@ -813,21 +813,21 @@
     "page": "automati",
     "section": "privacy",
     "contentKey": "title",
-    "value": "Your data stays yours. Always."
+    "value": "Enterprise Security. Absolute Control."
   },
   {
     "id": 87,
     "page": "automati",
     "section": "privacy",
     "contentKey": "description1",
-    "value": "We guarantee full privacy and security across every system we build. At any time you can choose exactly what data your Automati app can and cannot access — or pause it whenever you want."
+    "value": "We guarantee total privacy across every automated system we build. You dictate exactly what information Automati can access and you retain the power to pause operations at any moment."
   },
   {
     "id": 88,
     "page": "automati",
     "section": "privacy",
     "contentKey": "description2",
-    "value": "Every system we design is built with confidentiality at its core — not as an afterthought. What you share with us stays with us."
+    "value": "Confidentiality is the absolute foundation of our architecture."
   },
   {
     "id": 89,
@@ -838,22 +838,22 @@
       {
         "icon": "ShieldCheck",
         "title": "Full Confidentiality",
-        "desc": "Your data and workflow details are never shared with third parties."
+        "desc": "Your internal data and workflows are strictly isolated and never shared with outside parties."
       },
       {
         "icon": "Brain",
         "title": "Minimal Data Principle",
-        "desc": "We only work with what's strictly needed to build and run your system."
+        "desc": "We operate on a minimal data principle using only the exact information necessary to run your workflows."
       },
       {
         "icon": "Settings2",
         "title": "Secure by Design",
-        "desc": "Privacy and security are engineered in from day one — not added later."
+        "desc": "Enterprise privacy protocols are engineered into your AI agent from the very first day."
       },
       {
         "icon": "CheckCircle",
         "title": "Approval Required",
-        "desc": "You stay in control: no email is sent and no action is taken without your explicit approval."
+        "desc": "You retain ultimate authority. No communications are sent and no external actions execute without your final approval."
       }
     ]
   },
@@ -862,7 +862,7 @@
     "page": "automati",
     "section": "valueStrip",
     "contentKey": "clientCount",
-    "value": "28"
+    "value": "31"
   },
   {
     "id": 91,
@@ -914,7 +914,7 @@
     "page": "automati",
     "section": "pricing",
     "contentKey": "description",
-    "value": "Start with what you need. Refer a friend and get 10% off your subscription for every person you bring in."
+    "value": "Ask for the outcome. Automati handles the steps."
   },
   {
     "id": 96,
@@ -926,14 +926,14 @@
         "label": "Subscription",
         "popular": "true",
         "startingFrom": "Starting from",
-        "price": "$15",
-        "priceUnit": "/ month",
-        "description": "Ongoing access to your AI system — updates, improvements, and support as your needs evolve.",
+        "price": "$20 ",
+        "priceUnit": "/ user / month",
+        "description": "Ongoing access to your custom AI agent with continuous updates improvements and dedicated support to handle your daily tasks.",
         "features": [
           "Continuous AI system access",
           "Adjustments as you grow",
-          "10% off per referral you bring",
-          "Email support"
+          "Priority email support for smooth operations",
+          "Full team onboarding and executive training"
         ],
         "cta": "Get Started",
         "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
@@ -942,9 +942,9 @@
         "label": "One-Time Setup",
         "popular": "false",
         "startingFrom": "Starting from",
-        "price": "$250",
+        "price": "$499",
         "priceUnit": "",
-        "description": "A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.",
+        "description": "A complete custom built AI agent designed exactly around your management workflow. It is yours to keep with absolutely no ongoing monthly fees.",
         "features": [
           "Workflow discovery session",
           "Fully custom AI system",
@@ -955,17 +955,17 @@
         "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
       },
       {
-        "label": "For Companies",
+        "label": "For Individual Employees",
         "popular": "false",
-        "startingFrom": "",
-        "price": "Custom",
-        "priceUnit": "",
-        "description": "Tailored pricing for teams and organisations with more complex systems and larger-scale needs.",
+        "startingFrom": "Starting from",
+        "price": "$15",
+        "priceUnit": "/ month",
+        "description": "Tailored pricing for individual managers and leaders with highly complex personal workflows and advanced automation needs.",
         "features": [
           "Multi-system AI architecture",
-          "Team onboarding & training",
           "Priority support",
-          "Flexible integrations"
+          "Flexible integrations",
+          "Onboarding & training"
         ],
         "cta": "Get Started",
         "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
@@ -1019,7 +1019,7 @@
     "page": "automati",
     "section": "faq",
     "contentKey": "description",
-    "value": "If your question isn't here, just ask — we're happy to walk you through how a custom AI system would work for you."
+    "value": "If your question isn't here, just ask, we're happy to walk you through how a custom AI system would work for you."
   },
   {
     "id": 104,
@@ -1032,6 +1032,10 @@
         "answer": "Automati is a service that designs and builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Instead of giving you a generic tool, we engineer an AI system around the specific way you work — to run workflows, support decisions, generate content, or handle communications on your behalf."
       },
       {
+        "question": "How much does it cost?",
+        "answer": "Subscriptions start from $15/month for ongoing access and improvements. One-time custom builds start from $499. You can also get 10% off your subscription for every person you refer."
+      },
+      {
         "question": "Do I need any technical knowledge to use it?",
         "answer": "No. You only need to describe what you want to change or hand off in your day-to-day work. We handle the design, build, integration, and handover. You stay in control of how much autonomy your AI system has."
       },
@@ -1040,16 +1044,12 @@
         "answer": "Almost anything that involves repeatable thinking, writing, decision-making, or coordination — for example: managing inboxes and replies, generating content and reports, qualifying leads, summarising documents, running research, scheduling, customer support triage, internal Q&A, or multi-step business workflows."
       },
       {
-        "question": "How is this different from tools like Zapier, Make, or n8n?",
-        "answer": "Those tools connect apps with rules. Automati builds intelligent agents that can reason, decide, and act using LLMs and custom logic — tailored to your goals. We can also integrate with Zapier, Make, or n8n where it makes sense, but the intelligence layer is custom-built for you."
+        "question": "How is this different from tools like Zapier, Make, or n8n or Claude Code?",
+        "answer": "Tools like Zapier and Make rely on very rigid rules. If a single data field changes or an email is formatted differently the entire automation breaks and you have to fix it. Claude Code is a technical tool strictly for software engineering. Automati agents are powered by advanced artificial intelligence that understands context. They can read unstructured data handle unexpected changes and make intelligent decisions just like a human assistant would. Plus we handle all the technical setup so you never have to look at a complex workflow builder. We can also integrate with Zapier, Make, or n8n where it makes sense, but the intelligence layer is custom-built for you."
       },
       {
         "question": "How long does it take to build a system?",
-        "answer": "Most one-time builds are delivered within 1–3 weeks depending on complexity. We start with a short discovery session, then design, build, test, and hand over. Larger company-wide systems are scoped individually."
-      },
-      {
-        "question": "How much does it cost?",
-        "answer": "Subscriptions start from $15/month for ongoing access and improvements. One-time custom builds start from $250. For companies with multi-system needs, we offer tailored pricing. You can also get 10% off your subscription for every person you refer."
+        "answer": "Most one-time builds are delivered within 2–6 weeks depending on complexity. We start with a short discovery session, then design, build, test, and hand over. Larger company-wide systems are scoped individually."
       },
       {
         "question": "Is my data safe? Will it be shared or used for training?",
@@ -1116,7 +1116,7 @@
     "page": "consultation",
     "section": "stats",
     "contentKey": "count",
-    "value": "48"
+    "value": "52"
   },
   {
     "id": 112,
@@ -1656,7 +1656,7 @@
     "page": "mentorship",
     "section": "stats",
     "contentKey": "count",
-    "value": "572"
+    "value": "579"
   },
   {
     "id": 158,
@@ -1754,7 +1754,7 @@
     "page": "global",
     "section": "footer",
     "contentKey": "contactEmail",
-    "value": "mahmoodsalah89@gmail.com"
+    "value": "work@mahmoodsalah.xyz"
   },
   {
     "id": 172,
@@ -1943,7 +1943,7 @@
     "page": "automati",
     "section": "ui",
     "contentKey": "mostPopularLabel",
-    "value": "Most Popular"
+    "value": "50% OFF"
   },
   {
     "id": 199,
@@ -2133,8 +2133,8 @@
         "accentColor": "#FD6215"
       },
       {
-        "name": "نورهان سامي",
-        "initials": "ن.س",
+        "name": "نورهان عادل",
+        "initials": "ن.ع",
         "quote": "حسيت إن طريقة الشرح عملية جدًا. كل سيشن بطلع منها بمشروع.",
         "accentColor": "#2F80ED"
       },
@@ -2173,41 +2173,7 @@
         "initials": "ي.ح",
         "quote": "المتابعة أثناء الشرح فرقت معايا جدًا، أي نقطة مش واضحة بتتشرح فورًا. ده مخليك دايمًا متفاعل ومش تايه.",
         "accentColor": "#2F80ED"
-      },
-      {
-        "name": "دينا فؤاد",
-        "initials": "د.ف",
-        "quote": "اللي شدّني في البرنامج إن مفيش فجوة بين النظري والتطبيق. حتى الحاجات النظرية بتتفهم من خلال الشغل العملي.",
-        "accentColor": "#FD6215"
       }
     ]
-  },
-  {
-    "id": 211,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "ogImage",
-    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
-  },
-  {
-    "id": 212,
-    "page": "bootcamp",
-    "section": "seo",
-    "contentKey": "ogImage",
-    "value": "/logos/bootcampai.png"
-  },
-  {
-    "id": 213,
-    "page": "mentorship",
-    "section": "seo",
-    "contentKey": "ogImage",
-    "value": "https://mahmoodsalah.xyz/favicon.png"
-  },
-  {
-    "id": 214,
-    "page": "consultation",
-    "section": "seo",
-    "contentKey": "ogImage",
-    "value": "https://mahmoodsalah.xyz/favicon.png"
   }
 ]
