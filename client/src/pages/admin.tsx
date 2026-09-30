@@ -70,6 +70,9 @@ const SECTION_LABELS: Record<string, string> = {
   bottomCta: "Bottom CTA",
   settings: "Settings",
   howItWorks: "How It Works",
+  finishedWork: "Finished Work Examples",
+  roles: "Roles / Teams",
+  trust: "Human in Charge",
   whoFor: "Who It's For",
   privacy: "Privacy & Security",
   valueStrip: "Value Strip",
@@ -354,6 +357,7 @@ export default function Admin() {
 function groupContent(content: SiteContent[]) {
   const grouped: Record<string, Record<string, SiteContent[]>> = {};
   for (const item of content) {
+    if (item.section.startsWith("_")) continue; // internal bookkeeping, not editable
     if (!grouped[item.page]) grouped[item.page] = {};
     if (!grouped[item.page][item.section]) grouped[item.page][item.section] = [];
     grouped[item.page][item.section].push(item);

@@ -18,7 +18,7 @@ const BACKUP_PREFIX = "cms/backups/";
 // pushing every older backup out of the retention window.
 const BACKUP_INTERVAL_MS = 10 * 60_000;
 const MAX_BACKUPS = 30;
-const BACKUP_ID_REGEX = /^content-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z)-(auto|restore)\.json$/;
+const BACKUP_ID_REGEX = /^content-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z)-(auto|restore|migration)\.json$/;
 const useBlob = !!process.env.BLOB_READ_WRITE_TOKEN;
 
 let cache: SiteContentItem[] | null = null;
@@ -30,11 +30,29 @@ function ensureLocalDir() {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
-function mergeSeedKeys(existing: SiteContentItem[]): {
+// A page can ship a content version in `<page>/_meta/version`. When the seed's
+// version is newer than the stored one, that page's stored content is replaced
+// by the seed (a backup is taken first). Otherwise only missing keys are added,
+// so edits made in /admin are never overwritten.
+function pageVersion(items: SiteContentItem[], page: string): number {
+  const meta = items.find((i) => i.page === page && i.section === "_meta" && i.contentKey === "version");
+  return meta ? Number(meta.value) || 0 : 0;
+}
+
+export function mergeSeedKeys(stored: SiteContentItem[]): {
   merged: SiteContentItem[];
   changed: boolean;
+  replacedPages: string[];
 } {
   const seed = seedData as SiteContentItem[];
+  const versionedPages = Array.from(
+    new Set(seed.filter((i) => i.section === "_meta" && i.contentKey === "version").map((i) => i.page)),
+  );
+  const replacedPages = versionedPages.filter((page) => pageVersion(stored, page) < pageVersion(seed, page));
+  const existing = replacedPages.length
+    ? stored.filter((i) => !replacedPages.includes(i.page))
+    : stored;
+
   const key = (i: SiteContentItem) => `${i.page}::${i.section}::${i.contentKey}`;
   const have = new Set(existing.map(key));
   let nextId = existing.length
@@ -46,9 +64,9 @@ function mergeSeedKeys(existing: SiteContentItem[]): {
       additions.push({ ...item, id: nextId++ });
     }
   }
-  return additions.length
-    ? { merged: [...existing, ...additions], changed: true }
-    : { merged: existing, changed: false };
+  return additions.length || replacedPages.length
+    ? { merged: [...existing, ...additions], changed: true, replacedPages }
+    : { merged: existing, changed: false, replacedPages };
 }
 
 async function readFromBlob(): Promise<SiteContentItem[]> {
@@ -58,7 +76,17 @@ async function readFromBlob(): Promise<SiteContentItem[]> {
     const res = await fetch(meta.url, { cache: "no-store" });
     if (!res.ok) throw new Error(`Blob fetch ${res.status}`);
     const data = (await res.json()) as SiteContentItem[];
-    const { merged, changed } = mergeSeedKeys(data);
+    const { merged, changed, replacedPages } = mergeSeedKeys(data);
+    if (replacedPages.length) {
+      try {
+        await backupBeforeChange(data, "migration");
+      } catch (err) {
+        // Never replace content without a backup; serve it as-is and retry later.
+        console.error("[storage] Skipping content update, backup failed:", err);
+        return data;
+      }
+      console.log(`[storage] Updated content for page(s): ${replacedPages.join(", ")}`);
+    }
     if (changed) await writeToBlob(merged);
     return merged;
   } catch (err: any) {
@@ -114,7 +142,7 @@ async function writeData(data: SiteContentItem[]): Promise<void> {
   cacheTime = Date.now();
 }
 
-export type BackupReason = "auto" | "restore";
+export type BackupReason = "auto" | "restore" | "migration";
 
 export interface BackupInfo {
   id: string;
@@ -188,8 +216,8 @@ async function writeBackup(data: SiteContentItem[], reason: BackupReason): Promi
 }
 
 // Saves `data` (the content as it is before a change) as a restore point.
-// "auto" backups are throttled to one per BACKUP_INTERVAL_MS; "restore"
-// backups are always taken so a restore can itself be undone.
+// "auto" backups are throttled to one per BACKUP_INTERVAL_MS; "restore" and
+// "migration" backups are always taken so those changes can be undone.
 async function backupBeforeChange(data: SiteContentItem[], reason: BackupReason): Promise<void> {
   const snapshot = JSON.parse(JSON.stringify(data)) as SiteContentItem[];
   try {
@@ -205,7 +233,7 @@ async function backupBeforeChange(data: SiteContentItem[], reason: BackupReason)
   } catch (err) {
     // A failed backup must not block the admin from saving content.
     console.error("[storage] Backup failed:", err);
-    if (reason === "restore") throw err;
+    if (reason !== "auto") throw err;
   }
 }
 
