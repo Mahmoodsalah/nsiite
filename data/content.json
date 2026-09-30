@@ -1763,7 +1763,7 @@
     "page": "automati",
     "section": "hero",
     "contentKey": "eyebrow",
-    "value": "AI Employees for every team"
+    "value": "AI Employees that support your team"
   },
   {
     "id": 218,
@@ -1784,7 +1784,7 @@
     "page": "automati",
     "section": "hero",
     "contentKey": "subtitle",
-    "value": "An AI teammate that works inside the tools your team already uses and hands back finished work: reports, replies, updated boards and tidy inboxes. It takes the repetitive load off your people, so they can focus on the work only they can do."
+    "value": "An AI teammate that supports your people, not replaces them. It works inside the tools your team already uses and hands back finished work: reports, replies, updated boards and tidy inboxes, so your people can focus on the work only they can do."
   },
   {
     "id": 221,
@@ -1986,21 +1986,21 @@
     "page": "automati",
     "section": "trust",
     "contentKey": "title",
-    "value": "It adds capacity. It doesn't replace people."
+    "value": "Nothing important happens without a person."
   },
   {
     "id": 236,
     "page": "automati",
     "section": "trust",
     "contentKey": "description1",
-    "value": "An AI Employee takes on the repetitive, time-consuming parts of a job, so your team can spend its time on judgement, relationships and new ideas."
+    "value": "Your AI Employee works for your team and answers to them. It prepares, drafts and updates, and your people decide what goes out."
   },
   {
     "id": 237,
     "page": "automati",
     "section": "trust",
     "contentKey": "description2",
-    "value": "It works for your people and answers to them. Nothing important happens without a person saying yes."
+    "value": "You set what it can reach, you approve what matters, and you can see everything it did."
   },
   {
     "id": 238,
@@ -2232,7 +2232,7 @@
       },
       {
         "question": "Will it replace people on my team?",
-        "answer": "No. It's designed to add capacity, not to remove people. It takes on repetitive tasks so your team can spend more time on work that needs human judgement, and important actions wait for a person's approval."
+        "answer": "No. Automati is built to support people, not replace them. Each AI Employee works for someone on your team: it takes the repetitive, time-consuming tasks off their plate so they can spend more time on decisions, customers and ideas. Your people stay in charge, and important actions wait for their approval."
       },
       {
         "question": "Does it learn about our company?",
@@ -2280,7 +2280,7 @@
     "page": "automati",
     "section": "closingCta",
     "contentKey": "description",
-    "value": "Tell us which work slows your team down. In a short call, we'll show you what an AI Employee could take off their plate. No commitment."
+    "value": "Tell us which work slows your team down. In a short call, we'll show you how an AI Employee can make their work easier and stronger. No commitment."
   },
   {
     "id": 257,
@@ -2308,7 +2308,7 @@
     "page": "automati",
     "section": "seo",
     "contentKey": "description",
-    "value": "Automati sets up AI Employees for project management, operations, sales, customer service, tech and admin. They work inside your existing tools, deliver finished work and ask before acting. From $15 per AI Employee per month."
+    "value": "Automati sets up AI Employees that support your team, not replace it. They work inside your existing tools across project management, operations, sales, customer service, tech and admin, deliver finished work and ask before acting. From $15 per AI Employee per month."
   },
   {
     "id": 261,
@@ -2351,5 +2351,118 @@
     "section": "ui",
     "contentKey": "mostPopularLabel",
     "value": "Most Popular"
+  },
+  {
+    "id": 267,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "badge",
+    "value": "Built to support people"
+  },
+  {
+    "id": 268,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "title",
+    "value": "Your team does the thinking. Your AI Employee does the legwork."
+  },
+  {
+    "id": 269,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "description",
+    "value": "Automati doesn't replace anyone. Each AI Employee works for a person on your team, takes the repetitive load off them, and makes their work easier and stronger."
+  },
+  {
+    "id": 270,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "humanTitle",
+    "value": "Your people focus on"
+  },
+  {
+    "id": 271,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "humanItems",
+    "value": [
+      "Making the decisions",
+      "Building relationships with clients and colleagues",
+      "Solving new and complex problems",
+      "Leading, creating and improving how you work"
+    ]
+  },
+  {
+    "id": 272,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "aiTitle",
+    "value": "Your AI Employee handles"
+  },
+  {
+    "id": 273,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "aiItems",
+    "value": [
+      "Preparing reports, summaries and briefs",
+      "Following up and keeping records up to date",
+      "Routine requests and recurring checks",
+      "First drafts of documents and replies, ready for review"
+    ]
+  },
+  {
+    "id": 274,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "footnote",
+    "value": "Every AI Employee works for a person on your team, never instead of one."
+  },
+  {
+    "id": 275,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "badge",
+    "value": "Works like a colleague"
+  },
+  {
+    "id": 276,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "title",
+    "value": "Ask it, schedule it, or let it pick up new work"
+  },
+  {
+    "id": 277,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "description",
+    "value": "It doesn't wait around for instructions. It takes on work in three ways, lets you know when it's done, and you review before anything goes out."
+  },
+  {
+    "id": 278,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "items",
+    "value": [
+      {
+        "icon": "MessageSquare",
+        "title": "When you ask",
+        "desc": "Send a request in Slack, email or chat, the same way you'd ask a colleague.",
+        "example": "“Summarise yesterday's client calls.”"
+      },
+      {
+        "icon": "CalendarClock",
+        "title": "On a schedule",
+        "desc": "Routines that run on their own, every morning, every week or at month end.",
+        "example": "“Every Monday at 9:00, send the team's weekly priorities.”"
+      },
+      {
+        "icon": "Radar",
+        "title": "When new work arrives",
+        "desc": "It keeps an eye on your tools and picks up new items as they come in.",
+        "example": "“When a new lead comes in, research the company and draft a reply.”"
+      }
+    ]
   }
 ]

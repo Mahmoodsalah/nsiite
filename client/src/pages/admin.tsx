@@ -73,6 +73,8 @@ const SECTION_LABELS: Record<string, string> = {
   finishedWork: "Finished Work Examples",
   roles: "Roles / Teams",
   trust: "Human in Charge",
+  partnership: "People + AI Employee",
+  triggers: "How It Picks Up Work",
   whoFor: "Who It's For",
   privacy: "Privacy & Security",
   valueStrip: "Value Strip",

@@ -18,6 +18,12 @@ import {
   KeyRound,
   Lock,
   Clock,
+  MessageSquare,
+  CalendarClock,
+  Radar,
+  UserRound,
+  HeartHandshake,
+  Plus,
 } from "lucide-react";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
 import { useCountUp } from "@/hooks/use-count-up";
@@ -34,6 +40,7 @@ import automatiLogo from "@assets/automati_logo_nobg.png";
 
 const iconMap: Record<string, any> = {
   Bot, Sparkles, ShieldCheck, Brain, Users, Settings2, ListChecks, Handshake, FileText, History, KeyRound, Lock,
+  MessageSquare, CalendarClock, Radar,
   CheckCircle: CheckCircle2, CheckCircle2,
 };
 
@@ -63,6 +70,20 @@ export default function Automati() {
   const heroCtaSecondary = getVal(content, "hero", "ctaSecondary", "See what it can do");
   const toolsLabel = getVal(content, "hero", "toolsLabel", "");
   const tools: string[] = getVal(content, "hero", "tools", []);
+
+  const partnerBadge = getVal(content, "partnership", "badge", "");
+  const partnerTitle = getVal(content, "partnership", "title", "");
+  const partnerDesc = getVal(content, "partnership", "description", "");
+  const humanTitle = getVal(content, "partnership", "humanTitle", "Your people focus on");
+  const humanItems: string[] = getVal(content, "partnership", "humanItems", []);
+  const aiTitle = getVal(content, "partnership", "aiTitle", "Your AI Employee handles");
+  const aiItems: string[] = getVal(content, "partnership", "aiItems", []);
+  const partnerFootnote = getVal(content, "partnership", "footnote", "");
+
+  const triggersBadge = getVal(content, "triggers", "badge", "");
+  const triggersTitle = getVal(content, "triggers", "title", "");
+  const triggersDesc = getVal(content, "triggers", "description", "");
+  const triggers: any[] = getVal(content, "triggers", "items", []);
 
   const workBadge = getVal(content, "finishedWork", "badge", "Finished work, not chat");
   const workTitle = getVal(content, "finishedWork", "title", "");
@@ -268,6 +289,64 @@ export default function Automati() {
         </div>
       </section>
 
+      {/* PEOPLE + AI EMPLOYEE */}
+      {partnerTitle && (
+        <section className="max-w-6xl mx-auto px-6 py-16 md:py-20" data-testid="section-partnership">
+          <AnimateIn>
+            <SectionHeader badge={partnerBadge} title={partnerTitle} description={partnerDesc} testId="text-partnership-title" />
+          </AnimateIn>
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+            <AnimateIn className="h-full">
+              <div className="glass-card rounded-3xl p-7 md:p-9 h-full" data-testid="card-partnership-human">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-11 h-11 rounded-2xl bg-foreground/5 flex items-center justify-center">
+                    <UserRound className="w-5 h-5 text-foreground/70" />
+                  </div>
+                  <h3 className="font-heading font-bold text-xl text-foreground">{humanTitle}</h3>
+                </div>
+                <ul className="space-y-3">
+                  {humanItems.map((t) => (
+                    <li key={t} className="flex items-start gap-3 text-foreground/85 leading-relaxed">
+                      <CheckCircle2 className="w-5 h-5 text-foreground/40 mt-0.5 shrink-0" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateIn>
+            <div aria-hidden="true" className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full liquid-glass items-center justify-center">
+              <Plus className="w-5 h-5 text-primary" />
+            </div>
+            <AnimateIn delay={0.08} className="h-full">
+              <div className="glass-card rounded-3xl p-7 md:p-9 h-full ring-1 ring-primary/25" data-testid="card-partnership-ai">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-bold text-xl text-foreground">{aiTitle}</h3>
+                </div>
+                <ul className="space-y-3">
+                  {aiItems.map((t) => (
+                    <li key={t} className="flex items-start gap-3 text-foreground/85 leading-relaxed">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateIn>
+          </div>
+          {partnerFootnote ? (
+            <AnimateIn delay={0.1}>
+              <p className="mt-8 flex items-center justify-center gap-2 text-center text-sm md:text-base font-medium text-foreground/80" data-testid="text-partnership-footnote">
+                <HeartHandshake className="w-5 h-5 text-primary shrink-0" />
+                {partnerFootnote}
+              </p>
+            </AnimateIn>
+          ) : null}
+        </section>
+      )}
+
       {/* FINISHED WORK */}
       <section className="max-w-6xl mx-auto px-6 py-16 md:py-20" data-testid="section-finished-work">
         <AnimateIn>
@@ -309,6 +388,34 @@ export default function Automati() {
           })}
         </div>
       </section>
+
+      {/* HOW IT PICKS UP WORK */}
+      {triggers.length > 0 && (
+        <section className="max-w-6xl mx-auto px-6 py-16 md:py-20" data-testid="section-triggers">
+          <AnimateIn>
+            <SectionHeader badge={triggersBadge} title={triggersTitle} description={triggersDesc} testId="text-triggers-title" />
+          </AnimateIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {triggers.map((t: any, i: number) => {
+              const Icon = iconMap[t.icon] || Bot;
+              return (
+                <AnimateIn key={t.title || i} delay={i * 0.06} className="h-full">
+                  <div className="glass-card rounded-2xl p-6 h-full flex flex-col" data-testid={`card-trigger-${i}`}>
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="font-heading font-semibold text-lg text-foreground mb-2">{t.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">{t.desc}</p>
+                    {t.example ? (
+                      <p className="mt-auto rounded-xl bg-muted/60 px-4 py-3 text-sm text-foreground/80 italic">{t.example}</p>
+                    ) : null}
+                  </div>
+                </AnimateIn>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* ROLES */}
       {roles.length > 0 && (
