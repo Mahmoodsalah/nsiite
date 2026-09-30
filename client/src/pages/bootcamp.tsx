@@ -253,12 +253,12 @@ export default function Bootcamp() {
             {heroSubtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10 animate-fade-in-up animation-delay-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 mb-10 animate-fade-in-up animation-delay-300">
             {heroHighlights.map((h: string, i: number) => {
               const icons = [BrainIcon, BriefcaseIcon, GraduationCap];
               const HIcon = icons[i] || GraduationCap;
               return (
-                <div key={i} className="flex items-center gap-2 text-foreground glass-badge rounded-full px-4 py-2">
+                <div key={i} className="flex items-center gap-2 text-foreground/80">
                   <HIcon className="w-5 h-5 text-primary" />
                   <span className="text-sm font-medium">{h}</span>
                 </div>
@@ -667,11 +667,15 @@ export default function Bootcamp() {
               </div>
             </AnimateIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {testimonialItems.map((t: any, i: number) => {
                 const accent = t.accentColor || "#FD6215";
                 return (
-                  <AnimateIn key={i} delay={(i % 3) * 0.08}>
+                  <AnimateIn
+                    key={i}
+                    delay={(i % 3) * 0.08}
+                    className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+                  >
                     <div
                       dir="rtl"
                       className="glass-card-hover rounded-2xl p-6 h-full flex flex-col text-right"

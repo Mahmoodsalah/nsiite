@@ -15,8 +15,8 @@
   --card: 0 0% 100%;
   --card-foreground: 220 15% 12%;
   --card-border: 220 15% 92%;
-  --glass-bg: rgba(255, 255, 255, 0.45);
-  --glass-bg-strong: rgba(255, 255, 255, 0.65);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.88);
   --glass-border: rgba(255, 255, 255, 0.6);
   --glass-border-accent: rgba(255, 255, 255, 0.8);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -197,6 +197,8 @@
   h1 { letter-spacing: -0.025em; }
   h2 { letter-spacing: -0.02em; }
   h3 { letter-spacing: -0.01em; }
+  /* Even out heading line lengths so a single word isn't left on its own line. */
+  h1, h2, h3 { text-wrap: balance; }
   /* Letter-spacing breaks the joins between Arabic letters. */
   [dir="rtl"] :is(h1, h2, h3), :is(h1, h2, h3)[dir="rtl"] { letter-spacing: 0; }
 
@@ -273,15 +275,6 @@
 .animation-delay-500 { animation-delay: 0.5s; opacity: 0; }
 .animation-delay-600 { animation-delay: 0.6s; opacity: 0; }
 
-@keyframes mentorship-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-
-.mentorship-float-card {
-  animation: mentorship-float 4s ease-in-out infinite;
-}
-
 @keyframes bootcamp-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -294,16 +287,12 @@
 
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow), var(--glass-inner-glow);
 }
 
 .glass-card-hover {
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow), var(--glass-inner-glow);
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -352,49 +341,66 @@ a:active > .glass-card-hover {
 
 .glass-card-strong {
   background: var(--glass-bg-strong);
-  backdrop-filter: blur(32px) saturate(1.6);
-  -webkit-backdrop-filter: blur(32px) saturate(1.6);
   border: 1px solid var(--glass-border-accent);
   box-shadow: var(--glass-shadow), var(--glass-inner-glow);
 }
 
 .glass-hero {
   background: linear-gradient(135deg, var(--glass-bg-strong), rgba(177, 143, 106, 0.06));
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
 }
 
-.glass-nav {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(28px) saturate(1.8);
-  -webkit-backdrop-filter: blur(28px) saturate(1.8);
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+/* Liquid Glass: reserved for the functional layer that floats above content
+   (navigation, menus, popovers). Content surfaces above stay solid. */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.3),
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 32px rgba(15, 23, 42, 0.08);
 }
 
-.dark .glass-nav {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+/* Bigger surfaces read as thicker glass: more opaque, deeper shadow. */
+.liquid-glass-thick {
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 2px 6px rgba(15, 23, 42, 0.05),
+    0 16px 48px rgba(15, 23, 42, 0.12);
+}
+
+.dark .liquid-glass {
+  background: rgba(30, 32, 38, 0.55);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Glass arrives as a material: it grows from its source while fading in. */
+@keyframes glass-materialize {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-materialize {
+  animation: glass-materialize 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .glass-section {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px) saturate(1.3);
-  -webkit-backdrop-filter: blur(20px) saturate(1.3);
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
 }
 
 .glass-badge {
   background: rgba(177, 143, 106, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(177, 143, 106, 0.2);
 }
 
 .glass-input {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-inner-glow);
 }
@@ -519,11 +525,11 @@ a:active > .glass-card-hover {
   .animate-fade-in-up,
   .animate-scale-in,
   .animate-slide-in-left,
-  .animate-fade-in {
+  .animate-fade-in,
+  .animate-materialize {
     animation: fade-in 0.2s ease-out forwards;
   }
 
-  .mentorship-float-card,
   .bootcamp-ticker,
   .animate-pulse,
   .animate-bounce,
@@ -540,7 +546,8 @@ a:active > .glass-card-hover {
 
 /* Users who ask for less transparency get solid surfaces instead of glass. */
 @media (prefers-reduced-transparency: reduce) {
-  .glass-nav,
+  .liquid-glass,
+  .liquid-tooltip,
   .glass-card,
   .glass-card-hover,
   .glass-section {
@@ -552,7 +559,7 @@ a:active > .glass-card-hover {
 
 /* Higher contrast: give glass surfaces a clearly visible edge. */
 @media (prefers-contrast: more) {
-  .glass-nav,
+  .liquid-glass,
   .glass-card,
   .glass-card-hover {
     background: hsl(var(--card));

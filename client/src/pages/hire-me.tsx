@@ -7,7 +7,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
-import mahmoodImg from "@assets/mahmood.jpg";
+const mahmoodPortrait = "/mahmood-portrait.webp";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { usePageSEO } from "@/hooks/use-seo";
 
@@ -103,19 +103,22 @@ export default function HireMe() {
               <section data-testid="section-about">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
                   <div className="md:col-span-1 flex justify-center">
-                    <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in shadow-lg shadow-primary/10">
+                    <div className="w-56 h-56 rounded-full overflow-hidden bg-white ring-1 ring-primary/20 ring-offset-4 ring-offset-background animate-scale-in shadow-lg shadow-primary/10">
                       <img
-                        src={mahmoodImg}
+                        src={mahmoodPortrait}
                         alt="Mahmood Salah"
-                        className="w-full h-full object-cover"
+                        width={224}
+                        height={224}
+                        decoding="async"
+                        className="w-full h-full object-cover object-[50%_20%] scale-[1.45] origin-[50%_32%]"
                         data-testid="img-profile"
                       />
                     </div>
                   </div>
                   <div className="md:col-span-2">
-                    <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+                    <h1 className="font-heading font-bold text-3xl text-foreground mb-4">
                       {aboutTitle}
-                    </h2>
+                    </h1>
                     <p className="text-muted-foreground leading-relaxed mb-4">{bio1}</p>
                     <p className="text-muted-foreground leading-relaxed mb-8">{bio2}</p>
 

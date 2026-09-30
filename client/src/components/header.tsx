@@ -72,14 +72,17 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-nav" : "bg-transparent"
-      }`}
+      className="fixed top-0 inset-x-0 z-50 px-3 sm:px-4 pt-3 pointer-events-none"
       data-testid="header"
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      {/* Floating Liquid Glass capsule: the navigation layer sits above content */}
+      <div
+        className={`pointer-events-auto liquid-glass max-w-6xl mx-auto rounded-full h-14 pl-4 pr-2 sm:pl-5 flex items-center justify-between transition-shadow duration-300 ${
+          scrolled ? "liquid-glass-thick" : ""
+        }`}
+      >
         <Link href="/" onClick={scrollToTop} data-testid="link-home">
-          <div className="flex items-center gap-3 cursor-pointer">
+          <div className="flex items-center gap-3 py-1.5 cursor-pointer">
             <img src={logoPath} alt={brandName} className="h-8 w-auto" />
             <span className="font-heading font-semibold text-foreground text-sm tracking-wide">
               {brandName}
@@ -98,11 +101,12 @@ export default function Header() {
                 <div key={item.label} className="relative" ref={open ? dropdownRef : undefined}>
                   <button
                     onClick={() => setOpenDropdown(open ? null : item.label)}
-                    className={`flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
+                    className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-bold transition-colors cursor-pointer ${
                       groupActive
-                        ? "text-primary glass-badge"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/10"
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
                     }`}
+                    aria-expanded={open}
                     data-testid={`link-nav-${slug}`}
                   >
                     {item.label}
@@ -111,16 +115,7 @@ export default function Header() {
                     />
                   </button>
                   {open && (
-                    <div
-                      className="absolute top-full left-0 mt-2 w-56 rounded-xl p-1.5 animate-scale-in origin-top-left"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.75)",
-                        backdropFilter: "blur(60px) saturate(2)",
-                        WebkitBackdropFilter: "blur(60px) saturate(2)",
-                        border: "1px solid var(--glass-border)",
-                        boxShadow: "0 4px 24px rgba(0, 0, 0, 0.06)",
-                      }}
-                    >
+                    <div className="liquid-glass liquid-glass-thick absolute top-full left-0 mt-3 w-60 rounded-2xl p-1.5 animate-materialize origin-top-left">
                       {kids.map((kid) => (
                         <Link
                           key={kid.label}
@@ -131,7 +126,9 @@ export default function Header() {
                           }}
                         >
                           <span
-                            className="block px-3 py-2.5 text-sm font-bold cursor-pointer rounded-lg transition-colors text-foreground hover:bg-primary/10 whitespace-nowrap"
+                            className={`block px-3 py-2.5 text-sm font-bold cursor-pointer rounded-xl transition-colors whitespace-nowrap ${
+                              isItemActive(kid) ? "text-primary bg-primary/10" : "text-foreground hover:bg-foreground/5"
+                            }`}
                             data-testid={`button-view-${slugify(kid.label)}`}
                           >
                             {kid.label}
@@ -146,10 +143,10 @@ export default function Header() {
             return (
               <Link key={item.label} href={item.href || "#"} onClick={scrollToTop}>
                 <span
-                  className={`px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-sm font-bold transition-colors cursor-pointer ${
                     isItemActive(item)
-                      ? "text-primary glass-badge"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/10"
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
                   }`}
                   data-testid={`link-nav-${slug}`}
                 >
@@ -163,7 +160,7 @@ export default function Header() {
         <Button
           size="icon"
           variant="ghost"
-          className="md:hidden"
+          className="md:hidden rounded-full h-11 w-11"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
@@ -173,8 +170,8 @@ export default function Header() {
         </Button>
       </div>
       {mobileMenuOpen && (
-        <div className="md:hidden glass-nav">
-          <nav className="flex flex-col px-6 py-4 gap-1" data-testid="nav-mobile">
+        <div className="md:hidden pointer-events-auto liquid-glass liquid-glass-thick max-w-6xl mx-auto mt-2 rounded-3xl animate-materialize origin-top-right">
+          <nav className="flex flex-col p-2 gap-0.5" data-testid="nav-mobile">
             {topLevel.map((item) => {
               const kids = childrenOf(item.label);
               const slug = slugify(item.label);
@@ -189,7 +186,7 @@ export default function Header() {
                       }
                       className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold cursor-pointer transition-all w-full ${
                         groupActive
-                          ? "text-primary glass-badge"
+                          ? "text-primary bg-primary/10"
                           : "text-muted-foreground hover:text-foreground"
                       }`}
                       data-testid={`button-mobile-${slug}-toggle`}
@@ -212,7 +209,9 @@ export default function Header() {
                             }}
                           >
                             <span
-                              className="block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-all text-muted-foreground hover:text-foreground hover:bg-white/10"
+                              className={`block px-4 py-2.5 rounded-xl text-sm cursor-pointer transition-colors ${
+                                isItemActive(kid) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
+                              }`}
                               data-testid={`link-mobile-${slugify(kid.label)}`}
                             >
                               {kid.label}
@@ -236,7 +235,7 @@ export default function Header() {
                   <span
                     className={`block px-4 py-3 rounded-xl text-sm font-bold cursor-pointer transition-all ${
                       isItemActive(item)
-                        ? "text-primary glass-badge"
+                        ? "text-primary bg-primary/10"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                     data-testid={`link-mobile-${slug}`}

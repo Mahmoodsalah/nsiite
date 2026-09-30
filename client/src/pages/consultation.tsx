@@ -208,6 +208,7 @@ export default function Consultation() {
 
       <section className="pt-12 pb-20" data-testid="section-consultation-services">
         <div className="max-w-6xl mx-auto px-6">
+          <h2 className="sr-only">Services</h2>
           {isLoading ? (
             <div className="flex justify-center py-10">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
