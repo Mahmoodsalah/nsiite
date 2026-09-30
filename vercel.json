@@ -5,6 +5,6 @@
   "framework": null,
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" },
-    { "source": "/((?!api/|assets/|logos/|.*\\..*).*)", "destination": "/index.html" }
+    { "source": "/((?!api/|assets/|logos/|.*\\..*).*)", "destination": "/api/index" }
   ]
 }

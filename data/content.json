@@ -2181,5 +2181,33 @@
         "accentColor": "#FD6215"
       }
     ]
+  },
+  {
+    "id": 211,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "ogImage",
+    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
+  },
+  {
+    "id": 212,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "ogImage",
+    "value": "/logos/bootcampai.png"
+  },
+  {
+    "id": 213,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "ogImage",
+    "value": "https://mahmoodsalah.xyz/favicon.png"
+  },
+  {
+    "id": 214,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "ogImage",
+    "value": "https://mahmoodsalah.xyz/favicon.png"
   }
 ]

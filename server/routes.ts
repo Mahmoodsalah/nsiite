@@ -6,17 +6,6 @@ import { registerUploadRoute } from "./upload";
 import { verifyCredentials } from "./admin-auth";
 import { cookieSession } from "./session";
 
-if (process.env.NODE_ENV === "production") {
-  const required = ["SESSION_SECRET"];
-  const missing = required.filter((k) => !process.env[k]);
-  if (missing.length > 0) {
-    throw new Error(
-      `Refusing to start in production: missing required env vars ${missing.join(", ")}. ` +
-        "Set these in your hosting provider before deploying.",
-    );
-  }
-}
-
 const isAuthenticated: RequestHandler = (req: any, res, next) => {
   if (req.session?.adminAuthenticated) {
     return next();
@@ -52,6 +41,17 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express,
 ): Promise<Server> {
+  if (process.env.NODE_ENV === "production") {
+    const required = ["SESSION_SECRET"];
+    const missing = required.filter((k) => !process.env[k]);
+    if (missing.length > 0) {
+      throw new Error(
+        `Refusing to start in production: missing required env vars ${missing.join(", ")}. ` +
+          "Set these in your hosting provider before deploying.",
+      );
+    }
+  }
+
   app.use(cookieSession());
 
   app.post("/api/admin/login", async (req: any, res) => {

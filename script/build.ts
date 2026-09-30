@@ -38,6 +38,16 @@ async function buildAll() {
   console.log("building client...");
   await viteBuild();
 
+  // The server embeds index.html and renders it with per-page SEO tags, so
+  // the file is removed from the static output: otherwise Vercel's CDN would
+  // serve it for "/" without ever calling the function.
+  const appShell = await readFile("dist/public/index.html", "utf-8");
+  await rm("dist/public/index.html");
+  const define = {
+    "process.env.NODE_ENV": '"production"',
+    __APP_SHELL__: JSON.stringify(appShell),
+  };
+
   console.log("building server...");
   const pkg = JSON.parse(await readFile("package.json", "utf-8"));
   const allDeps = [
@@ -52,9 +62,7 @@ async function buildAll() {
     bundle: true,
     format: "cjs",
     outfile: "dist/index.cjs",
-    define: {
-      "process.env.NODE_ENV": '"production"',
-    },
+    define,
     minify: true,
     external: externals,
     logLevel: "info",
@@ -67,9 +75,7 @@ async function buildAll() {
     bundle: true,
     format: "cjs",
     outfile: "api/index.js",
-    define: {
-      "process.env.NODE_ENV": '"production"',
-    },
+    define,
     minify: true,
     external: externals,
     logLevel: "info",

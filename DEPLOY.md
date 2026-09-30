@@ -84,6 +84,17 @@ restore a restore point, or restore from a downloaded `.json` file. Restoring
 always backs up the current content first, so it can be undone. Locally (no
 `BLOB_READ_WRITE_TOKEN`) backups go to `data/backups/`, which is gitignored.
 
+## 5d. Per-page link previews (SEO tags)
+
+Every page request (e.g. `/automati`) is rewritten to the serverless function,
+which fills the page's `<title>`, description, canonical URL and `og:`/`twitter:`
+tags from that page's SEO section in `/admin`, so shared links show the right
+title and image. The share image is the `ogImage` field in each page's SEO
+section. Responses are cached on Vercel's CDN for 60 seconds, so SEO edits
+appear in new link previews within about a minute. `/admin` is served with
+`noindex`. If the API fails to start (for example a missing `SESSION_SECRET`),
+pages still load with the default tags; only `/api` returns errors.
+
 ## 6. Attach the custom domain
 
 1. In Vercel: **Project Settings → Domains → Add `mahmoodsalah.xyz`**
