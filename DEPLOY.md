@@ -75,6 +75,15 @@ That's fine for development on Replit but will not persist on Vercel.
 Alternative storage providers (Cloudinary, S3, R2) can be wired up by editing
 `server/upload.ts` — the contract is simply "save buffer, return public URL".
 
+## 5c. Content backups (automatic)
+
+Before an admin edit is saved, the current content is copied to
+`cms/backups/` in the same Blob store (at most one copy every 10 minutes; the
+latest 30 are kept). Open `/admin → Backups & Restore` to download a copy,
+restore a restore point, or restore from a downloaded `.json` file. Restoring
+always backs up the current content first, so it can be undone. Locally (no
+`BLOB_READ_WRITE_TOKEN`) backups go to `data/backups/`, which is gitignored.
+
 ## 6. Attach the custom domain
 
 1. In Vercel: **Project Settings → Domains → Add `mahmoodsalah.xyz`**

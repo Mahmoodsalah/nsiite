@@ -24,12 +24,29 @@ const isAuthenticated: RequestHandler = (req: any, res, next) => {
   return res.status(401).json({ message: "Unauthorized" });
 };
 
+const contentValueSchema = z.union([z.string(), z.number(), z.boolean(), z.array(z.any()), z.record(z.any())]);
+
 const updateContentSchema = z.object({
   page: z.string().min(1).max(50),
   section: z.string().min(1).max(100),
   contentKey: z.string().min(1).max(100),
-  value: z.union([z.string(), z.number(), z.boolean(), z.array(z.any()), z.record(z.any())]),
+  value: contentValueSchema,
 });
+
+const contentFileSchema = z
+  .array(
+    z.object({
+      id: z.number().int(),
+      page: z.string().min(1).max(50),
+      section: z.string().min(1).max(100),
+      contentKey: z.string().min(1).max(100),
+      value: contentValueSchema,
+    }),
+  )
+  .min(1)
+  .refine((items) => new Set(items.map((i) => i.id)).size === items.length, {
+    message: "Duplicate ids",
+  });
 
 export async function registerRoutes(
   httpServer: Server,
@@ -126,6 +143,56 @@ export async function registerRoutes(
   });
 
   registerUploadRoute(app, isAuthenticated);
+
+  app.get("/api/admin/backups", isAuthenticated, async (_req, res) => {
+    try {
+      res.json(await storage.listBackups());
+    } catch (error) {
+      console.error("Error listing backups:", error);
+      res.status(500).json({ message: "Failed to list backups" });
+    }
+  });
+
+  app.get("/api/admin/backups/:id", isAuthenticated, async (req, res) => {
+    try {
+      const id = req.params.id as string;
+      const data = await storage.getBackup(id);
+      if (!data) return res.status(404).json({ message: "Backup not found" });
+      res.setHeader("Content-Disposition", `attachment; filename="${id}"`);
+      res.json(data);
+    } catch (error) {
+      console.error("Error reading backup:", error);
+      res.status(500).json({ message: "Failed to read backup" });
+    }
+  });
+
+  app.post("/api/admin/backups/:id/restore", isAuthenticated, async (req, res) => {
+    try {
+      const data = await storage.getBackup(req.params.id as string);
+      if (!data) return res.status(404).json({ message: "Backup not found" });
+      const parsed = contentFileSchema.safeParse(data);
+      if (!parsed.success) return res.status(422).json({ message: "Backup file is not valid content" });
+      await storage.restoreContent(parsed.data);
+      res.json({ success: true, items: parsed.data.length });
+    } catch (error) {
+      console.error("Error restoring backup:", error);
+      res.status(500).json({ message: "Failed to restore backup" });
+    }
+  });
+
+  app.post("/api/admin/restore", isAuthenticated, async (req, res) => {
+    try {
+      const parsed = contentFileSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ message: "This file is not a valid content backup" });
+      }
+      await storage.restoreContent(parsed.data);
+      res.json({ success: true, items: parsed.data.length });
+    } catch (error) {
+      console.error("Error restoring content:", error);
+      res.status(500).json({ message: "Failed to restore content" });
+    }
+  });
 
   app.delete("/api/content/:id", isAuthenticated, async (req, res) => {
     try {

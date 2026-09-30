@@ -28,6 +28,8 @@ export async function createApp(): Promise<{ app: Express; httpServer: Server }>
 
   app.use(
     express.json({
+      // Content restores send the whole CMS file, which is close to the 100kb default.
+      limit: "2mb",
       verify: (req, _res, buf) => {
         req.rawBody = buf;
       },

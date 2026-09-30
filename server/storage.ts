@@ -1,10 +1,13 @@
-import { JsonStorage, type SiteContentItem } from "./jsonStorage";
+import { JsonStorage, type SiteContentItem, type BackupInfo } from "./jsonStorage";
 
 export interface IStorage {
   getContentByPage(page: string): Promise<SiteContentItem[]>;
   getAllContent(): Promise<SiteContentItem[]>;
   upsertContent(page: string, section: string, contentKey: string, value: any): Promise<SiteContentItem>;
   deleteContent(id: number): Promise<void>;
+  listBackups(): Promise<BackupInfo[]>;
+  getBackup(id: string): Promise<SiteContentItem[] | null>;
+  restoreContent(items: SiteContentItem[]): Promise<void>;
 }
 
 export const storage: IStorage = new JsonStorage();

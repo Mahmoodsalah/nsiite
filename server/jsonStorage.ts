@@ -12,6 +12,13 @@ export interface SiteContentItem {
 
 const DATA_FILE = path.join(process.cwd(), "data", "content.json");
 const BLOB_PATH = "cms/content.json";
+const BACKUP_DIR = path.join(process.cwd(), "data", "backups");
+const BACKUP_PREFIX = "cms/backups/";
+// One automatic restore point per editing session keeps a burst of saves from
+// pushing every older backup out of the retention window.
+const BACKUP_INTERVAL_MS = 10 * 60_000;
+const MAX_BACKUPS = 30;
+const BACKUP_ID_REGEX = /^content-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z)-(auto|restore)\.json$/;
 const useBlob = !!process.env.BLOB_READ_WRITE_TOKEN;
 
 let cache: SiteContentItem[] | null = null;
@@ -107,6 +114,120 @@ async function writeData(data: SiteContentItem[]): Promise<void> {
   cacheTime = Date.now();
 }
 
+export type BackupReason = "auto" | "restore";
+
+export interface BackupInfo {
+  id: string;
+  createdAt: string;
+  reason: BackupReason;
+  size: number;
+}
+
+let lastBackupAt = 0;
+
+function parseBackupId(id: string): { createdAt: string; reason: BackupReason } | null {
+  const m = BACKUP_ID_REGEX.exec(id);
+  if (!m) return null;
+  const [date, time] = m[1].split("T");
+  const [hh, mm, ss, ms] = time.replace("Z", "").split("-");
+  return { createdAt: `${date}T${hh}:${mm}:${ss}.${ms}Z`, reason: m[2] as BackupReason };
+}
+
+async function listBackupFiles(): Promise<(BackupInfo & { url?: string })[]> {
+  const out: (BackupInfo & { url?: string })[] = [];
+  if (useBlob) {
+    const { list } = await import("@vercel/blob");
+    let cursor: string | undefined;
+    do {
+      const page = await list({ prefix: BACKUP_PREFIX, cursor });
+      for (const b of page.blobs) {
+        const id = b.pathname.slice(BACKUP_PREFIX.length);
+        const meta = parseBackupId(id);
+        if (meta) out.push({ id, ...meta, size: b.size, url: b.url });
+      }
+      cursor = page.hasMore ? page.cursor : undefined;
+    } while (cursor);
+  } else if (fs.existsSync(BACKUP_DIR)) {
+    for (const id of fs.readdirSync(BACKUP_DIR)) {
+      const meta = parseBackupId(id);
+      if (meta) out.push({ id, ...meta, size: fs.statSync(path.join(BACKUP_DIR, id)).size });
+    }
+  }
+  return out.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+// Deletes all but the newest `keep` backups in `existing` (sorted newest first).
+async function pruneBackups(existing: (BackupInfo & { url?: string })[], keep: number) {
+  const stale = existing.slice(keep);
+  if (stale.length === 0) return;
+  if (useBlob) {
+    const { del } = await import("@vercel/blob");
+    await del(stale.map((b) => b.url!));
+  } else {
+    for (const b of stale) fs.rmSync(path.join(BACKUP_DIR, b.id), { force: true });
+  }
+}
+
+async function writeBackup(data: SiteContentItem[], reason: BackupReason): Promise<void> {
+  const now = new Date();
+  const id = `content-${now.toISOString().replace(/[:.]/g, "-")}-${reason}.json`;
+  const body = JSON.stringify(data, null, 2);
+  if (useBlob) {
+    const { put } = await import("@vercel/blob");
+    await put(BACKUP_PREFIX + id, body, {
+      access: "public",
+      contentType: "application/json",
+      addRandomSuffix: false,
+      cacheControlMaxAge: 60,
+    });
+  } else {
+    fs.mkdirSync(BACKUP_DIR, { recursive: true });
+    fs.writeFileSync(path.join(BACKUP_DIR, id), body, "utf-8");
+  }
+  lastBackupAt = now.getTime();
+}
+
+// Saves `data` (the content as it is before a change) as a restore point.
+// "auto" backups are throttled to one per BACKUP_INTERVAL_MS; "restore"
+// backups are always taken so a restore can itself be undone.
+async function backupBeforeChange(data: SiteContentItem[], reason: BackupReason): Promise<void> {
+  const snapshot = JSON.parse(JSON.stringify(data)) as SiteContentItem[];
+  try {
+    if (reason === "auto" && Date.now() - lastBackupAt < BACKUP_INTERVAL_MS) return;
+    const existing = await listBackupFiles();
+    const newest = existing[0] ? Date.parse(existing[0].createdAt) : 0;
+    if (reason === "auto" && Date.now() - newest < BACKUP_INTERVAL_MS) {
+      lastBackupAt = newest;
+      return;
+    }
+    await writeBackup(snapshot, reason);
+    await pruneBackups(existing, MAX_BACKUPS - 1);
+  } catch (err) {
+    // A failed backup must not block the admin from saving content.
+    console.error("[storage] Backup failed:", err);
+    if (reason === "restore") throw err;
+  }
+}
+
+async function readBackup(id: string): Promise<SiteContentItem[] | null> {
+  if (!parseBackupId(id)) return null;
+  if (useBlob) {
+    const { head, BlobNotFoundError } = await import("@vercel/blob");
+    try {
+      const meta = await head(BACKUP_PREFIX + id);
+      const res = await fetch(meta.url, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Blob fetch ${res.status}`);
+      return (await res.json()) as SiteContentItem[];
+    } catch (err: any) {
+      if (err instanceof BlobNotFoundError || err?.name === "BlobNotFoundError") return null;
+      throw err;
+    }
+  }
+  const file = path.join(BACKUP_DIR, id);
+  if (!fs.existsSync(file)) return null;
+  return JSON.parse(fs.readFileSync(file, "utf-8")) as SiteContentItem[];
+}
+
 function getNextId(data: SiteContentItem[]): number {
   if (data.length === 0) return 1;
   return Math.max(...data.map((d) => d.id)) + 1;
@@ -129,6 +250,7 @@ export class JsonStorage {
     value: any,
   ): Promise<SiteContentItem> {
     const data = await readData();
+    await backupBeforeChange(data, "auto");
     const idx = data.findIndex(
       (item) =>
         item.page === page &&
@@ -156,7 +278,22 @@ export class JsonStorage {
 
   async deleteContent(id: number): Promise<void> {
     const data = await readData();
+    await backupBeforeChange(data, "auto");
     const filtered = data.filter((item) => item.id !== id);
     await writeData(filtered);
+  }
+
+  async listBackups(): Promise<BackupInfo[]> {
+    const files = await listBackupFiles();
+    return files.map(({ url: _url, ...info }) => info);
+  }
+
+  async getBackup(id: string): Promise<SiteContentItem[] | null> {
+    return readBackup(id);
+  }
+
+  async restoreContent(items: SiteContentItem[]): Promise<void> {
+    await backupBeforeChange(await readData(), "restore");
+    await writeData(items);
   }
 }
