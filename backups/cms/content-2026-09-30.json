@@ -1,0 +1,2179 @@
+[
+  {
+    "id": 2,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "I specialize in leveraging advanced data science techniques and AI engineering to drive innovative solutions for complex business challenges. As a consultant and mentor, I help organizations transform through the strategic adoption of AI technologies."
+  },
+  {
+    "id": 4,
+    "page": "hireme",
+    "section": "about",
+    "contentKey": "title",
+    "value": "About Me"
+  },
+  {
+    "id": 5,
+    "page": "hireme",
+    "section": "about",
+    "contentKey": "bio1",
+    "value": "Senior Data Scientist and AI Engineer specializing in AI agents, computer vision, and deep learning technologies. I develop innovative AI solutions that drive measurable business value."
+  },
+  {
+    "id": 6,
+    "page": "hireme",
+    "section": "about",
+    "contentKey": "bio2",
+    "value": "As an AI Mentor at Udacity, I guide students through advanced programs while sharing expertise in cutting-edge technologies."
+  },
+  {
+    "id": 7,
+    "page": "hireme",
+    "section": "about",
+    "contentKey": "coreCompetencies",
+    "value": [
+      {
+        "icon": "Bot",
+        "label": "Agentic AI"
+      },
+      {
+        "icon": "Eye",
+        "label": "Computer Vision"
+      },
+      {
+        "icon": "Brain",
+        "label": "Deep Learning"
+      },
+      {
+        "icon": "Cloud",
+        "label": "Cloud Computing"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "page": "hireme",
+    "section": "projects",
+    "contentKey": "title",
+    "value": "Projects"
+  },
+  {
+    "id": 9,
+    "page": "hireme",
+    "section": "projects",
+    "contentKey": "subtitle",
+    "value": "A selection of my recent work in AI and business transformation."
+  },
+  {
+    "id": 10,
+    "page": "hireme",
+    "section": "projects",
+    "contentKey": "items",
+    "value": [
+      {
+        "tags": [
+          "Python",
+          "AI",
+          "Cloud",
+          "Computer Vision"
+        ],
+        "title": "Video Analytics Solution",
+        "description": "Developed an AI-powered video analytics platform integrating hardware, software, and cloud solutions"
+      },
+      {
+        "tags": [
+          "Python",
+          "AWS",
+          "Machine Learning",
+          "Data Analysis"
+        ],
+        "title": "Sales Forecasting Optimization",
+        "description": "Created a machine learning model to predict sales trends, optimizing inventory management and reducing stockouts by 20%"
+      },
+      {
+        "tags": [
+          "Computer Vision",
+          "Deep Learning",
+          "Python",
+          "Neural Networks"
+        ],
+        "title": "Garbage Detection System",
+        "description": "Designed a computer vision system to detect and classify garbage types using deep neural networks"
+      },
+      {
+        "tags": [
+          "Agentic AI",
+          "LLM Fine-Tuning",
+          "RAG",
+          "LangChain"
+        ],
+        "title": "Agentic AI System",
+        "description": "Built an end-to-end Agentic AI platform combining fine-tuned LLMs with a Retrieval-Augmented Generation (RAG) pipeline, enabling autonomous agents to reason, retrieve, and act on enterprise knowledge with high accuracy and reliability"
+      },
+      {
+        "tags": [
+          "Computer Vision",
+          "PyTorch",
+          "Medical Imaging",
+          "CNN"
+        ],
+        "title": "Medical Image Analysis AI",
+        "description": "Developed a deep learning system for automated diagnosis of medical conditions from X-ray images, reducing diagnosis time by 60%"
+      },
+      {
+        "tags": [
+          "NLP",
+          "LangChain",
+          "OpenAI",
+          "Python"
+        ],
+        "title": "Smart Retail Assistant",
+        "description": "Created an AI agent for retail customer service, handling product inquiries and recommendations with NLP, improving satisfaction by 40%"
+      },
+      {
+        "tags": [
+          "Computer Vision",
+          "TensorFlow",
+          "Face Recognition",
+          "Anti-spoofing"
+        ],
+        "title": "Facial Recognition Security System",
+        "description": "Built an enterprise-grade facial recognition system with anti-spoofing capabilities, processing real-time video streams with 99.9% accuracy"
+      },
+      {
+        "tags": [
+          "AI Agents",
+          "OCR",
+          "NLP",
+          "Document Analysis"
+        ],
+        "title": "AI Document Processing Agent",
+        "description": "Developed an intelligent document processing system using AI agents to extract, classify, and analyze complex business documents, reducing manual processing time by 85%"
+      },
+      {
+        "tags": [
+          "Computer Vision",
+          "Quality Control",
+          "Industrial IoT",
+          "Deep Learning"
+        ],
+        "title": "Autonomous Quality Control",
+        "description": "Implemented a computer vision system for manufacturing quality control, detecting defects in real-time with 99.5% accuracy"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "title",
+    "value": "Resume"
+  },
+  {
+    "id": 14,
+    "page": "hireme",
+    "section": "testimonials",
+    "contentKey": "title",
+    "value": "Testimonials"
+  },
+  {
+    "id": 15,
+    "page": "hireme",
+    "section": "testimonials",
+    "contentKey": "subtitle",
+    "value": "What others say about working with me"
+  },
+  {
+    "id": 16,
+    "page": "hireme",
+    "section": "testimonials",
+    "contentKey": "items",
+    "value": [
+      {
+        "name": "Rana Chakrabarti",
+        "text": "I met Mahmood as a part of the cohort from Bahrain that attended the Multi-Dimensional Engineers Program at SAP Silicon Valley. Mahmood represents all these core values. He is insatiably curious, has a high tolerance for risk, is a skilled technologist, a gifted storyteller, and a team mate everyone wants to work with.",
+        "image": "https://mahmoodsalah.github.io/testimonials/rana.jpg",
+        "title": "Director of Learning Experiences at SAP Academy for Engineering"
+      },
+      {
+        "name": "Poorna Shivaprakasha",
+        "text": "Working with Mahmood during our SAP Academy training program was a privilege. His expertise in large language models, data science, and software development stood out, as did his innovative Hackathon project.",
+        "image": "https://mahmoodsalah.github.io/testimonials/poorna.jpg",
+        "title": "Analytics & PMO Lead at SAP Academy for Engineering"
+      },
+      {
+        "name": "Abdelrehim Ahmed",
+        "text": "I have worked with Mahmood for more than 6 years on several projects. Mahmood really stands out as a machine learning expert. He is always learning new techniques and working hard to stay up to date with the latest trends.",
+        "image": "https://mahmoodsalah.github.io/testimonials/abdelrehim.jpg",
+        "title": "Co-Founder & CTO @ Stealth Mode AI Startup"
+      },
+      {
+        "name": "Omnia Nour",
+        "text": "Mahmood has a great enthusiasm and the ability to work in groups. He also has a bright mind that could use it in solve many problems, great personality and he is loved by people around him.",
+        "image": "https://mahmoodsalah.github.io/testimonials/omnia.jpg",
+        "title": "Branch Manager at Information Technology Institute (ITI)"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "page": "consultation",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "Whether you need help with AI strategy, building ML pipelines, or transforming your business with data-driven solutions, I'm here to help. Let's discuss how I can contribute to your next project."
+  },
+  {
+    "id": 20,
+    "page": "consultation",
+    "section": "services",
+    "contentKey": "items",
+    "value": [
+      {
+        "icon": "Brain",
+        "title": "AI Strategy",
+        "description": "Get expert guidance on integrating AI into your business workflows and operations."
+      },
+      {
+        "icon": "Eye",
+        "title": "Computer Vision",
+        "description": "Custom solutions for image recognition, video analytics, and visual AI systems."
+      },
+      {
+        "icon": "Bot",
+        "title": "AI Agents & LLMs Systems",
+        "description": "Build intelligent AI agents and LLMs systems that automate complex tasks and enhance productivity."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "page": "bootcamp",
+    "section": "hero",
+    "contentKey": "badge",
+    "value": "Applications Now Open"
+  },
+  {
+    "id": 23,
+    "page": "bootcamp",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "The first non-profit AI bootcamp platform in the Middle East. Immersive, project-based, and built to launch real AI careers."
+  },
+  {
+    "id": 24,
+    "page": "bootcamp",
+    "section": "hero",
+    "contentKey": "highlights",
+    "value": [
+      "10 Weeks of Deep AI Training",
+      "Real Projects & Global Collaboration",
+      "Scholarships up to 100%"
+    ]
+  },
+  {
+    "id": 25,
+    "page": "bootcamp",
+    "section": "hero",
+    "contentKey": "applyUrl",
+    "value": "https://forms.gle/nCeyqSxashm8Q1bv5"
+  },
+  {
+    "id": 26,
+    "page": "bootcamp",
+    "section": "about",
+    "contentKey": "title",
+    "value": "About BootcampAI"
+  },
+  {
+    "id": 27,
+    "page": "bootcamp",
+    "section": "about",
+    "contentKey": "description1",
+    "value": "BootcampAI is the first non-profit platform in the Middle East dedicated to AI education through immersive, project-based bootcamps. Our philosophy: world-class AI education must be accessible, deeply practical, and tied directly to real career outcomes — not behind paywalls or buried in theory."
+  },
+  {
+    "id": 60,
+    "page": "mentorship",
+    "section": "benefits",
+    "contentKey": "title",
+    "value": "Benefits of Mentorship"
+  },
+  {
+    "id": 12,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "embedUrl",
+    "value": "https://drive.google.com/file/d/13wd7GWnubmKvmuJP_6dwCxU5akGutECb/view"
+  },
+  {
+    "id": 13,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "viewUrl",
+    "value": "https://drive.google.com/file/d/1L4oF4mlBVTii1biCXXXDye6MiWry1Fye/view?usp=sharing"
+  },
+  {
+    "id": 19,
+    "page": "consultation",
+    "section": "hero",
+    "contentKey": "email",
+    "value": "work@mahmoodsalah.xyz"
+  },
+  {
+    "id": 22,
+    "page": "bootcamp",
+    "section": "hero",
+    "contentKey": "title",
+    "value": "Become the Next LLM Engineer with BootcampAI"
+  },
+  {
+    "id": 1,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "prefixLabel",
+    "value": "I'm"
+  },
+  {
+    "id": 17,
+    "page": "consultation",
+    "section": "hero",
+    "contentKey": "title",
+    "value": "Need a Consultation?"
+  },
+  {
+    "id": 31,
+    "page": "bootcamp",
+    "section": "whyChoose",
+    "contentKey": "title",
+    "value": "Why Choose BootcampAI Programs"
+  },
+  {
+    "id": 32,
+    "page": "bootcamp",
+    "section": "whyChoose",
+    "contentKey": "subtitle",
+    "value": "What sets BootcampAI apart is our commitment to education with impact -- not only teaching AI but empowering learners to create, innovate, and lead in the field."
+  },
+  {
+    "id": 33,
+    "page": "bootcamp",
+    "section": "whyChoose",
+    "contentKey": "highlights",
+    "value": [
+      {
+        "desc": "Build strong theoretical and mathematical understanding with hands-on practice.",
+        "icon": "GraduationCap",
+        "title": "Academic + Practical Integration"
+      },
+      {
+        "desc": "Every module produces a real, portfolio-worthy project.",
+        "icon": "Puzzle",
+        "title": "Project-Based Learning"
+      },
+      {
+        "desc": "6 month free learning with extended mentorship and guidance after graduation.",
+        "icon": "Handshake",
+        "title": "Career Support & Mentorship"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "page": "bootcamp",
+    "section": "whyChoose",
+    "contentKey": "cta",
+    "value": "Your future as an AI Engineer starts here."
+  },
+  {
+    "id": 48,
+    "page": "bootcamp",
+    "section": "enterprise",
+    "contentKey": "title",
+    "value": "For Companies / Enterprise Programs"
+  },
+  {
+    "id": 49,
+    "page": "bootcamp",
+    "section": "enterprise",
+    "contentKey": "description",
+    "value": "BootcampAI also partners with organizations looking to upskill their teams or build AI capabilities from within. We offer customized enterprise AI programs that integrate with your company's strategy."
+  },
+  {
+    "id": 50,
+    "page": "bootcamp",
+    "section": "enterprise",
+    "contentKey": "benefits",
+    "value": [
+      "Tailored AI training and workforce upskilling programs.",
+      "Dedicated mentorship from BootcampAI experts.",
+      "Collaboration opportunities through our European partnerships.",
+      "Access to pre-trained AI talents for future hiring needs."
+    ]
+  },
+  {
+    "id": 51,
+    "page": "bootcamp",
+    "section": "enterprise",
+    "contentKey": "cta",
+    "value": "Empower your organization with BootcampAI's innovation-driven training."
+  },
+  {
+    "id": 55,
+    "page": "mentorship",
+    "section": "intro",
+    "contentKey": "title",
+    "value": "Being an AI learner is tough."
+  },
+  {
+    "id": 56,
+    "page": "mentorship",
+    "section": "intro",
+    "contentKey": "description",
+    "value": "It seems like every week there's a new model, framework, or research breakthrough to keep up with. Honestly, it can be overwhelming and intimidating. I know because I've been there. So whether you're new to AI or looking for expert guidance on your next project, I can help."
+  },
+  {
+    "id": 57,
+    "page": "mentorship",
+    "section": "plans",
+    "contentKey": "title",
+    "value": "Mentorship Plans"
+  },
+  {
+    "id": 58,
+    "page": "mentorship",
+    "section": "plans",
+    "contentKey": "subtitle",
+    "value": "Choose the plan that fits your needs. Every plan includes personalized, one-on-one guidance tailored to your goals."
+  },
+  {
+    "id": 53,
+    "page": "mentorship",
+    "section": "hero",
+    "contentKey": "title",
+    "value": "Information Is Everywhere. Direction Is Rare."
+  },
+  {
+    "id": 54,
+    "page": "mentorship",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "Wherever you are in your AI journey, you'll gain clarity, structure, and the strategic edge to build real, deployable systems."
+  },
+  {
+    "id": 52,
+    "page": "bootcamp",
+    "section": "enterprise",
+    "contentKey": "email",
+    "value": "work@mahmoodsalah.xyz"
+  },
+  {
+    "id": 61,
+    "page": "mentorship",
+    "section": "benefits",
+    "contentKey": "subtitle",
+    "value": "I know a thing or two because I've done a thing or two in my AI career, and I'm committed to helping you make use of that knowledge."
+  },
+  {
+    "id": 62,
+    "page": "mentorship",
+    "section": "benefits",
+    "contentKey": "items",
+    "value": [
+      {
+        "desc": "I'll help you build confidence and skill in AI tools like TensorFlow, PyTorch, LangChain, and more.",
+        "icon": "Wrench",
+        "title": "Tools & Frameworks"
+      },
+      {
+        "desc": "I'll point you towards the best courses, papers, and content to accelerate your learning.",
+        "icon": "BookMarked",
+        "title": "Resources"
+      },
+      {
+        "desc": "I'll connect you with other AI professionals and expand your reach in the industry.",
+        "icon": "Network",
+        "title": "Networking"
+      },
+      {
+        "desc": "I'll make introductions and help you find AI roles, projects, and collaboration opportunities.",
+        "icon": "Sparkles",
+        "title": "Opportunity"
+      },
+      {
+        "desc": "I'll uncover blind spots and accelerate your growth as an AI engineer.",
+        "icon": "TrendingUp",
+        "title": "Growth"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "page": "mentorship",
+    "section": "mentoringStyle",
+    "contentKey": "title",
+    "value": "My Mentoring Style"
+  },
+  {
+    "id": 64,
+    "page": "mentorship",
+    "section": "mentoringStyle",
+    "contentKey": "subtitle",
+    "value": "I strive to function as a catalyst and challenge you to grow as both an AI practitioner and a professional. I care about the details and will encourage you to think, plan, and dream."
+  },
+  {
+    "id": 65,
+    "page": "mentorship",
+    "section": "mentoringStyle",
+    "contentKey": "items",
+    "value": [
+      {
+        "desc": "No sugar-coated feedback. I care about your growth too much to not keep it real. We'll work through challenges and build better solutions, together.",
+        "icon": "Heart",
+        "title": "Authenticity"
+      },
+      {
+        "desc": "AI is a rapidly evolving field. I don't claim to know everything, but I bring years of hands-on experience and a commitment to continuous learning.",
+        "icon": "Shield",
+        "title": "Humility"
+      },
+      {
+        "desc": "To me, you're more than just a mentee. You're a fellow AI practitioner. I'm not the only one teaching and you're not the only one learning.",
+        "icon": "Users",
+        "title": "Equality"
+      },
+      {
+        "desc": "I don't have all the answers, but I'm happy to share what I've learned from building real-world AI systems and guide you to useful resources.",
+        "icon": "Eye",
+        "title": "Transparency"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "page": "mentorship",
+    "section": "bottomCta",
+    "contentKey": "title",
+    "value": "Book a Consult"
+  },
+  {
+    "id": 67,
+    "page": "mentorship",
+    "section": "bottomCta",
+    "contentKey": "subtitle",
+    "value": "Thinking about mentorship? Let's talk about it. The first call is on me."
+  },
+  {
+    "id": 68,
+    "page": "mentorship",
+    "section": "bottomCta",
+    "contentKey": "email",
+    "value": "work@mahmoodsalah.xyz"
+  },
+  {
+    "id": 3,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "socialLinks",
+    "value": [
+      {
+        "href": "https://www.linkedin.com/in/mahmoodsalah",
+        "platform": "linkedin"
+      },
+      {
+        "href": "https://www.youtube.com/@MahmoodSalah",
+        "platform": "youtube"
+      },
+      {
+        "href": "https://www.instagram.com/mahmoodsalah.ai",
+        "platform": "instagram"
+      },
+      {
+        "href": "https://www.facebook.com/MahmoodSalah.official",
+        "platform": "facebook"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "page": "mentorship",
+    "section": "plans",
+    "contentKey": "items",
+    "value": [
+      {
+        "cta": "Get Started",
+        "href": "https://cal.com/mahmoodsalah/secret",
+        "icon": "BookOpen",
+        "price": "$27",
+        "originalPrice": "$75",
+        "discount": "67% OFF",
+        "title": "AI Learning Support",
+        "bestFor": "Learners building AI foundations",
+        "duration": "1 month",
+        "features": [
+          "Unlimited chat support",
+          "2 hours of 1:1 mentoring",
+          "Concept explanation",
+          "Study plan guidance"
+        ],
+        "description": "Get unstuck faster with direct support on AI courses, concepts, assignments, and study direction."
+      },
+      {
+        "cta": "Get Started",
+        "href": "https://cal.com/mahmoodsalah/30min",
+        "icon": "Code",
+        "price": "$149",
+        "originalPrice": "$500",
+        "discount": "70% OFF",
+        "title": "AI Project Mentorship",
+        "bestFor": "Aspiring AI engineers and portfolio builders",
+        "popular": true,
+        "duration": "2 months",
+        "features": [
+          "Unlimited chat support",
+          "10 hours of 1:1 mentoring",
+          "Architecture review",
+          "Code review",
+          "Model optimization guidance",
+          "Deployment strategy"
+        ],
+        "description": "Build your personal AI project with hands-on feedback on architecture, code quality, model choices, and deployment strategy."
+      },
+      {
+        "cta": "Get Started",
+        "href": "https://cal.com/mahmoodsalah/15min",
+        "icon": "Building2",
+        "price": "$1,199",
+        "originalPrice": "$2,000",
+        "discount": "40% OFF",
+        "title": "AI Consulting for Teams",
+        "bestFor": "Startups, teams, and organizations",
+        "duration": "3–4 months",
+        "features": [
+          "AI use-case assessment",
+          "Technical architecture planning",
+          "Team training",
+          "Implementation and deployment support"
+        ],
+        "description": "Work with us to evaluate, design, and implement AI solutions that fit your business goals and technical capacity."
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "logoImage",
+    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
+  },
+  {
+    "id": 72,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "title",
+    "value": "Your work, powered by"
+  },
+  {
+    "id": 73,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "titleHighlight",
+    "value": "intelligence"
+  },
+  {
+    "id": 74,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "We don’t sell generic software. We engineer bespoke, multi-agent AI systems designed for your exact operational reality. You tell us what to hand off. We build the architecture to automate it."
+  },
+  {
+    "id": 75,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "ctaPrimary",
+    "value": "Get Started"
+  },
+  {
+    "id": 76,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "ctaSecondary",
+    "value": "See How It Works"
+  },
+  {
+    "id": 77,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "badge",
+    "value": "How It Works"
+  },
+  {
+    "id": 78,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "title",
+    "value": "Zero Templates. 100% Engineered for You."
+  },
+  {
+    "id": 79,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "description",
+    "value": "Stop adapting your work to fit generic tools. We build the tool to fit your work."
+  },
+  {
+    "id": 80,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "steps",
+    "value": [
+      {
+        "icon": "Brain",
+        "step": "01",
+        "title": "Discovery",
+        "desc": "We start with a deep dive into your current operations. You show us the repetitive tasks, manual reporting, and coordination loops you want to eliminate."
+      },
+      {
+        "icon": "Bot",
+        "step": "02",
+        "title": "Custom Engineering",
+        "desc": "We build a specialized AI system around your exact needs, calibrating the right level of intelligence, autonomy, and security for your specific use case."
+      },
+      {
+        "icon": "ShieldCheck",
+        "step": "03",
+        "title": "You Stay in Command",
+        "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep. We build it exactly that way."
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "badge",
+    "value": "Who It's For"
+  },
+  {
+    "id": 82,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "title",
+    "value": "Built for Leaders, Engineered for Scale."
+  },
+  {
+    "id": 83,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "description1",
+    "value": "Endless coordination, boring tasks and manual reporting kill growth. We automate the overhead so Project Managers, Operations Heads, and Consultants can focus entirely on strategy."
+  },
+  {
+    "id": 84,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "description2",
+    "value": "We automate the management and operation overhead so you can focus entirely on strategy and growth."
+  },
+  {
+    "id": 85,
+    "page": "automati",
+    "section": "whoFor",
+    "contentKey": "audiences",
+    "value": [
+      {
+        "icon": "Users",
+        "label": "Project Managers"
+      },
+      {
+        "icon": "Settings2",
+        "label": "Operations Managers"
+      },
+      {
+        "icon": "Brain",
+        "label": "Department Heads"
+      },
+      {
+        "icon": "Sparkles",
+        "label": "PMO Leaders"
+      },
+      {
+        "icon": "HandshakeIcon",
+        "label": "Consultants"
+      },
+      {
+        "icon": "Zap",
+        "label": "Business Owners"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "title",
+    "value": "Enterprise Security. Absolute Control."
+  },
+  {
+    "id": 87,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "description1",
+    "value": "We guarantee total privacy across every automated system we build. You dictate exactly what information Automati can access and you retain the power to pause operations at any moment."
+  },
+  {
+    "id": 88,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "description2",
+    "value": "Confidentiality is the absolute foundation of our architecture."
+  },
+  {
+    "id": 89,
+    "page": "automati",
+    "section": "privacy",
+    "contentKey": "items",
+    "value": [
+      {
+        "icon": "ShieldCheck",
+        "title": "Full Confidentiality",
+        "desc": "Your internal data and workflows are strictly isolated and never shared with outside parties."
+      },
+      {
+        "icon": "Brain",
+        "title": "Minimal Data Principle",
+        "desc": "We operate on a minimal data principle using only the exact information necessary to run your workflows."
+      },
+      {
+        "icon": "Settings2",
+        "title": "Secure by Design",
+        "desc": "Enterprise privacy protocols are engineered into your AI agent from the very first day."
+      },
+      {
+        "icon": "CheckCircle",
+        "title": "Approval Required",
+        "desc": "You retain ultimate authority. No communications are sent and no external actions execute without your final approval."
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "clientCount",
+    "value": "31"
+  },
+  {
+    "id": 91,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "clientLabel",
+    "value": "Automati Clients"
+  },
+  {
+    "id": 92,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "stats",
+    "value": [
+      {
+        "value": "100%",
+        "label": "Custom-built"
+      },
+      {
+        "value": "Any",
+        "label": "Workflow or industry"
+      },
+      {
+        "value": "Full",
+        "label": "Control, always yours"
+      },
+      {
+        "value": "Zero",
+        "label": "Technical knowledge needed"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "badge",
+    "value": "Pricing"
+  },
+  {
+    "id": 94,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "title",
+    "value": "Simple, fair, and built to scale with you"
+  },
+  {
+    "id": 95,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "description",
+    "value": "Ask for the outcome. Automati handles the steps."
+  },
+  {
+    "id": 96,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "plans",
+    "value": [
+      {
+        "label": "Subscription",
+        "popular": "true",
+        "startingFrom": "Starting from",
+        "price": "$20 ",
+        "priceUnit": "/ user / month",
+        "description": "Ongoing access to your custom AI agent with continuous updates improvements and dedicated support to handle your daily tasks.",
+        "features": [
+          "Continuous AI system access",
+          "Adjustments as you grow",
+          "Priority email support for smooth operations",
+          "Full team onboarding and executive training"
+        ],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      },
+      {
+        "label": "One-Time Setup",
+        "popular": "false",
+        "startingFrom": "Starting from",
+        "price": "$499",
+        "priceUnit": "",
+        "description": "A complete custom built AI agent designed exactly around your management workflow. It is yours to keep with absolutely no ongoing monthly fees.",
+        "features": [
+          "Workflow discovery session",
+          "Fully custom AI system",
+          "Setup, testing & full handover",
+          "No subscription required"
+        ],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      },
+      {
+        "label": "For Individual Employees",
+        "popular": "false",
+        "startingFrom": "Starting from",
+        "price": "$15",
+        "priceUnit": "/ month",
+        "description": "Tailored pricing for individual managers and leaders with highly complex personal workflows and advanced automation needs.",
+        "features": [
+          "Multi-system AI architecture",
+          "Priority support",
+          "Flexible integrations",
+          "Onboarding & training"
+        ],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "title",
+    "value": "Your time is your most valuable asset."
+  },
+  {
+    "id": 98,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "description",
+    "value": "The goal isn't to make your work feel robotic. It's to remove the parts of your day that don't deserve your attention — so you can invest it where it actually matters."
+  },
+  {
+    "id": 99,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "cta",
+    "value": "Get Started"
+  },
+  {
+    "id": 100,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "ctaUrl",
+    "value": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+  },
+  {
+    "id": 101,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 102,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Questions people often ask"
+  },
+  {
+    "id": 103,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "If your question isn't here, just ask, we're happy to walk you through how a custom AI system would work for you."
+  },
+  {
+    "id": 104,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What exactly is Automati?",
+        "answer": "Automati is a service that designs and builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Instead of giving you a generic tool, we engineer an AI system around the specific way you work — to run workflows, support decisions, generate content, or handle communications on your behalf."
+      },
+      {
+        "question": "How much does it cost?",
+        "answer": "Subscriptions start from $15/month for ongoing access and improvements. One-time custom builds start from $499. You can also get 10% off your subscription for every person you refer."
+      },
+      {
+        "question": "Do I need any technical knowledge to use it?",
+        "answer": "No. You only need to describe what you want to change or hand off in your day-to-day work. We handle the design, build, integration, and handover. You stay in control of how much autonomy your AI system has."
+      },
+      {
+        "question": "What kind of tasks can an Automati AI system handle?",
+        "answer": "Almost anything that involves repeatable thinking, writing, decision-making, or coordination — for example: managing inboxes and replies, generating content and reports, qualifying leads, summarising documents, running research, scheduling, customer support triage, internal Q&A, or multi-step business workflows."
+      },
+      {
+        "question": "How is this different from tools like Zapier, Make, or n8n or Claude Code?",
+        "answer": "Tools like Zapier and Make rely on very rigid rules. If a single data field changes or an email is formatted differently the entire automation breaks and you have to fix it. Claude Code is a technical tool strictly for software engineering. Automati agents are powered by advanced artificial intelligence that understands context. They can read unstructured data handle unexpected changes and make intelligent decisions just like a human assistant would. Plus we handle all the technical setup so you never have to look at a complex workflow builder. We can also integrate with Zapier, Make, or n8n where it makes sense, but the intelligence layer is custom-built for you."
+      },
+      {
+        "question": "How long does it take to build a system?",
+        "answer": "Most one-time builds are delivered within 2–6 weeks depending on complexity. We start with a short discovery session, then design, build, test, and hand over. Larger company-wide systems are scoped individually."
+      },
+      {
+        "question": "Is my data safe? Will it be shared or used for training?",
+        "answer": "Yes, your data is safe. We never share your workflows or data with third parties, never use it for training, and only work with what is strictly necessary to build and run your system. Privacy and security are engineered in from day one."
+      },
+      {
+        "question": "Do I own the AI system you build for me?",
+        "answer": "With the One-Time Setup, the system is yours to keep with no ongoing fees. With the Subscription, you get continuous access, updates, and improvements as your needs evolve. Companies get fully owned, tailored architectures."
+      },
+      {
+        "question": "Can the AI system run on its own, or do I stay in control?",
+        "answer": "You decide. Some systems run fully autonomously, others wait for your approval before acting, and many sit in between. We design exactly the level of autonomy and control you're comfortable with."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Fill out the short form via the Get Started button. We'll set up a discovery session, understand your goals and workflow, and propose a custom AI system designed around exactly what you want to change."
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "Automati — Custom AI Agent Systems for Your Workflow | Mahmood Salah"
+  },
+  {
+    "id": 106,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Automati builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Hand off entire workflows, content, decisions, and communications to AI designed around how you work. Subscriptions from $15/month, custom builds from $250."
+  },
+  {
+    "id": 107,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "custom AI agents, AI automation, AI workflow automation, AI for freelancers, AI for consultants, AI for businesses, custom LLM agents, AI agent development, business AI automation, Mahmood Salah Automati"
+  },
+  {
+    "id": 108,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "Automati - Custom AI Agent Systems"
+  },
+  {
+    "id": 109,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 110,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/automati"
+  },
+  {
+    "id": 111,
+    "page": "consultation",
+    "section": "stats",
+    "contentKey": "count",
+    "value": "52"
+  },
+  {
+    "id": 112,
+    "page": "consultation",
+    "section": "stats",
+    "contentKey": "label",
+    "value": "Consultations Delivered"
+  },
+  {
+    "id": 113,
+    "page": "consultation",
+    "section": "stats",
+    "contentKey": "description",
+    "value": "Trusted by startups, companies and organizations to translate AI ideas into deployed, production-ready systems."
+  },
+  {
+    "id": 114,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "AI Consultation — Strategy, Architecture & Production Guidance | Mahmood Salah"
+  },
+  {
+    "id": 115,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Book an AI consultation with Mahmood Salah, Senior Data Scientist & AI Engineer. Get expert guidance on AI agents, LLMs, computer vision, deep learning, architecture decisions, and production deployment. Over 48 consultations delivered."
+  },
+  {
+    "id": 116,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI consultation, AI consultant, AI strategy advisor, LLM consultant, computer vision expert, deep learning consultant, AI architecture review, AI deployment, AI agent consulting, Mahmood Salah"
+  },
+  {
+    "id": 117,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "AI Consultation Services"
+  },
+  {
+    "id": 118,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 119,
+    "page": "consultation",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/consultation"
+  },
+  {
+    "id": 120,
+    "page": "mentorship",
+    "section": "plans",
+    "contentKey": "limitedTimeNotice",
+    "value": "Limited-time early pricing — these rates will increase soon. Lock in your spot now."
+  },
+  {
+    "id": 121,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "AI Mentorship for Learners, Engineers & Teams | Mahmood Salah"
+  },
+  {
+    "id": 122,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Get 1-on-1 AI mentorship with Mahmood Salah, Senior Data Scientist & AI Engineer. Plans from $25/month — for AI learners, project builders, and company teams. Limited-time early pricing."
+  },
+  {
+    "id": 123,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI mentorship, AI mentor, 1on1 AI coaching, learn AI, AI project guidance, data science mentor, LLM mentorship, AI for beginners, AI consultant, Mahmood Salah mentorship"
+  },
+  {
+    "id": 124,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/mentorship"
+  },
+  {
+    "id": 125,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "AI Mentorship Programme"
+  },
+  {
+    "id": 126,
+    "page": "mentorship",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 127,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 128,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Common questions about the mentorship"
+  },
+  {
+    "id": 129,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "Can't find your answer here? Reach out directly — I respond to every message."
+  },
+  {
+    "id": 130,
+    "page": "mentorship",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What is the AI Mentorship Programme?",
+        "answer": "A structured 1-on-1 mentorship service with Mahmood Salah, a Senior Data Scientist and AI Engineer. Depending on your plan, you get direct chat support, live video sessions, code reviews, architecture guidance, and a clear roadmap to reach your AI goals — whether you are learning, building a project, or scaling AI within your company."
+      },
+      {
+        "question": "Who is this mentorship for?",
+        "answer": "There are three audiences: (1) Learners taking AI or data science courses who want expert support to move faster and understand deeply. (2) Aspiring AI engineers who want hands-on guidance to build, ship, and showcase a real AI project. (3) Startups, teams, and companies that need expert direction to evaluate, design, and implement AI solutions in their business."
+      },
+      {
+        "question": "Do I need prior programming experience?",
+        "answer": "For the AI Learning Support plan, basic familiarity with Python is helpful but not required. We will start from where you are and build from there. For the AI Project Mentorship, you should be comfortable writing code. For the AI Consulting for Teams plan, no technical background is required from you — we handle the technical depth."
+      },
+      {
+        "question": "What does each plan include?",
+        "answer": "AI Learning Support (5/month): Unlimited chat support, 2 hours of 1:1 video mentoring, concept explanations, and a personalised study plan. — AI Project Mentorship (50 for 2 months): Unlimited chat, 10 hours of 1:1 video, architecture review, code review, model optimisation guidance, and deployment strategy. — AI Consulting for Teams (,200 for 3–4 months): AI use-case assessment, technical architecture planning, team training, and full implementation and deployment support."
+      },
+      {
+        "question": "How is this different from an online course?",
+        "answer": "A course gives you content. This gives you a thinking partner. You get real-time feedback on your specific situation, decisions, and code — not generic lectures. The sessions are designed around your goals, your blockers, and your timeline. Everything is adapted to you."
+      },
+      {
+        "question": "What outcomes can I expect?",
+        "answer": "AI Learning Support: Faster learning, fewer sticking points, and a structured path through your course or subject. AI Project Mentorship: A complete, deployable AI project ready for your portfolio or production. AI Consulting for Teams: A clear AI implementation roadmap and a working system integrated into your business processes."
+      },
+      {
+        "question": "How much time do I need to commit each week?",
+        "answer": "It depends on your plan and pace. For AI Learning Support, even 3–5 hours per week is enough to make real progress. For AI Project Mentorship, plan for around 8–10 hours per week to move quickly over 2 months. For AI Consulting for Teams, your involvement is flexible — we work around your schedule."
+      },
+      {
+        "question": "Is pricing really limited time?",
+        "answer": "Yes. These are early-access rates offered while I scale the programme. The prices will increase once each cohort is full. Booking now locks in the current rate for your full engagement period."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Click the Get Started button on your chosen plan. You will be taken to a short booking form or calendar link to schedule an introductory call. We will then align on your goals, confirm the plan details, and kick off your mentorship."
+      },
+      {
+        "question": "Can companies or teams enrol?",
+        "answer": "Yes. The AI Consulting for Teams plan is specifically designed for organisations. It covers assessment, architecture, training, and deployment support across your team. Pricing is fixed at ,200 for a 3–4 month engagement, with custom arrangements available for larger teams."
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "badge",
+    "value": "Our Programs"
+  },
+  {
+    "id": 132,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "title",
+    "value": "BootcampAI Programs"
+  },
+  {
+    "id": 133,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "subtitle",
+    "value": "Three intensive bootcamps covering the most in-demand areas of modern AI. Click any programme to expand the full curriculum, scholarships, and how to apply."
+  },
+  {
+    "id": 134,
+    "page": "bootcamp",
+    "section": "programs",
+    "contentKey": "items",
+    "value": [
+      {
+        "id": "llm",
+        "title": "LLM & Agentic AI Bootcamp",
+        "icon": "MessageSquare",
+        "accentColor": "#FD6215",
+        "status": "active",
+        "statusLabel": "Applications Open",
+        "duration": "10 Weeks",
+        "shortDesc": "Master Large Language Models and build production-ready AI agents from first principles to deployment.",
+        "whatYoullLearn": [
+          "Core mathematics and architectures behind LLMs.",
+          "The mechanics of attention, tokenization, and transformers.",
+          "Fine-tuning pre-trained models and building custom AI agents.",
+          "Building, deploying, and optimizing real-world LLM applications."
+        ],
+        "programDetails": [
+          {
+            "icon": "Clock",
+            "label": "Duration",
+            "value": "10 Weeks"
+          },
+          {
+            "icon": "HeadphonesIcon",
+            "label": "Support",
+            "value": "24/7 AI assistant + daily engineer mentorship"
+          },
+          {
+            "icon": "Layers",
+            "label": "Hands-On Projects",
+            "value": "Each week includes a working project prototype"
+          }
+        ],
+        "tuitions": [
+          "Tuition: 12,000 SAR (~$3,200 USD)",
+          "30 Fully Funded Scholarships (100% coverage)",
+          "30 Partially Funded Seats (80%) — final cost only 2,400 SAR (~$630 USD)"
+        ],
+        "tuitionNote": "BootcampAI is non-profit. Every seat is subsidised — pricing reflects programme costs only, never profit.",
+        "videoUrl": "https://www.youtube.com/embed/hW39Le9C-AY?si=AFvy7q318qGwX252",
+        "applySteps": [
+          "Submit your application through our official form.",
+          "Complete a short technical challenge to assess readiness.",
+          "Receive scholarship results and secure your seat.",
+          "Begin your 10-week transformation into an AI Engineer."
+        ],
+        "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
+        "applyText": "Apply Now",
+        "expandable": true
+      },
+      {
+        "id": "cv",
+        "title": "Computer Vision Bootcamp",
+        "icon": "Eye",
+        "accentColor": "#0258DB",
+        "status": "coming-soon",
+        "statusLabel": "Coming Soon",
+        "duration": "10 Weeks",
+        "shortDesc": "Build state-of-the-art vision systems for detection, segmentation, tracking, and generative imagery.",
+        "whatYoullLearn": [
+          "CNN architectures from fundamentals to modern research.",
+          "Object detection, segmentation, and tracking with YOLO, SAM, and DETR.",
+          "Vision transformers (ViT, DINO) and multimodal vision-language models.",
+          "Deploying computer vision models on edge devices and cloud infrastructure."
+        ],
+        "programDetails": [
+          {
+            "icon": "Clock",
+            "label": "Duration",
+            "value": "10 Weeks (planned)"
+          },
+          {
+            "icon": "HeadphonesIcon",
+            "label": "Support",
+            "value": "Mentor sessions + AI assistant"
+          },
+          {
+            "icon": "Layers",
+            "label": "Hands-On Projects",
+            "value": "Weekly portfolio-grade projects"
+          }
+        ],
+        "tuitions": [
+          "Scholarship structure to be announced.",
+          "Join the waitlist now to receive early-bird pricing and priority admission."
+        ],
+        "tuitionNote": "",
+        "videoUrl": "",
+        "applySteps": [],
+        "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
+        "applyText": "Join the Waitlist",
+        "expandable": false
+      },
+      {
+        "id": "dl",
+        "title": "Deep Learning Bootcamp",
+        "icon": "Brain",
+        "accentColor": "#9333EA",
+        "status": "coming-soon",
+        "statusLabel": "Coming Soon",
+        "duration": "10 Weeks",
+        "shortDesc": "Master neural networks, optimisation, and modern deep learning architectures from theory to production.",
+        "whatYoullLearn": [
+          "Mathematical foundations: linear algebra, calculus, and probability for DL.",
+          "Neural network architectures from MLPs to transformers.",
+          "Training, regularisation, and optimisation at scale.",
+          "Deploying production deep learning systems with MLOps best practices."
+        ],
+        "programDetails": [
+          {
+            "icon": "Clock",
+            "label": "Duration",
+            "value": "10 Weeks (planned)"
+          },
+          {
+            "icon": "HeadphonesIcon",
+            "label": "Support",
+            "value": "Mentor sessions + AI assistant"
+          },
+          {
+            "icon": "Layers",
+            "label": "Hands-On Projects",
+            "value": "Weekly portfolio-grade projects"
+          }
+        ],
+        "tuitions": [
+          "Scholarship structure to be announced.",
+          "Join the waitlist now to receive early-bird pricing and priority admission."
+        ],
+        "tuitionNote": "",
+        "videoUrl": "",
+        "applySteps": [],
+        "applyUrl": "https://forms.gle/ergHXAYYbaoSmFtg7",
+        "applyText": "Join the Waitlist",
+        "expandable": false
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 136,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Frequently Asked Questions"
+  },
+  {
+    "id": 137,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "Everything you need to know about BootcampAI's programmes, scholarships, and applications."
+  },
+  {
+    "id": 138,
+    "page": "bootcamp",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What is BootcampAI?",
+        "answer": "BootcampAI is the first non-profit AI education platform in the Middle East. We run intensive, project-based bootcamps that take learners from foundational concepts to building, deploying, and shipping real AI systems — covering Large Language Models, Computer Vision, and Deep Learning."
+      },
+      {
+        "question": "Who can apply to a BootcampAI programme?",
+        "answer": "Anyone serious about becoming an AI engineer can apply. We welcome computer science students, software engineers, data analysts, recent graduates, and self-taught developers. A short technical challenge during the application process helps us match learners to the right programme and scholarship tier."
+      },
+      {
+        "question": "Are the bootcamps really free or subsidised?",
+        "answer": "Yes. Because BootcampAI is non-profit, every seat is subsidised. The LLM & Agentic AI Bootcamp offers 30 fully funded scholarships (100% coverage) and 30 partially funded seats at 80% off — bringing the cost down to only ~30 USD versus the ~,200 market value. Future programmes will follow a similar model."
+      },
+      {
+        "question": "Do I need prior AI or programming experience?",
+        "answer": "You should be comfortable with Python and have basic familiarity with linear algebra and probability. You do not need prior machine learning experience — we build everything from first principles. The technical challenge in the application is designed to verify readiness, not gatekeep."
+      },
+      {
+        "question": "What language is the instruction in?",
+        "answer": "Instruction is delivered in English with Arabic-language support available throughout the programme via mentors and the 24/7 AI assistant. All written materials, code, and project assignments are in English to match industry practice."
+      },
+      {
+        "question": "How much time do I need to commit per week?",
+        "answer": "Plan for around 15–20 hours per week across live sessions, project work, code reviews, and self-study. The 10-week format is intentionally intensive — graduates leave with a portfolio, not just a certificate."
+      },
+      {
+        "question": "What do I get when I graduate?",
+        "answer": "A verified BootcampAI certificate, a portfolio of weekly projects you can publish on GitHub and LinkedIn, a capstone project ready to demo to employers, six months of post-graduation mentorship, and access to our hiring network of partner companies."
+      },
+      {
+        "question": "When will the Computer Vision and Deep Learning bootcamps launch?",
+        "answer": "Both programmes are in active development and will launch in the coming cohorts. Join the waitlist on either programme card above to receive launch dates, early-bird pricing, and priority admission as soon as applications open."
+      },
+      {
+        "question": "Can companies sponsor employees or run a private cohort?",
+        "answer": "Yes. The For Companies / Enterprise Programs section below explains how we partner with organisations to upskill teams, design private custom curricula, and integrate AI into your business. Get in touch by email to discuss."
+      },
+      {
+        "question": "How is BootcampAI different from an online course?",
+        "answer": "A course gives you content. BootcampAI gives you a structured 10-week journey with live mentorship, weekly project deliverables, code reviews, accountability, and a graduating cohort. You do not finish with notes — you finish with shipped projects and the engineering judgement to build more."
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "BootcampAI — Non-Profit AI Bootcamps in LLMs, Computer Vision & Deep Learning"
+  },
+  {
+    "id": 140,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "BootcampAI is the first non-profit AI education platform in the Middle East. Intensive 10-week project-based bootcamps in LLMs & AI Agents, Computer Vision, and Deep Learning. Up to 100% scholarships available."
+  },
+  {
+    "id": 141,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI bootcamp, LLM bootcamp, agentic AI, computer vision bootcamp, deep learning bootcamp, AI scholarships, learn AI Arabic, non-profit AI education, BootcampAI, Mahmood Salah"
+  },
+  {
+    "id": 142,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/bootcampai"
+  },
+  {
+    "id": 143,
+    "page": "bootcamp",
+    "section": "seo",
+    "contentKey": "organizationName",
+    "value": "BootcampAI"
+  },
+  {
+    "id": 144,
+    "page": "home",
+    "section": "seoHome",
+    "contentKey": "title",
+    "value": "Mahmood Salah - Senior Data Scientist & AI Engineer | Hire AI Expert"
+  },
+  {
+    "id": 145,
+    "page": "home",
+    "section": "seoHome",
+    "contentKey": "description",
+    "value": "Hire Mahmood Salah, a Senior Data Scientist and AI Engineer specializing in LLMs, AI agents, computer vision, and deep learning. Trusted by Google, Nielsen, Udacity, GLG, and Innova for AI consulting, mentorship, automation, and BootcampAI training in the Middle East."
+  },
+  {
+    "id": 146,
+    "page": "home",
+    "section": "seoHome",
+    "contentKey": "keywords",
+    "value": "Mahmood Salah, hire AI engineer, senior data scientist, AI consultant Middle East, LLM expert, AI agents developer, computer vision engineer, deep learning specialist, AI strategy, data science consultant"
+  },
+  {
+    "id": 147,
+    "page": "home",
+    "section": "seoHome",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/"
+  },
+  {
+    "id": 148,
+    "page": "home",
+    "section": "seoHome",
+    "contentKey": "ogImage",
+    "value": "https://mahmoodsalah.xyz/favicon.png"
+  },
+  {
+    "id": 149,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "title",
+    "value": "Hire Me - Mahmood Salah | AI Engineer, Data Scientist & Consultant"
+  },
+  {
+    "id": 150,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "description",
+    "value": "Hire Mahmood Salah for senior-level AI engineering, data science, and consulting work. Expertise across LLMs, AI agents, computer vision, deep learning, MLOps, and end-to-end AI strategy. Portfolio of projects with Google, Nielsen, Udacity, GLG, Innova, and BootcampAI."
+  },
+  {
+    "id": 151,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "keywords",
+    "value": "hire Mahmood Salah, hire AI engineer, hire data scientist, AI consultant for hire, freelance AI expert, LLM engineer for hire, AI agents developer, computer vision freelancer, AI strategy consultant"
+  },
+  {
+    "id": 152,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/hire-me"
+  },
+  {
+    "id": 153,
+    "page": "hireme",
+    "section": "seoHireMe",
+    "contentKey": "ogImage",
+    "value": "https://mahmoodsalah.xyz/favicon.png"
+  },
+  {
+    "id": 154,
+    "page": "bootcamp",
+    "section": "stats",
+    "contentKey": "count",
+    "value": "324"
+  },
+  {
+    "id": 155,
+    "page": "bootcamp",
+    "section": "stats",
+    "contentKey": "label",
+    "value": "BootcampAI Students"
+  },
+  {
+    "id": 156,
+    "page": "bootcamp",
+    "section": "stats",
+    "contentKey": "description",
+    "value": "Learners across the Middle East who have completed BootcampAI programs and built production-ready AI projects."
+  },
+  {
+    "id": 157,
+    "page": "mentorship",
+    "section": "stats",
+    "contentKey": "count",
+    "value": "579"
+  },
+  {
+    "id": 158,
+    "page": "mentorship",
+    "section": "stats",
+    "contentKey": "label",
+    "value": "Mentees Guided"
+  },
+  {
+    "id": 159,
+    "page": "mentorship",
+    "section": "stats",
+    "contentKey": "description",
+    "value": "Engineers, students, and career-changers I have personally mentored toward AI roles and high-impact projects."
+  },
+  {
+    "id": 160,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "workLabel",
+    "value": "Work"
+  },
+  {
+    "id": 161,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "hireMeLabel",
+    "value": "Hire Me"
+  },
+  {
+    "id": 162,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "consultationLabel",
+    "value": "Need a Consultation?"
+  },
+  {
+    "id": 163,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "automatiLabel",
+    "value": "Automati"
+  },
+  {
+    "id": 164,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "bootcampLabel",
+    "value": "BootcampAI"
+  },
+  {
+    "id": 165,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "mentorshipLabel",
+    "value": "Mentorship"
+  },
+  {
+    "id": 166,
+    "page": "global",
+    "section": "navigation",
+    "contentKey": "brandName",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 167,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "brandName",
+    "value": "Mahmood Salah"
+  },
+  {
+    "id": 168,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "brandTagline",
+    "value": "Senior Data Scientist and AI Engineer specializing in AI agents, computer vision, and deep learning technologies."
+  },
+  {
+    "id": 169,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "quickLinksTitle",
+    "value": "Quick Links"
+  },
+  {
+    "id": 170,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "connectTitle",
+    "value": "Connect"
+  },
+  {
+    "id": 171,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "contactEmail",
+    "value": "work@mahmoodsalah.xyz"
+  },
+  {
+    "id": 172,
+    "page": "global",
+    "section": "footer",
+    "contentKey": "copyrightText",
+    "value": "© {year} Mahmood Salah. All rights reserved."
+  },
+  {
+    "id": 173,
+    "page": "global",
+    "section": "statsDashboard",
+    "contentKey": "eyebrow",
+    "value": "By the numbers"
+  },
+  {
+    "id": 174,
+    "page": "global",
+    "section": "statsDashboard",
+    "contentKey": "title",
+    "value": "Impact across every service"
+  },
+  {
+    "id": 175,
+    "page": "global",
+    "section": "statsDashboard",
+    "contentKey": "subtitle",
+    "value": "A snapshot of the people, projects, and engagements behind the work. Tap any card to explore that service."
+  },
+  {
+    "id": 176,
+    "page": "hireme",
+    "section": "about",
+    "contentKey": "competenciesTitle",
+    "value": "Core Competencies"
+  },
+  {
+    "id": 177,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "typedTitles",
+    "value": "Senior Data Scientist|AI Solutions Architect|AI Transformation Consultant"
+  },
+  {
+    "id": 178,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "workedWithLabel",
+    "value": "Worked with"
+  },
+  {
+    "id": 179,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "swipeLabel",
+    "value": "Swipe to see more"
+  },
+  {
+    "id": 180,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card1Top",
+    "value": "Personalized"
+  },
+  {
+    "id": 181,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card1Bottom",
+    "value": "1-on-1 Sessions"
+  },
+  {
+    "id": 182,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card2Top",
+    "value": "Goal-Driven"
+  },
+  {
+    "id": 183,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card2Bottom",
+    "value": "Real Projects"
+  },
+  {
+    "id": 184,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card3Top",
+    "value": "Fast-Track"
+  },
+  {
+    "id": 185,
+    "page": "mentorship",
+    "section": "floatingCards",
+    "contentKey": "card3Bottom",
+    "value": "Your AI Career"
+  },
+  {
+    "id": 186,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "badgeText",
+    "value": "Mentorship Program"
+  },
+  {
+    "id": 187,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "viewPlansLabel",
+    "value": "View Plans"
+  },
+  {
+    "id": 188,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "mostPopularLabel",
+    "value": "Most Popular"
+  },
+  {
+    "id": 189,
+    "page": "mentorship",
+    "section": "ui",
+    "contentKey": "bestForLabel",
+    "value": "Best for:"
+  },
+  {
+    "id": 190,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label1",
+    "value": "AI Agents"
+  },
+  {
+    "id": 191,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label2",
+    "value": "LLMs"
+  },
+  {
+    "id": 192,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label3",
+    "value": "RAG"
+  },
+  {
+    "id": 193,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label4",
+    "value": "Computer Vision"
+  },
+  {
+    "id": 194,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label5",
+    "value": "Deep Learning"
+  },
+  {
+    "id": 195,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label6",
+    "value": "Fine-Tuning"
+  },
+  {
+    "id": 196,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label7",
+    "value": "Prompt Engineering"
+  },
+  {
+    "id": 197,
+    "page": "bootcamp",
+    "section": "techMarquee",
+    "contentKey": "label8",
+    "value": "MLOps"
+  },
+  {
+    "id": 198,
+    "page": "automati",
+    "section": "ui",
+    "contentKey": "mostPopularLabel",
+    "value": "50% OFF"
+  },
+  {
+    "id": 199,
+    "page": "consultation",
+    "section": "ui",
+    "contentKey": "sendEmailLabel",
+    "value": "Send me an email"
+  },
+  {
+    "id": 200,
+    "page": "consultation",
+    "section": "ui",
+    "contentKey": "copyEmailLabel",
+    "value": "Copy email"
+  },
+  {
+    "id": 201,
+    "page": "consultation",
+    "section": "ui",
+    "contentKey": "copiedLabel",
+    "value": "Copied!"
+  },
+  {
+    "id": 202,
+    "page": "global",
+    "section": "analytics",
+    "contentKey": "gaMeasurementId",
+    "value": "G-LGFJ0RRZZK"
+  },
+  {
+    "id": 203,
+    "page": "global",
+    "section": "analytics",
+    "contentKey": "enabled",
+    "value": "true"
+  },
+  {
+    "id": 204,
+    "page": "home",
+    "section": "hero",
+    "contentKey": "companies",
+    "value": [
+      {
+        "name": "BootcampAI",
+        "kind": "image",
+        "src": "/logos/bootcampai.png",
+        "scale": 1.73,
+        "text": "",
+        "textSize": "",
+        "tooltip": "Founding Director (Volunteer)"
+      },
+      {
+        "name": "Innova",
+        "kind": "image",
+        "src": "/logos/innova.png",
+        "scale": 1.35,
+        "text": "",
+        "textSize": "",
+        "tooltip": "Senior Data Scientist"
+      },
+      {
+        "name": "Udacity",
+        "kind": "wordmark",
+        "src": "",
+        "scale": 1,
+        "text": "Udacity",
+        "textSize": "text-xl",
+        "tooltip": "AI Mentor"
+      },
+      {
+        "name": "GLG",
+        "kind": "wordmark",
+        "src": "",
+        "scale": 1,
+        "text": "GLG",
+        "textSize": "text-2xl",
+        "tooltip": "Council Member"
+      },
+      {
+        "name": "Nielsen",
+        "kind": "wordmark",
+        "src": "",
+        "scale": 1,
+        "text": "nielsen",
+        "textSize": "text-2xl",
+        "tooltip": "Ex: Data acquisition Supervisor"
+      },
+      {
+        "name": "Google",
+        "kind": "image",
+        "src": "/logos/google.png",
+        "scale": 1.1,
+        "text": "",
+        "textSize": "",
+        "tooltip": "Ex: Google Ambassador and GDG Manager"
+      }
+    ]
+  },
+  {
+    "id": 205,
+    "page": "global",
+    "section": "nav",
+    "contentKey": "items",
+    "value": [
+      {
+        "label": "Work",
+        "href": "",
+        "parent": "",
+        "visible": true
+      },
+      {
+        "label": "Hire Me",
+        "href": "/hire-me",
+        "parent": "Work",
+        "visible": true
+      },
+      {
+        "label": "Need a Consultation?",
+        "href": "/consultation",
+        "parent": "Work",
+        "visible": true
+      },
+      {
+        "label": "Automati",
+        "href": "/automati",
+        "parent": "Work",
+        "visible": true
+      },
+      {
+        "label": "BootcampAI",
+        "href": "/bootcampai",
+        "parent": "",
+        "visible": true
+      },
+      {
+        "label": "Mentorship",
+        "href": "/mentorship",
+        "parent": "",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "id": 206,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "badge",
+    "value": "Student Voices"
+  },
+  {
+    "id": 207,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "title",
+    "value": "Real Stories From Our Community"
+  },
+  {
+    "id": 208,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "subtitle",
+    "value": "What BootcampAI graduates say about their journey."
+  },
+  {
+    "id": 209,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "buttonLabel",
+    "value": "Student Voices"
+  },
+  {
+    "id": 210,
+    "page": "bootcamp",
+    "section": "testimonials",
+    "contentKey": "items",
+    "value": [
+      {
+        "name": "منة الله أحمد",
+        "initials": "م.أ",
+        "quote": "البرنامج مميز في إنه بيخلّي المفاهيم الصعبة بسيطة. الشرح واضح، والتطبيق العملي بيخليك تستوعب الفكرة حتى لو أول مرة تشوفها.",
+        "accentColor": "#1F3A5F"
+      },
+      {
+        "name": "إسلام عبد الرحمن",
+        "initials": "إ.ع",
+        "quote": "كل يوم بتتعلم حاجة جديدة وبتطبقها في نفس الوقت، وده اللي شجعني اني اكمل.",
+        "accentColor": "#FD6215"
+      },
+      {
+        "name": "نورهان عادل",
+        "initials": "ن.ع",
+        "quote": "حسيت إن طريقة الشرح عملية جدًا. كل سيشن بطلع منها بمشروع.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "أحمد شوقي",
+        "initials": "أ.ش",
+        "quote": "من أكتر الحاجات اللي فرقت معايا إن كلّ حاجة بنفهمها بنطبقها فورًا. ده خلاني أحس إني بتقدم فعليًا مش مجرد بسمع شرح.",
+        "accentColor": "#FD6215"
+      },
+      {
+        "name": "ريم مصطفى",
+        "initials": "ر.م",
+        "quote": "التجربة بشكل عام محفزة جدًا. أسلوب الشرح، التطبيق العملي، والإحساس إنك قادر تنفذ بنفسك خلا البرنامج يستاهل فعلًا.",
+        "accentColor": "#FD6215"
+      },
+      {
+        "name": "محمد طارق",
+        "initials": "م.ط",
+        "quote": "أكتر حاجة عجبتني هي ربط الكود بالمفهوم نفسه. مش بنكتب كود وخلاص، كل خطوة ليها سبب متوهتش في النص زي بقية الكورسات.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "سارة عبد الله",
+        "initials": "س.ع",
+        "quote": "البرنامج مناسب جدًا للي عايز يفهم المجال صح من البداية. الأسلوب منظم وبيخليك تبني معرفتك واحدة واحدة بثقة.",
+        "accentColor": "#1F3A5F"
+      },
+      {
+        "name": "كريم محمود",
+        "initials": "ك.م",
+        "quote": "أسلوب Learning by Example هنا قوي جدًا. إنك تشوف المثال قدامك وتبنيه خطوة خطوة بيخلي الفكرة تثبت بسهولة.",
+        "accentColor": "#2F80ED"
+      },
+      {
+        "name": "يوسف حسن",
+        "initials": "ي.ح",
+        "quote": "المتابعة أثناء الشرح فرقت معايا جدًا، أي نقطة مش واضحة بتتشرح فورًا. ده مخليك دايمًا متفاعل ومش تايه.",
+        "accentColor": "#2F80ED"
+      }
+    ]
+  }
+]
