@@ -2464,5 +2464,19 @@
         "example": "“When a new lead comes in, research the company and draft a reply.”"
       }
     ]
+  },
+  {
+    "id": 279,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "pdfUrl",
+    "value": ""
+  },
+  {
+    "id": 280,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "downloadLabel",
+    "value": "Download CV"
   }
 ]

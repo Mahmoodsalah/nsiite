@@ -34,7 +34,7 @@ const upload = multer({
   },
 });
 
-function sanitizeBase(name: string): string {
+export function sanitizeBase(name: string): string {
   const base = path.basename(name, path.extname(name));
   return base
     .toLowerCase()

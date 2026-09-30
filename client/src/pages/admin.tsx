@@ -433,6 +433,60 @@ function isImageField(key: string, value: any): boolean {
   return false;
 }
 
+// Uploads a PDF CV. The server saves it to the Hire Me page and deletes the
+// previous CV, so the field is updated without a separate save.
+function PdfUploadButton({ onUploaded, testId }: { onUploaded: (url: string) => void; testId: string }) {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const { toast } = useToast();
+
+  const handleFile = async (file: File) => {
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/admin/resume", { method: "POST", credentials: "include", body: fd });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.message || "Upload failed");
+      onUploaded(data.url);
+      queryClient.invalidateQueries({ queryKey: ["/api/content"] });
+      toast({
+        title: "CV uploaded",
+        description: data.deleted ? "The new CV is live and the previous file was deleted." : "The new CV is live.",
+      });
+    } catch (e: any) {
+      toast({ title: "Upload failed", description: e?.message || "Please try again.", variant: "destructive" });
+    } finally {
+      setUploading(false);
+      if (inputRef.current) inputRef.current.value = "";
+    }
+  };
+
+  return (
+    <>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="application/pdf,.pdf"
+        className="hidden"
+        onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFile(f); }}
+      />
+      <Button
+        type="button"
+        size="sm"
+        variant="outline"
+        className="h-7 text-xs"
+        disabled={uploading}
+        onClick={() => inputRef.current?.click()}
+        data-testid={testId}
+      >
+        {uploading ? <Loader2 className="w-3 h-3 mr-1 animate-spin" /> : <FileText className="w-3 h-3 mr-1" />}
+        {uploading ? "Uploading..." : "Upload PDF"}
+      </Button>
+    </>
+  );
+}
+
 function ImageUploadButton({
   onUploaded,
   testId,
@@ -544,7 +598,8 @@ function ContentFieldEditor({
   const isString = typeof value === "string";
 
   if (isString) {
-    const showUpload = isImageField(item.contentKey, value) || IMAGE_KEY_REGEX.test(item.contentKey);
+    const isPdf = /pdf/i.test(item.contentKey);
+    const showUpload = !isPdf && (isImageField(item.contentKey, value) || IMAGE_KEY_REGEX.test(item.contentKey));
     return (
       <StringEditor
         label={item.contentKey}
@@ -552,6 +607,7 @@ function ContentFieldEditor({
         onSave={onSave}
         isSaving={isSaving}
         isImage={showUpload}
+        isPdf={isPdf}
       />
     );
   }
@@ -579,12 +635,14 @@ function StringEditor({
   onSave,
   isSaving,
   isImage = false,
+  isPdf = false,
 }: {
   label: string;
   value: string;
   onSave: (value: string) => void;
   isSaving: boolean;
   isImage?: boolean;
+  isPdf?: boolean;
 }) {
   const [editValue, setEditValue] = useState(value);
   const [dirty, setDirty] = useState(false);
@@ -608,6 +666,12 @@ function StringEditor({
               testId={`button-upload-${label}`}
               size="xs"
               onUploaded={(url) => { setEditValue(url); onSave(url); }}
+            />
+          )}
+          {isPdf && (
+            <PdfUploadButton
+              testId={`button-upload-pdf-${label}`}
+              onUploaded={(url) => { setEditValue(url); setDirty(false); }}
             />
           )}
           {dirty && (
@@ -642,6 +706,18 @@ function StringEditor({
       )}
       {isImage && editValue && (
         <ImagePreview url={editValue} testId={`img-preview-${label}`} />
+      )}
+      {isPdf && (
+        <p className="text-xs text-muted-foreground mt-1.5">
+          {editValue ? (
+            <a href={editValue} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              View current CV
+            </a>
+          ) : (
+            "No PDF uploaded yet: the page shows the Google Drive CV."
+          )}
+          {" "}PDF only, up to 4 MB. Uploading a new CV deletes the old file.
+        </p>
       )}
     </div>
   );
