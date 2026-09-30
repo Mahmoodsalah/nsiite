@@ -7,6 +7,7 @@ const mahmoodPortrait = "/mahmood-portrait.webp";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { usePageSEO } from "@/hooks/use-seo";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import StatsDashboard from "@/components/stats-dashboard";
 
 const socialIconMap: Record<string, any> = { linkedin: SiLinkedin, youtube: SiYoutube, instagram: SiInstagram, facebook: SiFacebook };
@@ -90,9 +91,16 @@ export default function Home() {
   const [typed, setTyped] = useState("");
   const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
 
+  const reducedMotion = useReducedMotion();
+
   useEffect(() => {
     const current = titles[titleIndex];
     let timeout: ReturnType<typeof setTimeout>;
+
+    if (reducedMotion) {
+      setTyped(current);
+      return;
+    }
 
     if (phase === "typing") {
       if (typed.length < current.length) {
@@ -111,7 +119,7 @@ export default function Home() {
       }
     }
     return () => clearTimeout(timeout);
-  }, [typed, phase, titleIndex]);
+  }, [typed, phase, titleIndex, reducedMotion]);
 
   const companiesFallback = [
     { name: "BootcampAI", kind: "image",    src: "/logos/bootcampai.png", scale: 1.73, text: "",        textSize: "",         tooltip: "Founding Director (Volunteer)" },
@@ -202,7 +210,7 @@ export default function Home() {
                 </span>
               </span>
             </h1>
-            <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed text-justify animate-fade-in-up animation-delay-200">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
               {heroSubtitle}
             </p>
             <div className="flex justify-center md:justify-start gap-3 animate-fade-in-up animation-delay-400">
@@ -214,6 +222,7 @@ export default function Home() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={link.platform}
                     className="w-10 h-10 rounded-xl glass-card-hover flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300"
                     data-testid={`link-hero-social-${i}`}
                   >

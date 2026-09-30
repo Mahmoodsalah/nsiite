@@ -165,6 +165,8 @@ export default function Header() {
           variant="ghost"
           className="md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
           data-testid="button-mobile-menu"
         >
           {mobileMenuOpen ? <X /> : <Menu />}

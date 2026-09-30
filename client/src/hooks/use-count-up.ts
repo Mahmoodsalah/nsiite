@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { prefersReducedMotion } from "./use-reduced-motion";
 
 export function useCountUp(target: number, duration = 1200) {
   const [count, setCount] = useState(0);
@@ -18,6 +19,10 @@ export function useCountUp(target: number, duration = 1200) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
+          if (prefersReducedMotion()) {
+            setCount(targetRef.current);
+            return;
+          }
           const start = performance.now();
           const step = (now: number) => {
             const progress = Math.min((now - start) / duration, 1);
