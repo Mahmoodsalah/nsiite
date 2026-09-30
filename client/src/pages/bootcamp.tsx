@@ -50,6 +50,24 @@ const iconMap: Record<string, any> = {
   Bot, Database, Cpu,
 };
 
+// Faces of students from the testimonials, used next to the student count.
+function StudentFaces({ items }: { items: any[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div className="flex -space-x-2 shrink-0" aria-hidden="true">
+      {items.slice(0, 4).map((t: any, i: number) => (
+        <span
+          key={i}
+          className="w-8 h-8 rounded-full ring-2 ring-background flex items-center justify-center text-sm font-bold text-white"
+          style={{ backgroundColor: t.accentColor || "#FD6215" }}
+        >
+          {(t.name || t.initials || "").trim().charAt(0)}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function Bootcamp() {
   const [emailCopied, setEmailCopied] = useState(false);
   const { data: content, isLoading } = usePageContent("bootcamp");
@@ -290,19 +308,7 @@ export default function Bootcamp() {
             data-testid="section-bootcamp-stats"
           >
             <div className="inline-flex items-center gap-3 rounded-full bg-card/80 border border-border/60 pl-2 pr-5 py-2 shadow-sm">
-              {testimonialItems.length > 0 && (
-                <div className="flex -space-x-2" aria-hidden="true">
-                  {testimonialItems.slice(0, 4).map((t: any, i: number) => (
-                    <span
-                      key={i}
-                      className="w-8 h-8 rounded-full ring-2 ring-background flex items-center justify-center text-sm font-bold text-white"
-                      style={{ backgroundColor: t.accentColor || "#FD6215" }}
-                    >
-                      {(t.name || t.initials || "").trim().charAt(0)}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <StudentFaces items={testimonialItems} />
               <p className="text-sm md:text-base text-foreground text-left">
                 <span className="font-heading font-bold text-[#FD6215] tabular-nums" data-testid="text-bootcamp-count">
                   {statValue}+
@@ -524,7 +530,7 @@ export default function Bootcamp() {
                         </div>
 
                         {/* Program Details */}
-                        <div className="glass-card rounded-xl p-5">
+                        <div className="glass-card rounded-xl p-5 flex flex-col">
                           <h4 className="font-heading font-semibold text-foreground mb-3 flex items-center gap-2">
                             <Target className="w-4 h-4" style={{ color: p.accentColor }} />
                             Program Details
@@ -543,6 +549,31 @@ export default function Bootcamp() {
                               );
                             })}
                           </div>
+                          {/* Same student count as the hero (Stats Counter in the admin) */}
+                          {p.status === "active" && (
+                            <div className="mt-auto pt-5">
+                              <a
+                                href={testimonialItems.length > 0 ? "#testimonials" : undefined}
+                                className="group flex items-center gap-3 border-t border-border/50 pt-4"
+                                data-testid={`program-students-${p.id}`}
+                              >
+                                <StudentFaces items={testimonialItems} />
+                                <div className="text-sm leading-snug">
+                                  <p>
+                                    <span className="font-heading font-bold tabular-nums" style={{ color: p.accentColor }}>
+                                      {statCount}+
+                                    </span>{" "}
+                                    <span className="font-semibold text-foreground">{statLabel}</span>
+                                  </p>
+                                  {testimonialItems.length > 0 && (
+                                    <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                                      Read their stories →
+                                    </p>
+                                  )}
+                                </div>
+                              </a>
+                            </div>
+                          )}
                         </div>
 
                         {/* Tuitions and Scholarships */}
