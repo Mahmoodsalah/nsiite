@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode, JSX } from "react";
+import { useReducedMotion } from "./use-reduced-motion";
 
 export function useAnimateOnScroll<T extends HTMLElement = HTMLDivElement>(
   threshold = 0.1
@@ -40,6 +41,7 @@ export function AnimateIn({
   direction?: "up" | "left" | "right" | "fade";
 }): JSX.Element {
   const { ref, isVisible } = useAnimateOnScroll();
+  const reduced = useReducedMotion();
 
   const transforms: Record<string, string> = {
     up: "translateY(30px)",
@@ -54,8 +56,10 @@ export function AnimateIn({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translate(0)" : transforms[direction],
-        transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
+        transform: isVisible || reduced ? "translate(0)" : transforms[direction],
+        transition: reduced
+          ? "opacity 0.2s ease"
+          : `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
       }}
     >
       {children}
@@ -75,6 +79,7 @@ export function StaggerChildren({
   direction?: "up" | "left" | "right" | "fade";
 }): JSX.Element {
   const { ref, isVisible } = useAnimateOnScroll();
+  const reduced = useReducedMotion();
 
   const transforms: Record<string, string> = {
     up: "translateY(30px)",
@@ -90,8 +95,10 @@ export function StaggerChildren({
           key={i}
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translate(0)" : transforms[direction],
-            transition: `opacity 0.6s ease ${i * staggerDelay}s, transform 0.6s ease ${i * staggerDelay}s`,
+            transform: isVisible || reduced ? "translate(0)" : transforms[direction],
+            transition: reduced
+              ? "opacity 0.2s ease"
+              : `opacity 0.6s ease ${i * staggerDelay}s, transform 0.6s ease ${i * staggerDelay}s`,
           }}
         >
           {child}

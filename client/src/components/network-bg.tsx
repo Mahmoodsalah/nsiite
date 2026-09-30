@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 interface NetworkBgProps {
   className?: string;
@@ -6,6 +7,7 @@ interface NetworkBgProps {
 
 export default function NetworkBg({ className = "" }: NetworkBgProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -13,7 +15,8 @@ export default function NetworkBg({ className = "" }: NetworkBgProps) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationId: number;
+    let animationId: number | null = null;
+    let onScreen = true;
     let particles: Array<{
       x: number;
       y: number;
@@ -42,7 +45,8 @@ export default function NetworkBg({ className = "" }: NetworkBgProps) {
       }));
     };
 
-    const draw = () => {
+    // Draws one frame; `move` advances the particles first.
+    const render = (move: boolean) => {
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
@@ -52,14 +56,16 @@ export default function NetworkBg({ className = "" }: NetworkBgProps) {
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
+        if (move) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+        }
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${accent}, 0.4)`;
+        ctx.fillStyle = `rgba(${accent}, 0.3)`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -71,25 +77,56 @@ export default function NetworkBg({ className = "" }: NetworkBgProps) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(${accent}, ${0.15 * (1 - dist / maxDist)})`;
+            ctx.strokeStyle = `rgba(${accent}, ${0.12 * (1 - dist / maxDist)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
-
-      animationId = requestAnimationFrame(draw);
     };
+
+    const tick = () => {
+      render(true);
+      animationId = requestAnimationFrame(tick);
+    };
+
+    const stop = () => {
+      if (animationId !== null) cancelAnimationFrame(animationId);
+      animationId = null;
+    };
+
+    // Only animate while the canvas is on screen and the tab is visible,
+    // and never when the user has asked for reduced motion.
+    const update = () => {
+      const shouldRun = !reducedMotion && onScreen && !document.hidden;
+      if (shouldRun && animationId === null) tick();
+      else if (!shouldRun) stop();
+    };
+
+    const onResize = () => {
+      init();
+      render(false);
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      update();
+    });
 
     init();
-    draw();
-    window.addEventListener("resize", init);
+    render(false);
+    update();
+    observer.observe(canvas);
+    window.addEventListener("resize", onResize);
+    document.addEventListener("visibilitychange", update);
 
     return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", init);
+      stop();
+      observer.disconnect();
+      window.removeEventListener("resize", onResize);
+      document.removeEventListener("visibilitychange", update);
     };
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <canvas
