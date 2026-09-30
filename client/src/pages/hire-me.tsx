@@ -1,13 +1,16 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Brain,
   Bot,
   Cloud,
   Eye,
   Loader2,
+  Download,
+  FileText,
 } from "lucide-react";
 import { AnimateIn } from "@/hooks/use-animate-on-scroll";
-import mahmoodImg from "@assets/mahmood.jpg";
+const mahmoodPortrait = "/mahmood-portrait.webp";
 import { usePageContent, getVal } from "@/hooks/use-content";
 import { usePageSEO } from "@/hooks/use-seo";
 
@@ -86,6 +89,8 @@ export default function HireMe() {
   const resumeEmbedUrl = getVal(content, "resume", "embedUrl", "");
   const resumeViewUrl = getVal(content, "resume", "viewUrl", "");
   const resumeTitle = getVal(content, "resume", "title", "Resume");
+  const resumePdfUrl = getVal(content, "resume", "pdfUrl", "");
+  const resumeDownloadLabel = getVal(content, "resume", "downloadLabel", "Download CV");
   const testimonialsTitle = getVal(content, "testimonials", "title", "Testimonials");
   const testimonialsSubtitle = getVal(content, "testimonials", "subtitle", "");
   const testimonials = getVal(content, "testimonials", "items", []);
@@ -103,19 +108,22 @@ export default function HireMe() {
               <section data-testid="section-about">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
                   <div className="md:col-span-1 flex justify-center">
-                    <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-primary/20 animate-scale-in shadow-lg shadow-primary/10">
+                    <div className="w-56 h-56 rounded-full overflow-hidden bg-white ring-1 ring-primary/20 ring-offset-4 ring-offset-background animate-scale-in shadow-lg shadow-primary/10">
                       <img
-                        src={mahmoodImg}
+                        src={mahmoodPortrait}
                         alt="Mahmood Salah"
-                        className="w-full h-full object-cover"
+                        width={224}
+                        height={224}
+                        decoding="async"
+                        className="w-full h-full object-cover object-[50%_20%] scale-[1.45] origin-[50%_32%]"
                         data-testid="img-profile"
                       />
                     </div>
                   </div>
                   <div className="md:col-span-2">
-                    <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+                    <h1 className="font-heading font-bold text-3xl text-foreground mb-4">
                       {aboutTitle}
-                    </h2>
+                    </h1>
                     <p className="text-muted-foreground leading-relaxed mb-4">{bio1}</p>
                     <p className="text-muted-foreground leading-relaxed mb-8">{bio2}</p>
 
@@ -170,28 +178,69 @@ export default function HireMe() {
               </section>
             </AnimateIn>
 
-            {resumeEmbedUrl && (
+            {(resumePdfUrl || resumeEmbedUrl) && (
               <AnimateIn>
                 <section data-testid="section-resume">
-                  <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
-                    {resumeTitle}
-                  </h2>
-                  <div className="w-full rounded-2xl overflow-hidden glass-card">
-                    <iframe
-                      src={resumeEmbedUrl}
-                      className="w-full h-[800px]"
-                      allow="autoplay"
-                      title="Mahmood Salah Resume"
-                      data-testid="iframe-resume"
-                    />
+                  <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+                    <h2 className="font-heading font-bold text-3xl text-foreground">
+                      {resumeTitle}
+                    </h2>
+                    {resumePdfUrl && (
+                      <Button asChild className="rounded-full" data-testid="button-download-cv">
+                        <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer" download>
+                          <Download className="w-4 h-4 mr-2" />
+                          {resumeDownloadLabel}
+                        </a>
+                      </Button>
+                    )}
                   </div>
-                  {resumeViewUrl && (
-                    <p className="text-muted-foreground text-sm mt-3 text-center">
-                      Can't see the resume?{" "}
-                      <a href={resumeViewUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                        Open in Google Drive
+                  {resumePdfUrl ? (
+                    <>
+                      {/* Phones often can't show a PDF inside a page, so they get a button instead. */}
+                      <div className="hidden md:block w-full rounded-2xl overflow-hidden glass-card">
+                        <iframe
+                          src={`${resumePdfUrl}#view=FitH`}
+                          className="w-full h-[800px]"
+                          title="Mahmood Salah Resume"
+                          data-testid="iframe-resume"
+                        />
+                      </div>
+                      <a
+                        href={resumePdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="md:hidden glass-card-hover rounded-2xl p-6 flex items-center gap-4"
+                        data-testid="link-resume-mobile"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                          <FileText className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-heading font-semibold text-foreground">{resumeTitle} (PDF)</p>
+                          <p className="text-sm text-muted-foreground">Tap to open</p>
+                        </div>
                       </a>
-                    </p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-full rounded-2xl overflow-hidden glass-card">
+                        <iframe
+                          src={resumeEmbedUrl}
+                          className="w-full h-[800px]"
+                          allow="autoplay"
+                          title="Mahmood Salah Resume"
+                          data-testid="iframe-resume"
+                        />
+                      </div>
+                      {resumeViewUrl && (
+                        <p className="text-muted-foreground text-sm mt-3 text-center">
+                          Can't see the resume?{" "}
+                          <a href={resumeViewUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                            Open in Google Drive
+                          </a>
+                        </p>
+                      )}
+                    </>
                   )}
                 </section>
               </AnimateIn>

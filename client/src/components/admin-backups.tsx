@@ -9,13 +9,14 @@ import { Download, Upload, RotateCcw, Loader2, History } from "lucide-react";
 type BackupInfo = {
   id: string;
   createdAt: string;
-  reason: "auto" | "restore";
+  reason: "auto" | "restore" | "migration";
   size: number;
 };
 
 const REASON_LABELS: Record<BackupInfo["reason"], string> = {
   auto: "Before edits",
   restore: "Before a restore",
+  migration: "Before a site content update",
 };
 
 function downloadJson(data: unknown, filename: string) {

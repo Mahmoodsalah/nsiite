@@ -660,458 +660,6 @@
     ]
   },
   {
-    "id": 71,
-    "page": "automati",
-    "section": "hero",
-    "contentKey": "logoImage",
-    "value": "/attached_assets/automati_logo_nobg.png"
-  },
-  {
-    "id": 72,
-    "page": "automati",
-    "section": "hero",
-    "contentKey": "title",
-    "value": "Your work, powered by"
-  },
-  {
-    "id": 73,
-    "page": "automati",
-    "section": "hero",
-    "contentKey": "titleHighlight",
-    "value": "intelligence."
-  },
-  {
-    "id": 74,
-    "page": "automati",
-    "section": "hero",
-    "contentKey": "subtitle",
-    "value": "We design and build custom AI agent systems tailored to the way you work — whether that's running entire workflows on your behalf, supporting your decisions, generating content, handling communications, or anything in between. You tell us what you want to hand off. We make it happen."
-  },
-  {
-    "id": 75,
-    "page": "automati",
-    "section": "hero",
-    "contentKey": "ctaPrimary",
-    "value": "Get Started"
-  },
-  {
-    "id": 76,
-    "page": "automati",
-    "section": "hero",
-    "contentKey": "ctaSecondary",
-    "value": "See How It Works"
-  },
-  {
-    "id": 77,
-    "page": "automati",
-    "section": "howItWorks",
-    "contentKey": "badge",
-    "value": "How It Works"
-  },
-  {
-    "id": 78,
-    "page": "automati",
-    "section": "howItWorks",
-    "contentKey": "title",
-    "value": "We design around your goals — not a template"
-  },
-  {
-    "id": 79,
-    "page": "automati",
-    "section": "howItWorks",
-    "contentKey": "description",
-    "value": "We don't offer a generic automation platform. We study how you work, what you're trying to achieve, and we engineer an AI system built specifically for that."
-  },
-  {
-    "id": 80,
-    "page": "automati",
-    "section": "howItWorks",
-    "contentKey": "steps",
-    "value": [
-      {
-        "icon": "Brain",
-        "step": "01",
-        "title": "Discovery",
-        "desc": "We start by understanding your goals, your current workflow, and the parts you most want to change or hand off — big or small."
-      },
-      {
-        "icon": "Bot",
-        "step": "02",
-        "title": "Design & Build",
-        "desc": "We engineer a custom AI system around your exact needs — with the right level of intelligence, autonomy, and control for your situation."
-      },
-      {
-        "icon": "ShieldCheck",
-        "step": "03",
-        "title": "You Stay in Command",
-        "desc": "Some systems run independently. Others wait for your go-ahead. You decide how much control to keep — we build it exactly that way."
-      }
-    ]
-  },
-  {
-    "id": 81,
-    "page": "automati",
-    "section": "whoFor",
-    "contentKey": "badge",
-    "value": "Who It's For"
-  },
-  {
-    "id": 82,
-    "page": "automati",
-    "section": "whoFor",
-    "contentKey": "title",
-    "value": "Built for everyone who works."
-  },
-  {
-    "id": 83,
-    "page": "automati",
-    "section": "whoFor",
-    "contentKey": "description1",
-    "value": "Whatever your role — employee, manager, freelancer, creator, or business owner — if part of your day is repetitive, slow, or easy to forget, Automati can handle it for you."
-  },
-  {
-    "id": 84,
-    "page": "automati",
-    "section": "whoFor",
-    "contentKey": "description2",
-    "value": "We automate the tasks, not the people doing them. You stay in control, your work gets cleaner, and you have more time for what actually matters."
-  },
-  {
-    "id": 85,
-    "page": "automati",
-    "section": "whoFor",
-    "contentKey": "audiences",
-    "value": [
-      {
-        "icon": "Users",
-        "label": "Employees"
-      },
-      {
-        "icon": "Settings2",
-        "label": "Managers"
-      },
-      {
-        "icon": "Brain",
-        "label": "Freelancers"
-      },
-      {
-        "icon": "Sparkles",
-        "label": "Creators"
-      },
-      {
-        "icon": "HandshakeIcon",
-        "label": "Consultants"
-      },
-      {
-        "icon": "Zap",
-        "label": "Business Owners"
-      }
-    ]
-  },
-  {
-    "id": 86,
-    "page": "automati",
-    "section": "privacy",
-    "contentKey": "title",
-    "value": "Your data stays yours. Always."
-  },
-  {
-    "id": 87,
-    "page": "automati",
-    "section": "privacy",
-    "contentKey": "description1",
-    "value": "We guarantee full privacy and security across every system we build. At any time you can choose exactly what data your Automati app can and cannot access — or pause it whenever you want."
-  },
-  {
-    "id": 88,
-    "page": "automati",
-    "section": "privacy",
-    "contentKey": "description2",
-    "value": "Every system we design is built with confidentiality at its core — not as an afterthought. What you share with us stays with us."
-  },
-  {
-    "id": 89,
-    "page": "automati",
-    "section": "privacy",
-    "contentKey": "items",
-    "value": [
-      {
-        "icon": "ShieldCheck",
-        "title": "Full Confidentiality",
-        "desc": "Your data and workflow details are never shared with third parties."
-      },
-      {
-        "icon": "Brain",
-        "title": "Minimal Data Principle",
-        "desc": "We only work with what's strictly needed to build and run your system."
-      },
-      {
-        "icon": "Settings2",
-        "title": "Secure by Design",
-        "desc": "Privacy and security are engineered in from day one — not added later."
-      },
-      {
-        "icon": "CheckCircle",
-        "title": "Approval Required",
-        "desc": "You stay in control: no email is sent and no action is taken without your explicit approval."
-      }
-    ]
-  },
-  {
-    "id": 90,
-    "page": "automati",
-    "section": "valueStrip",
-    "contentKey": "clientCount",
-    "value": "28"
-  },
-  {
-    "id": 91,
-    "page": "automati",
-    "section": "valueStrip",
-    "contentKey": "clientLabel",
-    "value": "Automati Clients"
-  },
-  {
-    "id": 92,
-    "page": "automati",
-    "section": "valueStrip",
-    "contentKey": "stats",
-    "value": [
-      {
-        "value": "100%",
-        "label": "Custom-built"
-      },
-      {
-        "value": "Any",
-        "label": "Workflow or industry"
-      },
-      {
-        "value": "Full",
-        "label": "Control, always yours"
-      },
-      {
-        "value": "Zero",
-        "label": "Technical knowledge needed"
-      }
-    ]
-  },
-  {
-    "id": 93,
-    "page": "automati",
-    "section": "pricing",
-    "contentKey": "badge",
-    "value": "Pricing"
-  },
-  {
-    "id": 94,
-    "page": "automati",
-    "section": "pricing",
-    "contentKey": "title",
-    "value": "Simple, fair, and built to scale with you"
-  },
-  {
-    "id": 95,
-    "page": "automati",
-    "section": "pricing",
-    "contentKey": "description",
-    "value": "Start with what you need. Refer a friend and get 10% off your subscription for every person you bring in."
-  },
-  {
-    "id": 96,
-    "page": "automati",
-    "section": "pricing",
-    "contentKey": "plans",
-    "value": [
-      {
-        "label": "Subscription",
-        "popular": "true",
-        "startingFrom": "Starting from",
-        "price": "$15",
-        "priceUnit": "/ month",
-        "description": "Ongoing access to your AI system — updates, improvements, and support as your needs evolve.",
-        "features": [
-          "Continuous AI system access",
-          "Adjustments as you grow",
-          "10% off per referral you bring",
-          "Email support"
-        ],
-        "cta": "Get Started",
-        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
-      },
-      {
-        "label": "One-Time Setup",
-        "popular": "false",
-        "startingFrom": "Starting from",
-        "price": "$250",
-        "priceUnit": "",
-        "description": "A complete, custom-built AI system designed around your workflow — yours to keep, with no ongoing fees.",
-        "features": [
-          "Workflow discovery session",
-          "Fully custom AI system",
-          "Setup, testing & full handover",
-          "No subscription required"
-        ],
-        "cta": "Get Started",
-        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
-      },
-      {
-        "label": "For Companies",
-        "popular": "false",
-        "startingFrom": "",
-        "price": "Custom",
-        "priceUnit": "",
-        "description": "Tailored pricing for teams and organisations with more complex systems and larger-scale needs.",
-        "features": [
-          "Multi-system AI architecture",
-          "Team onboarding & training",
-          "Priority support",
-          "Flexible integrations"
-        ],
-        "cta": "Get Started",
-        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
-      }
-    ]
-  },
-  {
-    "id": 97,
-    "page": "automati",
-    "section": "closingCta",
-    "contentKey": "title",
-    "value": "Your time is your most valuable asset."
-  },
-  {
-    "id": 98,
-    "page": "automati",
-    "section": "closingCta",
-    "contentKey": "description",
-    "value": "The goal isn't to make your work feel robotic. It's to remove the parts of your day that don't deserve your attention — so you can invest it where it actually matters."
-  },
-  {
-    "id": 99,
-    "page": "automati",
-    "section": "closingCta",
-    "contentKey": "cta",
-    "value": "Get Started"
-  },
-  {
-    "id": 100,
-    "page": "automati",
-    "section": "closingCta",
-    "contentKey": "ctaUrl",
-    "value": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
-  },
-  {
-    "id": 101,
-    "page": "automati",
-    "section": "faq",
-    "contentKey": "badge",
-    "value": "FAQ"
-  },
-  {
-    "id": 102,
-    "page": "automati",
-    "section": "faq",
-    "contentKey": "title",
-    "value": "Questions people often ask"
-  },
-  {
-    "id": 103,
-    "page": "automati",
-    "section": "faq",
-    "contentKey": "description",
-    "value": "If your question isn't here, just ask — we're happy to walk you through how a custom AI system would work for you."
-  },
-  {
-    "id": 104,
-    "page": "automati",
-    "section": "faq",
-    "contentKey": "items",
-    "value": [
-      {
-        "question": "What exactly is Automati?",
-        "answer": "Automati is a service that designs and builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Instead of giving you a generic tool, we engineer an AI system around the specific way you work — to run workflows, support decisions, generate content, or handle communications on your behalf."
-      },
-      {
-        "question": "Do I need any technical knowledge to use it?",
-        "answer": "No. You only need to describe what you want to change or hand off in your day-to-day work. We handle the design, build, integration, and handover. You stay in control of how much autonomy your AI system has."
-      },
-      {
-        "question": "What kind of tasks can an Automati AI system handle?",
-        "answer": "Almost anything that involves repeatable thinking, writing, decision-making, or coordination — for example: managing inboxes and replies, generating content and reports, qualifying leads, summarising documents, running research, scheduling, customer support triage, internal Q&A, or multi-step business workflows."
-      },
-      {
-        "question": "How is this different from tools like Zapier, Make, or n8n?",
-        "answer": "Those tools connect apps with rules. Automati builds intelligent agents that can reason, decide, and act using LLMs and custom logic — tailored to your goals. We can also integrate with Zapier, Make, or n8n where it makes sense, but the intelligence layer is custom-built for you."
-      },
-      {
-        "question": "How long does it take to build a system?",
-        "answer": "Most one-time builds are delivered within 1–3 weeks depending on complexity. We start with a short discovery session, then design, build, test, and hand over. Larger company-wide systems are scoped individually."
-      },
-      {
-        "question": "How much does it cost?",
-        "answer": "Subscriptions start from $15/month for ongoing access and improvements. One-time custom builds start from $250. For companies with multi-system needs, we offer tailored pricing. You can also get 10% off your subscription for every person you refer."
-      },
-      {
-        "question": "Is my data safe? Will it be shared or used for training?",
-        "answer": "Yes, your data is safe. We never share your workflows or data with third parties, never use it for training, and only work with what is strictly necessary to build and run your system. Privacy and security are engineered in from day one."
-      },
-      {
-        "question": "Do I own the AI system you build for me?",
-        "answer": "With the One-Time Setup, the system is yours to keep with no ongoing fees. With the Subscription, you get continuous access, updates, and improvements as your needs evolve. Companies get fully owned, tailored architectures."
-      },
-      {
-        "question": "Can the AI system run on its own, or do I stay in control?",
-        "answer": "You decide. Some systems run fully autonomously, others wait for your approval before acting, and many sit in between. We design exactly the level of autonomy and control you're comfortable with."
-      },
-      {
-        "question": "How do I get started?",
-        "answer": "Fill out the short form via the Get Started button. We'll set up a discovery session, understand your goals and workflow, and propose a custom AI system designed around exactly what you want to change."
-      }
-    ]
-  },
-  {
-    "id": 105,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "title",
-    "value": "Automati — Custom AI Agent Systems for Your Workflow | Mahmood Salah"
-  },
-  {
-    "id": 106,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "description",
-    "value": "Automati builds custom AI agent systems for individuals, creators, freelancers, consultants, and businesses. Hand off entire workflows, content, decisions, and communications to AI designed around how you work. Subscriptions from $15/month, custom builds from $250."
-  },
-  {
-    "id": 107,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "keywords",
-    "value": "custom AI agents, AI automation, AI workflow automation, AI for freelancers, AI for consultants, AI for businesses, custom LLM agents, AI agent development, business AI automation, Mahmood Salah Automati"
-  },
-  {
-    "id": 108,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "serviceName",
-    "value": "Automati - Custom AI Agent Systems"
-  },
-  {
-    "id": 109,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "serviceProvider",
-    "value": "Mahmood Salah"
-  },
-  {
-    "id": 110,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "canonicalUrl",
-    "value": "https://mahmoodsalah.xyz/automati"
-  },
-  {
     "id": 111,
     "page": "consultation",
     "section": "stats",
@@ -1939,13 +1487,6 @@
     "value": "MLOps"
   },
   {
-    "id": 198,
-    "page": "automati",
-    "section": "ui",
-    "contentKey": "mostPopularLabel",
-    "value": "Most Popular"
-  },
-  {
     "id": 199,
     "page": "consultation",
     "section": "ui",
@@ -2183,13 +1724,6 @@
     ]
   },
   {
-    "id": 211,
-    "page": "automati",
-    "section": "seo",
-    "contentKey": "ogImage",
-    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
-  },
-  {
     "id": 212,
     "page": "bootcamp",
     "section": "seo",
@@ -2209,5 +1743,740 @@
     "section": "seo",
     "contentKey": "ogImage",
     "value": "https://mahmoodsalah.xyz/favicon.png"
+  },
+  {
+    "id": 215,
+    "page": "automati",
+    "section": "_meta",
+    "contentKey": "version",
+    "value": 2
+  },
+  {
+    "id": 216,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "logoImage",
+    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
+  },
+  {
+    "id": 217,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "eyebrow",
+    "value": "AI Employees that support your team"
+  },
+  {
+    "id": 218,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "title",
+    "value": "Hire your first"
+  },
+  {
+    "id": 219,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "titleHighlight",
+    "value": "AI Employee."
+  },
+  {
+    "id": 220,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "subtitle",
+    "value": "An AI teammate that supports your people, not replaces them. It works inside the tools your team already uses and hands back finished work: reports, replies, updated boards and tidy inboxes, so your people can focus on the work only they can do."
+  },
+  {
+    "id": 221,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "ctaPrimary",
+    "value": "Hire an AI Employee"
+  },
+  {
+    "id": 222,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "ctaSecondary",
+    "value": "See what it can do"
+  },
+  {
+    "id": 223,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "toolsLabel",
+    "value": "Works inside the tools you already use"
+  },
+  {
+    "id": 224,
+    "page": "automati",
+    "section": "hero",
+    "contentKey": "tools",
+    "value": [
+      "Gmail",
+      "Outlook",
+      "Slack",
+      "Google Calendar",
+      "Jira",
+      "Monday.com",
+      "Linear",
+      "Notion",
+      "HubSpot",
+      "GitHub",
+      "+30 more"
+    ]
+  },
+  {
+    "id": 225,
+    "page": "automati",
+    "section": "finishedWork",
+    "contentKey": "badge",
+    "value": "Finished work, not chat"
+  },
+  {
+    "id": 226,
+    "page": "automati",
+    "section": "finishedWork",
+    "contentKey": "title",
+    "value": "You ask. It delivers."
+  },
+  {
+    "id": 227,
+    "page": "automati",
+    "section": "finishedWork",
+    "contentKey": "description",
+    "value": "Most AI tools hand you a draft to copy and paste. An AI Employee does the task end to end, in the right tool, and shows you the result. It learns your projects, clients and templates, so it works with context instead of starting from scratch. Anything important waits for your approval."
+  },
+  {
+    "id": 228,
+    "page": "automati",
+    "section": "finishedWork",
+    "contentKey": "askLabel",
+    "value": "You asked"
+  },
+  {
+    "id": 229,
+    "page": "automati",
+    "section": "finishedWork",
+    "contentKey": "items",
+    "value": [
+      {
+        "title": "Weekly project status",
+        "ask": "Prepare this week's project status for leadership.",
+        "result": "Status report written in Google Docs from Jira and Slack updates, with a short summary ready for #leadership.",
+        "tools": "Jira · Slack · Google Docs",
+        "status": "Done"
+      },
+      {
+        "title": "Lead follow-ups",
+        "ask": "Follow up with every lead that went quiet this month.",
+        "result": "12 personalised follow-up emails drafted and the matching HubSpot deals updated.",
+        "tools": "Gmail · HubSpot",
+        "status": "Awaiting your approval"
+      },
+      {
+        "title": "Team scheduling",
+        "ask": "Find a time for the quarterly review with the whole team.",
+        "result": "Calendar conflicts sorted and the invite for Thursday 11:00 sent after you approved it.",
+        "tools": "Google Calendar · Outlook",
+        "status": "Done"
+      },
+      {
+        "title": "Security review",
+        "ask": "Check the new pull request for security issues.",
+        "result": "Two vulnerabilities flagged with suggested fixes and a summary left on the pull request.",
+        "tools": "GitHub",
+        "status": "Done"
+      }
+    ]
+  },
+  {
+    "id": 230,
+    "page": "automati",
+    "section": "roles",
+    "contentKey": "badge",
+    "value": "One AI Employee. Any team."
+  },
+  {
+    "id": 231,
+    "page": "automati",
+    "section": "roles",
+    "contentKey": "title",
+    "value": "Set up for the way your team works"
+  },
+  {
+    "id": 232,
+    "page": "automati",
+    "section": "roles",
+    "contentKey": "description",
+    "value": "Every AI Employee is configured for a specific role, with the tools, permissions and routines that role needs. It fits any industry. Start with one team and add more when you're ready."
+  },
+  {
+    "id": 233,
+    "page": "automati",
+    "section": "roles",
+    "contentKey": "items",
+    "value": [
+      {
+        "title": "Project Management",
+        "icon": "ListChecks",
+        "summary": "Keeps projects moving and everyone informed.",
+        "tasks": [
+          "Weekly status reports built from Jira, Monday.com or Linear",
+          "Chases overdue tasks and blockers with their owners",
+          "Turns meeting notes into action items and tickets",
+          "Flags risks and slipping deadlines early"
+        ]
+      },
+      {
+        "title": "Operations",
+        "icon": "Settings2",
+        "summary": "Runs the routines that keep the business on track.",
+        "tasks": [
+          "Morning briefs and weekly KPI summaries",
+          "Keeps boards, trackers and shared documents up to date",
+          "Handles recurring requests and hand-offs between teams",
+          "Scheduled checks that run on their own, with a full log"
+        ]
+      },
+      {
+        "title": "Sales & Customer Service",
+        "icon": "Handshake",
+        "summary": "Makes sure no lead or customer is left waiting.",
+        "tasks": [
+          "Drafts replies and follow-ups in Gmail or Outlook",
+          "Keeps HubSpot deals and contacts up to date",
+          "Prepares a customer brief before every call",
+          "Sorts and prioritises the shared inbox"
+        ]
+      },
+      {
+        "title": "Tech & Security",
+        "icon": "ShieldCheck",
+        "summary": "A second pair of eyes for your engineers.",
+        "tasks": [
+          "Reviews pull requests for bugs and vulnerabilities",
+          "Triages alerts and incidents into clear reports",
+          "Audits cloud settings and flags risky changes",
+          "Keeps GitHub, Jira and Linear tickets tidy"
+        ]
+      },
+      {
+        "title": "Documents & Admin",
+        "icon": "FileText",
+        "summary": "Turns scattered information into polished documents.",
+        "tasks": [
+          "Reports, proposals and spreadsheets from your data",
+          "Manages calendars, invites and meeting prep",
+          "Summarises long threads and documents",
+          "Files and organises shared folders"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 234,
+    "page": "automati",
+    "section": "trust",
+    "contentKey": "badge",
+    "value": "Your team stays in charge"
+  },
+  {
+    "id": 235,
+    "page": "automati",
+    "section": "trust",
+    "contentKey": "title",
+    "value": "Nothing important happens without a person."
+  },
+  {
+    "id": 236,
+    "page": "automati",
+    "section": "trust",
+    "contentKey": "description1",
+    "value": "Your AI Employee works for your team and answers to them. It prepares, drafts and updates, and your people decide what goes out."
+  },
+  {
+    "id": 237,
+    "page": "automati",
+    "section": "trust",
+    "contentKey": "description2",
+    "value": "You set what it can reach, you approve what matters, and you can see everything it did."
+  },
+  {
+    "id": 238,
+    "page": "automati",
+    "section": "trust",
+    "contentKey": "items",
+    "value": [
+      {
+        "icon": "ShieldCheck",
+        "title": "Approval before action",
+        "desc": "Sending an email, changing a calendar or updating a record waits for a person to approve it, unless you decide otherwise."
+      },
+      {
+        "icon": "History",
+        "title": "A full record of its work",
+        "desc": "Every task keeps a complete log of what it did and why, so you can review it at any time."
+      },
+      {
+        "icon": "KeyRound",
+        "title": "Access you decide",
+        "desc": "It only connects to the tools and data you grant, and you can pause it or remove access at any moment."
+      },
+      {
+        "icon": "Lock",
+        "title": "Your data, your choice",
+        "desc": "Choose where it runs and which AI model it uses, including private models that never leave your servers."
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "badge",
+    "value": "How it works"
+  },
+  {
+    "id": 240,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "title",
+    "value": "From first call to first finished task"
+  },
+  {
+    "id": 241,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "description",
+    "value": "We handle the setup. Your team just starts delegating."
+  },
+  {
+    "id": 242,
+    "page": "automati",
+    "section": "howItWorks",
+    "contentKey": "steps",
+    "value": [
+      {
+        "step": "01",
+        "icon": "Brain",
+        "title": "Discovery",
+        "desc": "We meet your team, choose the role, and map the tasks and tools your AI Employee will take on."
+      },
+      {
+        "step": "02",
+        "icon": "Settings2",
+        "title": "Setup & onboarding",
+        "desc": "We connect your tools, set permissions and approval rules, and teach it your processes, templates and company context."
+      },
+      {
+        "step": "03",
+        "icon": "Users",
+        "title": "Working alongside your team",
+        "desc": "It takes requests by chat or email, runs scheduled routines, remembers what it learns about your work, and improves as your team gives feedback."
+      }
+    ]
+  },
+  {
+    "id": 243,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "clientCount",
+    "value": "31"
+  },
+  {
+    "id": 244,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "clientLabel",
+    "value": "Automati Clients"
+  },
+  {
+    "id": 245,
+    "page": "automati",
+    "section": "valueStrip",
+    "contentKey": "stats",
+    "value": [
+      {
+        "value": "40+",
+        "label": "Tools it can work in"
+      },
+      {
+        "value": "24/7",
+        "label": "Scheduled routines"
+      },
+      {
+        "value": "You",
+        "label": "Approve key actions"
+      },
+      {
+        "value": "Any",
+        "label": "Team or industry"
+      }
+    ]
+  },
+  {
+    "id": 246,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "badge",
+    "value": "Pricing"
+  },
+  {
+    "id": 247,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "title",
+    "value": "Priced per AI Employee, per month"
+  },
+  {
+    "id": 248,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "description",
+    "value": "Choose where your AI Employees run. Every plan includes onboarding and support."
+  },
+  {
+    "id": 249,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "setupNote",
+    "value": "Plus a one-time setup from $499 per company, covering discovery, configuration and team training."
+  },
+  {
+    "id": 250,
+    "page": "automati",
+    "section": "pricing",
+    "contentKey": "plans",
+    "value": [
+      {
+        "label": "On your computers",
+        "popular": "false",
+        "startingFrom": "Starting from",
+        "price": "$15",
+        "priceUnit": "/ AI Employee / month",
+        "description": "Runs as an app on each team member's computer. Their data stays on the device, apart from what goes to the AI model you choose.",
+        "features": [
+          "Desktop app for your team",
+          "Data stays on each device",
+          "Use your own AI model or ours",
+          "Onboarding and email support"
+        ],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      },
+      {
+        "label": "Hosted by Automati",
+        "popular": "true",
+        "startingFrom": "Starting from",
+        "price": "$20",
+        "priceUnit": "/ AI Employee / month",
+        "description": "We run and maintain your AI Employees in the cloud, so they keep working around the clock, even when laptops are closed.",
+        "features": [
+          "Works 24/7 on scheduled routines",
+          "Reach it from Slack, email or the web",
+          "Managed updates and monitoring",
+          "Priority support"
+        ],
+        "cta": "Get Started",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      },
+      {
+        "label": "On your servers",
+        "popular": "false",
+        "startingFrom": "",
+        "price": "Custom",
+        "priceUnit": "",
+        "description": "A private installation inside your own infrastructure, for companies with strict security or compliance needs.",
+        "features": [
+          "Deployed in your cloud or data centre",
+          "Private AI models that stay inside your network",
+          "Single sign-on and custom access policies",
+          "Dedicated support"
+        ],
+        "cta": "Talk to us",
+        "ctaUrl": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+      }
+    ]
+  },
+  {
+    "id": 251,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "badge",
+    "value": "FAQ"
+  },
+  {
+    "id": 252,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "title",
+    "value": "Questions companies ask"
+  },
+  {
+    "id": 253,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "description",
+    "value": "If your question isn't here, ask us. We'll walk you through what an AI Employee would do for your team."
+  },
+  {
+    "id": 254,
+    "page": "automati",
+    "section": "faq",
+    "contentKey": "items",
+    "value": [
+      {
+        "question": "What is an AI Employee?",
+        "answer": "An AI Employee is an AI agent set up for a specific role in your company. It works inside your existing tools, like email, chat, calendars, project boards, your CRM and code, and delivers finished work: documents, replies, updated records and reports, not just suggestions."
+      },
+      {
+        "question": "Will it replace people on my team?",
+        "answer": "No. Automati is built to support people, not replace them. Each AI Employee works for someone on your team: it takes the repetitive, time-consuming tasks off their plate so they can spend more time on decisions, customers and ideas. Your people stay in charge, and important actions wait for their approval."
+      },
+      {
+        "question": "Does it learn about our company?",
+        "answer": "Yes. As it works, it builds up context about your projects, clients, documents and the way your team does things, so each task starts from what it already knows. It only uses information from the tools and data you've given it access to."
+      },
+      {
+        "question": "Which tools does it work with?",
+        "answer": "Gmail, Outlook, Slack, Google Calendar, Jira, Linear, Monday.com, Notion, HubSpot, GitHub, shared files and more than 40 tools in total. If you rely on something else, we'll confirm during discovery whether we can connect it."
+      },
+      {
+        "question": "How do you keep it safe?",
+        "answer": "It only gets the access you grant. By default, anything consequential, such as sending messages, changing calendars or updating records, waits for approval. Every task keeps a full activity log, and you can pause it or revoke access at any time."
+      },
+      {
+        "question": "Where does our data go?",
+        "answer": "That depends on the plan. On your computers, data stays on each device apart from what is sent to the AI model. Hosted by Automati, it runs on infrastructure we manage. On your servers, everything stays inside your own network, including the AI model if you choose a private one."
+      },
+      {
+        "question": "Which AI model does it use?",
+        "answer": "You choose. It works with leading models from OpenAI, Anthropic and Google, or with open models running privately on your own servers."
+      },
+      {
+        "question": "How long does setup take?",
+        "answer": "Most teams have their first AI Employee working within one to two weeks, depending on how many tools and processes are involved. Larger rollouts are planned together with you."
+      },
+      {
+        "question": "How is pricing calculated?",
+        "answer": "You pay per AI Employee per month, based on where it runs, plus a one-time setup fee from $499 per company that covers discovery, configuration and training for your team."
+      },
+      {
+        "question": "Can we start small?",
+        "answer": "Yes. Most companies start with one AI Employee for one team, see the time it saves, and then add more roles."
+      }
+    ]
+  },
+  {
+    "id": 255,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "title",
+    "value": "Give your team its first AI Employee"
+  },
+  {
+    "id": 256,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "description",
+    "value": "Tell us which work slows your team down. In a short call, we'll show you how an AI Employee can make their work easier and stronger. No commitment."
+  },
+  {
+    "id": 257,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "cta",
+    "value": "Book a discovery call"
+  },
+  {
+    "id": 258,
+    "page": "automati",
+    "section": "closingCta",
+    "contentKey": "ctaUrl",
+    "value": "https://forms.gle/3yTJCcHsxeRQ1zdk8"
+  },
+  {
+    "id": 259,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "title",
+    "value": "Automati — AI Employees That Work Alongside Your Team"
+  },
+  {
+    "id": 260,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "description",
+    "value": "Automati sets up AI Employees that support your team, not replace it. They work inside your existing tools across project management, operations, sales, customer service, tech and admin, deliver finished work and ask before acting. From $15 per AI Employee per month."
+  },
+  {
+    "id": 261,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "keywords",
+    "value": "AI employee, AI worker, AI coworker, AI agents for business, AI for project managers, AI operations assistant, AI sales assistant, AI customer service, business automation, Automati"
+  },
+  {
+    "id": 262,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "serviceName",
+    "value": "Automati — AI Employees"
+  },
+  {
+    "id": 263,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "serviceProvider",
+    "value": "Automati"
+  },
+  {
+    "id": 264,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "canonicalUrl",
+    "value": "https://mahmoodsalah.xyz/automati"
+  },
+  {
+    "id": 265,
+    "page": "automati",
+    "section": "seo",
+    "contentKey": "ogImage",
+    "value": "https://gxpcqzqs6k8qeomb.public.blob.vercel-storage.com/uploads/1787450550105-automati.png"
+  },
+  {
+    "id": 266,
+    "page": "automati",
+    "section": "ui",
+    "contentKey": "mostPopularLabel",
+    "value": "Most Popular"
+  },
+  {
+    "id": 267,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "badge",
+    "value": "Built to support people"
+  },
+  {
+    "id": 268,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "title",
+    "value": "Your team does the thinking. Your AI Employee does the legwork."
+  },
+  {
+    "id": 269,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "description",
+    "value": "Automati doesn't replace anyone. Each AI Employee works for a person on your team, takes the repetitive load off them, and makes their work easier and stronger."
+  },
+  {
+    "id": 270,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "humanTitle",
+    "value": "Your people focus on"
+  },
+  {
+    "id": 271,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "humanItems",
+    "value": [
+      "Making the decisions",
+      "Building relationships with clients and colleagues",
+      "Solving new and complex problems",
+      "Leading, creating and improving how you work"
+    ]
+  },
+  {
+    "id": 272,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "aiTitle",
+    "value": "Your AI Employee handles"
+  },
+  {
+    "id": 273,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "aiItems",
+    "value": [
+      "Preparing reports, summaries and briefs",
+      "Following up and keeping records up to date",
+      "Routine requests and recurring checks",
+      "First drafts of documents and replies, ready for review"
+    ]
+  },
+  {
+    "id": 274,
+    "page": "automati",
+    "section": "partnership",
+    "contentKey": "footnote",
+    "value": "Every AI Employee works for a person on your team, never instead of one."
+  },
+  {
+    "id": 275,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "badge",
+    "value": "Works like a colleague"
+  },
+  {
+    "id": 276,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "title",
+    "value": "Ask it, schedule it, or let it pick up new work"
+  },
+  {
+    "id": 277,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "description",
+    "value": "It doesn't wait around for instructions. It takes on work in three ways, lets you know when it's done, and you review before anything goes out."
+  },
+  {
+    "id": 278,
+    "page": "automati",
+    "section": "triggers",
+    "contentKey": "items",
+    "value": [
+      {
+        "icon": "MessageSquare",
+        "title": "When you ask",
+        "desc": "Send a request in Slack, email or chat, the same way you'd ask a colleague.",
+        "example": "“Summarise yesterday's client calls.”"
+      },
+      {
+        "icon": "CalendarClock",
+        "title": "On a schedule",
+        "desc": "Routines that run on their own, every morning, every week or at month end.",
+        "example": "“Every Monday at 9:00, send the team's weekly priorities.”"
+      },
+      {
+        "icon": "Radar",
+        "title": "When new work arrives",
+        "desc": "It keeps an eye on your tools and picks up new items as they come in.",
+        "example": "“When a new lead comes in, research the company and draft a reply.”"
+      }
+    ]
+  },
+  {
+    "id": 279,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "pdfUrl",
+    "value": ""
+  },
+  {
+    "id": 280,
+    "page": "hireme",
+    "section": "resume",
+    "contentKey": "downloadLabel",
+    "value": "Download CV"
   }
 ]

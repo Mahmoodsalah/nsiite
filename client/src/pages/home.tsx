@@ -409,6 +409,7 @@ export default function Home() {
                     aria-label={`Go to ${c.name}`}
                     data-testid={`dot-company-${i}`}
                     className={`
+                      relative after:absolute after:-inset-[19px] after:content-['']
                       transition-all duration-300 rounded-full
                       ${i === activeCompany
                         ? "w-6 h-1.5 bg-primary"

@@ -50,6 +50,24 @@ const iconMap: Record<string, any> = {
   Bot, Database, Cpu,
 };
 
+// Faces of students from the testimonials, used next to the student count.
+function StudentFaces({ items }: { items: any[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div className="flex -space-x-2 shrink-0" aria-hidden="true">
+      {items.slice(0, 4).map((t: any, i: number) => (
+        <span
+          key={i}
+          className="w-8 h-8 rounded-full ring-2 ring-background flex items-center justify-center text-sm font-bold text-white"
+          style={{ backgroundColor: t.accentColor || "#FD6215" }}
+        >
+          {(t.name || t.initials || "").trim().charAt(0)}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function Bootcamp() {
   const [emailCopied, setEmailCopied] = useState(false);
   const { data: content, isLoading } = usePageContent("bootcamp");
@@ -253,12 +271,12 @@ export default function Bootcamp() {
             {heroSubtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10 animate-fade-in-up animation-delay-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 mb-10 animate-fade-in-up animation-delay-300">
             {heroHighlights.map((h: string, i: number) => {
               const icons = [BrainIcon, BriefcaseIcon, GraduationCap];
               const HIcon = icons[i] || GraduationCap;
               return (
-                <div key={i} className="flex items-center gap-2 text-foreground glass-badge rounded-full px-4 py-2">
+                <div key={i} className="flex items-center gap-2 text-foreground/80">
                   <HIcon className="w-5 h-5 text-primary" />
                   <span className="text-sm font-medium">{h}</span>
                 </div>
@@ -282,41 +300,29 @@ export default function Bootcamp() {
               </Button>
             )}
           </div>
-        </div>
-      </section>
 
-      {/* STATS COUNTER */}
-      <section className="max-w-4xl mx-auto px-6 -mt-8 md:-mt-12 relative z-10" data-testid="section-bootcamp-stats">
-        <AnimateIn>
+          {/* Social proof: student count next to faces from the testimonials */}
           <div
             ref={statRef}
-            className="glass-card rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+            className="mt-10 flex flex-col items-center animate-fade-in-up animation-delay-500"
+            data-testid="section-bootcamp-stats"
           >
-            <div
-              className="absolute inset-0 pointer-events-none opacity-60"
-              style={{
-                background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.12), transparent 65%)",
-              }}
-            />
-            <div className="relative z-10">
-              <div
-                className="font-heading font-bold text-6xl sm:text-7xl md:text-8xl text-primary leading-none mb-3 tabular-nums"
-                data-testid="text-bootcamp-count"
-              >
-                {statValue}
-                <span className="text-primary/70">+</span>
-              </div>
-              <p className="font-heading font-semibold text-lg md:text-xl text-foreground mb-3" data-testid="text-bootcamp-stat-label">
-                {statLabel}
+            <div className="inline-flex items-center gap-3 rounded-full bg-card/80 border border-border/60 pl-2 pr-5 py-2 shadow-sm">
+              <StudentFaces items={testimonialItems} />
+              <p className="text-sm md:text-base text-foreground text-left">
+                <span className="font-heading font-bold text-[#FD6215] tabular-nums" data-testid="text-bootcamp-count">
+                  {statValue}+
+                </span>{" "}
+                <span className="font-semibold" data-testid="text-bootcamp-stat-label">{statLabel}</span>
               </p>
-              {statDesc && (
-                <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto" data-testid="text-bootcamp-stat-desc">
-                  {statDesc}
-                </p>
-              )}
             </div>
+            {statDesc && (
+              <p className="mt-3 text-muted-foreground text-xs md:text-sm max-w-md" data-testid="text-bootcamp-stat-desc">
+                {statDesc}
+              </p>
+            )}
           </div>
-        </AnimateIn>
+        </div>
       </section>
 
       {/* ABOUT — short philosophy */}
@@ -524,7 +530,7 @@ export default function Bootcamp() {
                         </div>
 
                         {/* Program Details */}
-                        <div className="glass-card rounded-xl p-5">
+                        <div className="glass-card rounded-xl p-5 flex flex-col">
                           <h4 className="font-heading font-semibold text-foreground mb-3 flex items-center gap-2">
                             <Target className="w-4 h-4" style={{ color: p.accentColor }} />
                             Program Details
@@ -543,6 +549,31 @@ export default function Bootcamp() {
                               );
                             })}
                           </div>
+                          {/* Same student count as the hero (Stats Counter in the admin) */}
+                          {p.status === "active" && (
+                            <div className="mt-auto pt-5">
+                              <a
+                                href={testimonialItems.length > 0 ? "#testimonials" : undefined}
+                                className="group flex items-center gap-3 border-t border-border/50 pt-4"
+                                data-testid={`program-students-${p.id}`}
+                              >
+                                <StudentFaces items={testimonialItems} />
+                                <div className="text-sm leading-snug">
+                                  <p>
+                                    <span className="font-heading font-bold tabular-nums" style={{ color: p.accentColor }}>
+                                      {statCount}+
+                                    </span>{" "}
+                                    <span className="font-semibold text-foreground">{statLabel}</span>
+                                  </p>
+                                  {testimonialItems.length > 0 && (
+                                    <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                                      Read their stories →
+                                    </p>
+                                  )}
+                                </div>
+                              </a>
+                            </div>
+                          )}
                         </div>
 
                         {/* Tuitions and Scholarships */}
@@ -667,11 +698,15 @@ export default function Bootcamp() {
               </div>
             </AnimateIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {testimonialItems.map((t: any, i: number) => {
                 const accent = t.accentColor || "#FD6215";
                 return (
-                  <AnimateIn key={i} delay={(i % 3) * 0.08}>
+                  <AnimateIn
+                    key={i}
+                    delay={(i % 3) * 0.08}
+                    className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+                  >
                     <div
                       dir="rtl"
                       className="glass-card-hover rounded-2xl p-6 h-full flex flex-col text-right"

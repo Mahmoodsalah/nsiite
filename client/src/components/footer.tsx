@@ -42,29 +42,29 @@ export default function Footer() {
 
           <div>
             <h3 className="font-heading font-semibold text-lg mb-4">{quickLinksTitle}</h3>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col items-start -my-2.5">
               <Link href="/hire-me" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
-                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-hire">
+                <span className="inline-block py-2.5 text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-hire">
                   {navHire}
                 </span>
               </Link>
               <Link href="/consultation" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
-                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-consultation">
+                <span className="inline-block py-2.5 text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-consultation">
                   {navConsult}
                 </span>
               </Link>
               <Link href="/bootcampai" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
-                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-bootcamp">
+                <span className="inline-block py-2.5 text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-bootcamp">
                   {navBootcamp}
                 </span>
               </Link>
               <Link href="/mentorship" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
-                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-mentorship">
+                <span className="inline-block py-2.5 text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-mentorship">
                   {navMentorship}
                 </span>
               </Link>
               <Link href="/automati" onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}>
-                <span className="text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-automati">
+                <span className="inline-block py-2.5 text-background/60 text-sm hover:text-background transition-colors cursor-pointer" data-testid="link-footer-automati">
                   {navAutomati}
                 </span>
               </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.platform}
-                    className="w-9 h-9 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-background/20 transition-all duration-300"
+                    className="w-11 h-11 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-background/20 transition-all duration-300"
                     data-testid={`link-social-${link.platform}`}
                   >
                     <Icon className="w-4 h-4" />
@@ -93,7 +93,7 @@ export default function Footer() {
             </div>
             <a
               href={`mailto:${contactEmail}`}
-              className="mt-4 inline-block text-background/60 text-sm hover:text-background transition-colors"
+              className="mt-2 inline-block py-2.5 text-background/60 text-sm hover:text-background transition-colors"
               data-testid="link-email"
             >
               {contactEmail}

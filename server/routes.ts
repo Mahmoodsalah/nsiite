@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { z } from "zod";
 import { storage } from "./storage";
 import { registerUploadRoute } from "./upload";
+import { registerResumeRoute } from "./resume";
 import { verifyCredentials } from "./admin-auth";
 import { cookieSession } from "./session";
 
@@ -143,6 +144,7 @@ export async function registerRoutes(
   });
 
   registerUploadRoute(app, isAuthenticated);
+  registerResumeRoute(app, isAuthenticated);
 
   app.get("/api/admin/backups", isAuthenticated, async (_req, res) => {
     try {

@@ -193,8 +193,8 @@ export default function Mentorship() {
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{ backgroundImage: `url(${patternBg})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <NetworkBg />
 
-        <div className="absolute top-20 left-[8%] hidden lg:block animate-fade-in-up animation-delay-400">
-          <div className="glass-card rounded-2xl p-4 mentorship-float-card" style={{ animationDelay: '0s' }}>
+        <div className="absolute top-32 left-[6%] hidden xl:block animate-fade-in-up animation-delay-400">
+          <div className="glass-card rounded-2xl p-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center">
                 <Rocket className="w-5 h-5 text-primary" />
@@ -207,8 +207,8 @@ export default function Mentorship() {
           </div>
         </div>
 
-        <div className="absolute top-32 right-[6%] hidden lg:block animate-fade-in-up animation-delay-500">
-          <div className="glass-card rounded-2xl p-4 mentorship-float-card" style={{ animationDelay: '1.5s' }}>
+        <div className="absolute top-48 right-[5%] hidden xl:block animate-fade-in-up animation-delay-500">
+          <div className="glass-card rounded-2xl p-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center">
                 <Target className="w-5 h-5 text-green-600 dark:text-green-400" />
@@ -221,8 +221,8 @@ export default function Mentorship() {
           </div>
         </div>
 
-        <div className="absolute bottom-32 left-[10%] hidden lg:block animate-fade-in-up animation-delay-600">
-          <div className="glass-card rounded-2xl p-4 mentorship-float-card" style={{ animationDelay: '3s' }}>
+        <div className="absolute bottom-24 left-[9%] hidden xl:block animate-fade-in-up animation-delay-600">
+          <div className="glass-card rounded-2xl p-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
                 <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
